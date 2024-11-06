@@ -16,7 +16,14 @@ def create_dictionnary(points):
     return res
 
 
-def generate_map(points, title: str = "", path="", figsize=(10, 10), markersize=10):
+def generate_map(
+    points,
+    title: str = "",
+    path="",
+    figsize=(10, 10),
+    markersize=10,
+    file_name="datasets/carte.png",
+):
     # Création d'un geoDataFrame pour manipulation plus simple pour une mise en graphique
     gdf = gpd.GeoDataFrame(
         points, geometry=gpd.points_from_xy(points.Longitude, points.Latitude)
@@ -39,7 +46,7 @@ def generate_map(points, title: str = "", path="", figsize=(10, 10), markersize=
     ax.set_xlabel("Longitude")
     ax.set_ylabel("Latitude")
     plt.legend()
-    plt.savefig(path + "datasets/carte.png")
+    plt.savefig(path + file_name)
 
 
 def generate_town_graph_radius(
@@ -49,6 +56,7 @@ def generate_town_graph_radius(
     map_background=False,
     figsize=(10, 10),
     path="",
+    file_name="datasets/graphe_cercles.png",
 ):
     pos = create_dictionnary(points)
     data = {"x": [], "y": [], "label": []}
@@ -79,7 +87,7 @@ def generate_town_graph_radius(
 
     plt.scatter(data["x"], data["y"], marker="o")
     plt.title(label=title)
-    plt.show()
+    plt.savefig(path + file_name)
 
 
 def generate_town_graph_connected(
@@ -89,6 +97,7 @@ def generate_town_graph_connected(
     map_background=False,
     figsize=(10, 10),
     path="",
+    file_name="datasets/graphe_connecte.png",
 ):
     pos = create_dictionnary(points)
     data = {"x": [], "y": [], "label": []}
@@ -127,7 +136,7 @@ def generate_town_graph_connected(
         ax.set_xlabel("Longitude")
         ax.set_ylabel("Latitude")
     nx.draw(G, pos, with_labels=True, node_size=100)
-    plt.show()
+    plt.savefig(path + file_name)
     # Pourquoi 2 graphiques
 
 
@@ -141,10 +150,10 @@ points = pd.read_csv(
 
 points = pd.read_csv(path + "/datasets/cloches.csv")
 r = 0.02
-map_back = False
+map_back = True
 
-# generate_map(points, title="Adresses")
-# plt.clf()
+generate_map(points, title="Adresses")
+plt.clf()
 generate_town_graph_radius(
     points,
     title="Graphe des cloches",
