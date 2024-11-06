@@ -7,6 +7,15 @@ from array import *
 from matplotlib.patches import Circle
 
 
+def create_dictionnary(points):
+    res = dict()
+    longitudes = points.Longitude
+    latitudes = points.Latitude
+    for i in range(np.shape(points)[0]):
+        res[str(i)] = (longitudes[i], latitudes[i])
+    return res
+
+
 def generate_map(points, title: str = "", path="", figsize=(10, 10), markersize=10):
     # Création d'un geoDataFrame pour manipulation plus simple pour une mise en graphique
     gdf = gpd.GeoDataFrame(
@@ -33,7 +42,7 @@ def generate_map(points, title: str = "", path="", figsize=(10, 10), markersize=
     plt.savefig(path + "datasets/carte.png")
 
 
-def generate_town_graph(
+def generate_town_graph_radius(
     points,
     radius: float = 0.0000000001,
     title: str = "",
@@ -71,16 +80,55 @@ def generate_town_graph(
     plt.scatter(data["x"], data["y"], marker="o")
     plt.title(label=title)
     plt.show()
+
+
+def generate_town_graph_connected(
+    points,
+    radius: float = 0.0000000001,
+    title: str = "",
+    map_background=False,
+    figsize=(10, 10),
+    path="",
+):
+    pos = create_dictionnary(points)
+    data = {"x": [], "y": [], "label": []}
+    for label, coord in pos.items():
+        data["x"].append(coord[0])
+        data["y"].append(coord[1])
+        data["label"].append(label)
+
+    # Graphe associé aux positions
+    G = nx.Graph()
+
+    for label, coord in pos.items():
+        G.add_node(label, pos=coord)
+
+    # Distance entre les positions
+    def euclid_dist(pos1, pos2):
+        return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
+
+    # On met une condition pour ajouter des arêtes
+    for i in G.nodes():
+        for j in G.nodes():
+            if i != j and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= radius:
+                G.add_edge(i, j)
+
+    # Plot
+    if map_background:
+        sherbrooke = gpd.read_file(
+            path + "datasets/Arrondissements/Arrondissements.shp"
+        )
+        map_sherbrooke = sherbrooke.to_crs(epsg=4326)
+
+        fig, ax = plt.subplots(figsize=figsize)
+
+        map_sherbrooke.plot(ax=ax, color="grey", figsize=figsize)
+        ax.set_title(title)
+        ax.set_xlabel("Longitude")
+        ax.set_ylabel("Latitude")
+    nx.draw(G, pos, with_labels=True, node_size=100)
+    plt.show()
     # Pourquoi 2 graphiques
-
-
-def create_dictionnary(points):
-    res = dict()
-    longitudes = points.Longitude
-    latitudes = points.Latitude
-    for i in range(np.shape(points)[0]):
-        res[str(i)] = (longitudes[i], latitudes[i])
-    return res
 
 
 # Lecture du fichier
@@ -92,8 +140,24 @@ points = pd.read_csv(
 """
 
 points = pd.read_csv(path + "/datasets/cloches.csv")
+r = 0.02
+map_back = False
 
 # generate_map(points, title="Adresses")
-generate_town_graph(
-    points, radius=1.0, title="Graphe des cloches", map_background=True, path=path
+# plt.clf()
+generate_town_graph_radius(
+    points,
+    title="Graphe des cloches",
+    map_background=map_back,
+    path=path,
+    radius=r,
+)
+
+plt.clf()
+generate_town_graph_connected(
+    points,
+    title="Graphe des cloches",
+    map_background=map_back,
+    path=path,
+    radius=r,
 )
