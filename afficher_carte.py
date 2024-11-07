@@ -51,7 +51,7 @@ def generate_map(
 
 def generate_town_graph_radius(
     points,
-    radius: float = 0.0000000001,
+    radius: float = 0.01,
     title: str = "",
     map_background=False,
     figsize=(10, 10),
@@ -92,7 +92,7 @@ def generate_town_graph_radius(
 
 def generate_town_graph_connected(
     points,
-    radius: float = 0.0000000001,
+    radius: float = 0.01,
     title: str = "",
     map_background=False,
     figsize=(10, 10),
@@ -119,7 +119,10 @@ def generate_town_graph_connected(
     # On met une condition pour ajouter des arêtes
     for i in G.nodes():
         for j in G.nodes():
-            if i != j and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= radius:
+            if (
+                i != j
+                and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= 2 * radius
+            ):  # Vu qu'on a des disques rights??? Dès que les deux se touchent ça compte??
                 G.add_edge(i, j)
 
     # Plot
@@ -149,7 +152,7 @@ points = pd.read_csv(
 """
 
 points = pd.read_csv(path + "/datasets/cloches.csv")
-r = 0.02
+r = 0.01
 map_back = True
 
 generate_map(points, title="Adresses")
