@@ -155,7 +155,7 @@ points = pd.read_csv(path + "datasets/liste_occupants_simple.csv")
 r = 0.01
 map_back = True
 
-generate_map(points, title="Adresses", file_name="datasets/commerces.png")
+generate_map(points, title="Adresses", file_name="maps/commerces.png")
 plt.clf()
 generate_town_graph_radius(
     points,
@@ -163,7 +163,7 @@ generate_town_graph_radius(
     map_background=map_back,
     path=path,
     radius=r,
-    file_name="datasets/commerces_cercles.png",
+    file_name="maps/commerces_cercles.png",
 )
 
 plt.clf()
@@ -173,5 +173,5 @@ generate_town_graph_connected(
     map_background=map_back,
     path=path,
     radius=r,
-    file_name="datasets/commerces_connect.png",
+    file_name="maps/commerces_connect.png",
 )

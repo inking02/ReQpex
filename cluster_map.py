@@ -56,7 +56,7 @@ def simplify_points(data: pd.DataFrame, radius_km: float, seed: int = 545):
         new_points,
         title="Carte simplifiée",
         path="/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/",
-        file_name="datasets/carte_simplifiee.png",
+        file_name="maps/carte_simplifiee.png",
     )
     return indexes
 
