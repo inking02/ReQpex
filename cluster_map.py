@@ -1,9 +1,8 @@
 import numpy as np
 import pandas as pd
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-import afficher_carte
+import generate_maps
 import networkx as nx
+from utils import create_node_dictionnary
 
 data = pd.read_csv(
     "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/datasets/liste_occupants_simple.csv"
@@ -15,21 +14,8 @@ def simplify_points(data: pd.DataFrame, radius_km: float, seed: int = 545):
     radius_lng_lat = (
         radius_km / 111.1
     )  # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
-    """
-    x = np.array(data.Longitude, dtype=float)
-    y = np.array(data.Latitude, dtype=float)
-   
-    nb_clusters = int(np.ceil(len(x) / 25))
-
-    points = list(zip(x, y))
-    kmeans = KMeans(n_clusters=nb_clusters)
-    kmeans.fit(points)
-
-    plt.scatter(x, y, c=kmeans.labels_)
-    plt.show()
-    """
-
-    nodes = afficher_carte.create_dictionnary(data)
+    points = data[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
+    nodes = create_node_dictionnary(points)
     G = nx.Graph()
 
     for label, coord in nodes.items():
@@ -44,15 +30,18 @@ def simplify_points(data: pd.DataFrame, radius_km: float, seed: int = 545):
         for j in G.nodes():
             if (
                 i != j
-                and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= radius_lng_lat
+                and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"])
+                <= 2 * radius_lng_lat
             ):
                 G.add_edge(i, j)
     I = nx.maximal_independent_set(G, seed=seed)
     print(f"Maximum independent set of G: {I}")
 
     indexes = np.array(I, dtype=int)
-    new_points = data.iloc[indexes]
-    afficher_carte.generate_map(
+    new_points = (data.iloc[indexes])[["Longitude", "Latitude"]].to_numpy(
+        dtype=float, copy=True
+    )
+    generate_maps.generate_map(
         new_points,
         title="Carte simplifiée",
         path="/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/",
@@ -63,6 +52,6 @@ def simplify_points(data: pd.DataFrame, radius_km: float, seed: int = 545):
 
 res = simplify_points(
     data,
-    1,
+    0.5,
 )
 print(len(res))

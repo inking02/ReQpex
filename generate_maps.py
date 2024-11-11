@@ -5,15 +5,7 @@ import geopandas as gpd
 import networkx as nx
 from array import *
 from matplotlib.patches import Circle
-
-
-def create_dictionnary(points):
-    res = dict()
-    longitudes = points.Longitude
-    latitudes = points.Latitude
-    for i in range(np.shape(points)[0]):
-        res[str(i)] = (longitudes[i], latitudes[i])
-    return res
+from utils import create_node_dictionnary
 
 
 def generate_map(
@@ -26,7 +18,7 @@ def generate_map(
 ):
     # Création d'un geoDataFrame pour manipulation plus simple pour une mise en graphique
     gdf = gpd.GeoDataFrame(
-        points, geometry=gpd.points_from_xy(points.Longitude, points.Latitude)
+        points, geometry=gpd.points_from_xy(points[:, 0], points[:, 1])
     )
 
     # On sort les coordonnées de chaque bac
@@ -58,7 +50,7 @@ def generate_town_graph_radius(
     path="",
     file_name="datasets/graphe_cercles.png",
 ):
-    pos = create_dictionnary(points)
+    pos = create_node_dictionnary(points)
     data = {"x": [], "y": [], "label": []}
     for label, coord in pos.items():
         data["x"].append(coord[0])
@@ -99,7 +91,7 @@ def generate_town_graph_connected(
     path="",
     file_name="datasets/graphe_connecte.png",
 ):
-    pos = create_dictionnary(points)
+    pos = create_node_dictionnary(points)
     data = {"x": [], "y": [], "label": []}
     for label, coord in pos.items():
         data["x"].append(coord[0])
@@ -138,20 +130,25 @@ def generate_town_graph_connected(
         ax.set_title(title)
         ax.set_xlabel("Longitude")
         ax.set_ylabel("Latitude")
-    nx.draw(G, pos, with_labels=True, node_size=100)
+    nx.draw(G, pos=pos, with_labels=True, node_size=100)
     plt.savefig(path + file_name)
+    plt.show()
     # Pourquoi 2 graphiques
 
 
+"""
 # Lecture du fichier
 path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/"
 """
+
+"""
+
 points = pd.read_csv(
     path+"datasets/adresse_sherbrooke_ll.csv"
 )
-"""
 
 points = pd.read_csv(path + "datasets/liste_occupants_simple.csv")
+points = points[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 r = 0.01
 map_back = True
 
@@ -175,3 +172,4 @@ generate_town_graph_connected(
     radius=r,
     file_name="maps/commerces_connect.png",
 )
+"""
