@@ -43,5 +43,4 @@ class Find_MIS_discs:
         if generate_histogram:
             plt.hist(run_results)
             plt.savefig(path + file_name)
-            plt.show()
         return count_dict

@@ -39,11 +39,11 @@ if __name__ == "__main__":
 
     radius = 1
     shots = 10
-    generate_graph = False
+    generate_graph = True
     map_background = False
     show_progress = True
     generate_histogram = True
-    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/figures"
+    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/figures/"
     main(
         points,
         radius,
