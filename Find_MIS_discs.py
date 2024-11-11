@@ -22,7 +22,7 @@ class Find_MIS_discs:
         show_progress: bool = False,
         generate_histogram: bool = False,
         path: str = "",
-        file_name: str = "MIS_histo.png",
+        file_name: str = "figures/MIS_histo.png",
     ):
         run_results = []
         zero_sting = "0" * self.nb_nodes
@@ -41,6 +41,7 @@ class Find_MIS_discs:
             element: run_results.count(element) for element in set(run_results)
         }
         if generate_histogram:
+            plt.clf()
             plt.hist(run_results)
             plt.savefig(path + file_name)
         return count_dict

@@ -20,7 +20,7 @@ def main(
             title="Graph",
             path=path,
             map_background=map_background,
-            file_name="graph.png",
+            file_name="figures/graph.png",
         )
     MIS_solver = Find_MIS_discs(points, radius)
     res = MIS_solver.run(
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     map_background = False
     show_progress = True
     generate_histogram = True
-    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/figures/"
+    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/"
     main(
         points,
         radius,
