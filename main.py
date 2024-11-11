@@ -1,5 +1,5 @@
 import numpy as np
-from Find_MIS_disks import Find_MIS_disks
+from Find_MIS_discs import Find_MIS_discs
 from generate_maps import generate_town_graph_connected
 
 
@@ -22,7 +22,7 @@ def main(
             map_background=map_background,
             file_name="graph.png",
         )
-    MIS_solver = Find_MIS_disks(points, radius)
+    MIS_solver = Find_MIS_discs(points, radius)
     res = MIS_solver.run(
         shots,
         show_progress=show_progress,

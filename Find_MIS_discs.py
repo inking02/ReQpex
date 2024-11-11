@@ -2,39 +2,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 from numpy.typing import NDArray
-from utils import create_node_dictionnary
+from utils import disc_graph_to_connected
 import random
 
 
-class Find_MIS_disks:
+class Find_MIS_discs:
     def __init__(self, positions: NDArray[np.float_], radius: float) -> None:
         """
         points[:,0]=x;Longitudes
         points[:,1]=y;Latitudes
         """
-        self.nodes_dict = create_node_dictionnary(positions)
+        self.G = disc_graph_to_connected(positions, radius)
         self.nb_nodes = np.shape(positions)[0]
         self.radius = radius
-        self.create_graph()
-
-    def create_graph(self):
-        self.G = nx.Graph()
-        for label, coord in self.nodes_dict.items():
-            self.G.add_node(label, pos=coord)
-
-        # Distance entre les positions
-        def euclid_dist(pos1, pos2):
-            return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
-
-        # On met une condition pour ajouter des arêtes
-        for i in self.G.nodes():
-            for j in self.G.nodes():
-                if (
-                    i != j
-                    and euclid_dist(self.G.nodes[i]["pos"], self.G.nodes[j]["pos"])
-                    <= 2 * self.radius
-                ):
-                    self.G.add_edge(i, j)
 
     def run(
         self,

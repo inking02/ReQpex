@@ -1,15 +1,15 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 import geopandas as gpd
 import networkx as nx
 from array import *
 from matplotlib.patches import Circle
-from utils import create_node_dictionnary
+from utils import disc_graph_to_connected, create_node_dictionnary
+from numpy.typing import NDArray
 
 
 def generate_map(
-    points,
+    points: NDArray[np.float_],
     title: str = "",
     path="",
     figsize=(10, 10),
@@ -42,7 +42,7 @@ def generate_map(
 
 
 def generate_town_graph_radius(
-    points,
+    points: NDArray[np.float_],
     radius: float = 0.01,
     title: str = "",
     map_background=False,
@@ -83,7 +83,7 @@ def generate_town_graph_radius(
 
 
 def generate_town_graph_connected(
-    points,
+    points: NDArray[np.float_],
     radius: float = 0.01,
     title: str = "",
     map_background=False,
@@ -99,23 +99,7 @@ def generate_town_graph_connected(
         data["label"].append(label)
 
     # Graphe associé aux positions
-    G = nx.Graph()
-
-    for label, coord in pos.items():
-        G.add_node(label, pos=coord)
-
-    # Distance entre les positions
-    def euclid_dist(pos1, pos2):
-        return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
-
-    # On met une condition pour ajouter des arêtes
-    for i in G.nodes():
-        for j in G.nodes():
-            if (
-                i != j
-                and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= 2 * radius
-            ):  # Vu qu'on a des disques rights??? Dès que les deux se touchent ça compte??
-                G.add_edge(i, j)
+    G = disc_graph_to_connected(points, radius)
 
     # Plot
     if map_background:
@@ -132,44 +116,3 @@ def generate_town_graph_connected(
         ax.set_ylabel("Latitude")
     nx.draw(G, pos=pos, with_labels=True, node_size=100)
     plt.savefig(path + file_name)
-    plt.show()
-    # Pourquoi 2 graphiques
-
-
-"""
-# Lecture du fichier
-path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/"
-"""
-
-"""
-
-points = pd.read_csv(
-    path+"datasets/adresse_sherbrooke_ll.csv"
-)
-
-points = pd.read_csv(path + "datasets/liste_occupants_simple.csv")
-points = points[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
-r = 0.01
-map_back = True
-
-generate_map(points, title="Adresses", file_name="maps/commerces.png")
-plt.clf()
-generate_town_graph_radius(
-    points,
-    title="Graphe des villes",
-    map_background=map_back,
-    path=path,
-    radius=r,
-    file_name="maps/commerces_cercles.png",
-)
-
-plt.clf()
-generate_town_graph_connected(
-    points,
-    title="Graphe des cloches",
-    map_background=map_back,
-    path=path,
-    radius=r,
-    file_name="maps/commerces_connect.png",
-)
-"""
