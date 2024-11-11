@@ -1,6 +1,6 @@
 import numpy as np
 from Find_MIS_discs import Find_MIS_discs
-from generate_maps import generate_town_graph_connected
+from utils.generate_maps import generate_town_graph_connected
 
 
 def main(
@@ -17,7 +17,7 @@ def main(
         generate_town_graph_connected(
             points,
             radius=radius,
-            title="Test",
+            title="Graph",
             path=path,
             map_background=map_background,
             file_name="graph.png",
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     map_background = False
     show_progress = True
     generate_histogram = True
-    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/maps/"
+    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/figures"
     main(
         points,
         radius,

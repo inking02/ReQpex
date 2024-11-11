@@ -4,7 +4,7 @@ import geopandas as gpd
 import networkx as nx
 from array import *
 from matplotlib.patches import Circle
-from utils import disc_graph_to_connected, create_node_dictionnary
+from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
 
 
@@ -14,7 +14,7 @@ def generate_map(
     path="",
     figsize=(10, 10),
     markersize=10,
-    file_name="datasets/carte.png",
+    file_name="figures/map.png",
 ):
     # Création d'un geoDataFrame pour manipulation plus simple pour une mise en graphique
     gdf = gpd.GeoDataFrame(
@@ -48,7 +48,7 @@ def generate_town_graph_radius(
     map_background=False,
     figsize=(10, 10),
     path="",
-    file_name="datasets/graphe_cercles.png",
+    file_name="figures/circle_graph.png",
 ):
     pos = create_node_dictionnary(points)
     data = {"x": [], "y": [], "label": []}
@@ -89,7 +89,7 @@ def generate_town_graph_connected(
     map_background=False,
     figsize=(10, 10),
     path="",
-    file_name="datasets/graphe_connecte.png",
+    file_name="figures/connected_graph.png",
 ):
     pos = create_node_dictionnary(points)
     data = {"x": [], "y": [], "label": []}

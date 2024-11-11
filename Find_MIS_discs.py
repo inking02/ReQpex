@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 from numpy.typing import NDArray
-from utils import disc_graph_to_connected
+from utils.utils import disc_graph_to_connected
 import random
 
 
