@@ -4,7 +4,7 @@ import networkx as nx
 import pandas as pd
 
 
-def create_node_dictionnary(points):
+def create_node_dictionnary(points: NDArray):
     res = dict()
     longitudes = points[:, 0]
     latitudes = points[:, 1]
