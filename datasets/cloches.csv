@@ -1,49 +1,51 @@
-cloches
-Numéro ;Nom de la borne;Addresse;Rue;Ville;Province;Code Postal;Latitude;Longitude;
-1;Quartier santé;2015;12e Avenue N;Sherbrooke;Québec;J1E 4J5;45.43426;-71.86913;
-2;Dépanneur Ultramar;1133;13e Avenue N;Sherbrooke;Québec;J1E 3P1;45.42373;-71.87296;
-3;Coopérative Funéraire de L'Estrie;483;Rue du 24-Juin;Sherbrooke;Québec;J1E 1H1;45.42366;-71.8813;
-4;Centre de formation professionnelle 24-juin;639;Rue du 24-Juin;Sherbrooke;Québec;J1E 1H1;45.42269;-71.87779;
-5;Coq O Bed;1139;Chemin des Pèlerins;Sherbrooke;Québec;J1E 1G6;45.42344;-71.88731;
-6;Rue du Baron;1668;Chemin des Pèlerins;Sherbrooke;Québec;J1E 1G8;45.42986;-71.88719;
-7;IGA Extra Couture;2240;Rue King E;Sherbrooke;Québec;J1G 5G8;45.411914;-71.83975;
-8;Shell;1837;Rue King E;Sherbrooke;Québec;J1G 5G7;45.410633;-71.84523;
-9;Salon de quiles Sher-Mont;1254;Rue King E;Sherbrooke;Québec;J1G 1E6;45.40849;-71.86219;
-10;Parc Édouard-Boudreau;44;10e Avenue N;Sherbrooke;Québec;J1G 2R5;45.406388;-71.87277;
-11;Crémarie de l'Est ;480;10e Avenue S;Sherbrooke;Québec;J1G 2R9;45.40048;-71.87247;
-12;Écocentre - Michel Ledoux ;1000;Rue Léon-Trépanier;Sherbrooke;Québec;J1G 0C4;45.3938;-71.86143;
-13;Parc Bureau ;925;Rue Walsh;Sherbrooke;Québec;J1G 4L7;45.39284;-71.86877;
-14;Église St Andrew's;256;Rue Queen;Sherbrooke;Québec;J1M 1K6;45.37371;-71.86057;
-15;Aréna Ivan-Dugré;1250;Rue Galt O;Sherbrooke;Québec;J1H 2A7;45.388925;-71.906743;
-17;Centre de la Petite Enfance Carrosse-Citrouille Inc;1680;Rue Garant;Sherbrooke;Québec;J1J 1J2;45.41116;-71.91588;
-18;École Montcalm/Centre communautaire Jacques Cartier;2050;Boul de Portland;Sherbrooke;Québec;J1J 1T9;45.40369;-71.92404;
-19;Les Promenades King;2213;Rue King O;Sherbrooke;Québec;J1J 2G2;45.398337;-71.927644;
-20;Récupex Ing;2345;Rue Hertel;Sherbrooke;Québec;J1J 2J1;45.39673;-71.93049;
-21;Église St-Esprit ;2290;Rue Galt O;Sherbrooke;Québec;J1K 1K8;45.387;-71.92853;
-22;Le Montagnais;2000;Rue du Montagnais;Sherbrooke;Québec;J1K 2Z3;45.38177;-71.92298;
-23;Université de Sherbrooke;2500;Boul de l'Université;Sherbrooke;Québec;J1K 2R1;45.38151;-71.93032;
-24;Aréna du Mont St-Anne;2100;Chem. de Sainte-Catherine;Sherbrooke;Québec;J1N 3V5;45.3714;-71.932925;
-25;Église Marie-Médiatrice;3025;Rue Galt O;Sherbrooke;Québec;J1K 1M8;45.386965;-71.94746;
-26;Tim Hortons;3550;Rue Galt O;Sherbrooke;Québec;J1H 0A5;45.37658;-71.95339;
-27;Complexe de la santé;15;Rue J.-A. - Bombardier;Sherbrooke;Québec;J1L 1W3;45.391458;-71.952431;
-28;Iga Extra ;3950;Rue King O;Sherbrooke;Québec;J1L 1P6;45.387214;-71.960579;
-29;4005 rue Comtois;4005;Rue Comptois;Sherbrooke;Québec;J1L 1S3;45.38648;-71.95823;
-30;Dépanneur L.B. inc;3440;Rue Thomas;Sherbrooke;Québec;J1L 2V5;45.41103;-71.95621;
-31;Momo Sports ;530;Rue Jean-Paul-Perrault;Sherbrooke;Québec;J1L 3A6;45.40514;-71.958871;
-32;Écocentre - Rose-Cohen;365;Rue Pépin;Sherbrooke;Québec;J1L 2E2;45.40102;-71.968;
-33;Entrepôt Coop Alentour;4740;Boulevard Industriel;Sherbrooke;Québec;J1L 3A3;45.3955;-71.98237;
-34;Parc Mi-Vallon;1443;Rue Milan;Sherbrooke;Québec;J1N 1V8;45.379532;-71.98372;
-35;ProGym Sherbrooke;4796;Boul Bourque;Sherbrooke;Québec;J1N 2A7;45.3729;-71.98517;
-36;Bibliothèque Bertrand Delisle;968;Rue du Haut-Bois S;Sherbrooke;Québec;J1N 4C9;45.36947;-71.98917;
-37;École Vision-Sherbrooke;5100;Rue Henri-Labonne;Sherbrooke;Québec;J1N 1J1;45.36994;-71.99418;
-38;Dépanneur Gamma;699;Rue du Curé;Sherbrooke;Québec;J1N 2N8;45.35478;-71.98778;
-39;Parc Central;6161;Rue du Président Kennedy ;Sherbrooke;Québec;J1N 2P5;45.354676;-71.99417;
-40;Les Entreprises Lachance Inc;663;Rue de Charlemagne ;Sherbrooke;Québec;J1N 0S9;45.36906;-71.96842;
-41;Tim Hortons;5963;Chem. de Sainte-Élie;Sherbrooke;Québec;J1R 0L6;45.395;-72.00484;
-42;Iga Bouchard ;6185;QC-220;Sherbrooke;Québec;J1R 0L1;45.392350;-72.013760;
-43;Église Saint-Élie;7205;Chem. de Sainte-Élie;Sherbrooke;Québec;J1R 0K5;45.39567;-72.03986;
-44;Matériaux St-Élie;17;Rue Saint-Michel-Archange;Sherbrooke;Québec;J1R 0C3;45.39483;-72.04597;
-45;Shell;7390;Boul Bourque;Sherbrooke;Québec;J1N 3L2;45.34191;-72.04209;
-46;Boucherie Face de Boeuf;4250;Chem. Saint-Roch S;Sherbrooke;Québec;J1N 0E8;45.333070;-71.979329;
-47;EKO / Dépanneur Brompton;245;Rue Laval;Sherbrooke;Québec;J1C 0R1;45.470253;-71.948226;
-48;Tim Hortons;3815;College St;Sherbrooke;Québec;J0B 1M0;45.362799;-71.893761;
+cloches;;;;;;;;;
+Numéro ;Nom de la borne;Addresse;Rue;Ville;Province;Code Postal;Latitude;Longitude;Volume
+1;Quartier santé;2015;12e Avenue N;Sherbrooke;Québec;J1E 4J5;45.43426;-71.86913;8366.66667
+2;Dépanneur Ultramar;1133;13e Avenue N;Sherbrooke;Québec;J1E 3P1;45.42373;-71.87296;11846.6667
+3;Coopérative Funéraire de L'Estrie;483;Rue du 24-Juin;Sherbrooke;Québec;J1E 1H1;45.42366;-71.8813;5000
+4;Centre de formation professionnelle 24-juin;639;Rue du 24-Juin;Sherbrooke;Québec;J1E 1H1;45.42269;-71.87779;8113.33333
+5;Coq O Bed;1139;Chemin des Pèlerins;Sherbrooke;Québec;J1E 1G6;45.42344;-71.88731;8680
+6;Rue du Baron;1668;Chemin des Pèlerins;Sherbrooke;Québec;J1E 1G8;45.42986;-71.88719;26620
+7;IGA Extra Couture;2240;Rue King E;Sherbrooke;Québec;J1G 5G8;45.411914;-71.83975;30680
+8;Shell;1837;Rue King E;Sherbrooke;Québec;J1G 5G7;45.410633;-71.84523;11633.3333
+9;Salon de quiles Sher-Mont;1254;Rue King E;Sherbrooke;Québec;J1G 1E6;45.40849;-71.86219;20940
+10;Parc Édouard-Boudreau;44;10e Avenue N;Sherbrooke;Québec;J1G 2R5;45.406388;-71.87277;43600
+11;Crémarie de l'Est ;480;10e Avenue S;Sherbrooke;Québec;J1G 2R9;45.40048;-71.87247;23540
+12;Écocentre - Michel Ledoux ;1000;Rue Léon-Trépanier;Sherbrooke;Québec;J1G 0C4;45.3938;-71.86143;24333.3333
+13;Parc Bureau ;925;Rue Walsh;Sherbrooke;Québec;J1G 4L7;45.39284;-71.86877;50766.6667
+14;Église St Andrew's;256;Rue Queen;Sherbrooke;Québec;J1M 1K6;45.37371;-71.86057;22940
+15;Aréna Ivan-Dugré;1250;Rue Galt O;Sherbrooke;Québec;J1H 2A7;45.388925;-71.906743;13846.6667
+17;Centre de la Petite Enfance Carrosse-Citrouille Inc;1680;Rue Garant;Sherbrooke;Québec;J1J 1J2;45.41116;-71.91588;4380
+18;École Montcalm/Centre communautaire Jacques Cartier;2050;Boul de Portland;Sherbrooke;Québec;J1J 1T9;45.40369;-71.92404;26566.6667
+19;Les Promenades King;2213;Rue King O;Sherbrooke;Québec;J1J 2G2;45.398337;-71.927644;28740
+20;Récupex Ing;2345;Rue Hertel;Sherbrooke;Québec;J1J 2J1;45.39673;-71.93049;35306.6667
+21;Église St-Esprit ;2290;Rue Galt O;Sherbrooke;Québec;J1K 1K8;45.387;-71.92853;54393.3333
+22;Le Montagnais;2000;Rue du Montagnais;Sherbrooke;Québec;J1K 2Z3;45.38177;-71.92298;7333.33333
+23;Université de Sherbrooke;2500;Boul de l'Université;Sherbrooke;Québec;J1K 2R1;45.38151;-71.93032;1826.66667
+24;Aréna du Mont St-Anne;2100;Chem. de Sainte-Catherine;Sherbrooke;Québec;J1N 3V5;45.3714;-71.932925;19013.3333
+25;Église Marie-Médiatrice;3025;Rue Galt O;Sherbrooke;Québec;J1K 1M8;45.386965;-71.94746;18386.6667
+26;Tim Hortons;3550;Rue Galt O;Sherbrooke;Québec;J1H 0A5;45.37658;-71.95339;21780
+27;Complexe de la santé;15;Rue J.-A. - Bombardier;Sherbrooke;Québec;J1L 1W3;45.391458;-71.952431;9580
+28;Iga Extra ;3950;Rue King O;Sherbrooke;Québec;J1L 1P6;45.387214;-71.960579;7876.66667
+29;4005 rue Comtois;4005;Rue Comptois;Sherbrooke;Québec;J1L 1S3;45.38648;-71.95823;7876.66667
+30;Dépanneur L.B. inc;3440;Rue Thomas;Sherbrooke;Québec;J1L 2V5;45.41103;-71.95621;23726.6667
+31;Momo Sports ;530;Rue Jean-Paul-Perrault;Sherbrooke;Québec;J1L 3A6;45.40514;-71.958871;35733.3333
+32;Écocentre - Rose-Cohen;365;Rue Pépin;Sherbrooke;Québec;J1L 2E2;45.40102;-71.968;32893.3333
+33;Entrepôt Coop Alentour;4740;Boulevard Industriel;Sherbrooke;Québec;J1L 3A3;45.3955;-71.98237;18206.6667
+34;Parc Mi-Vallon;1443;Rue Milan;Sherbrooke;Québec;J1N 1V8;45.379532;-71.98372;53593.3333
+35;ProGym Sherbrooke;4796;Boul Bourque;Sherbrooke;Québec;J1N 2A7;45.3729;-71.98517;14570
+36;Bibliothèque Bertrand Delisle;968;Rue du Haut-Bois S;Sherbrooke;Québec;J1N 4C9;45.36947;-71.98917;25840
+37;École Vision-Sherbrooke;5100;Rue Henri-Labonne;Sherbrooke;Québec;J1N 1J1;45.36994;-71.99418;17440
+38;Dépanneur Gamma;699;Rue du Curé;Sherbrooke;Québec;J1N 2N8;45.35478;-71.98778;42606.6667
+39;Parc Central;6161;Rue du Président Kennedy ;Sherbrooke;Québec;J1N 2P5;45.354676;-71.99417;47353.3333
+40;Les Entreprises Lachance Inc;663;Rue de Charlemagne ;Sherbrooke;Québec;J1N 0S9;45.36906;-71.96842;26580
+41;Tim Hortons;5963;Chem. de Sainte-Élie;Sherbrooke;Québec;J1R 0L6;45.395;-72.00484;13346.6667
+42;Iga Bouchard ;6185;QC-220;Sherbrooke;Québec;J1R 0L1;45.392350;-72.013760;152726.667
+43;Église Saint-Élie;7205;Chem. de Sainte-Élie;Sherbrooke;Québec;J1R 0K5;45.39567;-72.03986;48680
+44;Matériaux St-Élie;17;Rue Saint-Michel-Archange;Sherbrooke;Québec;J1R 0C3;45.39483;-72.04597;8453.33333
+45;Shell;7390;Boul Bourque;Sherbrooke;Québec;J1N 3L2;45.34191;-72.04209;35566.6667
+46;Boucherie Face de Boeuf;4250;Chem. Saint-Roch S;Sherbrooke;Québec;J1N 0E8;45.333070;-71.979329;0
+47;EKO / Dépanneur Brompton;245;Rue Laval;Sherbrooke;Québec;J1C 0R1;45.470253;-71.948226;27640
+48;Tim Hortons;3815;College St;Sherbrooke;Québec;J0B 1M0;45.362799;-71.893761;17713.3333
+49;Salon fun. des cantons;951;Du Rue du Haut-Bois S;Sherbrooke;Québec;J1N 2C8;45.36979393948084;-71.98849786137306;60226.6667
+50;Déménagement Roy;316;12e Avenue S;Sherbrooke;Québec;J1G 2V6;45.403504865465734;-71.86861714764248;17433.3333
