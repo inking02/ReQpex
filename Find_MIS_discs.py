@@ -7,14 +7,12 @@ import random
 
 
 class Find_MIS_discs:
-    def __init__(self, positions: NDArray[np.float_], radius: float) -> None:
+    def __init__(self, graph: nx.Graph) -> None:
         """
         points[:,0]=x;Longitudes
         points[:,1]=y;Latitudes
         """
-        self.G = disc_graph_to_connected(positions, radius)
-        self.nb_nodes = np.shape(positions)[0]
-        self.radius = radius
+        self.G = graph
 
     def run(
         self,
@@ -25,7 +23,7 @@ class Find_MIS_discs:
         file_name: str = "figures/MIS_histo.png",
     ):
         run_results = []
-        zero_sting = "0" * self.nb_nodes
+        zero_sting = "0" * self.G.number_of_nodes()
         seeds = [random.randint(0, 100000) for _ in range(shots)]
         for i in range(shots):
             I = nx.maximal_independent_set(self.G, seed=seeds[i])
