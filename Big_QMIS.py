@@ -16,7 +16,7 @@ class BIG_QMIS:
         else:
             self.num_atoms = num_atoms
 
-    def run(self):
+    def run(self, print_progression: bool = False):
         num_of_cuts = int(np.ceil(self.graph.number_of_nodes() / self.num_atoms))
         adjacency_list = [
             list(
@@ -25,8 +25,9 @@ class BIG_QMIS:
             for node in self.graph.nodes()
         ]
         n_cuts, membership = pymetis.part_graph(num_of_cuts, adjacency=adjacency_list)
-        # n_cuts = 3
-        # membership = [1, 1, 1, 0, 1, 0, 0]
+
+        if print_progression:
+            print("Partionned the graph")
 
         sub_graphs = []
         nodes_per_graph = []
@@ -34,6 +35,9 @@ class BIG_QMIS:
             nodes = np.argwhere(np.array(membership) == i).ravel()
             nodes_per_graph.append(nodes)
             sub_graphs.append(self.create_sub_graph(nodes))
+
+        if print_progression:
+            print("Sub_graphes created")
 
         MIS_list = np.empty_like(sub_graphs)
 
@@ -47,11 +51,14 @@ class BIG_QMIS:
                     independant_nodes.append((nodes_per_graph[i])[j])
             MIS_list[i] = independant_nodes
 
+        if print_progression:
+            print("MIS' done. Now combining")
+
         return self.combine_mis(MIS_list)
         # À vérifier ce bloc de for quand fonction de quantique sera à jour.
 
     def create_sub_graph(self, nodes: List[int]):
-        # Créer manuellement avec chat, trouver pourquoi la fonction subgraph marche pas
+        # Trouver pourquoi la fonction subgraph marche pas
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
         subgraph.add_edges_from(
@@ -59,8 +66,57 @@ class BIG_QMIS:
         )
         return subgraph
 
-    def mis_tree(self, tree):
-        pass
+    # CONCEPT DE RACINE??? PAS SUR, INSPIRÉ DE CHAT POUR DsITANCE LA PLUS LONGUE, noeud le plus éloigné
+    def mis_tree(self, tree: nx.Graph):
+        root = self.root_finder(tree)
+        tree_directed = nx.bfs_tree(tree, root)
+        with_node = np.ones(tree.number_of_nodes()) * np.nan
+        without_node = np.ones(tree.number_of_nodes()) * np.nan
+        root_indexes = [tree_directed.nodes()]
+        mis_nodes = []
+
+        def tree_mis_searcher(node):
+            node_index = root_indexes.index(node)
+            if nx.degree(tree_directed, node) == 1:
+                with_node[node_index] = 1
+                without_node[node_index] = 0
+                return
+            with_node[node_index] = 1
+            without_node[node_index] = 0
+            for i in tree_directed.successors(node):
+                tree_mis_searcher(i)
+                index_i = root_indexes.index(i)
+                with_node[node_index] += without_node(index_i)
+                without_node[node_index] += max(
+                    without_node(index_i), with_node(index_i)
+                )
+
+        def mis_explorer(node, exclude_node):
+            if nx.degree(tree_directed, node) == 1:
+                if not exclude_node:
+                    mis_nodes.append(node)
+                return
+            node_index = root_indexes.index(node)
+            if exclude_node or without_node[node_index] > with_node[node_index]:
+                for i in tree_directed.successors(node):
+                    mis_explorer(i, exclude_node=False)
+            else:
+                mis_nodes.append(node)
+                for i in tree_directed.successors(node):
+                    mis_explorer(i, exclude_node=True)
+            return
+
+        tree_mis_searcher(root)
+        mis_explorer(root, exclude_node=False)
+
+        return mis_nodes
+
+    def root_finder(self, tree):
+        fartest_distances = np.empty(tree.number_of_nodes())
+        start = tree.nodes()[0]
+        for i, node in enumerate(tree.nodes):
+            fartest_distances[i] = nx.shortest_path_length(tree, start, node)
+        return np.argmax(fartest_distances)[0]
 
     def combine_mis(self, MIS_list: List[List[int]]):
         if len(MIS_list) == 1:
