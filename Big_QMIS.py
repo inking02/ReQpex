@@ -59,6 +59,9 @@ class BIG_QMIS:
         )
         return subgraph
 
+    def mis_tree(self, tree):
+        pass
+
     def combine_mis(self, MIS_list: List[List[int]]):
         if len(MIS_list) == 1:
             return MIS_list
@@ -76,12 +79,14 @@ class BIG_QMIS:
             if u in MIS_one and v in MIS_two
         )
 
-        new_mis = [nx.isolate(forest)]
+        new_mis = np.array([nx.isolate(forest)])
         forest.remove_edges_from(
-            nx.isolate(new_mis)
+            new_mis
         )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
 
         for tree in nx.connected_components(forest):
-            pass
+            tree_graph = self.create_sub_graph(tree)
+            result_mis = self.mis_tree(tree_graph)
+            new_mis = np.append(new_mis, result_mis)
 
         return new_mis
