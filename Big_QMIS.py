@@ -29,16 +29,26 @@ class BIG_QMIS:
         # membership = [1, 1, 1, 0, 1, 0, 0]
 
         sub_graphs = []
+        nodes_per_graph = []
         for i in range(num_of_cuts):
             nodes = np.argwhere(np.array(membership) == i).ravel()
+            nodes_per_graph.append(nodes)
             sub_graphs.append(self.create_sub_graph(nodes))
 
         MIS_list = np.empty_like(sub_graphs)
 
-        for i, graph in enumerate(sub_graphs):
+        for i, (graph, nodes) in enumerate(zip(sub_graphs, nodes_per_graph)):
             MIS_object = Quantum_MIS(graph)  # À faire
             res_dict = MIS_object.run(shots=100)
-            MIS_list[i] = max(zip(res_dict.values(), res_dict.keys()))[1]
+            best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+            independant_nodes = []
+            for j in range(len(best_bitstring)):
+                if best_bitstring[j] == "1":
+                    independant_nodes.append((nodes_per_graph[i])[j])
+            MIS_list[i] = independant_nodes
+
+        return self.combine_mis(MIS_list)
+        # À vérifier ce bloc de for quand fonction de quantique sera à jour.
 
     def create_sub_graph(self, nodes: List[int]):
         # Créer manuellement avec chat, trouver pourquoi la fonction subgraph marche pas
@@ -48,3 +58,30 @@ class BIG_QMIS:
             (u, v) for u, v in self.graph.edges(nodes) if u in nodes and v in nodes
         )
         return subgraph
+
+    def combine_mis(self, MIS_list: List[List[int]]):
+        if len(MIS_list) == 1:
+            return MIS_list
+        n = len(MIS_list) // 2
+        MIS_one = self.combine_mis(MIS_list[:n])
+        MIS_two = self.combine_mis(MIS_list[n:])
+
+        # À vérifier mais devrait fonctionner
+        forest = nx.Graph()
+        forest.add_nodes_from(MIS_one)
+        forest.add_nodes_from(MIS_two)
+        forest.add_edges_from(
+            (u, v)
+            for u, v in self.graph.edges(forest.nodes())
+            if u in MIS_one and v in MIS_two
+        )
+
+        new_mis = [nx.isolate(forest)]
+        forest.remove_edges_from(
+            nx.isolate(new_mis)
+        )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
+
+        for tree in nx.connected_components(forest):
+            pass
+
+        return new_mis
