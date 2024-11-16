@@ -5,6 +5,7 @@ from numpy.typing import NDArray
 from typing import List
 from sklearn.cluster import KMeans
 import pymetis
+import matplotlib.pyplot as plt
 
 
 # À voir si on fait juste un graph en entree
@@ -33,13 +34,14 @@ class BIG_QMIS:
         nodes_per_graph = []
         for i in range(num_of_cuts):
             nodes = np.argwhere(np.array(membership) == i).ravel()
+            nodes = [str(j) for j in nodes]
             nodes_per_graph.append(nodes)
             sub_graphs.append(self.create_sub_graph(nodes))
 
         if print_progression:
             print("Sub_graphes created")
 
-        MIS_list = np.empty_like(sub_graphs)
+        MIS_list = np.empty(len(sub_graphs))
 
         for i, (graph, nodes) in enumerate(zip(sub_graphs, nodes_per_graph)):
             MIS_object = Quantum_MIS(graph)  # À faire
@@ -62,7 +64,9 @@ class BIG_QMIS:
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
         subgraph.add_edges_from(
-            (u, v) for u, v in self.graph.edges(nodes) if u in nodes and v in nodes
+            tuple([u, v])
+            for (u, v) in self.graph.edges(nodes)
+            if u in nodes and v in nodes
         )
         return subgraph
 
@@ -70,14 +74,14 @@ class BIG_QMIS:
     def mis_tree(self, tree: nx.Graph):
         root = self.root_finder(tree)
         tree_directed = nx.bfs_tree(tree, root)
-        with_node = np.ones(tree.number_of_nodes()) * np.nan
-        without_node = np.ones(tree.number_of_nodes()) * np.nan
+        with_node = np.empty(tree.number_of_nodes())
+        without_node = np.empty(tree.number_of_nodes())
         root_indexes = [tree_directed.nodes()]
         mis_nodes = []
 
         def tree_mis_searcher(node):
             node_index = root_indexes.index(node)
-            if nx.degree(tree_directed, node) == 1:
+            if tree_directed.out_degree(node) == 0:
                 with_node[node_index] = 1
                 without_node[node_index] = 0
                 return
@@ -92,7 +96,7 @@ class BIG_QMIS:
                 )
 
         def mis_explorer(node, exclude_node):
-            if nx.degree(tree_directed, node) == 1:
+            if tree_directed.out_degree(node) == 0:
                 if not exclude_node:
                     mis_nodes.append(node)
                 return

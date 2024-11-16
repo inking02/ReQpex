@@ -3,6 +3,7 @@ from Find_MIS_discs import Find_MIS_discs
 from utils.generate_maps import generate_town_graph_connected
 from utils.utils import disc_graph_to_connected
 from Big_QMIS import BIG_QMIS
+import matplotlib.pyplot as plt
 
 
 def main(
@@ -34,6 +35,7 @@ def main(
     )
     print(res)
     """Big"""
+    plt.clf()
     big = BIG_QMIS(graph, num_atoms=2)
     big.run()
 
