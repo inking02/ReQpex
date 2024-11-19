@@ -5,7 +5,7 @@ from pulser import Register, Pulse, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import AnalogDevice
 from pulser.waveforms import InterpolatedWaveform
-from QMIS_utils import scale_coordinates, find_minimal_radius, plot_histogram, euclid_dist
+from QMIS_utils import scale_coordinates, find_minimal_radius, plot_histogram
 
 
 class Quantum_MIS:

@@ -33,13 +33,7 @@ def random_UD_graph(nqubits, seed):
 
     return graph
 
-# G = nx.Graph()
-# edges = np.array([(1, 2), (1, 3), (2,3), (3, 4), (3, 5),(4, 5), (5, 6)])
-# G.add_edges_from(edges)
-
-G = random_UD_graph(15, 176)
-
-
+G = random_UD_graph(7, 176)
 
 test =  Quantum_MIS(G)
 test.print_reg()

@@ -31,17 +31,6 @@ def scale_coordinates(radius, coordinates, min_distance, max_distance):
 
         return scaled_coords, scaled_radius
 
-def find_unit_disk_radius(coords) -> float:
-        """Calcul du rayon optimal pour que le graphe soit un graphe de disque unitaire."""
-        distances = []
-        for i, coord1 in enumerate(coords):
-            for j, coord2 in enumerate(coords):
-                if i < j and np.linalg.norm(coord1 - coord2) <= 1:  # Connexion possible dans un graphe unitaire
-                    distances.append(np.linalg.norm(coord1 - coord2))
-        
-        # Rayon optimal pour que le graphe soit un graphe de disque unitaire
-        unit_disk_radius = max(distances) if distances else 1.0  # 1.0 comme valeur par défaut
-        return unit_disk_radius
 
 def find_minimal_radius(G: nx.Graph, pos):
     """
