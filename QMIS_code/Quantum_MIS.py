@@ -1,46 +1,41 @@
 from numpy.typing import NDArray
 import numpy as np
+import networkx as nx
 from pulser import Register, Pulse, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import AnalogDevice
 from pulser.waveforms import InterpolatedWaveform
-from QMIS_utils import scale_coordinates, find_unit_disk_radius, plot_histogram
+from QMIS_utils import scale_coordinates, find_minimal_radius, plot_histogram, euclid_dist
 
 
 class Quantum_MIS:
-    def __init__(self, coords: NDArray, radius: float = None)-> None:
-        
-        self.coords = coords
-        if radius == None:
-            self.radius = find_unit_disk_radius(self.coords)
-        else:
-            self.radius = radius
+    def __init__(self, graph:nx.graph)-> None:
+        self.G = graph
+        self.pos = nx.spring_layout(self.G, seed = 42)
+        self.coords = np.array(list(self.pos.values()))
+        self.radius = find_minimal_radius(self.G, self.pos)
         self.reg = self.build_reg()
-
-    
-    def build_reg(self):
-        MAX_D = 35  
-        MIN_D = 5 
         
-        # Scale coordinates based on min and max distances
+
+    def build_reg(self)-> Register:
+        MAX_D = 35  
+        MIN_D = 5
         scaled_coords, self.radius = scale_coordinates(self.radius, self.coords, MIN_D, MAX_D)
-        reg = Register.from_coordinates(scaled_coords, prefix='N')
-      
+        qubits = dict(enumerate(scaled_coords))
+        reg = Register(qubits)
         return reg
 
-    def print_reg(self):
-        
+
+    def print_reg(self)-> None:
         self.reg.draw(blockade_radius=self.radius, 
         draw_graph=True,
         draw_half_radius=True)
         
 
-        
     def run(self, shots: int = 1000, generate_histogram: bool = False, file_name: str = "QMIS_histo.pdf"):
         
         Omega_r_b = AnalogDevice.rabi_from_blockade(self.radius)
         Omega_pulse_max = AnalogDevice.channels['rydberg_global'].max_amp
-
         Omega = min(Omega_pulse_max, Omega_r_b)
 
         delta_0 = -5 #Valeur de désaccord souhaité au début du pulse
