@@ -25,7 +25,7 @@ class BIG_QMIS:
             )  # À améliorer sinon ce n'est pas des int mais des str
             for node in self.graph.nodes()
         ]
-        n_cuts, membership = pymetis.part_graph(num_of_cuts, adjacency=adjacency_list)
+        membership = pymetis.part_graph(num_of_cuts, adjacency=adjacency_list)[1]
 
         if print_progression:
             print("Partionned the graph")
@@ -41,17 +41,25 @@ class BIG_QMIS:
         if print_progression:
             print("Sub_graphes created")
 
-        MIS_list = np.empty(len(sub_graphs))
+        MIS_list = []
 
         for i, (graph, nodes) in enumerate(zip(sub_graphs, nodes_per_graph)):
-            MIS_object = Quantum_MIS(graph)  # À faire
+            nodes_index_to_value = [graph.nodes()]
+            label_changer = dict()
+            for k in nodes_index_to_value:
+                label_changer["nodes_index_to_value[i]"] = k
+            MIS_object = Quantum_MIS(
+                nx.relabel_nodes(graph, label_changer, copy=True)
+            )  # À faire
             res_dict = MIS_object.run(shots=100)
             best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
             independant_nodes = []
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
                     independant_nodes.append((nodes_per_graph[i])[j])
-            MIS_list[i] = independant_nodes
+            MIS_list.append(independant_nodes)
+        print(nodes_per_graph)
+        print(MIS_list)
 
         if print_progression:
             print("MIS' done. Now combining")
@@ -76,11 +84,12 @@ class BIG_QMIS:
         tree_directed = nx.bfs_tree(tree, root)
         with_node = np.empty(tree.number_of_nodes())
         without_node = np.empty(tree.number_of_nodes())
-        root_indexes = [tree_directed.nodes()]
+        indexes = [i for i in tree_directed.nodes()]
+        print(indexes)
         mis_nodes = []
 
         def tree_mis_searcher(node):
-            node_index = root_indexes.index(node)
+            node_index = indexes.index(node)
             if tree_directed.out_degree(node) == 0:
                 with_node[node_index] = 1
                 without_node[node_index] = 0
@@ -89,10 +98,10 @@ class BIG_QMIS:
             without_node[node_index] = 0
             for i in tree_directed.successors(node):
                 tree_mis_searcher(i)
-                index_i = root_indexes.index(i)
-                with_node[node_index] += without_node(index_i)
+                index_i = indexes.index(i)
+                with_node[node_index] += without_node[index_i]
                 without_node[node_index] += max(
-                    without_node(index_i), with_node(index_i)
+                    without_node[index_i], with_node[index_i]
                 )
 
         def mis_explorer(node, exclude_node):
@@ -100,7 +109,7 @@ class BIG_QMIS:
                 if not exclude_node:
                     mis_nodes.append(node)
                 return
-            node_index = root_indexes.index(node)
+            node_index = indexes.index(node)
             if exclude_node or without_node[node_index] > with_node[node_index]:
                 for i in tree_directed.successors(node):
                     mis_explorer(i, exclude_node=False)
@@ -115,16 +124,18 @@ class BIG_QMIS:
 
         return mis_nodes
 
-    def root_finder(self, tree):
-        fartest_distances = np.empty(tree.number_of_nodes())
-        start = tree.nodes()[0]
-        for i, node in enumerate(tree.nodes):
-            fartest_distances[i] = nx.shortest_path_length(tree, start, node)
-        return np.argmax(fartest_distances)[0]
+    def root_finder(self, tree: nx.Graph):
+        fartest_distances = []
+        nodes_array = [i for i in tree.nodes()]
+        start = nodes_array[0]
+        for node in nodes_array:
+            fartest_distances.append(nx.shortest_path_length(tree, start, node))
+        root_index = np.argmax(fartest_distances)
+        return nodes_array[root_index]
 
-    def combine_mis(self, MIS_list: List[List[int]]):
+    def combine_mis(self, MIS_list: List[List[str]]):
         if len(MIS_list) == 1:
-            return MIS_list
+            return MIS_list[0]
         n = len(MIS_list) // 2
         MIS_one = self.combine_mis(MIS_list[:n])
         MIS_two = self.combine_mis(MIS_list[n:])
@@ -139,11 +150,14 @@ class BIG_QMIS:
             if u in MIS_one and v in MIS_two
         )
 
-        new_mis = np.array([nx.isolate(forest)])
-        forest.remove_edges_from(
-            new_mis
-        )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
-
+        nodes_to_remove = [i for i in nx.isolates(forest)]
+        if nodes_to_remove is not []:
+            forest.remove_nodes_from(
+                nodes_to_remove
+            )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
+        if forest.number_of_edges() == 0:
+            return MIS_list
+        new_mis = []
         for tree in nx.connected_components(forest):
             tree_graph = self.create_sub_graph(tree)
             result_mis = self.mis_tree(tree_graph)
