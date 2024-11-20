@@ -3,6 +3,7 @@ import numpy as np
 import networkx as nx
 from scipy.spatial import KDTree
 from scipy.spatial.distance import pdist
+from QMIS_utils import Pulse_constructor
 
 def random_UD_graph(nqubits, seed):
     np.random.seed(seed)
@@ -33,10 +34,14 @@ def random_UD_graph(nqubits, seed):
 
     return graph
 
-G = random_UD_graph(7, 176)
+G = nx.Graph()
+edges = np.array([(1, 2), (1, 3), (2,3), (3, 4), (3, 5),(4, 5), (5, 6)])
+G.add_edges_from(edges)
+
+Pulse = Pulse_constructor(4000, "Waveform")
 
 test =  Quantum_MIS(G)
 test.print_reg()
 
-test.run(generate_histogram=True)
+test.run(generate_histogram=True, Pulse = Pulse)
 
