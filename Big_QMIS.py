@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # À voir si on fait juste un graph en entree
 class BIG_QMIS:
-    def __init__(self, graph: nx.Graph, num_atoms: int = 15) -> None:
+    def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
         self.graph = graph
         if num_atoms > 20:
             self.num_atoms = 20
@@ -59,12 +59,11 @@ class BIG_QMIS:
                     independant_nodes.append((nodes_per_graph[i])[j])
             MIS_list.append(independant_nodes)
         print(nodes_per_graph)
-        print(MIS_list)
-
         if print_progression:
             print("MIS' done. Now combining")
 
-        return self.combine_mis(MIS_list)
+        result = self.combine_mis(MIS_list)
+        return result
         # À vérifier ce bloc de for quand fonction de quantique sera à jour.
 
     def create_sub_graph(self, nodes: List[int]):
@@ -85,7 +84,6 @@ class BIG_QMIS:
         with_node = np.empty(tree.number_of_nodes())
         without_node = np.empty(tree.number_of_nodes())
         indexes = [i for i in tree_directed.nodes()]
-        print(indexes)
         mis_nodes = []
 
         def tree_mis_searcher(node):
@@ -139,6 +137,16 @@ class BIG_QMIS:
         n = len(MIS_list) // 2
         MIS_one = self.combine_mis(MIS_list[:n])
         MIS_two = self.combine_mis(MIS_list[n:])
+        MIS_one = (
+            [node for sublist in MIS_one for node in sublist]
+            if isinstance(MIS_one[0], list)
+            else MIS_one
+        )
+        MIS_two = (
+            [node for sublist in MIS_two for node in sublist]
+            if isinstance(MIS_two[0], list)
+            else MIS_two
+        )
 
         # À vérifier mais devrait fonctionner
         forest = nx.Graph()
@@ -151,16 +159,19 @@ class BIG_QMIS:
         )
 
         nodes_to_remove = [i for i in nx.isolates(forest)]
-        if nodes_to_remove is not []:
+        if not nodes_to_remove == []:
             forest.remove_nodes_from(
                 nodes_to_remove
             )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
         if forest.number_of_edges() == 0:
-            return MIS_list
+            return (
+                [node for sublist in MIS_list for node in sublist]
+                if isinstance(MIS_list[0], list)
+                else MIS_list
+            )
         new_mis = []
         for tree in nx.connected_components(forest):
             tree_graph = self.create_sub_graph(tree)
             result_mis = self.mis_tree(tree_graph)
             new_mis = np.append(new_mis, result_mis)
-
         return new_mis
