@@ -17,7 +17,12 @@ class BIG_QMIS:
         else:
             self.num_atoms = num_atoms
 
-    def run(self, print_progression: bool = False):
+    def run(
+        self,
+        pulse,
+        print_progression: bool = False,
+        print_log_pulser: bool = False,
+    ):
         num_of_cuts = int(np.ceil(self.graph.number_of_nodes() / self.num_atoms))
         adjacency_list = [
             list(
@@ -51,15 +56,16 @@ class BIG_QMIS:
             MIS_object = Quantum_MIS(
                 nx.relabel_nodes(graph, label_changer, copy=True)
             )  # À faire
-            res_dict = MIS_object.run(shots=100)
+            res_dict = MIS_object.run(pulse, shots=100, progress_bar=print_log_pulser)
             best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
             independant_nodes = []
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
                     independant_nodes.append((nodes_per_graph[i])[j])
             MIS_list.append(independant_nodes)
-        print(nodes_per_graph)
         if print_progression:
+            print("The subgraphes:")
+            print(nodes_per_graph)
             print("MIS' done. Now combining")
 
         result = self.combine_mis(MIS_list)

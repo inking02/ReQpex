@@ -6,6 +6,7 @@ from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary
 from utils.generate_maps import generate_map, generate_town_graph_connected
 from numpy.typing import NDArray
+from QMIS_code.QMIS_utils import Pulse_constructor
 
 data = pd.read_csv("/Users/lf/Documents/GitHub/ReQpex/datasets/cloches.csv", sep=";")
 
@@ -65,8 +66,11 @@ generate_town_graph_connected(
 plt.clf()
 
 
+pulse = Pulse_constructor(4000, "Rise_fall")
+
+
 solver = BIG_QMIS(G, num_atoms=6)
-new_sommets = solver.run(print_progression=True)
+new_sommets = solver.run(pulse, print_progression=True)
 print(new_sommets)
 
 
