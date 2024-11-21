@@ -37,6 +37,7 @@ def random_UD_graph(nqubits, seed):
 G = nx.Graph()
 edges = np.array([(1, 2), (1, 3), (2,3), (3, 4), (3, 5),(4, 5), (5, 6)])
 G.add_edges_from(edges)
+G= random_UD_graph(6, 129846)
 
 Pulse = Pulse_constructor(4000, "Waveform")
 
