@@ -6,6 +6,8 @@ from array import *
 from matplotlib.patches import Circle
 from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
+import folium
+from folium.plugins import MarkerCluster, MiniMap
 
 
 def generate_map(
@@ -116,3 +118,17 @@ def generate_town_graph_connected(
         ax.set_ylabel("Latitude")
     nx.draw(G, pos=pos, with_labels=True, node_size=100)
     plt.savefig(path + file_name)
+
+
+def interactive_map(data_frame_to_show):
+    sherbrooke_coord = [45.40198690041696, -71.88968408774863]
+    my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
+    minimap = MiniMap()
+    my_map.add_child(minimap)
+    for _, row in data_frame_to_show.iterrows():
+        coords = [row["Longitude"], row["Latitude"]]
+        coords[0], coords[1] = coords[1], coords[0]
+        name = row["Nom de la borne"]
+        # adress = donnee_i["Addresse"] + donnee_i["Rue"]
+        folium.Marker(coords, popup=name).add_to(my_map)
+    my_map.show_in_browser()

@@ -4,7 +4,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary
-from utils.generate_maps import generate_map, generate_town_graph_connected
+from utils.generate_maps import (
+    generate_map,
+    generate_town_graph_connected,
+    interactive_map,
+)
 from numpy.typing import NDArray
 from QMIS_code.QMIS_utils import Pulse_constructor
 import sys
@@ -47,39 +51,13 @@ def simplify_bins(
 
     G = disc_graph_to_connected(positions=points, radius=radius_lng_lat)
     if generate_graphs:
-        generate_map(
-            points,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/Ville_originale",
-        )
-        plt.clf()
-        generate_town_graph_connected(
-            points,
-            radius=radius_lng_lat,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/Ville_originale_connected",
-        )
+        interactive_map(data)
 
     solver = BIG_QMIS(G, num_atoms=6)
     new_sommets = solver.run(pulse, print_progression=True)
 
     new_sommets_int = [int(i) for i in new_sommets]
     new_points = points[new_sommets_int, :]
-
-    if generate_graphs:
-        plt.clf()
-        generate_map(
-            new_points,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/Ville_simple",
-        )
-        plt.clf()
-        generate_town_graph_connected(
-            new_points,
-            radius=radius_lng_lat,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/Ville_simple_connected",
-        )
 
     original_size = np.shape(points)[0]
     new_size = np.shape(new_points)[0]
@@ -94,6 +72,9 @@ def simplify_bins(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", index=False
     )
 
+    if generate_graphs:
+        interactive_map(new_dataframe)
+
 
 def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
     bins = pd.read_csv(
@@ -102,19 +83,14 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
     new_locations = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/liste_occupants_simple.csv", sep=","
+        "/Users/lf/Documents/GitHub/ReQpex/datasets/liste_occupants_simple.csv", sep=";"
     )
     new_locations_numpy = new_locations[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
 
     if generate_graphs:
-        plt.clf()
-        generate_map(
-            new_locations_numpy,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/endroits_possibles",
-        )
+        interactive_map(new_locations)
 
     radius_lng_lat = (
         radius_km / 111.1
@@ -142,12 +118,7 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
     )
 
     if generate_graphs:
-        plt.clf()
-        generate_map(
-            valid_locations,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/nouveaux_endroits_possibles",
-        )
+        interactive_map(useful_locations)
     original_size = np.shape(new_locations_numpy)[0]
     new_size = np.shape(valid_locations)[0]
     print()
@@ -166,6 +137,7 @@ def place_new_bins(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", sep=","
     )
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
+    bins_names = bins[["Nom de la borne"]].to_numpy(dtype=str, copy=True)
 
     locations = pd.read_csv(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/useful_locations.csv", sep=","
@@ -214,14 +186,6 @@ def place_new_bins(
     new_bins_numpy[: np.shape(bins_numpy)[0], :] = bins_numpy
     new_bins_numpy[np.shape(bins_numpy)[0] :, :] = new_locations_numpy
 
-    if generate_graphs:
-        plt.clf()
-        generate_map(
-            new_bins_numpy,
-            path="/Users/lf/Documents/GitHub/ReQpex/",
-            file_name="figures/new_disposition",
-        )
-
     new_number_of_bins = np.shape(new_bins_numpy)[0]
     print()
     print("New number of bins: ", new_number_of_bins)
@@ -230,10 +194,16 @@ def place_new_bins(
         new_bins_numpy,
         columns=["Longitude", "Latitude"],
     )
+    new_locations_names = (
+        (locations[["Nom de la borne"]]).to_numpy(dtype=str, copy=True)
+    )[new_sommets_int]
+    new_bins_location["Nom de la borne"] = np.append(bins_names, new_locations_names)
 
     new_bins_location.to_csv(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/nouvelles_cloches.csv", index=False
     )
+    if generate_graphs:
+        interactive_map(new_bins_location)
 
 
 simplify_bins(0.5, generate_graphs=True)
