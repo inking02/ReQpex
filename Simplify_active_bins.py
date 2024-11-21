@@ -107,3 +107,9 @@ print("Sizes")
 print("OG size: ", original_size)
 print("New size: ", new_size)
 print("Bins removed: ", original_size - new_size)
+
+
+new_dataframe = data.iloc[new_sommets_int]
+new_dataframe.to_csv(
+    "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", index=True
+)
