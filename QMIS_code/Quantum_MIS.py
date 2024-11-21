@@ -41,7 +41,6 @@ class Quantum_MIS:
         seq = Sequence(self.reg, AnalogDevice) #La séquence doit contenir un registre ainsi que la machine choisie 
         seq.declare_channel("ising", "rydberg_global") #On choisit un pulse global. 
         seq.add(Pulse(Omega), "ising")
-        seq.draw()
         
         simul = QutipEmulator.from_sequence(seq)
         results = simul.run(progress_bar= progress_bar)
