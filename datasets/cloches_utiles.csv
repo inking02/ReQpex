@@ -4,13 +4,13 @@ Numéro ,Nom de la borne,Addresse,Rue,Ville,Province,Code Postal,Latitude,Longit
 12,Écocentre - Michel Ledoux ,1000,Rue Léon-Trépanier,Sherbrooke,Québec,J1G 0C4,45.3938,-71.86143,24333.3333
 2,Dépanneur Ultramar,1133,13e Avenue N,Sherbrooke,Québec,J1E 3P1,45.42373,-71.87296,11846.6667
 5,Coq O Bed,1139,Chemin des Pèlerins,Sherbrooke,Québec,J1E 1G6,45.42344,-71.88731,8680.0
-8,Shell,1837,Rue King E,Sherbrooke,Québec,J1G 5G7,45.410633,-71.84523,11633.3333
+7,IGA Extra Couture,2240,Rue King E,Sherbrooke,Québec,J1G 5G8,45.411914,-71.83975,30680.0
 21,Église St-Esprit ,2290,Rue Galt O,Sherbrooke,Québec,J1K 1K8,45.387,-71.92853,54393.3333
+15,Aréna Ivan-Dugré,1250,Rue Galt O,Sherbrooke,Québec,J1H 2A7,45.388925,-71.906743,13846.6667
 20,Récupex Ing,2345,Rue Hertel,Sherbrooke,Québec,J1J 2J1,45.39673,-71.93049,35306.6667
-41,Tim Hortons,5963,Chem. de Sainte-Élie,Sherbrooke,Québec,J1R 0L6,45.395,-72.00484,13346.6667
 34,Parc Mi-Vallon,1443,Rue Milan,Sherbrooke,Québec,J1N 1V8,45.379532,-71.98372,53593.3333
 37,École Vision-Sherbrooke,5100,Rue Henri-Labonne,Sherbrooke,Québec,J1N 1J1,45.36994,-71.99418,17440.0
-18,École Montcalm/Centre communautaire Jacques Cartier,2050,Boul de Portland,Sherbrooke,Québec,J1J 1T9,45.40369,-71.92404,26566.6667
+19,Les Promenades King,2213,Rue King O,Sherbrooke,Québec,J1J 2G2,45.398337,-71.927644,28740.0
 24,Aréna du Mont St-Anne,2100,Chem. de Sainte-Catherine,Sherbrooke,Québec,J1N 3V5,45.3714,-71.932925,19013.3333
 33,Entrepôt Coop Alentour,4740,Boulevard Industriel,Sherbrooke,Québec,J1L 3A3,45.3955,-71.98237,18206.6667
 39,Parc Central,6161,Rue du Président Kennedy ,Sherbrooke,Québec,J1N 2P5,45.354676,-71.99417,47353.3333
@@ -24,7 +24,7 @@ Numéro ,Nom de la borne,Addresse,Rue,Ville,Province,Code Postal,Latitude,Longit
 42,Iga Bouchard ,6185,QC-220,Sherbrooke,Québec,J1R 0L1,45.39235,-72.01376,152726.667
 46,Boucherie Face de Boeuf,4250,Chem. Saint-Roch S,Sherbrooke,Québec,J1N 0E8,45.33307,-71.979329,0.0
 32,Écocentre - Rose-Cohen,365,Rue Pépin,Sherbrooke,Québec,J1L 2E2,45.40102,-71.968,32893.3333
-44,Matériaux St-Élie,17,Rue Saint-Michel-Archange,Sherbrooke,Québec,J1R 0C3,45.39483,-72.04597,8453.33333
+43,Église Saint-Élie,7205,Chem. de Sainte-Élie,Sherbrooke,Québec,J1R 0K5,45.39567,-72.03986,48680.0
 45,Shell,7390,Boul Bourque,Sherbrooke,Québec,J1N 3L2,45.34191,-72.04209,35566.6667
 47,EKO / Dépanneur Brompton,245,Rue Laval,Sherbrooke,Québec,J1C 0R1,45.470253,-71.948226,27640.0
 48,Tim Hortons,3815,College St,Sherbrooke,Québec,J0B 1M0,45.362799,-71.893761,17713.3333

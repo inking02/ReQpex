@@ -40,11 +40,14 @@ class BIG_QMIS:
         for i in range(num_of_cuts):
             nodes = np.argwhere(np.array(membership) == i).ravel()
             nodes = [str(j) for j in nodes]
-            nodes_per_graph.append(nodes)
-            sub_graphs.append(self.create_sub_graph(nodes))
+            if not nodes == []:
+                nodes_per_graph.append(nodes)
+                sub_graphs.append(self.create_sub_graph(nodes))
 
         if print_progression:
             print("Sub_graphes created")
+            # print("The subgraphes:")
+            # print(nodes_per_graph)
 
         MIS_list = []
 
@@ -58,14 +61,17 @@ class BIG_QMIS:
             )  # À faire
             res_dict = MIS_object.run(pulse, shots=100, progress_bar=print_log_pulser)
             best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+            if best_bitstring == "0" * len(nodes):
+                del res_dict[best_bitstring]
+                best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+
             independant_nodes = []
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
                     independant_nodes.append((nodes_per_graph[i])[j])
+
             MIS_list.append(independant_nodes)
         if print_progression:
-            print("The subgraphes:")
-            print(nodes_per_graph)
             print("MIS' done. Now combining")
 
         result = self.combine_mis(MIS_list)
@@ -170,14 +176,10 @@ class BIG_QMIS:
                 nodes_to_remove
             )  # Devrait marcher pour enlever nodes pas impliqués dans la combinaison
         if forest.number_of_edges() == 0:
-            return (
-                [node for sublist in MIS_list for node in sublist]
-                if isinstance(MIS_list[0], list)
-                else MIS_list
-            )
+            return nodes_to_remove
         new_mis = []
         for tree in nx.connected_components(forest):
             tree_graph = self.create_sub_graph(tree)
             result_mis = self.mis_tree(tree_graph)
             new_mis = np.append(new_mis, result_mis)
-        return new_mis
+        return np.append(new_mis, nodes_to_remove)

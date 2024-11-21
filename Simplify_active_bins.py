@@ -7,6 +7,9 @@ from utils.utils import create_node_dictionnary
 from utils.generate_maps import generate_map, generate_town_graph_connected
 from numpy.typing import NDArray
 from QMIS_code.QMIS_utils import Pulse_constructor
+import sys
+
+sys.setrecursionlimit(2000)
 
 
 def simplify_bins(
@@ -59,7 +62,6 @@ def simplify_bins(
 
     solver = BIG_QMIS(G, num_atoms=6)
     new_sommets = solver.run(pulse, print_progression=True)
-    print(new_sommets)
 
     new_sommets_int = [int(i) for i in new_sommets]
     new_points = points[new_sommets_int, :]
@@ -152,7 +154,7 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
     print("Sizes")
     print("OG size: ", original_size)
     print("New size: ", new_size)
-    print("Bins removed: ", original_size - new_size)
+    print("Locations removed: ", original_size - new_size)
 
 
 def place_new_bins(
@@ -198,36 +200,50 @@ def place_new_bins(
 
     G = disc_graph_to_connected(positions=locations_numpy, radius=radius_lng_lat)
 
-    solver = BIG_QMIS(G, num_atoms=5)
+    solver = BIG_QMIS(G, num_atoms=4)
     new_sommets = solver.run(pulse, print_progression=True)
-    print(new_sommets)
 
     new_sommets_int = [int(i) for i in new_sommets]
     new_locations_numpy = locations_numpy[new_sommets_int, :]
-    bins_numpy.append(new_locations_numpy)
+    new_bins_numpy = np.empty(
+        (
+            np.shape(bins_numpy)[0] + np.shape(new_locations_numpy)[0],
+            np.shape(bins_numpy)[1],
+        )
+    )
+    new_bins_numpy[: np.shape(bins_numpy)[0], :] = bins_numpy
+    new_bins_numpy[np.shape(bins_numpy)[0] :, :] = new_locations_numpy
 
     if generate_graphs:
         plt.clf()
         generate_map(
-            bins_numpy,
+            new_bins_numpy,
             path="/Users/lf/Documents/GitHub/ReQpex/",
             file_name="figures/new_disposition",
         )
 
-    new_number_of_bins = np.shape(bins_numpy)[0]
+    new_number_of_bins = np.shape(new_bins_numpy)[0]
     print()
     print("New number of bins: ", new_number_of_bins)
 
     new_bins_location = pd.DataFrame(
-        new_bins_location,
-        ["Longitude", "Latitude"],
+        new_bins_numpy,
+        columns=["Longitude", "Latitude"],
     )
 
     new_bins_location.to_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", index=False
+        "/Users/lf/Documents/GitHub/ReQpex/datasets/nouvelles_cloches.csv", index=False
     )
 
 
-# simplify_bins(0.5, generate_graphs=True)
-# remove_possibles_new_locations(0.7, generate_graphs=True)
-place_new_bins(0.6, generate_graphs=True)
+simplify_bins(0.5, generate_graphs=True)
+print("Bins simplified")
+print("******************************************")
+
+remove_possibles_new_locations(1.5, generate_graphs=True)
+print("Possible locations simplified")
+print("******************************************")
+
+place_new_bins(1, generate_graphs=True)
+print("New distribution calculated")
+print("******************************************")

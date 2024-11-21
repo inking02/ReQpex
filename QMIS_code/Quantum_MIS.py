@@ -10,7 +10,9 @@ from typing import Callable
 class Quantum_MIS:
     def __init__(self, graph: nx.graph) -> None:
         self.G = graph
-        self.pos = nx.spring_layout(self.G, seed=42)
+        self.pos = nx.spring_layout(
+            self.G, seed=42
+        )  # Mettre aléatoire et prendre best?
         self.coords = np.array(list(self.pos.values()))
         self.radius = find_minimal_radius(self.G, self.pos)
         self.reg = self.build_reg()
