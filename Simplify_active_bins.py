@@ -137,13 +137,18 @@ def place_new_bins(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", sep=","
     )
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
-    bins_names = bins[["Nom de la borne"]].to_numpy(dtype=str, copy=True)
+    bins_names = bins[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
+        dtype=str, copy=True
+    )
 
     locations = pd.read_csv(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/useful_locations.csv", sep=","
     )
     locations_numpy = locations[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
+    )
+    locations_names = locations[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
+        dtype=str, copy=True
     )
 
     radius_lng_lat = (
@@ -176,7 +181,8 @@ def place_new_bins(
     new_sommets = solver.run(pulse, print_progression=True)
 
     new_sommets_int = [int(i) for i in new_sommets]
-    new_locations_numpy = locations_numpy[new_sommets_int, :]
+
+    new_locations_numpy = locations_numpy[new_sommets_int]
     new_bins_numpy = np.empty(
         (
             np.shape(bins_numpy)[0] + np.shape(new_locations_numpy)[0],
@@ -194,10 +200,16 @@ def place_new_bins(
         new_bins_numpy,
         columns=["Longitude", "Latitude"],
     )
-    new_locations_names = (
-        (locations[["Nom de la borne"]]).to_numpy(dtype=str, copy=True)
-    )[new_sommets_int]
-    new_bins_location["Nom de la borne"] = np.append(bins_names, new_locations_names)
+    new_bins_location["Nom de la borne"] = np.append(
+        bins_names[:, 0], locations_names[new_sommets_int, 0]
+    )
+
+    new_bins_location["Addresse"] = np.append(
+        bins_names[:, 1], locations_names[new_sommets_int, 1]
+    )
+    new_bins_location["Rue"] = np.append(
+        bins_names[:, 2], locations_names[new_sommets_int, 2]
+    )
 
     new_bins_location.to_csv(
         "/Users/lf/Documents/GitHub/ReQpex/datasets/nouvelles_cloches.csv", index=False
@@ -206,11 +218,11 @@ def place_new_bins(
         interactive_map(new_bins_location)
 
 
-simplify_bins(0.5, generate_graphs=True)
+simplify_bins(0.5, generate_graphs=False)
 print("Bins simplified")
 print("******************************************")
 
-remove_possibles_new_locations(1.5, generate_graphs=True)
+remove_possibles_new_locations(1.5, generate_graphs=False)
 print("Possible locations simplified")
 print("******************************************")
 

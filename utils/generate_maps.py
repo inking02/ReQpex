@@ -129,6 +129,11 @@ def interactive_map(data_frame_to_show):
         coords = [row["Longitude"], row["Latitude"]]
         coords[0], coords[1] = coords[1], coords[0]
         name = row["Nom de la borne"]
-        # adress = donnee_i["Addresse"] + donnee_i["Rue"]
-        folium.Marker(coords, popup=name).add_to(my_map)
+        adress = str(row["Addresse"]) + ", " + row["Rue"]
+        html = f"""
+        <h1> {name}</h1>
+        <p>Adresse : {adress}</p>
+        """
+        popup = folium.Popup(html=html, max_width=1000)
+        folium.Marker(coords, popup=popup).add_to(my_map)
     my_map.show_in_browser()
