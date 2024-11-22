@@ -15,11 +15,13 @@ sys.setrecursionlimit(2000)
 
 
 def simplify_bins(
-    radius_km, pulse=Pulse_constructor(4000, "Rise_fall"), generate_graphs: bool = False
+    radius_km,
+    pulse=Pulse_constructor(4000, "Rise_fall"),
+    generate_graphs: bool = False,
+    path="",
+    bin_image: bool = False,
 ):
-    data = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches.csv", sep=";"
-    )
+    data = pd.read_csv(path + "datasets/cloches.csv", sep=";")
 
     radius_lng_lat = (
         radius_km / 111.1
@@ -66,7 +68,7 @@ def simplify_bins(
 
     G = disc_graph_to_connected(positions=points, radius=radius_lng_lat)
     if generate_graphs:
-        interactive_map(data)
+        interactive_map(data, bin_image=bin_image, path=path)
 
     solver = BIG_QMIS(G, num_atoms=6)
     new_sommets = solver.run(
@@ -88,37 +90,34 @@ def simplify_bins(
     print("Bins removed: ", original_size - new_size)
 
     new_dataframe = data.iloc[new_sommets_int]
-    new_dataframe.to_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", index=False
-    )
+    new_dataframe.to_csv(path + "datasets/cloches_utiles.csv", index=False)
 
     if generate_graphs:
-        interactive_map(new_dataframe)
+        interactive_map(new_dataframe, bin_image=bin_image, path=path)
 
 
-def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
-    bins = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", sep=","
-    )
+def remove_possibles_new_locations(
+    radius_km,
+    generate_graphs: bool = False,
+    path="",
+    bin_image: bool = False,
+):
+    bins = pd.read_csv(path + "datasets/cloches_utiles.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
-    new_locations = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/liste_occupants_simple.csv", sep=";"
-    )
+    new_locations = pd.read_csv(path + "datasets/liste_occupants_simple.csv", sep=";")
     new_locations_numpy = new_locations[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
 
-    estrie_aide = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/estrieaide.csv", sep=","
-    )
+    estrie_aide = pd.read_csv(path + "datasets/estrieaide.csv", sep=",")
 
     estrie_aide_numpy = estrie_aide[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
 
     if generate_graphs:
-        interactive_map(new_locations)
+        interactive_map(new_locations, bin_image=bin_image, path=path)
 
     radius_lng_lat = (
         radius_km / 111.1
@@ -147,12 +146,10 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
     useful_locations = new_locations.iloc[list_of_indexes]
     valid_locations = new_locations_numpy[list_of_indexes, :]
 
-    useful_locations.to_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/useful_locations.csv", index=False
-    )
+    useful_locations.to_csv(path + "datasets/useful_locations.csv", index=False)
 
     if generate_graphs:
-        interactive_map(useful_locations)
+        interactive_map(useful_locations, bin_image=bin_image, path=path)
     original_size = np.shape(new_locations_numpy)[0]
     new_size = np.shape(valid_locations)[0]
     print()
@@ -166,18 +163,16 @@ def place_new_bins(
     radius_km: float,
     pulse=Pulse_constructor(4000, "Rise_fall"),
     generate_graphs: bool = False,
+    path="",
+    bin_image: bool = False,
 ):
-    bins = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/cloches_utiles.csv", sep=","
-    )
+    bins = pd.read_csv(path + "datasets/cloches_utiles.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
     bins_names = bins[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
         dtype=str, copy=True
     )
 
-    locations = pd.read_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/useful_locations.csv", sep=","
-    )
+    locations = pd.read_csv(path + "datasets/useful_locations.csv", sep=",")
     locations_numpy = locations[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
@@ -245,21 +240,21 @@ def place_new_bins(
         bins_names[:, 2], locations_names[new_sommets_int, 2]
     )
 
-    new_bins_location.to_csv(
-        "/Users/lf/Documents/GitHub/ReQpex/datasets/nouvelles_cloches.csv", index=False
-    )
+    new_bins_location.to_csv(path + "datasets/nouvelles_cloches.csv", index=False)
     if generate_graphs:
-        interactive_map(new_bins_location)
+        interactive_map(new_bins_location, bin_image=bin_image, path=path)
 
 
-simplify_bins(0.75, generate_graphs=False)
+path = "/Users/lf/Documents/GitHub/ReQpex/"
+
+simplify_bins(0.75, path=path, generate_graphs=False, bin_image=True)
 print("Bins simplified")
 print("******************************************")
 
-remove_possibles_new_locations(1.5, generate_graphs=False)
+remove_possibles_new_locations(1.5, path=path, generate_graphs=False, bin_image=True)
 print("Possible locations simplified")
 print("******************************************")
 
-place_new_bins(1.4, generate_graphs=True)
+place_new_bins(1.4, generate_graphs=True, path=path, bin_image=True)
 print("New distribution calculated")
 print("******************************************")

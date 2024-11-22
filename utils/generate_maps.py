@@ -8,6 +8,8 @@ from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
 import folium
 from folium.plugins import MiniMap
+import base64
+from io import BytesIO
 
 
 def generate_map(
@@ -120,7 +122,7 @@ def generate_town_graph_connected(
     plt.savefig(path + file_name)
 
 
-def interactive_map(data_frame_to_show):
+def interactive_map(data_frame_to_show, bin_image: bool = False, path=""):
     sherbrooke_coord = [45.40198690041696, -71.88968408774863]
     my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
     minimap = MiniMap()
@@ -135,5 +137,12 @@ def interactive_map(data_frame_to_show):
         <p>Adresse : {adress}</p>
         """
         popup = folium.Popup(html=html, max_width=1000)
-        folium.Marker(coords, popup=popup).add_to(my_map)
+        if bin_image:
+            icon = folium.features.CustomIcon(
+                icon_image=path + "datasets/image_cloche_recupex.png",
+                icon_size=(30, 30),
+            )
+            folium.Marker(coords, popup=popup, icon=icon).add_to(my_map)
+        else:
+            folium.Marker(coords, popup=popup).add_to(my_map)
     my_map.show_in_browser()
