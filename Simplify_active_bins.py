@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary
 from utils.generate_maps import (
-    generate_map,
-    generate_town_graph_connected,
     interactive_map,
 )
 from numpy.typing import NDArray
@@ -49,12 +47,34 @@ def simplify_bins(
                     G.add_edge(i, j)
         return G
 
+    def max_with_volume(res_dict, nodes, other_info):
+        max_numb_ones = 0
+        best_volume = 0
+        for key in res_dict.keys():
+            max_numb_ones = max(max_numb_ones, key.count("1"))
+            best_bitstring = key
+        for i, key in enumerate(res_dict.keys()):
+            if key.count("1") == max_numb_ones:
+                volume = 0
+                for k, j in enumerate(key):
+                    if j == "1":
+                        volume += other_info[int(nodes[k])]
+                if best_volume < volume:
+                    best_bitstring = key
+                    best_volume = volume
+        return best_bitstring
+
     G = disc_graph_to_connected(positions=points, radius=radius_lng_lat)
     if generate_graphs:
         interactive_map(data)
 
     solver = BIG_QMIS(G, num_atoms=6)
-    new_sommets = solver.run(pulse, print_progression=True)
+    new_sommets = solver.run(
+        pulse,
+        best_bitstring_getter=max_with_volume,
+        other_info=points[:, 2],
+        print_progression=True,
+    )
 
     new_sommets_int = [int(i) for i in new_sommets]
     new_points = points[new_sommets_int, :]
@@ -89,6 +109,14 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
         dtype=float, copy=True
     )
 
+    estrie_aide = pd.read_csv(
+        "/Users/lf/Documents/GitHub/ReQpex/datasets/estrieaide.csv", sep=","
+    )
+
+    estrie_aide_numpy = estrie_aide[["Longitude", "Latitude"]].to_numpy(
+        dtype=float, copy=True
+    )
+
     if generate_graphs:
         interactive_map(new_locations)
 
@@ -107,6 +135,12 @@ def remove_possibles_new_locations(radius_km, generate_graphs: bool = False):
             if euclid_dist(location, bin) < radius_lng_lat:
                 to_add = False
                 break
+        if to_add:
+            for estrie in estrie_aide_numpy:
+                if euclid_dist(location, estrie) < radius_lng_lat:
+                    to_add = False
+                    break
+
         if to_add:
             list_of_indexes.append(i)
 
@@ -218,7 +252,7 @@ def place_new_bins(
         interactive_map(new_bins_location)
 
 
-simplify_bins(0.5, generate_graphs=False)
+simplify_bins(0.75, generate_graphs=False)
 print("Bins simplified")
 print("******************************************")
 
@@ -226,6 +260,6 @@ remove_possibles_new_locations(1.5, generate_graphs=False)
 print("Possible locations simplified")
 print("******************************************")
 
-place_new_bins(1, generate_graphs=True)
+place_new_bins(1.4, generate_graphs=True)
 print("New distribution calculated")
 print("******************************************")

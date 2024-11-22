@@ -3,9 +3,7 @@ import networkx as nx
 from QMIS_code.Quantum_MIS import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List
-from sklearn.cluster import KMeans
 import pymetis
-import matplotlib.pyplot as plt
 
 
 # À voir si on fait juste un graph en entree
@@ -17,9 +15,14 @@ class BIG_QMIS:
         else:
             self.num_atoms = num_atoms
 
+    def max_bitstring(res_dict, index_positions, other_info=[]):
+        return max(zip(res_dict.values(), res_dict.keys()))[1]
+
     def run(
         self,
         pulse,
+        best_bitstring_getter: callable = max_bitstring,
+        other_info=[],
         print_progression: bool = False,
         print_log_pulser: bool = False,
     ):
@@ -60,15 +63,19 @@ class BIG_QMIS:
                 nx.relabel_nodes(graph, label_changer, copy=True)
             )  # À faire
             res_dict = MIS_object.run(pulse, shots=100, progress_bar=print_log_pulser)
-            best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+            best_bitstring = best_bitstring_getter(
+                res_dict, nodes, other_info=other_info
+            )
             if best_bitstring == "0" * len(nodes):
                 del res_dict[best_bitstring]
-                best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+                best_bitstring = best_bitstring_getter(
+                    res_dict, nodes, other_info=other_info
+                )
 
             independant_nodes = []
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
-                    independant_nodes.append((nodes_per_graph[i])[j])
+                    independant_nodes.append(nodes[j])
 
             MIS_list.append(independant_nodes)
         if print_progression:

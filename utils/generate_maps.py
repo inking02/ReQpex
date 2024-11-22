@@ -7,7 +7,7 @@ from matplotlib.patches import Circle
 from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
 import folium
-from folium.plugins import MarkerCluster, MiniMap
+from folium.plugins import MiniMap
 
 
 def generate_map(
