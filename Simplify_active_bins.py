@@ -17,7 +17,8 @@ sys.setrecursionlimit(2000)
 def simplify_bins(
     radius_km,
     pulse=Pulse_constructor(4000, "Rise_fall"),
-    generate_graphs: bool = False,
+    show_map: bool = False,
+    save_map: bool = False,
     path="",
     bin_image: bool = False,
 ):
@@ -67,8 +68,15 @@ def simplify_bins(
         return best_bitstring
 
     G = disc_graph_to_connected(positions=points, radius=radius_lng_lat)
-    if generate_graphs:
-        interactive_map(data, bin_image=bin_image, path=path)
+    if show_map or save_map:
+        interactive_map(
+            data,
+            bin_image=bin_image,
+            path=path,
+            show_map=show_map,
+            save_map=save_map,
+            name="original_bins",
+        )
 
     solver = BIG_QMIS(G, num_atoms=6)
     new_sommets = solver.run(
@@ -92,13 +100,21 @@ def simplify_bins(
     new_dataframe = data.iloc[new_sommets_int]
     new_dataframe.to_csv(path + "datasets/cloches_utiles.csv", index=False)
 
-    if generate_graphs:
-        interactive_map(new_dataframe, bin_image=bin_image, path=path)
+    if show_map or save_map:
+        interactive_map(
+            new_dataframe,
+            bin_image=bin_image,
+            path=path,
+            show_map=show_map,
+            save_map=save_map,
+            name="useful_original_bins",
+        )
 
 
 def remove_possibles_new_locations(
     radius_km,
-    generate_graphs: bool = False,
+    show_map: bool = False,
+    save_map: bool = False,
     path="",
     bin_image: bool = False,
 ):
@@ -116,8 +132,15 @@ def remove_possibles_new_locations(
         dtype=float, copy=True
     )
 
-    if generate_graphs:
-        interactive_map(new_locations, bin_image=bin_image, path=path)
+    if show_map or save_map:
+        interactive_map(
+            new_locations,
+            bin_image=bin_image,
+            path=path,
+            show_map=show_map,
+            save_map=save_map,
+            name="original_possible_locations",
+        )
 
     radius_lng_lat = (
         radius_km / 111.1
@@ -148,8 +171,15 @@ def remove_possibles_new_locations(
 
     useful_locations.to_csv(path + "datasets/useful_locations.csv", index=False)
 
-    if generate_graphs:
-        interactive_map(useful_locations, bin_image=bin_image, path=path)
+    if show_map or save_map:
+        interactive_map(
+            useful_locations,
+            bin_image=bin_image,
+            path=path,
+            show_map=show_map,
+            save_map=save_map,
+            name="simplified_possible_locations",
+        )
     original_size = np.shape(new_locations_numpy)[0]
     new_size = np.shape(valid_locations)[0]
     print()
@@ -162,7 +192,8 @@ def remove_possibles_new_locations(
 def place_new_bins(
     radius_km: float,
     pulse=Pulse_constructor(4000, "Rise_fall"),
-    generate_graphs: bool = False,
+    show_map: bool = False,
+    save_map: bool = False,
     path="",
     bin_image: bool = False,
 ):
@@ -241,20 +272,27 @@ def place_new_bins(
     )
 
     new_bins_location.to_csv(path + "datasets/nouvelles_cloches.csv", index=False)
-    if generate_graphs:
-        interactive_map(new_bins_location, bin_image=bin_image, path=path)
+    if show_map or save_map:
+        interactive_map(
+            new_bins_location,
+            bin_image=bin_image,
+            path=path,
+            show_map=show_map,
+            save_map=save_map,
+            name="new_distribution_of_bins",
+        )
 
 
 path = "/Users/lf/Documents/GitHub/ReQpex/"
 
-simplify_bins(0.75, path=path, generate_graphs=False, bin_image=True)
+simplify_bins(0.75, path=path, show_map=False, bin_image=True)
 print("Bins simplified")
 print("******************************************")
 
-remove_possibles_new_locations(1.5, path=path, generate_graphs=False, bin_image=True)
+remove_possibles_new_locations(1.5, path=path, show_map=False, bin_image=True)
 print("Possible locations simplified")
 print("******************************************")
 
-place_new_bins(1.4, generate_graphs=True, path=path, bin_image=True)
+place_new_bins(1.4, show_map=True, save_map=True, path=path, bin_image=True)
 print("New distribution calculated")
 print("******************************************")
