@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import folium
-from folium.plugins import MarkerCluster, MiniMap
+from folium.plugins import MiniMap
 
 
 def beaufiful_map_getter(path: str = "", show_estrie_aide=True, show: bool = False):
@@ -85,30 +85,31 @@ def beaufiful_map_getter(path: str = "", show_estrie_aide=True, show: bool = Fal
         print("A blue pin is a bin that will stay")
         print("A green pin is a bin that will be added")
         print("A red pin is a bin that will be removed")
-        for _, row in estrie_aide.iterrows():
-            coords = [row["Longitude"], row["Latitude"]]
-            coords[0], coords[1] = coords[1], coords[0]
-            name = row["Nom de la borne"]
-            adress = str(row["Addresse"]) + ", " + row["Rue"]
-            html = f"""
-            <h1> {name}</h1>
-            <p>Adresse : {adress}</p>
-            <p>Cette cloche est une d'Estrie-Aide</p>
-            """
-            popup = folium.Popup(html=html, max_width=1000)
-            folium.Marker(coords, popup=popup, icon=folium.Icon(color="purple")).add_to(
-                my_map
-            )
+        if show_estrie_aide:
+            for _, row in estrie_aide.iterrows():
+                coords = [row["Longitude"], row["Latitude"]]
+                coords[0], coords[1] = coords[1], coords[0]
+                name = row["Nom de la borne"]
+                adress = str(row["Addresse"]) + ", " + row["Rue"]
+                html = f"""
+                <h1> {name}</h1>
+                <p>Adresse : {adress}</p>
+                <p>Cette cloche est une d'Estrie-Aide</p>
+                """
+                popup = folium.Popup(html=html, max_width=1000)
+                folium.Marker(
+                    coords, popup=popup, icon=folium.Icon(color="purple")
+                ).add_to(my_map)
 
-        print("A purple pin is an Estrie-Aide bin")
+            print("A purple pin is an Estrie-Aide bin")
 
         print()
         my_map.save(path + "figures/map_with_stats.html")
         if show:
             my_map.show_in_browser()
 
-    show_map(show_estrie_aide=show_estrie_aide, show_map=show)
+    show_map(show_estrie_aide=show_estrie_aide, show=show)
 
 
 path = "/Users/lf/Documents/GitHub/ReQpex/"
-beaufiful_map_getter(path=path, show_estrie_aide=True, show_map=True)
+beaufiful_map_getter(path=path, show_estrie_aide=True, show=True)

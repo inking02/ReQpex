@@ -5,7 +5,20 @@ File containing utility functions used in the repository
 import numpy as np
 from numpy.typing import NDArray
 import networkx as nx
-import pandas as pd
+
+
+def euclid_dist(pos1, pos2):
+    """
+    Calculates the euclidian distance between to points in a 2D plane.
+
+    Parameters:
+    - pos1 (NDArray[np.float_]): The coordinates of the first point in the 2D plane.
+    - pos2 (NDArray[np.float_]): The coordinates of the second point in the 2D plane.
+
+    Returns:
+    float: The euclidian distance between the points
+    """
+    return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
 
 
 def create_node_dictionnary(points: NDArray[np.float_]) -> dict:
@@ -42,16 +55,9 @@ def disc_graph_to_connected(positions: NDArray[np.float_], radius: float) -> nx.
     for label, coord in nodes_dict.items():
         G.add_node(label, pos=coord)
 
-    # Distance between two positions
-    def euclid_dist(pos1, pos2):
-        return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
-
     # Condition to add edges
     for i in G.nodes():
         for j in G.nodes():
-            if (
-                i != j
-                and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= 2 * radius
-            ):
+            if i != j and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= radius:
                 G.add_edge(i, j)
     return G
