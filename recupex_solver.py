@@ -293,6 +293,6 @@ remove_possibles_new_locations(1.5, path=path, show_map=False, bin_image=True)
 print("Possible locations simplified")
 print("******************************************")
 
-place_new_bins(1.4, show_map=True, save_map=True, path=path, bin_image=True)
+place_new_bins(1.4, show_map=True, save_map=False, path=path, bin_image=True)
 print("New distribution calculated")
 print("******************************************")
