@@ -75,7 +75,7 @@ def simplify_bins(
             path=path,
             show_map=show_map,
             save_map=save_map,
-            name="original_bins",
+            file_name="original_bins",
         )
 
     solver = BIG_QMIS(G, num_atoms=6)
@@ -107,7 +107,7 @@ def simplify_bins(
             path=path,
             show_map=show_map,
             save_map=save_map,
-            name="useful_original_bins",
+            file_name="useful_original_bins",
         )
 
 
@@ -139,7 +139,7 @@ def remove_possibles_new_locations(
             path=path,
             show_map=show_map,
             save_map=save_map,
-            name="original_possible_locations",
+            file_name="original_possible_locations",
         )
 
     radius_lng_lat = (
@@ -178,7 +178,7 @@ def remove_possibles_new_locations(
             path=path,
             show_map=show_map,
             save_map=save_map,
-            name="simplified_possible_locations",
+            file_name="simplified_possible_locations",
         )
     original_size = np.shape(new_locations_numpy)[0]
     new_size = np.shape(valid_locations)[0]
@@ -279,7 +279,7 @@ def place_new_bins(
             path=path,
             show_map=show_map,
             save_map=save_map,
-            name="new_distribution_of_bins",
+            file_name="new_distribution_of_bins",
         )
 
 

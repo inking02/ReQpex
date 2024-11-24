@@ -1,3 +1,8 @@
+"""
+File containing the various functions to show the graphs and the results of the reupex_solver.py's functions.
+"""
+
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 import geopandas as gpd
@@ -6,10 +11,12 @@ from array import *
 from matplotlib.patches import Circle
 from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
+"""
+import pandas as pd
 import folium
 from folium.plugins import MiniMap
 
-
+"""
 def generate_map(
     points: NDArray[np.float_],
     title: str = "",
@@ -118,16 +125,32 @@ def generate_town_graph_connected(
         ax.set_ylabel("Latitude")
     nx.draw(G, pos=pos, with_labels=True, node_size=100)
     plt.savefig(path + file_name)
+"""
 
 
 def interactive_map(
-    data_frame_to_show,
+    data_frame_to_show: pd.DataFrame,
     bin_image: bool = False,
-    path="",
+    path: str = "",
     show_map: bool = False,
     save_map: bool = False,
-    name: str = "map",
+    file_name: str = "map",
 ):
+    """
+    Creates a centerd on Sherbrooke city with the given data to show.
+
+    Parameters:
+    - data_frame_to_show (pd.DataFrame): The pandas datafrme to use to create the map. It must have a Longitude,
+      Latitude, Nom de la borne, Addresse and Rue columns.
+    - bin_image (bool = False): Whether to show the pins as recupex's bins or not.
+    - path (str)=""): The local file to the REQPEX directory.
+    - show_map (bool = False): Whether to show the map on the browser or not.
+    - save_map (bool = False): Whether to save the map on the datasets' folder or not.
+    - file_name (str = "map"): The name that the map must have. It must not include the extension.
+
+    Returns:
+    None
+    """
     sherbrooke_coord = [45.40198690041696, -71.88968408774863]
     my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
     minimap = MiniMap()
@@ -151,6 +174,6 @@ def interactive_map(
         else:
             folium.Marker(coords, popup=popup).add_to(my_map)
     if save_map:
-        my_map.save(path + "figures/" + name + ".html")
+        my_map.save(path + "figures/" + file_name + ".html")
     if show_map:
         my_map.show_in_browser()
