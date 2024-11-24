@@ -1,5 +1,5 @@
 """
-File containing the class of the quantum analog computing MIS finder method. The class of this classifier and its method are in this class. Some of the useful 
+File containing the class of the quantum analog computing MIS finder method. The class of this MIS finder and its method are in this class. Some of the useful 
 fonction of the class are in the QMIS_utils.py file. The function that runs the main algorithm is the .run method.
 """
 

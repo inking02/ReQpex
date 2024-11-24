@@ -1,5 +1,5 @@
 """
-File containing the class of the classical MIS finder method. The class of this classifier and its method are in this class.
+File containing the class of the classical MIS finder method. The class of this MIS finder and its method are in this class.
 """
 
 import numpy as np
