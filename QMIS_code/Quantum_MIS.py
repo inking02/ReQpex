@@ -13,13 +13,13 @@ from typing import Callable
 
 
 class Quantum_MIS:
-    def __init__(self, graph: nx.graph) -> None:
+    def __init__(self, graph: nx.Graph) -> None:
         """
         Object that can run the quantum analog computing MIS algorithm. To create the object, networkx's graph architecture must be used.
         A graph with more than 15 atom will not give good results.
 
         Parameters:
-        - graph (networkx.graph): The graph to find an MIS on.
+        - graph (networkx.Graph): The graph to find an MIS on.
 
         Returns:
         None
@@ -81,7 +81,7 @@ class Quantum_MIS:
         - shots (int=1000): The number of times the algotihm must be runned. By default, it is set at 1000.
         - generate_histogram (bool = False): Generate the result histogram of the runs of the algorithms.
         - file_name (str = "QMIS_histo.pdf"): The file name that the histogram must be saved as. The filename must also include its path and use the extension png.
-        - progress_bar (bool = True):
+        - progress_bar (bool = True): Whether or not to print the evolution on the run on pulser's architecture.
 
         Returns:
         dict: The counts dictionnary of the results from the shots of the algorithms.

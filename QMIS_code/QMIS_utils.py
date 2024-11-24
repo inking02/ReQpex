@@ -70,7 +70,7 @@ def find_minimal_radius(G: nx.Graph, pos: NDArray[np.float_]) -> float:
     Finds the minimal distance between two connected verticies of a layed-out graph.
 
     Parameters:
-    - G (netwokx.graph): A networkx graph.
+    - G (netwokx.Graph): A networkx graph.
     - pos (NDArray[np.float_]): The coordinates of the verticies of the graph that was layed-out.
 
     Returns:
