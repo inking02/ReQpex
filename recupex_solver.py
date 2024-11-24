@@ -95,17 +95,14 @@ def simplify_bins(
                     best_volume = volume
         return best_bitstring
 
-    # Start of teh mian function
-
+    # Start of the main function
+    # Loading the file
     bins = pd.read_csv(path + "datasets/cloches.csv", sep=";")
-
-    radius_lng_lat = radius_km / 111.1
-    # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
     bins_numpy = bins[["Longitude", "Latitude", "Volume"]].to_numpy(
         dtype=float, copy=True
     )
 
-    G = disc_graph_to_connected(positions=bins_numpy, radius=radius_lng_lat)
+    # Load or save the map
     if show_map or save_map:
         interactive_map(
             bins,
@@ -116,6 +113,12 @@ def simplify_bins(
             file_name="original_bins",
         )
 
+    # Building the graph
+    radius_lng_lat = radius_km / 111.1
+    # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
+    G = disc_graph_to_connected(positions=bins_numpy, radius=radius_lng_lat)
+
+    # Running the QMIS
     solver = BIG_QMIS(G, num_atoms=6)
     new_verticies = solver.run(
         pulse,
@@ -123,10 +126,11 @@ def simplify_bins(
         other_info=bins_numpy[:, 2],
         print_progression=True,
     )
-
+    # Writing the result on a new file
     new_vertcies_int = [int(i) for i in new_verticies]
     new_points = bins_numpy[new_vertcies_int, :]
 
+    # Printing the function results
     original_size = np.shape(bins_numpy)[0]
     new_size = np.shape(new_points)[0]
     print()
@@ -138,6 +142,7 @@ def simplify_bins(
     new_dataframe = bins.iloc[new_vertcies_int]
     new_dataframe.to_csv(path + "datasets/cloches_utiles.csv", index=False)
 
+    # Show or save the map
     if show_map or save_map:
         interactive_map(
             new_dataframe,
@@ -171,6 +176,7 @@ def remove_possibles_new_locations(
     Returns:
     None
     """
+    # Loading the files
     bins = pd.read_csv(path + "datasets/cloches_utiles.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
@@ -180,11 +186,11 @@ def remove_possibles_new_locations(
     )
 
     estrie_aide = pd.read_csv(path + "datasets/estrieaide.csv", sep=",")
-
     estrie_aide_numpy = estrie_aide[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
 
+    # Save or show the map
     if show_map or save_map:
         interactive_map(
             new_locations,
@@ -199,6 +205,7 @@ def remove_possibles_new_locations(
         radius_km / 111.1
     )  # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
 
+    # Simplify the locations
     list_of_indexes = []
 
     for i, location in enumerate(new_locations_numpy):
@@ -216,11 +223,13 @@ def remove_possibles_new_locations(
         if to_add:
             list_of_indexes.append(i)
 
+    # Writing a new file with the results
     useful_locations = new_locations.iloc[list_of_indexes]
     useful_locations_numpy = new_locations_numpy[list_of_indexes, :]
 
     useful_locations.to_csv(path + "datasets/useful_locations.csv", index=False)
 
+    # Show or save the map
     if show_map or save_map:
         interactive_map(
             useful_locations,
@@ -230,6 +239,7 @@ def remove_possibles_new_locations(
             save_map=save_map,
             file_name="simplified_possible_locations",
         )
+    # Printing the results of the simplification
     original_size = np.shape(new_locations_numpy)[0]
     new_size = np.shape(useful_locations_numpy)[0]
     print()
@@ -262,6 +272,7 @@ def place_new_bins(
     Returns:
     None
     """
+    # LOad the files
     bins = pd.read_csv(path + "datasets/cloches_utiles.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
     bins_names = bins[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
@@ -276,15 +287,18 @@ def place_new_bins(
         dtype=str, copy=True
     )
 
+    # Building the graph
     radius_lng_lat = (
         radius_km / 111.1
     )  # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
 
     G = disc_graph_to_connected(positions=locations_numpy, radius=radius_lng_lat)
 
+    # Running the QMIS algorithm
     solver = BIG_QMIS(G, num_atoms=4)
     new_verticies = solver.run(pulse, print_progression=True)
 
+    # Formating the results into the new file
     new_verticies_int = [int(i) for i in new_verticies]
 
     new_locations_numpy = locations_numpy[new_verticies_int]
@@ -296,10 +310,6 @@ def place_new_bins(
     )
     new_bins_numpy[: np.shape(bins_numpy)[0], :] = bins_numpy
     new_bins_numpy[np.shape(bins_numpy)[0] :, :] = new_locations_numpy
-
-    new_number_of_bins = np.shape(new_bins_numpy)[0]
-    print()
-    print("New number of bins: ", new_number_of_bins)
 
     new_bins_location = pd.DataFrame(
         new_bins_numpy,
@@ -317,6 +327,8 @@ def place_new_bins(
     )
 
     new_bins_location.to_csv(path + "datasets/nouvelles_cloches.csv", index=False)
+
+    # Show or save the map
     if show_map or save_map:
         interactive_map(
             new_bins_location,
@@ -326,6 +338,10 @@ def place_new_bins(
             save_map=save_map,
             file_name="new_distribution_of_bins",
         )
+    # Printing the results of the function
+    new_number_of_bins = np.shape(new_bins_numpy)[0]
+    print()
+    print("New number of bins: ", new_number_of_bins)
 
 
 path = "/Users/lf/Documents/GitHub/ReQpex/"
