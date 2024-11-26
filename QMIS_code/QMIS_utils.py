@@ -1,63 +1,7 @@
-from scipy.spatial import distance_matrix
-import numpy as np
 import matplotlib.pyplot as plt
-import networkx as nx
 from pulser.waveforms import InterpolatedWaveform, RampWaveform, ConstantWaveform, CompositeWaveform, BlackmanWaveform
 from pulser import Pulse
 
-
-
-def scale_coordinates(radius, coordinates, min_distance, max_distance):
-        # Calcul des distances entre les points pour estimer l'échelle
-        dist_matrix = distance_matrix(coordinates, coordinates)
-        np.fill_diagonal(dist_matrix, np.inf)  # Ignore la diagonale
-        min_dist = dist_matrix.min()  # Distance minimale dans les données d'origine
-
-        # Calcul du facteur d'échelle pour assurer que la plus petite distance soit au moins `min_distance`
-        scale_factor = min_distance / min_dist
-        
-        # Applique le facteur d'échelle
-        scaled_coords = coordinates * scale_factor
-        scaled_radius = radius*scale_factor
-
-        # Recentre les coordonnées pour qu'elles restent proches de l'origine si nécessaire
-        center_x = np.mean(scaled_coords[:, 0])
-        center_y = np.mean(scaled_coords[:, 1])
-        scaled_coords -= np.array([center_x, center_y])
-
-        # Ajuste à nouveau si certains points dépassent la limite de `max_distance`
-        max_dist_from_center = np.max(np.linalg.norm(scaled_coords, axis=1))
-        if max_dist_from_center > max_distance:
-            scale_factor = max_distance / max_dist_from_center
-            scaled_coords *= scale_factor
-            scaled_radius *=scale_factor
-
-        return scaled_coords, scaled_radius
-
-
-def find_minimal_radius(G: nx.Graph, pos):
-    """
-    Trouve la distance minimale entre deux sommets reliés par une arête dans un graphe.
-    
-    :param G: Un graphe NetworkX.
-    :param coords: Un dictionnaire contenant les coordonnées des sommets {node: (x, y)}.
-    :return: La distance minimale entre deux sommets reliés par une arête.
-    """
-    max_distance = 0  # Initialise la distance minimale avec une valeur infinie
-    
-    for u, v in G.edges():  # Parcourt toutes les arêtes du graphe
-        # Récupère les coordonnées des deux sommets
-        coord_u = np.array(pos[u])
-        coord_v = np.array(pos[v])
-        
-        # Calcule la distance euclidienne entre les deux sommets
-        distance = euclid_dist(coord_u, coord_v)
-        
-        # Met à jour la distance minimale
-        if distance > max_distance:
-            max_distance = distance
-    
-    return max_distance
      
 
 def plot_histogram(count_dict, shots: int, file_name: str):
@@ -116,6 +60,19 @@ def Constant_pulse_pyramide(Omega, T, T_pyramide, delta_0, delta_f, delta):
     )
     return r_Pulse
 
+def rise_sweep_fall(Omega, T):
+    rise = RampWaveform(T/4, 0, Omega)
+    sweep = ConstantWaveform(T/2, Omega)
+    fall = RampWaveform(T/4, Omega, 0)
+    Omega_Wave = CompositeWaveform(rise, sweep, fall)
+
+    constant1_d = ConstantWaveform(T/4, -Omega)
+    rise_d = RampWaveform(T/2, -Omega, Omega)
+    constant2_d = ConstantWaveform(T/4, Omega)
+
+    detuning = CompositeWaveform(constant1_d, rise_d, constant2_d)
+    return Pulse(Omega_Wave, detuning, 0)
+
 def Pulse_constructor(T: float, Pulse_type: str, T_pyramide: float = 0, delta: float = 0, delta_0: float = -5, delta_f: float = 5):
     if Pulse_type == "Waveform":
         return lambda Omega: Waveform_Pulse(Omega, T, delta_0, delta_f)
@@ -128,6 +85,9 @@ def Pulse_constructor(T: float, Pulse_type: str, T_pyramide: float = 0, delta: f
     
     if Pulse_type == "Pyramide":
         return lambda Omega: Constant_pulse_pyramide(Omega, T, T_pyramide, delta_0, delta_f, delta)
+    
+    if Pulse_type == "Rise_Sweep_Fall":
+        return lambda Omega: rise_sweep_fall(Omega, T)
     
     
     
