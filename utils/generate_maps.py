@@ -1,3 +1,8 @@
+"""
+File containing the various functions to show the graphs and the results of the reupex_solver.py's functions.
+"""
+
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 import geopandas as gpd
@@ -6,8 +11,12 @@ from array import *
 from matplotlib.patches import Circle
 from utils.utils import disc_graph_to_connected, create_node_dictionnary
 from numpy.typing import NDArray
+"""
+import pandas as pd
+import folium
+from folium.plugins import MiniMap
 
-
+"""
 def generate_map(
     points: NDArray[np.float_],
     title: str = "",
@@ -116,3 +125,55 @@ def generate_town_graph_connected(
         ax.set_ylabel("Latitude")
     nx.draw(G, pos=pos, with_labels=True, node_size=100)
     plt.savefig(path + file_name)
+"""
+
+
+def interactive_map(
+    data_frame_to_show: pd.DataFrame,
+    bin_image: bool = False,
+    path: str = "",
+    show_map: bool = False,
+    save_map: bool = False,
+    file_name: str = "map",
+):
+    """
+    Creates a centerd on Sherbrooke city with the given data to show.
+
+    Parameters:
+    - data_frame_to_show (pd.DataFrame): The pandas datafrme to use to create the map. It must have a Longitude,
+      Latitude, Nom de la borne, Addresse and Rue columns.
+    - bin_image (bool = False): Whether to show the pins as recupex's bins or not.
+    - path (str)=""): The local file to the REQPEX directory.
+    - show_map (bool = False): Whether to show the map on the browser or not.
+    - save_map (bool = False): Whether to save the map on the datasets' folder or not.
+    - file_name (str = "map"): The name that the map must have. It must not include the extension.
+
+    Returns:
+    None
+    """
+    sherbrooke_coord = [45.40198690041696, -71.88968408774863]
+    my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
+    minimap = MiniMap()
+    my_map.add_child(minimap)
+    for _, row in data_frame_to_show.iterrows():
+        coords = [row["Longitude"], row["Latitude"]]
+        coords[0], coords[1] = coords[1], coords[0]
+        name = row["Nom de la borne"]
+        adress = str(row["Addresse"]) + ", " + row["Rue"]
+        html = f"""
+        <h1> {name}</h1>
+        <p>Adresse : {adress}</p>
+        """
+        popup = folium.Popup(html=html, max_width=1000)
+        if bin_image:
+            icon = folium.features.CustomIcon(
+                icon_image=path + "datasets/image_cloche_recupex.png",
+                icon_size=(30, 30),
+            )
+            folium.Marker(coords, popup=popup, icon=icon).add_to(my_map)
+        else:
+            folium.Marker(coords, popup=popup).add_to(my_map)
+    if save_map:
+        my_map.save(path + "figures/" + file_name + ".html")
+    if show_map:
+        my_map.show_in_browser()

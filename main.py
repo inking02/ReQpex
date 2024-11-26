@@ -1,6 +1,9 @@
 import numpy as np
 from Find_MIS_discs import Find_MIS_discs
 from utils.generate_maps import generate_town_graph_connected
+from utils.utils import disc_graph_to_connected
+from Big_QMIS import BIG_QMIS
+import matplotlib.pyplot as plt
 
 
 def main(
@@ -22,7 +25,8 @@ def main(
             map_background=map_background,
             file_name="figures/graph.png",
         )
-    MIS_solver = Find_MIS_discs(points, radius)
+    graph = disc_graph_to_connected(points, radius)
+    MIS_solver = Find_MIS_discs(graph)
     res = MIS_solver.run(
         shots,
         show_progress=show_progress,
@@ -30,6 +34,10 @@ def main(
         path=path,
     )
     print(res)
+    """Big"""
+    plt.clf()
+    big = BIG_QMIS(graph, num_atoms=2)
+    big.run()
 
 
 if __name__ == "__main__":
