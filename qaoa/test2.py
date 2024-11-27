@@ -3,12 +3,13 @@ import numpy as np
 import networkx as nx
 from scipy.spatial import KDTree
 from scipy.spatial.distance import pdist
+from utilss import Pulse_constructor
+import matplotlib.pyplot as plt
 
 def random_UD_graph(nqubits, seed):
     np.random.seed(seed)
     r_absolute_min = 1
     blockade_radius = 6.4/5
-    #blockade_radius = 0.8 
     coords = [np.random.uniform(0, 1, size=(2))]
     while len(coords) < nqubits:
         cond = True
@@ -34,17 +35,16 @@ def random_UD_graph(nqubits, seed):
 
     return graph
 
-G= nx.Graph()
+G = nx.Graph()
 edges = np.array([(1, 2), (1, 3), (2,3), (3, 4), (3, 5),(4, 5), (5, 6)])
 G.add_edges_from(edges)
+G= random_UD_graph(10, 12)
+nx.draw(G, with_labels = True)
+plt.show()
 
-G = random_UD_graph(10, 1654654)
-pos = nx.spring_layout(G, k = 1,   seed = 42)
+Pulse = Pulse_constructor(4000, "Rise_Sweep_Fall")
 
-
-#test =  Quantum_QAOA(np.array(list(pos.values())), 0.6)
-test = Quantum_QAOA(np.array(list(pos.values())), edges=list(G.edges()), layers=3, radius=0.6)
-
+test =  Quantum_QAOA(G, layers=3)
 test.print_reg()
 
-test.run(generate_histogram=True)
+test.run(generate_histogram=True, Pulse = Pulse)
