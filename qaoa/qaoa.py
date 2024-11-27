@@ -10,7 +10,7 @@ from scipy.spatial.distance import pdist, squareform
 
 
 class Quantum_QAOA:
-    def __init__(self, graph:nx.graph, layers: int=5)-> None:
+    def __init__(self, graph:nx.graph, layers: int=3)-> None:
         pos = nx.spring_layout(graph, k = 0.1, seed = 42)
         self.coords = np.array(list(pos.values()))
         self.reg = self.__build_reg__()
