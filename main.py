@@ -1,63 +1,71 @@
-import numpy as np
-from Find_MIS_discs import Find_MIS_discs
-from utils.generate_maps import generate_town_graph_connected
-from utils.utils import disc_graph_to_connected
-from Big_QMIS import BIG_QMIS
-import matplotlib.pyplot as plt
+import recupex_solver
+from recap_map import recap_map_getter
 
 
 def main(
-    points,
-    radius,
-    shots,
-    generate_graph=False,
-    map_background=False,
-    show_progress=False,
-    generate_histogram=False,
+    save_maps: bool = False,
+    show_maps: bool = False,
+    bin_images: bool = False,
+    save_maps_recap: bool = False,
+    show_maps_recap: bool = False,
+    show_estrie_aide: bool = False,
+    use_quantum: bool = True,
     path="",
 ):
-    if generate_graph:
-        generate_town_graph_connected(
-            points,
-            radius=radius,
-            title="Graph",
-            path=path,
-            map_background=map_background,
-            file_name="figures/graph.png",
-        )
-    graph = disc_graph_to_connected(points, radius)
-    MIS_solver = Find_MIS_discs(graph)
-    res = MIS_solver.run(
-        shots,
-        show_progress=show_progress,
-        generate_histogram=generate_histogram,
+
+    recupex_solver.simplify_bins(
+        1.5,
         path=path,
+        show_map=show_maps,
+        save_map=save_maps,
+        bin_image=bin_images,
+        use_quantum=use_quantum,
     )
-    print(res)
-    """Big"""
-    plt.clf()
-    big = BIG_QMIS(graph, num_atoms=2)
-    big.run()
+    print("Bins simplified")
+    print("******************************************")
+
+    recupex_solver.remove_possibles_new_locations(
+        1.5, path=path, save_maps=save_maps, show_map=show_maps, bin_image=bin_images
+    )
+    print("Possible locations simplified")
+    print("******************************************")
+
+    recupex_solver.place_new_bins(
+        2.8,
+        show_map=show_maps,
+        save_map=save_maps,
+        path=path,
+        bin_image=bin_images,
+        use_quantum=use_quantum,
+    )
+    print("New distribution calculated")
+    print("******************************************")
+
+    if save_maps_recap or show_maps_recap:
+        recap_map_getter(
+            path=path,
+            show_estrie_aide=show_estrie_aide,
+            show=show_maps_recap,
+            save=save_maps_recap,
+        )
 
 
 if __name__ == "__main__":
-    points = np.empty((5, 2))
-    points[:, 0] = [0.39808454, 0.05669836, -0.49947729, -0.95530561, 1.0]
-    points[:, 1] = [0.92306714, -0.54467165, 0.22258244, -0.69346288, 0.09248494]
-
-    radius = 1
-    shots = 10
-    generate_graph = True
-    map_background = False
-    show_progress = True
-    generate_histogram = True
-    path = "/Users/lf/Desktop/Université/Session 3/BSQ201/Projet 2/ReQpex/"
+    path = "/Users/lf/Documents/GitHub/ReQpex/"
+    save_maps = True
+    show_maps = False
+    bin_images = True
+    save_maps_recap = True
+    show_maps_recap = False
+    show_estrie_aide = True
+    use_quantum = True
     main(
-        points,
-        radius,
-        shots,
-        generate_graph=generate_graph,
-        map_background=map_background,
-        show_progress=show_progress,
-        generate_histogram=generate_histogram,
+        save_maps=save_maps,
+        show_maps=show_maps,
+        bin_images=bin_images,
+        save_maps_recap=save_maps_recap,
+        show_maps_reca=show_maps_recap,
+        show_estrie_aide=show_estrie_aide,
+        use_quantum=use_quantum,
+        path=path,
     )

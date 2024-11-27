@@ -4,7 +4,9 @@ import folium
 from folium.plugins import MiniMap
 
 
-def beaufiful_map_getter(path: str = "", show_estrie_aide=True, show: bool = False):
+def recap_map_getter(
+    path: str = "", show_estrie_aide=True, show: bool = False, save: bool = False
+):
     new_bins_location = pd.read_csv(path + "datasets/nouvelles_cloches.csv", sep=",")
     new_bins_location_numpy = new_bins_location[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
@@ -31,7 +33,6 @@ def beaufiful_map_getter(path: str = "", show_estrie_aide=True, show: bool = Fal
 
     for i, og_bin in enumerate(og_bins_numpy):
         matching_rows = bins_og_used_numpy[(bins_og_used_numpy == og_bin).all(axis=1)]
-        print(matching_rows)
         if not np.shape(matching_rows)[0] == 1:
             removed_indexes.append(i)
 
@@ -104,12 +105,9 @@ def beaufiful_map_getter(path: str = "", show_estrie_aide=True, show: bool = Fal
             print("A purple pin is an Estrie-Aide bin")
 
         print()
-        my_map.save(path + "figures/map_with_stats.html")
+        if save:
+            my_map.save(path + "figures/map_with_stats.html")
         if show:
             my_map.show_in_browser()
 
     show_map(show_estrie_aide=show_estrie_aide, show=show)
-
-
-path = "/Users/lf/Documents/GitHub/ReQpex/"
-beaufiful_map_getter(path=path, show_estrie_aide=True, show=True)
