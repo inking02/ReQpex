@@ -369,33 +369,3 @@ def place_new_bins(
     new_number_of_bins = np.shape(new_bins_numpy)[0]
     print()
     print("New number of bins: ", new_number_of_bins)
-
-
-path = "/Users/lf/Documents/GitHub/ReQpex/"
-use_quantum = True
-
-simplify_bins(
-    1.5,
-    path=path,
-    show_map=False,
-    save_map=True,
-    bin_image=True,
-    use_quantum=use_quantum,
-)
-print("Bins simplified")
-print("******************************************")
-
-remove_possibles_new_locations(1.5, path=path, show_map=False, bin_image=True)
-print("Possible locations simplified")
-print("******************************************")
-
-place_new_bins(
-    2.8,
-    show_map=False,
-    save_map=True,
-    path=path,
-    bin_image=True,
-    use_quantum=use_quantum,
-)
-print("New distribution calculated")
-print("******************************************")

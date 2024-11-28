@@ -5,8 +5,25 @@ from folium.plugins import MiniMap
 
 
 def recap_map_getter(
-    path: str = "", show_estrie_aide=True, show: bool = False, save: bool = False
-):
+    path: str = "",
+    show_estrie_aide: bool = True,
+    show: bool = False,
+    save: bool = False,
+) -> None:
+    """
+    Method to create a map showing the bins that stayed, were removed and added. If wanted, Estrie-Aide's
+    bins can be added to the map as well.
+
+    Parameters:
+    - path (str = ""): The local path to the recupex directory (It includes the Recupex's folder).
+    - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
+    - show (bool = False): Whether of not to show the map on the browser.
+    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+
+    Returns:
+    None
+    """
+    # Loading the data
     new_bins_location = pd.read_csv(path + "datasets/nouvelles_cloches.csv", sep=",")
     new_bins_location_numpy = new_bins_location[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
@@ -22,6 +39,7 @@ def recap_map_getter(
 
     og_bins_numpy = og_bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
+    # Finding bins that were added to the distribution
     added_indexes = []
 
     for i, new_bin in enumerate(new_bins_location_numpy):
@@ -31,6 +49,7 @@ def recap_map_getter(
 
     removed_indexes = []
 
+    # Finding bins that were removed to the distribution
     for i, og_bin in enumerate(og_bins_numpy):
         matching_rows = bins_og_used_numpy[(bins_og_used_numpy == og_bin).all(axis=1)]
         if not np.shape(matching_rows)[0] == 1:
@@ -38,11 +57,27 @@ def recap_map_getter(
 
     only_added_bins = new_bins_location.iloc[added_indexes]
 
-    def show_map(show_estrie_aide: bool = False, show=False):
+    # Function to create the map
+    def show_map(
+        show_estrie_aide: bool = False, show: bool = False, save: bool = False
+    ):
         sherbrooke_coord = [45.40198690041696, -71.88968408774863]
         my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
         minimap = MiniMap()
         my_map.add_child(minimap)
+        """
+        Method that creates the map object.
+
+        Parameters:
+        - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
+        - show (bool = False): Whether of not to show the map on the browser.
+        - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+
+        Returns:
+        None
+        """
+
+        # Adding the bins that were added to the map
         for _, row in only_added_bins.iterrows():
             coords = [row["Longitude"], row["Latitude"]]
             coords[0], coords[1] = coords[1], coords[0]
@@ -57,11 +92,15 @@ def recap_map_getter(
             folium.Marker(coords, popup=popup, icon=folium.Icon(color="green")).add_to(
                 my_map
             )
+
+        # Adding the bins that stayed or were removed
         for i, (_, row) in enumerate(og_bins.iterrows()):
             coords = [row["Longitude"], row["Latitude"]]
             coords[0], coords[1] = coords[1], coords[0]
             name = row["Nom de la borne"]
             adress = str(row["Addresse"]) + ", " + row["Rue"]
+
+            # Checking if the bin was removed of not
             if i in removed_indexes:
                 html = f"""
                 <h1> {name}</h1>
@@ -86,6 +125,8 @@ def recap_map_getter(
         print("A blue pin is a bin that will stay")
         print("A green pin is a bin that will be added")
         print("A red pin is a bin that will be removed")
+
+        # Adding Estrie-Aide's bins if necessary
         if show_estrie_aide:
             for _, row in estrie_aide.iterrows():
                 coords = [row["Longitude"], row["Latitude"]]
@@ -105,9 +146,10 @@ def recap_map_getter(
             print("A purple pin is an Estrie-Aide bin")
 
         print()
+        # Save and or show the map
         if save:
             my_map.save(path + "figures/map_with_stats.html")
         if show:
             my_map.show_in_browser()
 
-    show_map(show_estrie_aide=show_estrie_aide, show=show)
+    show_map(show_estrie_aide=show_estrie_aide, show=show, save=save)
