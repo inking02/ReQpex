@@ -5,6 +5,7 @@ from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
 from QMIS_code.QMIS_utils import Pulse_constructor
+from Find_MIS_discs import Find_MIS_discs
 from numpy.typing import NDArray
 from typing import Callable, List
 
@@ -16,6 +17,7 @@ def simplify_bins(
     save_map: bool = False,
     path: str = "",
     bin_image: bool = False,
+    use_quantum: bool = True,
 ) -> None:
     """
     Function to remove some of the bins in their original bins with a MIS. If two locations are closer than the radius given,
@@ -29,6 +31,7 @@ def simplify_bins(
     - save_map (bool = False): Whether or not to save the maps of the original bins locations and their simplified distribution.
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
+    - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
 
     Returns:
     None
@@ -84,7 +87,7 @@ def simplify_bins(
         for key in res_dict.keys():
             max_numb_ones = max(max_numb_ones, key.count("1"))
             best_bitstring = key
-        for i, key in enumerate(res_dict.keys()):
+        for key in res_dict.keys():
             if key.count("1") == max_numb_ones:
                 volume = 0
                 for k, j in enumerate(key):
@@ -118,14 +121,26 @@ def simplify_bins(
     # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
     G = disc_graph_to_connected(positions=bins_numpy, radius=radius_lng_lat)
 
-    # Running the QMIS
-    solver = BIG_QMIS(G, num_atoms=6)
-    new_verticies = solver.run(
-        pulse,
-        best_bitstring_getter=max_with_volume,
-        other_info=bins_numpy[:, 2],
-        print_progression=True,
-    )
+    if use_quantum:
+        # Running the QMIS
+        solver = BIG_QMIS(G, num_atoms=6)
+        new_verticies = solver.run(
+            pulse,
+            best_bitstring_getter=max_with_volume,
+            other_info=bins_numpy[:, 2],
+            print_progression=True,
+        )
+
+    else:
+        solver = Find_MIS_discs(G)
+        res_dict = solver.run(shots=100)
+        nodes = [int(i) for i in G.nodes()]
+        best_bitstring = max_with_volume(res_dict, nodes, bins_numpy[:, 2])
+        new_verticies = []
+        for i, val in enumerate(best_bitstring):
+            if val == "1":
+                new_verticies.append(str(i))
+
     # Writing the result on a new file
     new_vertcies_int = [int(i) for i in new_verticies]
     new_points = bins_numpy[new_vertcies_int, :]
@@ -256,6 +271,7 @@ def place_new_bins(
     save_map: bool = False,
     path: str = "",
     bin_image: bool = False,
+    use_quantum: bool = True,
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in
@@ -268,6 +284,7 @@ def place_new_bins(
     - save_map (bool = False): Whether or not to save the map of the new optimal distribution of the Recupex bins.
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
+    - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
 
     Returns:
     None
@@ -294,9 +311,19 @@ def place_new_bins(
 
     G = disc_graph_to_connected(positions=locations_numpy, radius=radius_lng_lat)
 
-    # Running the QMIS algorithm
-    solver = BIG_QMIS(G, num_atoms=4)
-    new_verticies = solver.run(pulse, print_progression=True)
+    if use_quantum:
+        # Running the QMIS algorithm
+        solver = BIG_QMIS(G, num_atoms=4)
+        new_verticies = solver.run(pulse, print_progression=True)
+
+    else:
+        solver = Find_MIS_discs(G)
+        res_dict = solver.run(shots=100)
+        best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
+        new_verticies = []
+        for i, val in enumerate(best_bitstring):
+            if val == "1":
+                new_verticies.append(str(i))
 
     # Formating the results into the new file
     new_verticies_int = [int(i) for i in new_verticies]
@@ -342,18 +369,3 @@ def place_new_bins(
     new_number_of_bins = np.shape(new_bins_numpy)[0]
     print()
     print("New number of bins: ", new_number_of_bins)
-
-
-path = "/Users/lf/Documents/GitHub/ReQpex/"
-
-simplify_bins(1.5, path=path, show_map=False, bin_image=True)
-print("Bins simplified")
-print("******************************************")
-
-remove_possibles_new_locations(1.5, path=path, show_map=False, bin_image=True)
-print("Possible locations simplified")
-print("******************************************")
-
-place_new_bins(2.8, show_map=True, save_map=False, path=path, bin_image=True)
-print("New distribution calculated")
-print("******************************************")
