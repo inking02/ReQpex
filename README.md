@@ -9,8 +9,10 @@ Le dépôt est divisé en plusieurs branches, chacune correspondant à une parti
 - **`datasets`** : Dossier contenant les ensembles de données utilisés pour la création du graphe.
 - **`figures`** : Dossier contenant les figures des histogrammes et les graphes obtenus.
 - **`utils`** : Dossier contenant les fonctions utilitaires pour mapper les graphes.
+- **`requirements.txt`** : Fichier texte avec les commandes d'installation des différents modules requis pour rouler le code.
+- **`main.py`** : 
 
 ## Utilisation
-Pour bien comprendre l'implementation des différentes méthodes proposées dans ce projet, vous pouvez commencer par consulter le jupyter_notebook **'tutorial.ipynb'** dans le dossier ... Vous pouvez ensuite importer les librairies utiles qui existent dans **'requirement.txt'**. 
+Pour bien comprendre l'implementation des différentes méthodes proposées dans ce projet, vous pouvez commencer par consulter le jupyter_notebook **'tutorial.ipynb'** dans le dossier ... Vous pouvez ensuite importer les librairies utiles qui existent dans **'requirement.txt'**, puis consulter **'main.py'**
 
 
