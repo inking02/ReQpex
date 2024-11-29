@@ -183,8 +183,8 @@ def remove_possibles_new_locations(
     Parameters:
     - radius_km (float): The distance of which if a possible location is within that range of an bin or an Estrie-Aide bin,
                          it must be removed form the possibilities.
-    - show_map (bool = False): Whether or not to show the maps of the original possible locations and their constrained version.
-    - save_map (bool = False): Whether or not to save the maps of the original possible locations and their constrained version.
+    - show_map (bool = False): Whether or not to show the maps of the simplified possible locations.
+    - save_map (bool = False): Whether or not to save the maps of the simplified possible locations.
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
 
@@ -204,17 +204,6 @@ def remove_possibles_new_locations(
     estrie_aide_numpy = estrie_aide[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
-
-    # Save or show the map
-    if show_map or save_map:
-        interactive_map(
-            new_locations,
-            bin_image=bin_image,
-            path=path,
-            show_map=show_map,
-            save_map=save_map,
-            file_name="original_possible_locations",
-        )
 
     radius_lng_lat = (
         radius_km / 111.1
