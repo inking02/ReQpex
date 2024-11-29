@@ -3,7 +3,7 @@ File that solve sthe recupex problem.
 """
 
 import recupex_solver
-from recap_map import recap_map_getter
+from utils.generate_maps import recap_map_getter
 
 
 def main(
@@ -55,7 +55,7 @@ def main(
     recupex_solver.remove_possibles_new_locations(
         radius_simplify_locations,
         path=path,
-        save_maps=save_maps,
+        save_map=save_maps,
         show_map=show_maps,
         bin_image=bin_images,
     )
@@ -92,8 +92,8 @@ if __name__ == "__main__":
     save_maps = True
     show_maps = False
     bin_images = True
-    save_maps_recap = True
-    show_maps_recap = False
+    save_maps_recap = False
+    show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
     main(
@@ -104,7 +104,7 @@ if __name__ == "__main__":
         show_maps=show_maps,
         bin_images=bin_images,
         save_maps_recap=save_maps_recap,
-        show_maps_reca=show_maps_recap,
+        show_maps_recap=show_maps_recap,
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
