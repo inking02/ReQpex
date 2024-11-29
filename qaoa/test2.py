@@ -38,13 +38,13 @@ def random_UD_graph(nqubits, seed):
 G = nx.Graph()
 edges = np.array([(1, 2), (1, 3), (2,3), (3, 4), (3, 5),(4, 5), (5, 6)])
 G.add_edges_from(edges)
-G= random_UD_graph(10, 12)
+#G= random_UD_graph(10, 12)
 nx.draw(G, with_labels = True)
 plt.show()
 
-Pulse = Pulse_constructor(4000, "Rise_Sweep_Fall")
+#Pulse = Pulse_constructor(4000, "Rise_Sweep_Fall")
 
-test =  Quantum_QAOA(G, layers=3)
+test =  Quantum_QAOA(G, layers=2)
 test.print_reg()
 
-test.run(generate_histogram=True, Pulse = Pulse)
+test.run(generate_histogram=True)
