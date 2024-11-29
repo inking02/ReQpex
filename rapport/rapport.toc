@@ -1,0 +1,23 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Théorie}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Conditions RÉCUPEX}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Graphes}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Introduction aux graphes}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Ensemble indépendant maximal}{3}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Grapher sherbrooke}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Ordinateur quantique à atome neutre}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Trouver l'ensemble indépendant maximal à l'aide de l'ordinateur quantique à atome neutre}{6}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Algorithme quantique adiabatique}{6}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Algorithme d'optimisation approximative quantique}{7}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Ensemble maximal indépendant en sous-graphe}{8}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Méthodologie}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Tri de l'emplacement actuel des bacs}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Rafiner la liste des endroits possibles}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Trouver les nouveaux endroits des bacs retirés}{9}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Résultats}{10}{section.4}%
+\contentsline {section}{\numberline {5}Discussion}{11}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{12}{section.6}%
+\contentsline {section}{\numberline {7}À explorer (futur works)}{12}{section.7}%
+\contentsline {section}{\numberline {8}Références}{12}{section.8}%
+\contentsline {section}{\numberline {9}Annexe}{13}{section.9}%

@@ -1,0 +1,955 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{mackaness_use_1993}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5b71d83f01195b7ac440d08234658971}{%
+           family={Mackaness},
+           familyi={M\bibinitperiod},
+           given={William\bibnamedelima A.},
+           giveni={W\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=ed13d7756b0bf486eea1b7deeefe282b}{%
+           family={Beard},
+           familyi={B\bibinitperiod},
+           given={Kate\bibnamedelima M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6369d940f060cd815f4a1b79b2f17182}
+      \strng{fullhash}{6369d940f060cd815f4a1b79b2f17182}
+      \strng{bibnamehash}{6369d940f060cd815f4a1b79b2f17182}
+      \strng{authorbibnamehash}{6369d940f060cd815f4a1b79b2f17182}
+      \strng{authornamehash}{6369d940f060cd815f4a1b79b2f17182}
+      \strng{authorfullhash}{6369d940f060cd815f4a1b79b2f17182}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In the generalization of a concept, we seek to preserve the essential characteristics and behavior of objects. In map generalization, the appropriate selection and application of procedures (such as merging, exaggeration, and selection) require information at the geometric, attribute, and topological levels. This article highlights the potential of graph theoretic representations in providing the topological information necessary for the efficient and effective application of specific generalization procedures. Besides ease of algebraic manipulation, the principal benefit of a graph theoretic approach is the ability to detect and thus preserve topological characteristics of map objects such as isolation, adjacency, and connectivity. While it is true that topologically based systems have been developed for consistency checking and error detection during editing, this article emphasizes the benefits from a map-generalization perspective. Examples are given with respect to specific generalization procedures and are summarized as a partial set of rules for potential inclusion in a cartographic knowledge-based system.}
+      \field{issn}{1050-9844}
+      \field{journaltitle}{Cartography and Geographic Information Systems}
+      \field{month}{1}
+      \field{note}{Publisher: Taylor \& Francis \_eprint: https://doi.org/10.1559/152304093782637479}
+      \field{number}{4}
+      \field{title}{Use of {Graph} {Theory} to {Support} {Map} {Generalization}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{20}
+      \field{year}{1993}
+      \field{urldateera}{ce}
+      \field{pages}{210\bibrangedash 221}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1559/152304093782637479
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1559/152304093782637479
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1559/152304093782637479
+      \endverb
+      \keyw{AUTOMATED MAP GENERALIZATION,GRAPH THEORY,NETWORK GENERALIZATION}
+    \endentry
+    \entry{riaz_applications_2011}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=5d46551d63d6d525cd8f8cf6192e7908}{%
+           family={Riaz},
+           familyi={R\bibinitperiod},
+           given={Ferozuddin},
+           giveni={F\bibinitperiod}}}%
+        {{hash=c7dc27862bd79c6df5f881d0c85208fc}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Khidir\bibnamedelima M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \strng{fullhash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \strng{bibnamehash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \strng{authorbibnamehash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \strng{authornamehash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \strng{authorfullhash}{5c4ce6b458722bc61c7dfa26c95606f9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Graphs are among the most ubiquitous models of both natural and human-made structures. They can be used to model many types of relations and process dynamics in computer science, physical, biological and social systems. Many problems of practical interest can be represented by graphs. In general graphs theory has a wide range of applications in diverse fields. This paper explores different elements involved in graph theory including graph representations using computer systems and graph-theoretic data structures such as list structure and matrix structure. The emphasis of this paper is on graph applications in computer science. To demonstrate the importance of graph theory in computer science, this article addresses most common applications for graph theory in computer science. These applications are presented especially to project the idea of graph theory and to demonstrate its importance in computer science.}
+      \field{booktitle}{2011 {Third} {International} {Conference} on {Computational} {Intelligence}, {Communication} {Systems} and {Networks}}
+      \field{month}{7}
+      \field{title}{Applications of {Graph} {Theory} in {Computer} {Science}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \field{pages}{142\bibrangedash 145}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/CICSyN.2011.40
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/ludo/Zotero/storage/C6QL9SGN/Riaz et Ali - 2011 - Applications of Graph Theory in Computer Science.pdf:application/pdf;IEEE Xplore Abstract Record:/Users/ludo/Zotero/storage/2DD2H8WA/6005872.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/6005872/?arnumber=6005872
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/6005872/?arnumber=6005872
+      \endverb
+      \keyw{Algorithm,Color,Computational modeling,Computer science,Computers,Data structure,Data structures,Graph theory,list structure,Matrix structure,Mobile handsets}
+    \endentry
+    \entry{noauthor_repertoire_nodate}{misc}{}
+      \list{language}{1}{%
+        {fr}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Liste des entreprises et organisations présentes sur le territoire de Sherbrooke}
+      \field{title}{Répertoire des locaux et entreprises du territoire de {Sherbrooke} - {Liste} des locaux et entreprises du territoire de {Sherbrooke} - {Données} {Québec}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.donneesquebec.ca/recherche/dataset/repertoire-des-entreprises/resource/93cb0f78-50bc-431b-a2ba-f66511450441
+      \endverb
+      \verb{url}
+      \verb https://www.donneesquebec.ca/recherche/dataset/repertoire-des-entreprises/resource/93cb0f78-50bc-431b-a2ba-f66511450441
+      \endverb
+    \endentry
+    \entry{browaeys_quantum_2019}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=f243eee2a4dbf763fb80352db4b92e9d}{%
+           family={Browaeys},
+           familyi={B\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Grenoble, France}%
+      }
+      \strng{namehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{fullhash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{bibnamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authorbibnamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authornamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authorfullhash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{Quantum {Computing} {Workshop} {CEA}-{LETI}}
+      \field{month}{5}
+      \field{shorttitle}{Quantum computing and simulation with arrays of {Rydberg} atoms}
+      \field{title}{Quantum computing and simulation with arrays of {Rydberg} atoms: from proof-of-principle experiments to the startup {PASQAL}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb HAL Snapshot:/Users/ludo/Zotero/storage/8WNJRQLS/hal-04334541.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04334541
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04334541
+      \endverb
+    \endentry
+    \entry{browaeys_pinces_2016}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f243eee2a4dbf763fb80352db4b92e9d}{%
+           family={Browaeys},
+           familyi={B\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {fr}%
+      }
+      \strng{namehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{fullhash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{bibnamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authorbibnamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authornamehash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \strng{authorfullhash}{f243eee2a4dbf763fb80352db4b92e9d}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1953-793X, 2102-6777}
+      \field{journaltitle}{Reflets de la physique}
+      \field{month}{3}
+      \field{number}{47-48}
+      \field{title}{Des pinces optiques pour piéger des atomes un par un...}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \field{pages}{36\bibrangedash 40}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1051/refdp/20164748036
+      \endverb
+      \verb{file}
+      \verb Browaeys - 2016 - Des pinces optiques pour piéger des atomes un par .pdf:/Users/ludo/Zotero/storage/RIHSNPVF/Browaeys - 2016 - Des pinces optiques pour piéger des atomes un par .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.refletsdelaphysique.fr/10.1051/refdp/20164748036
+      \endverb
+      \verb{url}
+      \verb http://www.refletsdelaphysique.fr/10.1051/refdp/20164748036
+      \endverb
+    \endentry
+    \entry{silverio_pulser_2022}{article}{}
+      \name{author}{9}{}{%
+        {{hash=ce0bcfa30b7468203bb0dc9610937a42}{%
+           family={Silvério},
+           familyi={S\bibinitperiod},
+           given={Henrique},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1b8b9b485101136db2f6d7a0f6a42f21}{%
+           family={Grijalva},
+           familyi={G\bibinitperiod},
+           given={Sebastián},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0822d7a61c8d661fa5c55ccf301af027}{%
+           family={Dalyac},
+           familyi={D\bibinitperiod},
+           given={Constantin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=63fed608d7ce1482dc602f4418527ae0}{%
+           family={Leclerc},
+           familyi={L\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=126fd55dc3af7704925274a012df4c0f}{%
+           family={Karalekas},
+           familyi={K\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=951442746a56f8b2f546856fe970e943}{%
+           family={Shammah},
+           familyi={S\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=6c13c092cb39d9a80a78b8acbe9c2f19}{%
+           family={Beji},
+           familyi={B\bibinitperiod},
+           given={Mourad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f4cd8aa9a9a8160931c5fb34c1394724}{%
+           family={Henry},
+           familyi={H\bibinitperiod},
+           given={Louis-Paul},
+           giveni={L\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=f8cb9631f0afac344203f2c0c31eb880}{%
+           family={Henriet},
+           familyi={H\bibinitperiod},
+           given={Loïc},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{cf7563ced0c2c79e4d2e297fd9dad330}
+      \strng{fullhash}{4478c07a77325b7e0c1753025ceaead4}
+      \strng{bibnamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
+      \strng{authorbibnamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
+      \strng{authornamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
+      \strng{authorfullhash}{4478c07a77325b7e0c1753025ceaead4}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Programmable arrays of hundreds of Rydberg atoms have recently enabled the exploration of remarkable phenomena in many-body quantum physics. In addition, the development of high-fidelity quantum gates are making them promising architectures for the implementation of quantum circuits. We present here {\textbackslash}textit\{Pulser\}, an open-source Python library for programming neutral-atom devices at the pulse level. The low-level nature of Pulser makes it a versatile framework for quantum control both in the digital and analog settings. The library also contains simulation routines for studying and exploring the outcome of pulse sequences for small systems.}
+      \field{issn}{2521-327X}
+      \field{journaltitle}{Quantum}
+      \field{month}{1}
+      \field{note}{arXiv:2104.15044 [quant-ph]}
+      \field{shorttitle}{Pulser}
+      \field{title}{Pulser: {An} open-source package for the design of pulse sequences in programmable neutral-atom arrays}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{6}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{629}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.22331/q-2022-01-24-629
+      \endverb
+      \verb{file}
+      \verb Silvério et al. - 2022 - Pulser An open-source package for the design of p.pdf:/Users/ludo/Zotero/storage/P8ZD8KNQ/Silvério et al. - 2022 - Pulser An open-source package for the design of p.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2104.15044
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2104.15044
+      \endverb
+      \keyw{Quantum Physics}
+    \endentry
+    \entry{tarjan_finding_1977}{article}{}
+      \name{author}{2}{}{%
+        {{hash=09f1ee63063ed5ad11c3baa87f800eb7}{%
+           family={Tarjan},
+           familyi={T\bibinitperiod},
+           given={Robert\bibnamedelima Endre},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=71f0023ef7b498bc5f892cb37d9fe782}{%
+           family={Trojanowski},
+           familyi={T\bibinitperiod},
+           given={Anthony\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \strng{namehash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \strng{fullhash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \strng{bibnamehash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \strng{authorbibnamehash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \strng{authornamehash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \strng{authorfullhash}{81a287ca662f4ab74a6088bf4c2efa72}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present an algorithm which finds a maximum independent set in an \$n\$-vertex graph in \$O(2{\textasciicircum}\{n/3\})\$ time. The algorithm can thus handle graphs roughly three times as large as could be analyzed using a naive algorithm.}
+      \field{issn}{00975397}
+      \field{journaltitle}{SIAM Journal on Computing}
+      \field{month}{9}
+      \field{note}{Num Pages: 10 Place: Philadelphia, United States Publisher: Society for Industrial and Applied Mathematics}
+      \field{number}{3}
+      \field{title}{Finding a {Maximum} {Independent} {Set}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{6}
+      \field{year}{1977}
+      \field{urldateera}{ce}
+      \field{pages}{10}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1137/0206038
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/ludo/Zotero/storage/H8H9KLIK/Tarjan et Trojanowski - 1977 - Finding a Maximum Independent Set.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.proquest.com/docview/918487890/abstract/47A9ABD86D0F4B3CPQ/1
+      \endverb
+      \verb{url}
+      \verb https://www.proquest.com/docview/918487890/abstract/47A9ABD86D0F4B3CPQ/1
+      \endverb
+      \keyw{Algorithms,Computer science,Federal regulation,State court decisions}
+    \endentry
+    \entry{dettmann_random_2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c448387165bd931d789e78621d57ebb9}{%
+           family={Dettmann},
+           familyi={D\bibinitperiod},
+           given={Carl\bibnamedelima P.},
+           giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=0813182658b8431fe96a2ae30cb0e5e8}{%
+           family={Georgiou},
+           familyi={G\bibinitperiod},
+           given={Orestis},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{5965c73992d21637bfc595a465a7289d}
+      \strng{fullhash}{5965c73992d21637bfc595a465a7289d}
+      \strng{bibnamehash}{5965c73992d21637bfc595a465a7289d}
+      \strng{authorbibnamehash}{5965c73992d21637bfc595a465a7289d}
+      \strng{authornamehash}{5965c73992d21637bfc595a465a7289d}
+      \strng{authorfullhash}{5965c73992d21637bfc595a465a7289d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2470-0045, 2470-0053}
+      \field{journaltitle}{Physical Review E}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Random geometric graphs with general connection functions}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{93}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \field{pages}{032313}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevE.93.032313
+      \endverb
+      \verb{file}
+      \verb Texte intégral:/Users/ludo/Zotero/storage/X6M32WMC/Dettmann et Georgiou - 2016 - Random geometric graphs with general connection fu.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevE.93.032313
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevE.93.032313
+      \endverb
+    \endentry
+    \entry{ebadi_quantum_2022}{misc}{}
+      \name{author}{24}{}{%
+        {{hash=938096c93ddc0e8f5dd6c916620fb07c}{%
+           family={Ebadi},
+           familyi={E\bibinitperiod},
+           given={Sepehr},
+           giveni={S\bibinitperiod}}}%
+        {{hash=502c6437b38a15438a51906e27ca93f8}{%
+           family={Keesling},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a0bf7b3b6136238db6a3f3fa33a00c3c}{%
+           family={Cain},
+           familyi={C\bibinitperiod},
+           given={Madelyn},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fc04f12436419e44a762e0e24ee966cd}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Tout\bibnamedelima T.},
+           giveni={T\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=3d882c9d3ed49738af5e04139f81e3ed}{%
+           family={Levine},
+           familyi={L\bibinitperiod},
+           given={Harry},
+           giveni={H\bibinitperiod}}}%
+        {{hash=19f3e92397a12fdf21c4d824ebe1eb20}{%
+           family={Bluvstein},
+           familyi={B\bibinitperiod},
+           given={Dolev},
+           giveni={D\bibinitperiod}}}%
+        {{hash=15edc0e99eb7772b9c80a8f637e1cc12}{%
+           family={Semeghini},
+           familyi={S\bibinitperiod},
+           given={Giulia},
+           giveni={G\bibinitperiod}}}%
+        {{hash=e88564c8b0c79feda2c4457fa56b9023}{%
+           family={Omran},
+           familyi={O\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e60286b1a7583069217270390ee5d2a1}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jinguo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2f77b5bb378d4f049571735f7d959c49}{%
+           family={Samajdar},
+           familyi={S\bibinitperiod},
+           given={Rhine},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4f9335baa576bf27d69ae227bfc2a0e0}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Xiu-Zhe},
+           giveni={X\bibinithyphendelim Z\bibinitperiod}}}%
+        {{hash=4cf505e21ee5457d0456783a4a1c5ace}{%
+           family={Nash},
+           familyi={N\bibinitperiod},
+           given={Beatrice},
+           giveni={B\bibinitperiod}}}%
+        {{hash=91c0e330b6487ea1279877a28be35531}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=ef4505bdcbc58ae15e11f8bc6c51af7e}{%
+           family={Barak},
+           familyi={B\bibinitperiod},
+           given={Boaz},
+           giveni={B\bibinitperiod}}}%
+        {{hash=5e61ee12360fc49d9013fbf8fe18db89}{%
+           family={Farhi},
+           familyi={F\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+        {{hash=89be46409a28a725823c559e29e29f07}{%
+           family={Sachdev},
+           familyi={S\bibinitperiod},
+           given={Subir},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5686f8f0412b0a049d331b07cbcbe515}{%
+           family={Gemelke},
+           familyi={G\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=098189c4c4bb906f4b8bc738ae98e736}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=aefff0f639ffce89deaac5b5a6e0d625}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Soonwon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c424625b88175967d8e1bc02c34f0ef1}{%
+           family={Pichler},
+           familyi={P\bibinitperiod},
+           given={Hannes},
+           giveni={H\bibinitperiod}}}%
+        {{hash=dd44bbcb664854e22d92213735fa58be}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Shengtao},
+           giveni={S\bibinitperiod}}}%
+        {{hash=28a6aa289448ed258d404c6982cd2dd7}{%
+           family={Greiner},
+           familyi={G\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7760fdf5da94329d189533bdd2fdf9f6}{%
+           family={Vuletic},
+           familyi={V\bibinitperiod},
+           given={Vladan},
+           giveni={V\bibinitperiod}}}%
+        {{hash=8fd921a549ae6718702b6c8c84fef487}{%
+           family={Lukin},
+           familyi={L\bibinitperiod},
+           given={Mikhail\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{99a06f0fd923cb3d2482e52b9c3a0363}
+      \strng{fullhash}{2b4c924b8cb698a8bdcea6b5dcf23966}
+      \strng{bibnamehash}{99a06f0fd923cb3d2482e52b9c3a0363}
+      \strng{authorbibnamehash}{99a06f0fd923cb3d2482e52b9c3a0363}
+      \strng{authornamehash}{99a06f0fd923cb3d2482e52b9c3a0363}
+      \strng{authorfullhash}{2b4c924b8cb698a8bdcea6b5dcf23966}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Realizing quantum speedup for practically relevant, computationally hard problems is a central challenge in quantum information science. Using Rydberg atom arrays with up to 289 qubits in two spatial dimensions, we experimentally investigate quantum algorithms for solving the Maximum Independent Set problem. We use a hardware-efficient encoding associated with Rydberg blockade, realize closed-loop optimization to test several variational algorithms, and subsequently apply them to systematically explore a class of graphs with programmable connectivity. We find the problem hardness is controlled by the solution degeneracy and number of local minima, and experimentally benchmark the quantum algorithm's performance against classical simulated annealing. On the hardest graphs, we observe a superlinear quantum speedup in finding exact solutions in the deep circuit regime and analyze its origins.}
+      \field{month}{2}
+      \field{note}{arXiv:2202.09372}
+      \field{title}{Quantum {Optimization} of {Maximum} {Independent} {Set} using {Rydberg} {Atom} {Arrays}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Preprint PDF:/Users/ludo/Zotero/storage/L3FE7JCQ/Ebadi et al. - 2022 - Quantum Optimization of Maximum Independent Set us.pdf:application/pdf;Snapshot:/Users/ludo/Zotero/storage/VNEF8GR3/2202.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2202.09372
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2202.09372
+      \endverb
+      \keyw{Quantum Physics,Condensed Matter - Disordered Systems and Neural Networks,Condensed Matter - Quantum Gases,Physics - Atomic Physics}
+    \endentry
+    \entry{amin_consistency_2009}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa5ed773eb3f62e4b156ee6e2f9b482c}{%
+           family={Amin},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi H.\bibnamedelimi S.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \strng{fullhash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \strng{bibnamehash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \strng{authorbibnamehash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \strng{authornamehash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \strng{authorfullhash}{fa5ed773eb3f62e4b156ee6e2f9b482c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0031-9007, 1079-7114}
+      \field{journaltitle}{Physical Review Letters}
+      \field{month}{6}
+      \field{number}{22}
+      \field{title}{Consistency of the {Adiabatic} {Theorem}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{102}
+      \field{year}{2009}
+      \field{urldateera}{ce}
+      \field{pages}{220401}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.102.220401
+      \endverb
+      \verb{file}
+      \verb Version soumise:/Users/ludo/Zotero/storage/G823IHAX/Amin - 2009 - Consistency of the Adiabatic Theorem.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.102.220401
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.102.220401
+      \endverb
+    \endentry
+    \entry{farhi_quantum_2014}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=5e61ee12360fc49d9013fbf8fe18db89}{%
+           family={Farhi},
+           familyi={F\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f2e6b451475e084ec5469a7bd9c9c6cf}{%
+           family={Goldstone},
+           familyi={G\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=39d938c535d4f5974b7e118bfc075b2f}{%
+           family={Gutmann},
+           familyi={G\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{20254ebc49b7f7e3467958f0e39320cd}
+      \strng{fullhash}{20254ebc49b7f7e3467958f0e39320cd}
+      \strng{bibnamehash}{20254ebc49b7f7e3467958f0e39320cd}
+      \strng{authorbibnamehash}{20254ebc49b7f7e3467958f0e39320cd}
+      \strng{authornamehash}{20254ebc49b7f7e3467958f0e39320cd}
+      \strng{authorfullhash}{20254ebc49b7f7e3467958f0e39320cd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We introduce a quantum algorithm that produces approximate solutions for combinatorial optimization problems. The algorithm depends on a positive integer p and the quality of the approximation improves as p is increased. The quantum circuit that implements the algorithm consists of unitary gates whose locality is at most the locality of the objective function whose optimum is sought. The depth of the circuit grows linearly with p times (at worst) the number of constraints. If p is fixed, that is, independent of the input size, the algorithm makes use of efficient classical preprocessing. If p grows with the input size a different strategy is proposed. We study the algorithm as applied to MaxCut on regular graphs and analyze its performance on 2-regular and 3-regular graphs for fixed p. For p = 1, on 3-regular graphs the quantum algorithm always finds a cut that is at least 0.6924 times the size of the optimal cut.}
+      \field{month}{11}
+      \field{note}{arXiv:1411.4028}
+      \field{title}{A {Quantum} {Approximate} {Optimization} {Algorithm}}
+      \field{urlday}{22}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1411.4028
+      \endverb
+      \verb{file}
+      \verb Preprint PDF:/Users/ludo/Zotero/storage/KJFWRHB9/Farhi et al. - 2014 - A Quantum Approximate Optimization Algorithm.pdf:application/pdf;Snapshot:/Users/ludo/Zotero/storage/QRUT9RR8/1411.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1411.4028
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1411.4028
+      \endverb
+      \keyw{Quantum Physics}
+    \endentry
+    \entry{karypis_multilevelk-way_1998}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3db7df6401b206bb040d6735adbe81e2}{%
+           family={Karypis},
+           familyi={K\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=efb90d78e35ff61d3bc639f5c6f3d822}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vipin},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{fullhash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{bibnamehash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{authorbibnamehash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{authornamehash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{authorfullhash}{78d3ffe775563bd509dfd1b2150dab33}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{07437315}
+      \field{journaltitle}{Journal of Parallel and Distributed Computing}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Multilevelk-way {Partitioning} {Scheme} for {Irregular} {Graphs}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{48}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \field{pages}{96\bibrangedash 129}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1006/jpdc.1997.1404
+      \endverb
+      \verb{file}
+      \verb Karypis et Kumar - 1998 - Multilevelk-way Partitioning Scheme for Irregular .pdf:/Users/ludo/Zotero/storage/7TMF2M8B/Karypis et Kumar - 1998 - Multilevelk-way Partitioning Scheme for Irregular .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0743731597914040
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0743731597914040
+      \endverb
+    \endentry
+    \entry{zielewski_method_2022}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=335ab216a55caa23a337c4e6f2cfcb20}{%
+           family={Zielewski},
+           familyi={Z\bibinitperiod},
+           given={Michael\bibnamedelima Ryan},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=5728d4b40191e82c9de5633454119566}{%
+           family={Takizawa},
+           familyi={T\bibinitperiod},
+           given={Hiroyuki},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Virtual Event Japan}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{fullhash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{bibnamehash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{authorbibnamehash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{authornamehash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{authorfullhash}{0516716187cc083c1a329d6fb52af7c5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International {Conference} on {High} {Performance} {Computing} in {Asia}-{Pacific} {Region}}
+      \field{isbn}{978-1-4503-8498-8}
+      \field{month}{1}
+      \field{title}{A {Method} for {Reducing} {Time}-to-{Solution} in {Quantum} {Annealing} {Through} {Pausing}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{137\bibrangedash 145}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1145/3492805.3492815
+      \endverb
+      \verb{file}
+      \verb Texte intégral:/Users/ludo/Zotero/storage/W8VQMZA5/Zielewski et Takizawa - 2022 - A Method for Reducing Time-to-Solution in Quantum .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/3492805.3492815
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/3492805.3492815
+      \endverb
+    \endentry
+    \entry{noauthor_pasqal_nodate}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Pasqal’s quantum leap: Over 1,000 atoms trapped, unlocking new possibilities in scalable quantum computing.}
+      \field{journaltitle}{Pasqal}
+      \field{title}{Pasqal exceeds 1,000 {Atoms} in {Quantum} {Processor}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.pasqal.com/news/pasqal-exceeds-1000-atoms-in-quantum-processor/
+      \endverb
+      \verb{url}
+      \verb https://www.pasqal.com/news/pasqal-exceeds-1000-atoms-in-quantum-processor/
+      \endverb
+    \endentry
+    \entry{noauthor_our_nodate}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Discover our quantum roadmap articulating our vision​ to define quantum reality and learn more about Pasqal ambition.}
+      \field{journaltitle}{Pasqal}
+      \field{title}{Our {Quantum} {Roadmap}}
+      \field{urlday}{20}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/Users/ludo/Zotero/storage/XL7DMTUD/our-roadmap.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.pasqal.com/our-technology/our-roadmap/
+      \endverb
+      \verb{url}
+      \verb https://www.pasqal.com/our-technology/our-roadmap/
+      \endverb
+    \endentry
+    \entry{kim_quantum_2023}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=d9865a0b903a1ad010c352119918684c}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Kangheun},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d1d2b7be4355bea4e1fe732bbe6bcd5b}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Minhyuk},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6ce70620e9c8d4989e2cdc241ccd2ad4}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Juyoung},
+           giveni={J\bibinitperiod}}}%
+        {{hash=916c558ae648b43306403b85e7e11f1f}{%
+           family={Byun},
+           familyi={B\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=643ce9973c696966c19dbe66d3c1066c}{%
+           family={Ahn},
+           familyi={A\bibinitperiod},
+           given={Jaewook},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{40c3db0b72a4d5d4077e76ec6d258885}
+      \strng{fullhash}{28f196926e17477f0a3392859b16a103}
+      \strng{bibnamehash}{28f196926e17477f0a3392859b16a103}
+      \strng{authorbibnamehash}{28f196926e17477f0a3392859b16a103}
+      \strng{authornamehash}{40c3db0b72a4d5d4077e76ec6d258885}
+      \strng{authorfullhash}{28f196926e17477f0a3392859b16a103}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Finding the maximum independent set (MIS) of a large-size graph is a nondeterministic polynomial-time (NP)-complete problem not efficiently solvable with classical computations. Here, we present a set of quantum adiabatic computing data of Rydberg-atom experiments performed to solve the MIS problem of up to 141 atoms randomly arranged on the King's lattice. A total of 582,916 events of Rydberg-atom measurements are collected for experimental MIS solutions of 733,853 different graphs. We provide the raw image data along with the entire binary determinations of the measured many-body ground states and the classified graph data, to offer bench-mark testing and advanced data-driven analyses for validation of the performance and system improvements of the Rydberg-atom approach.}
+      \field{month}{11}
+      \field{note}{arXiv:2311.13803}
+      \field{title}{Quantum {Computing} {Dataset} of {Maximum} {Independent} {Set} {Problem} on {King}'s {Lattice} of over {Hundred} {Rydberg} {Atoms}}
+      \field{urlday}{22}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2311.13803
+      \endverb
+      \verb{file}
+      \verb Preprint PDF:/Users/ludo/Zotero/storage/4R9N8NIQ/Kim et al. - 2023 - Quantum Computing Dataset of Maximum Independent S.pdf:application/pdf;Snapshot:/Users/ludo/Zotero/storage/EEP75UKL/2311.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2311.13803
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2311.13803
+      \endverb
+      \keyw{Quantum Physics,Physics - Atomic Physics,Physics - Data Analysis,Statistics and Probability}
+    \endentry
+    \entry{chung_connected_2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1d2495bc5132ebe0aba48b654d7adca3}{%
+           family={Chung},
+           familyi={C\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+        {{hash=4c61c76e8ee84b26e87b8f0c01b1c553}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Linyuan},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \strng{fullhash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \strng{bibnamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \strng{authorbibnamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \strng{authornamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \strng{authorfullhash}{4d27eeeb47eb489b5d79839ff2e3b861}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We consider a family of random graphs with a given expected degree sequence. Each edge is chosen independently with probability proportional to the product of the expected degrees of its endpoints. We examine the distribution of the sizes/volumes of the connected components which turns out depending primarily on the average degree d and the second-order average degree d{\textasciitilde}. Here d{\textasciitilde} denotes the weighted average of squares of the expected degrees. For example, we prove that the giant component exists if the expected average degree d is at least 1, and there is no giant component if the expected second-order average degree d{\textasciitilde} is at most 1. Examples are given to illustrate that both bounds are best possible.}
+      \field{issn}{0219-3094}
+      \field{journaltitle}{Annals of Combinatorics}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{Connected {Components} in {Random} {Graphs} with {Given} {Expected} {Degree} {Sequences}}
+      \field{urlday}{22}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{volume}{6}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{125\bibrangedash 145}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/PL00012580
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/Users/ludo/Zotero/storage/STGNYS2Q/Chung et Lu - 2002 - Connected Components in Random Graphs with Given E.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/PL00012580
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/PL00012580
+      \endverb
+      \keyw{Keywords: random graphs,connected components,expected degree sequence,power law,power law graphs}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
