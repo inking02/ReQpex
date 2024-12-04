@@ -4,6 +4,7 @@ File that solve sthe recupex problem.
 
 import recupex_solver
 from utils.generate_maps import recap_map_getter
+from typing import List
 
 
 def main(
@@ -18,6 +19,7 @@ def main(
     show_estrie_aide: bool = False,
     use_quantum: bool = True,
     path: str = "",
+    num_atoms: List[int] = [6, 4],
 ) -> None:
     """
     Runs the algorithm to solve Recupex bins placement optimisation problem.
@@ -35,7 +37,9 @@ def main(
     - show_estrie_aide (bool = False): Whether or not to show Estrie-Aide's bins on the recap map.
     - use_quantum (bool = True): Wheter or not to use the quantum implementation of the MIS solver. If not, the netwrokx's MIS function
                                  will be used.
-    path (str=""): The local path to the recupex directory (It includes the Recupex's folder).
+    - path (str=""): The local path to the recupex directory (It includes the Recupex's folder).
+    - num_atoms (List[int] = [6, 4]): The list of the maximum number of nodes in the subgraphes sent to the QMIS function, The element at the first
+                                      position is for the bin MIS and the other one is for the new positions MIS.
 
     Returns:
     str: The key with the maximum value.
@@ -48,6 +52,7 @@ def main(
         save_map=save_maps,
         bin_image=bin_images,
         use_quantum=use_quantum,
+        num_atoms=num_atoms[0],
     )
     print("Bins simplified")
     print("******************************************")
@@ -69,6 +74,7 @@ def main(
         path=path,
         bin_image=bin_images,
         use_quantum=use_quantum,
+        num_atoms=num_atoms[1],
     )
     print("New distribution calculated")
     print("******************************************")

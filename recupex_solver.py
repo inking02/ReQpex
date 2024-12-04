@@ -18,6 +18,7 @@ def simplify_bins(
     path: str = "",
     bin_image: bool = False,
     use_quantum: bool = True,
+    num_atoms: int = 6,
 ) -> None:
     """
     Function to remove some of the bins in their original bins with a MIS. If two locations are closer than the radius given,
@@ -32,6 +33,7 @@ def simplify_bins(
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
     - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
+    - num_atoms (int=6): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
     None
@@ -123,7 +125,7 @@ def simplify_bins(
 
     if use_quantum:
         # Running the QMIS
-        solver = BIG_QMIS(G, num_atoms=6)
+        solver = BIG_QMIS(G, num_atoms=num_atoms)
         new_verticies = solver.run(
             pulse,
             best_bitstring_getter=max_with_volume,
@@ -261,6 +263,7 @@ def place_new_bins(
     path: str = "",
     bin_image: bool = False,
     use_quantum: bool = True,
+    num_atoms: int = 4,
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in
@@ -274,6 +277,7 @@ def place_new_bins(
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
     - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
+    - num_atoms (int=4): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
     None
@@ -302,7 +306,7 @@ def place_new_bins(
 
     if use_quantum:
         # Running the QMIS algorithm
-        solver = BIG_QMIS(G, num_atoms=4)
+        solver = BIG_QMIS(G, num_atoms=num_atoms)
         new_verticies = solver.run(pulse, print_progression=True)
 
     else:
