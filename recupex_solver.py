@@ -4,7 +4,7 @@ import networkx as nx
 from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
-from QMIS_code.QMIS_utils import Pulse_constructor
+from QMIS_code.pulse_utils import Pulse_constructor
 from Find_MIS_discs import Find_MIS_discs
 from numpy.typing import NDArray
 from typing import Callable, List

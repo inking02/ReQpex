@@ -19,7 +19,7 @@ from typing import Callable
 
 
 class Quantum_MIS:
-    def __init__(self, graph: nx.Graph) -> None:
+    def __init__(self, graph: nx.Graph, device=AnalogDevice) -> None:
         """
         Object that can run the quantum analog computing MIS algorithm. To create the object, networkx's graph architecture must be used.
         A graph with more than 15 atom will not give good results.
@@ -30,12 +30,15 @@ class Quantum_MIS:
         Returns:
         None
         """
+        self.device = device
+
         # we separate the graph in all its connected components
         self.sub_graphes = []
         self.nodes_positions = []
         for nodes in nx.connected_components(graph):
             self.sub_graphes.append(create_sub_graph(graph, nodes))
-            self.nodes_positions.append(list(nodes))
+            nodes_to_add = [int(node) for node in nodes]
+            self.nodes_positions.append(nodes_to_add)
 
         # finding coordinates that helps building a good register using spring_layout
         self.pos = [

@@ -4,7 +4,7 @@ File that solve sthe recupex problem.
 
 import recupex_solver
 from utils.generate_maps import recap_map_getter
-from QMIS_code.QMIS_utils import Pulse_constructor
+from QMIS_code.pulse_utils import Pulse_constructor
 from typing import List, Callable
 
 
@@ -120,6 +120,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
-        num_atoms=[6, 4],
+        num_atoms=[10, 8],
         pulse=pulse,
     )

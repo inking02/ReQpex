@@ -9,7 +9,7 @@ from QMIS_code.Quantum_MIS import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis
-from QMIS_code.QMIS_utils import Pulse_constructor
+from QMIS_code.pulse_utils import Pulse_constructor
 
 
 class BIG_QMIS:
