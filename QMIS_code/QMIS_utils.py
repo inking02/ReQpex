@@ -155,7 +155,7 @@ def fusion_counts(counts, positions):
         for position, (bitstring, value) in zip(positions, combination):
             for bit, pos in zip(bitstring, position):
                 final_bitstring[pos - 1] = bit
-            combined_value += value  # Multiplier les valeurs
+            combined_value += value  # Additioner les valeurs
 
         # Convertir en bitstring final
         combined_key = "".join(final_bitstring)

@@ -137,7 +137,6 @@ class Quantum_MIS:
 
         # combining the registers
         count_total = fusion_counts(count_dicts, self.nodes_positions)
-        print(count_total)
         if generate_histogram:
             plot_histogram(count_total, shots, file_name)
 

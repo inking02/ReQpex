@@ -107,7 +107,7 @@ class BIG_QMIS:
 
             # Running the QMIS on the subgraphes
             for k, node in enumerate(nodes):
-                label_changer[int(node)] = str(k)
+                label_changer[node] = str(k)
             MIS_object = Quantum_MIS(nx.relabel_nodes(graph, label_changer, copy=True))
             res_dict = MIS_object.run(pulse, shots=shots, progress_bar=print_log_pulser)
             best_bitstring = best_bitstring_getter(
