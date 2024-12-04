@@ -9,6 +9,7 @@ from QMIS_code.Quantum_MIS import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis
+from QMIS_code.QMIS_utils import Pulse_constructor
 
 
 class BIG_QMIS:
@@ -52,7 +53,7 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable,
+        pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 100,
         other_info: List = [],
