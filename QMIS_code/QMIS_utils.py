@@ -6,16 +6,9 @@ from scipy.spatial import distance_matrix
 import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
-from pulser.waveforms import (
-    InterpolatedWaveform,
-    RampWaveform,
-    ConstantWaveform,
-    CompositeWaveform,
-    BlackmanWaveform,
-)
-from pulser import Pulse
+from itertools import product
 from numpy.typing import NDArray
-from typing import Tuple
+from typing import Tuple, List
 
 
 def scale_coordinates(
@@ -125,138 +118,47 @@ def euclid_dist(pos1: NDArray[np.float_], pos2: NDArray[np.float_]) -> float:
     return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
 
 
-def Waveform_Pulse(Omega: float, T: float, delta_0: float, delta_f: float) -> Pulse:
+def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
     """
-    Creates a waveform pulse object.
+    Method to create a subgraph of the class' main graph with the networkx.Graph architecture.
 
     Parameters:
-    - Omega (float):
-    - T (float):
-    - delta_0 (float):
-    - delta_f (float):
+    - nodes (List[str]): The list of the nodes that need to be included in the subgraph
 
     Returns:
-    Pulse: A pulser pusle object.
+    networkx.Graph: The sub graph create with the nodes specified.
     """
-    adiabatic_pulse = Pulse(
-        InterpolatedWaveform(T, [1e-9, Omega, 1e-9]),
-        InterpolatedWaveform(T, [delta_0, 0, delta_f]),
-        0,
+    subgraph = nx.Graph()
+    subgraph.add_nodes_from(nodes)
+    subgraph.add_edges_from(
+        tuple([u, v]) for (u, v) in G.edges(nodes) if u in nodes and v in nodes
     )
-    return adiabatic_pulse
+    return subgraph
 
 
-def Rise_Fall_Waveform(Omega: float, T: float, delta_0: float, delta_f: float):
-    """
-    Creates a waveform pulse object.
+def fusion_counts(counts, positions):
+    total_counts = {}
 
-    Parameters:
-    - Omega (float):
-    - T (float):
-    - delta_0 (float):
-    - delta_f (float):
+    # Créer toutes les combinaisons possibles de bitstrings parmi les dictionnaires
+    bitstring_combinations = product(*[d.items() for d in counts])
+    max_length = 0
+    for dictionary in counts:
+        max_length += len(next(iter(dictionary)))
+    for combination in bitstring_combinations:
+        # Longueur totale du bitstring final
 
-    Returns:
-    Pulse: A pulser pusle object.
-    """
-    up = RampWaveform(T / 2, 0, Omega)
-    down = RampWaveform(T / 2, Omega, 0)
-    d_up = RampWaveform(T / 2, delta_0, 0)
-    d_down = RampWaveform(T / 2, 0, delta_f)
+        final_bitstring = ["0"] * max_length  # Initialise avec '0'
 
-    rise_fall_Pulse = Pulse(
-        CompositeWaveform(up, down), CompositeWaveform(d_up, d_down), 0
-    )
+        combined_value = 0  # Initialisation pour combiner les valeurs (multiplication)
 
-    return rise_fall_Pulse
+        # Placer chaque bit dans sa position et calculer la valeur combinée
+        for position, (bitstring, value) in zip(positions, combination):
+            for bit, pos in zip(bitstring, position):
+                final_bitstring[pos - 1] = bit
+            combined_value += value  # Multiplier les valeurs
 
+        # Convertir en bitstring final
+        combined_key = "".join(final_bitstring)
+        total_counts[combined_key] = combined_value
 
-def Blackman_Waveform_Pulse(Omega: float, T: float, delta_0: float, delta_f: float):
-    """
-    Creates a waveform pulse object.
-
-    Parameters:
-    - Omega (float):
-    - T (float):
-    - delta_0 (float):
-    - delta_f (float):
-
-    Returns:
-    Pulse: A pulser pusle object.
-    """
-    Blackman_Pulse = Pulse(
-        BlackmanWaveform(T, Omega), InterpolatedWaveform(T, [delta_0, 0, delta_f]), 0
-    )
-
-    return Blackman_Pulse
-
-
-def Constant_pulse_pyramide(
-    Omega: float,
-    T: float,
-    T_pyramide: float,
-    delta_0: float,
-    delta_f: float,
-    delta: float,
-):
-    """
-    Creates a waveform pulse object.
-
-    Parameters:
-    - Omega (float):
-    - T (float):
-    - T_pyramide (float):
-    - delta_0 (float):
-    - delta_f (float):
-
-    Returns:
-    Pulse: A pulser pusle object.
-    """
-
-    Constant_1 = ConstantWaveform((T - T_pyramide) / 2, Omega - delta)
-    up = RampWaveform(T_pyramide / 2, Omega - delta, Omega)
-    down = RampWaveform(T_pyramide / 2, Omega, Omega - delta)
-    Constant_2 = ConstantWaveform((T - T_pyramide) / 2, Omega - delta)
-
-    r_Pulse = Pulse(
-        CompositeWaveform(Constant_1, up, down, Constant_2),
-        InterpolatedWaveform(T, [delta_0, 0, delta_f]),
-        0,
-    )
-    return r_Pulse
-
-
-def Pulse_constructor(
-    T: float,
-    Pulse_type: str,
-    T_pyramide: float = 0,
-    delta: float = 0,
-    delta_0: float = -5,
-    delta_f: float = 5,
-):
-    """
-    Creates a waveform pulse object.
-
-    Parameters:
-    - T (float):
-    - Pulse_type (str):
-    - T_pyramide (float):
-    - delta_0 (float):
-    - delta_f (float):
-
-    Returns:
-    Pulse: A pulser pusle object.
-    """
-    if Pulse_type == "Waveform":
-        return lambda Omega: Waveform_Pulse(Omega, T, delta_0, delta_f)
-
-    if Pulse_type == "Rise_fall":
-        return lambda Omega: Rise_Fall_Waveform(Omega, T, delta_0, delta_f)
-
-    if Pulse_type == "Blackman":
-        return lambda Omega: Blackman_Waveform_Pulse(Omega, T, delta_0, delta_f)
-
-    if Pulse_type == "Pyramide":
-        return lambda Omega: Constant_pulse_pyramide(
-            Omega, T, T_pyramide, delta_0, delta_f, delta
-        )
+    return total_counts
