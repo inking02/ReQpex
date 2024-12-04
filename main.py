@@ -4,7 +4,8 @@ File that solve sthe recupex problem.
 
 import recupex_solver
 from utils.generate_maps import recap_map_getter
-from typing import List
+from QMIS_code.QMIS_utils import Pulse_constructor
+from typing import List, Callable
 
 
 def main(
@@ -20,6 +21,7 @@ def main(
     use_quantum: bool = True,
     path: str = "",
     num_atoms: List[int] = [6, 4],
+    pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
 ) -> None:
     """
     Runs the algorithm to solve Recupex bins placement optimisation problem.
@@ -40,6 +42,7 @@ def main(
     - path (str=""): The local path to the recupex directory (It includes the Recupex's folder).
     - num_atoms (List[int] = [6, 4]): The list of the maximum number of nodes in the subgraphes sent to the QMIS function, The element at the first
                                       position is for the bin MIS and the other one is for the new positions MIS.
+    - pulse (Callable = Pulse_constructor(4000, "Rise_fall")): The pulse to be applied on the atoms in the QMIS' algorithms.
 
     Returns:
     str: The key with the maximum value.
@@ -53,6 +56,7 @@ def main(
         bin_image=bin_images,
         use_quantum=use_quantum,
         num_atoms=num_atoms[0],
+        pulse=pulse,
     )
     print("Bins simplified")
     print("******************************************")
@@ -75,6 +79,7 @@ def main(
         bin_image=bin_images,
         use_quantum=use_quantum,
         num_atoms=num_atoms[1],
+        pulse=pulse,
     )
     print("New distribution calculated")
     print("******************************************")
@@ -102,6 +107,7 @@ if __name__ == "__main__":
     show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
+    pulse = Pulse_constructor(4000, "Rise_fall")
     main(
         radius_simplify_bins=radius_simplify_bins,
         radius_simplify_locations=radius_simplify_locations,
@@ -114,4 +120,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
+        num_atoms=[6, 4],
+        pulse=pulse,
     )
