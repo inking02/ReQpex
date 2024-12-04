@@ -64,8 +64,6 @@ class Quantum_MIS:
             #extracting the count_dict for each register
             count_dict = results.sample_final_state(N_samples=shots)
             count_dicts.append(count_dict)
-            # if generate_histogram:
-            #     plot_histogram(count_dict, shots, file_name)
 
         #combining the registers
         count_total = fusion_counts(count_dicts, self.nodes_positions)
