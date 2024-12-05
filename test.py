@@ -24,8 +24,10 @@ nx.draw(
 )
 plt.show()
 
-solver = BIG_QMIS(graph)
-r = solver.run(shots=1000)
+
+solver = BIG_QMIS(graph, num_atoms=6)
+r = solver.run()
+
 
 
 colored_nodes = [str(value) for value in r]

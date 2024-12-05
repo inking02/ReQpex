@@ -16,7 +16,6 @@ from QMIS_code.QMIS_utils import (
     fusion_counts,
 )
 from typing import Callable
-import matplotlib.pyplot as plt
 
 
 class Quantum_MIS:
@@ -145,13 +144,10 @@ class Quantum_MIS:
 
             else:
                 count_dicts.append({"1": shots})
-        print(count_dicts)
+
         # combining the registers
-        # if len(count_dicts) > 1:
         count_total = fusion_counts(count_dicts, self.nodes_positions)
-        # else:
-            # count_total = count_dicts[0]
+
         if generate_histogram:
             plot_histogram(count_total, shots, file_name)
-
         return count_total

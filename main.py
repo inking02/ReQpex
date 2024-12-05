@@ -120,6 +120,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
-        num_atoms=[10, 8],
+        num_atoms=[6, 5],
         pulse=pulse,
     )

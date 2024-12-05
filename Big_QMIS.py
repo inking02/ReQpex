@@ -11,6 +11,8 @@ from typing import List, Callable
 import pymetis
 from QMIS_code.pulse_utils import Pulse_constructor
 
+import matplotlib.pyplot as plt
+
 
 class BIG_QMIS:
     def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
@@ -116,7 +118,6 @@ class BIG_QMIS:
             best_bitstring = best_bitstring_getter(
                 res_dict, nodes, other_info=other_info
             )
-
             # Can not have a MIS with no nodes implied
             if best_bitstring == "0" * len(nodes):
                 del res_dict[best_bitstring]
@@ -128,8 +129,22 @@ class BIG_QMIS:
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
                     independant_nodes.append(nodes[j])
-
             MIS_list.append(independant_nodes)
+
+            colored_nodes = [str(value) for value in independant_nodes]
+            print(colored_nodes)
+
+            node_colors = [
+                "red" if node in colored_nodes else "lightblue" for node in graph.nodes
+            ]
+            nx.draw(
+                graph,
+                with_labels=True,
+                node_color=node_colors,
+                node_size=500,
+                edge_color="gray",
+            )
+            plt.show()
         if print_progression:
             print("MIS' done. Now combining")
 
