@@ -31,7 +31,7 @@ class BIG_QMIS:
             self.num_atoms = num_atoms
 
     def max_bitstring(
-        res_dict: dict, index_positions: NDArray[np.int_], other_info: List = []
+        res_dict: dict, index_positions: NDArray[np.int_] = None, other_info: List = []
     ) -> str:
         """
         Returns the key of a dictionnary with the maximum value. The other arguments are not useful. They
