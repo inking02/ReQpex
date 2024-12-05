@@ -4,6 +4,7 @@ fonction of the class are in the QMIS_utils.py file. The function that runs the 
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
@@ -58,6 +59,7 @@ class Quantum_MIS:
             self.__build_reg__(coord, i) for i, coord in enumerate(self.coords)
         ]
 
+
     def __build_reg__(self, coord, i) -> Register:
         """
         Function that creates the pulser resgister for a given graph. It is optimal when the number of atoms is less than eleven.
@@ -74,6 +76,7 @@ class Quantum_MIS:
             self.R_blockades[i], coord, min_dist, max_dist
         )
         reg = Register.from_coordinates(coord)
+
         return reg
 
     def print_regs(self) -> None:
@@ -86,8 +89,11 @@ class Quantum_MIS:
         Returns:
         None
         """
-        for reg, R_blockade in zip(self.regs, self.R_blockades):
-            reg.draw(blockade_radius=R_blockade, draw_graph=True, draw_half_radius=True)
+        for i, (reg, R_blockade) in enumerate(zip(self.regs, self.R_blockades)):
+            if len(self.nodes_positions[i])>1:
+                reg.draw(blockade_radius=R_blockade, draw_graph=True, draw_half_radius=True)
+            else: 
+                reg.draw()
 
     def run(
         self,
@@ -115,25 +121,28 @@ class Quantum_MIS:
         Omega_pulse_max = self.device.channels["rydberg_global"].max_amp
         Omegas = [min(Omega_pulse_max, R_blockade) for R_blockade in self.R_blockades]
 
-        # creating pulse sequence
 
+        # creating pulse sequence
         seqs = [Sequence(reg, self.device) for reg in self.regs]
         count_dicts = []
-        for seq, Omega in zip(seqs, Omegas):
-            seq.declare_channel(
-                "ising", "rydberg_global"
-            )  # the pulse is applied to all the register globally
-            seq.add(Pulse(Omega), "ising")
+        for i, (seq, Omega) in enumerate(zip(seqs, Omegas)):
+            if len(self.nodes_positions[i])>1:
+                seq.declare_channel(
+                    "ising", "rydberg_global"
+                )  # the pulse is applied to all the register globally
+                seq.add(Pulse(Omega), "ising")
 
-            # simulating the results
-            simul = QutipEmulator.from_sequence(seq)
-            results = simul.run(progress_bar=progress_bar)
+                # simulating the results
+                simul = QutipEmulator.from_sequence(seq)
+                results = simul.run(progress_bar=progress_bar)
 
-            # extracting the count_dict for each register
-            count_dict = results.sample_final_state(N_samples=shots)
-            count_dicts.append(count_dict)
-            # if generate_histogram:
-            #     plot_histogram(count_dict, shots, file_name)
+                # extracting the count_dict for each register
+                count_dict = results.sample_final_state(N_samples=shots)
+                count_dicts.append(count_dict)
+            
+            else:
+                count_dicts.append({"1": shots})
+
 
         # combining the registers
         count_total = fusion_counts(count_dicts, self.nodes_positions)

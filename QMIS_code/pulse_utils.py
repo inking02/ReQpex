@@ -2,7 +2,6 @@
 File containing the pulses that can be used on the QMIS utils.
 """
 
-from scipy.spatial import distance_matrix
 from pulser.waveforms import (
     InterpolatedWaveform,
     RampWaveform,
@@ -114,6 +113,20 @@ def Constant_pulse_pyramide(
     return r_Pulse
 
 
+def rise_sweep_fall(Omega, T):
+    rise = RampWaveform(T/4, 0, Omega)
+    sweep = ConstantWaveform(T/2, Omega)
+    fall = RampWaveform(T/4, Omega, 0)
+    Omega_Wave = CompositeWaveform(rise, sweep, fall)
+
+    constant1_d = ConstantWaveform(T/4, -Omega)
+    rise_d = RampWaveform(T/2, -Omega, Omega)
+    constant2_d = ConstantWaveform(T/4, Omega)
+
+    detuning = CompositeWaveform(constant1_d, rise_d, constant2_d)
+    return Pulse(Omega_Wave, detuning, 0)
+
+
 def Pulse_constructor(
     T: float,
     Pulse_type: str,
@@ -148,3 +161,6 @@ def Pulse_constructor(
         return lambda Omega: Constant_pulse_pyramide(
             Omega, T, T_pyramide, delta_0, delta_f, delta
         )
+    
+    if Pulse_type == "Rise_sweep_fall":
+        return lambda Omega: rise_sweep_fall(Omega, T)

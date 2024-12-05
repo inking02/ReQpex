@@ -12,6 +12,7 @@ import pymetis
 from QMIS_code.pulse_utils import Pulse_constructor
 
 
+
 class BIG_QMIS:
     def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
         """
@@ -53,19 +54,19 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
+        pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 100,
         other_info: List = [],
         print_progression: bool = False,
-        print_log_pulser: bool = False,
+        print_log_pulser: bool = False
     ) -> List[str]:
         """
         Method to run the classical QMIS algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphes MIS' to a independdant set
         with close to the maximum amount of nodes.
 
         Parameters:
-        - Pulse (Callable): A callable of a function returning a Pulse class objcet from Pulser's library. It is the pulse given to the set of
+        - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
                                                             by the QMIS algorithm run function. It must take the result dictionnary, the array that gives the order
@@ -108,7 +109,9 @@ class BIG_QMIS:
             # Running the QMIS on the subgraphes
             for k, node in enumerate(nodes):
                 label_changer[node] = str(k)
+
             MIS_object = Quantum_MIS(nx.relabel_nodes(graph, label_changer, copy=True))
+
             res_dict = MIS_object.run(pulse, shots=shots, progress_bar=print_log_pulser)
             best_bitstring = best_bitstring_getter(
                 res_dict, nodes, other_info=other_info
@@ -146,11 +149,12 @@ class BIG_QMIS:
         """
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
-        subgraph.add_edges_from(
-            tuple([u, v])
-            for (u, v) in self.graph.edges(nodes)
-            if u in nodes and v in nodes
-        )
+        test = []
+        for (u, v) in self.graph.edges():
+            if str(u) in nodes and str(v) in nodes:
+                test.append((str(u), str(v)))
+        subgraph.add_edges_from(test)
+
         return subgraph
 
     def mis_tree(self, tree: nx.Graph) -> List[str]:

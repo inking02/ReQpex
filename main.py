@@ -20,7 +20,7 @@ def main(
     show_estrie_aide: bool = False,
     use_quantum: bool = True,
     path: str = "",
-    num_atoms: List[int] = [6, 4],
+    num_atoms: List[int] = [15, 15],
     pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
 ) -> None:
     """
@@ -79,7 +79,7 @@ def main(
         bin_image=bin_images,
         use_quantum=use_quantum,
         num_atoms=num_atoms[1],
-        pulse=pulse,
+        pulse=pulse
     )
     print("New distribution calculated")
     print("******************************************")
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     radius_simplify_locations = 1.5
     radius_new_distribution = 2.8
 
-    path = "/Users/lf/Documents/GitHub/ReQpex/"
+    path = "/Users/ludo/library/cloudstorage/onedrive-personnel/documents/ludovic/école/université/automne_24/bsq201/ReQpex/"
 
     save_maps = True
     show_maps = False
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
-    pulse = Pulse_constructor(4000, "Rise_fall")
+    pulse = Pulse_constructor(4000, "Rise_sweep_fall")
     main(
         radius_simplify_bins=radius_simplify_bins,
         radius_simplify_locations=radius_simplify_locations,
