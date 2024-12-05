@@ -139,25 +139,26 @@ def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
 def fusion_counts(counts, positions):
     total_counts = {}
 
-    # Créer toutes les combinaisons possibles de bitstrings parmi les dictionnaires
+    #creating all bitstring combinations from the given dictionnaries
     bitstring_combinations = product(*[d.items() for d in counts])
     max_length = 0
     for dictionary in counts:
+        #final bitstring lentgh
         max_length += len(next(iter(dictionary)))
     for combination in bitstring_combinations:
-        # Longueur totale du bitstring final
+        
+        #the final bitstring is init with the value 0 everywhere
+        final_bitstring = ["0"] * max_length 
 
-        final_bitstring = ["0"] * max_length  # Initialise avec '0'
-
-        combined_value = 0  # Initialisation pour combiner les valeurs (multiplication)
-
-        # Placer chaque bit dans sa position et calculer la valeur combinée
+        combined_value = 0  
+        #place each bit in its given position with the combinated value
         for position, (bitstring, value) in zip(positions, combination):
             for bit, pos in zip(bitstring, position):
                 final_bitstring[pos] = bit
-            combined_value += value  # Additioner les valeurs
+            #calculate the combined value of the combined bitstrings
+            combined_value += value 
 
-        # Convertir en bitstring final
+        # convert to the final bitstring
         combined_key = "".join(final_bitstring)
         total_counts[combined_key] = combined_value
 

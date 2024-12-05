@@ -4,7 +4,6 @@ fonction of the class are in the QMIS_utils.py file. The function that runs the 
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
 import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
