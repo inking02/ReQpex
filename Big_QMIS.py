@@ -12,7 +12,6 @@ import pymetis
 from QMIS_code.pulse_utils import Pulse_constructor
 
 
-
 class BIG_QMIS:
     def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
         """
@@ -59,7 +58,7 @@ class BIG_QMIS:
         shots: int = 100,
         other_info: List = [],
         print_progression: bool = False,
-        print_log_pulser: bool = False
+        print_log_pulser: bool = False,
     ) -> List[str]:
         """
         Method to run the classical QMIS algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphes MIS' to a independdant set
@@ -109,8 +108,9 @@ class BIG_QMIS:
             # Running the QMIS on the subgraphes
             for k, node in enumerate(nodes):
                 label_changer[node] = str(k)
+            relabeled_graph = nx.relabel_nodes(graph, label_changer, copy=True)
 
-            MIS_object = Quantum_MIS(nx.relabel_nodes(graph, label_changer, copy=True))
+            MIS_object = Quantum_MIS(relabeled_graph)
 
             res_dict = MIS_object.run(pulse, shots=shots, progress_bar=print_log_pulser)
             best_bitstring = best_bitstring_getter(
@@ -150,7 +150,7 @@ class BIG_QMIS:
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
         test = []
-        for (u, v) in self.graph.edges():
+        for u, v in self.graph.edges():
             if str(u) in nodes and str(v) in nodes:
                 test.append((str(u), str(v)))
         subgraph.add_edges_from(test)
@@ -285,11 +285,16 @@ class BIG_QMIS:
         forest = nx.Graph()
         forest.add_nodes_from(MIS_one)
         forest.add_nodes_from(MIS_two)
-        forest.add_edges_from(
-            (u, v)
-            for u, v in self.graph.edges(forest.nodes())
-            if u in MIS_one and v in MIS_two
-        )
+        edges_to_add = [
+            e
+            for e in self.graph.edges
+            if e[0] in MIS_one
+            and e[1] in MIS_two
+            or e[0] in MIS_two
+            and e[1] in MIS_one
+        ]
+
+        forest.add_edges_from(edges_to_add)
 
         nodes_to_remove = [i for i in nx.isolates(forest)]
         if not nodes_to_remove == []:

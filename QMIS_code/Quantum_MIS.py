@@ -37,9 +37,17 @@ class Quantum_MIS:
         self.sub_graphes = []
         self.nodes_positions = []
         for nodes in nx.connected_components(graph):
-            self.sub_graphes.append(create_sub_graph(graph, nodes))
+            sub_graph = create_sub_graph(graph, nodes)
+            self.sub_graphes.append(sub_graph)
             nodes_to_add = [int(node) for node in nodes]
             self.nodes_positions.append(nodes_to_add)
+            nx.draw(
+                sub_graph,
+                with_labels=True,
+                node_color="lightblue",
+                node_size=500,
+            )
+            plt.show()
 
         # finding coordinates that helps building a good register using spring_layout
         self.pos = [
@@ -58,7 +66,6 @@ class Quantum_MIS:
         self.regs = [
             self.__build_reg__(coord, i) for i, coord in enumerate(self.coords)
         ]
-
 
     def __build_reg__(self, coord, i) -> Register:
         """
@@ -90,9 +97,11 @@ class Quantum_MIS:
         None
         """
         for i, (reg, R_blockade) in enumerate(zip(self.regs, self.R_blockades)):
-            if len(self.nodes_positions[i])>1:
-                reg.draw(blockade_radius=R_blockade, draw_graph=True, draw_half_radius=True)
-            else: 
+            if len(self.nodes_positions[i]) > 1:
+                reg.draw(
+                    blockade_radius=R_blockade, draw_graph=True, draw_half_radius=True
+                )
+            else:
                 reg.draw()
 
     def run(
@@ -121,12 +130,11 @@ class Quantum_MIS:
         Omega_pulse_max = self.device.channels["rydberg_global"].max_amp
         Omegas = [min(Omega_pulse_max, R_blockade) for R_blockade in self.R_blockades]
 
-
         # creating pulse sequence
         seqs = [Sequence(reg, self.device) for reg in self.regs]
         count_dicts = []
         for i, (seq, Omega) in enumerate(zip(seqs, Omegas)):
-            if len(self.nodes_positions[i])>1:
+            if len(self.nodes_positions[i]) > 1:
                 seq.declare_channel(
                     "ising", "rydberg_global"
                 )  # the pulse is applied to all the register globally
@@ -139,13 +147,15 @@ class Quantum_MIS:
                 # extracting the count_dict for each register
                 count_dict = results.sample_final_state(N_samples=shots)
                 count_dicts.append(count_dict)
-            
+
             else:
                 count_dicts.append({"1": shots})
-
-
+        print(count_dict)
         # combining the registers
-        count_total = fusion_counts(count_dicts, self.nodes_positions)
+        if len(count_dict) > 1:
+            count_total = fusion_counts(count_dicts, self.nodes_positions)
+        else:
+            count_total = count_dict[0]
         if generate_histogram:
             plot_histogram(count_total, shots, file_name)
 

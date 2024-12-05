@@ -122,7 +122,6 @@ def simplify_bins(
     radius_lng_lat = radius_km / 111.1
     # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
     G = disc_graph_to_connected(positions=bins_numpy, radius=radius_lng_lat)
-
     if use_quantum:
         # Running the QMIS
         solver = BIG_QMIS(G, num_atoms=num_atoms)
