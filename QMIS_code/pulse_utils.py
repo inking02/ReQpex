@@ -44,15 +44,15 @@ def Constant_pulse_pyramide(Omega, T, T_pyramide, delta_0, delta_f, delta):
     )
     return r_Pulse
 
-def rise_sweep_fall(Omega, T):
+def rise_sweep_fall(Omega: float, T: int, delta_0 : float = -5, delta_f:float = 5):
     rise = RampWaveform(T/4, 0, Omega)
     sweep = ConstantWaveform(T/2, Omega)
     fall = RampWaveform(T/4, Omega, 0)
     Omega_Wave = CompositeWaveform(rise, sweep, fall)
 
-    constant1_d = ConstantWaveform(T/4, -Omega)
-    rise_d = RampWaveform(T/2, -Omega, Omega)
-    constant2_d = ConstantWaveform(T/4, Omega)
+    constant1_d = ConstantWaveform(T/4, delta_0)
+    rise_d = RampWaveform(T/2, delta_0, delta_f)
+    constant2_d = ConstantWaveform(T/4, delta_f)
 
     detuning = CompositeWaveform(constant1_d, rise_d, constant2_d)
     return Pulse(Omega_Wave, detuning, 0)
@@ -71,4 +71,4 @@ def Pulse_constructor(T: float, Pulse_type: str, T_pyramide: float = 0, delta: f
         return lambda Omega: Constant_pulse_pyramide(Omega, T, T_pyramide, delta_0, delta_f, delta)
     
     if Pulse_type == "Rise_Sweep_Fall":
-        return lambda Omega: rise_sweep_fall(Omega, T)
+        return lambda Omega: rise_sweep_fall(Omega, T, delta_0, delta_f)
