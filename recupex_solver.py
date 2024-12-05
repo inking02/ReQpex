@@ -4,7 +4,7 @@ import networkx as nx
 from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
-from QMIS_code.QMIS_utils import Pulse_constructor
+from QMIS_code.pulse_utils import Pulse_constructor
 from Find_MIS_discs import Find_MIS_discs
 from numpy.typing import NDArray
 from typing import Callable, List
@@ -41,7 +41,9 @@ def simplify_bins(
     # Functions that will be used inside this one
 
     # Using the same function to create the graph but changing the condition of ans edge to check the volumes produced.
-    def disc_graph_to_connected(positions: NDArray[np.float_], radius) -> nx.Graph:
+    def disc_graph_to_connected_volume(
+        positions: NDArray[np.float_], radius
+    ) -> nx.Graph:
         """
         From a array of position of the vertices of the graph, create a connected networkx graph. It will give an edge
         between two positions if they are too close without producing too much vbolume of clothes each.
@@ -64,9 +66,9 @@ def simplify_bins(
                 if (
                     i != j
                     and euclid_dist(G.nodes[i]["pos"], G.nodes[j]["pos"]) <= radius
-                    and (positions[int(i), 2] < 27754 or positions[int(j), 2] < 27754)
                 ):
-                    G.add_edge(i, j)
+                    if positions[int(i), 2] < 27754 or positions[int(j), 2] < 27754:
+                        G.add_edge(i, j)
         return G
 
     def max_with_volume(
@@ -121,7 +123,7 @@ def simplify_bins(
     # Building the graph
     radius_lng_lat = radius_km / 111.1
     # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
-    G = disc_graph_to_connected(positions=bins_numpy, radius=radius_lng_lat)
+    G = disc_graph_to_connected_volume(positions=bins_numpy, radius=radius_lng_lat)
 
     if use_quantum:
         # Running the QMIS
@@ -264,6 +266,7 @@ def place_new_bins(
     bin_image: bool = False,
     use_quantum: bool = True,
     num_atoms: int = 4,
+    test: bool = True,
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in

@@ -9,6 +9,7 @@ from QMIS_code.Quantum_MIS import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis
+from QMIS_code.pulse_utils import Pulse_constructor
 
 
 class BIG_QMIS:
@@ -31,7 +32,7 @@ class BIG_QMIS:
             self.num_atoms = num_atoms
 
     def max_bitstring(
-        res_dict: dict, index_positions: NDArray[np.int_] = None, other_info: List = []
+        res_dict: dict, index_positions: NDArray[np.int_], other_info: List = []
     ) -> str:
         """
         Returns the key of a dictionnary with the maximum value. The other arguments are not useful. They
@@ -52,9 +53,9 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable,
+        pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
         best_bitstring_getter: Callable = max_bitstring,
-        shots: int = 100,
+        shots: int = 1000,
         other_info: List = [],
         print_progression: bool = False,
         print_log_pulser: bool = False,
@@ -64,7 +65,7 @@ class BIG_QMIS:
         with close to the maximum amount of nodes.
 
         Parameters:
-        - Pulse (Callable): A callable of a function returning a Pulse class objcet from Pulser's library. It is the pulse given to the set of
+        - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
                                                             by the QMIS algorithm run function. It must take the result dictionnary, the array that gives the order
@@ -106,13 +107,15 @@ class BIG_QMIS:
 
             # Running the QMIS on the subgraphes
             for k, node in enumerate(nodes):
-                label_changer[int(node)] = str(k)
-            MIS_object = Quantum_MIS(nx.relabel_nodes(graph, label_changer, copy=True))
+                label_changer[node] = str(k)
+            relabeled_graph = nx.relabel_nodes(graph, label_changer, copy=True)
+
+            MIS_object = Quantum_MIS(relabeled_graph)
+
             res_dict = MIS_object.run(pulse, shots=shots, progress_bar=print_log_pulser)
             best_bitstring = best_bitstring_getter(
                 res_dict, nodes, other_info=other_info
             )
-
             # Can not have a MIS with no nodes implied
             if best_bitstring == "0" * len(nodes):
                 del res_dict[best_bitstring]
@@ -124,8 +127,8 @@ class BIG_QMIS:
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
                     independant_nodes.append(nodes[j])
-
             MIS_list.append(independant_nodes)
+
         if print_progression:
             print("MIS' done. Now combining")
 
@@ -145,11 +148,12 @@ class BIG_QMIS:
         """
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
-        subgraph.add_edges_from(
-            tuple([u, v])
-            for (u, v) in self.graph.edges(nodes)
-            if u in nodes and v in nodes
-        )
+        nodes_to_add = []
+        for u, v in self.graph.edges():
+            if u in nodes and v in nodes:
+                nodes_to_add.append((u, v))
+        subgraph.add_edges_from(nodes_to_add)
+
         return subgraph
 
     def mis_tree(self, tree: nx.Graph) -> List[str]:
@@ -280,11 +284,16 @@ class BIG_QMIS:
         forest = nx.Graph()
         forest.add_nodes_from(MIS_one)
         forest.add_nodes_from(MIS_two)
-        forest.add_edges_from(
-            (u, v)
-            for u, v in self.graph.edges(forest.nodes())
-            if u in MIS_one and v in MIS_two
-        )
+        edges_to_add = [
+            e
+            for e in self.graph.edges
+            if e[0] in MIS_one
+            and e[1] in MIS_two
+            or e[0] in MIS_two
+            and e[1] in MIS_one
+        ]
+
+        forest.add_edges_from(edges_to_add)
 
         nodes_to_remove = [i for i in nx.isolates(forest)]
         if not nodes_to_remove == []:
