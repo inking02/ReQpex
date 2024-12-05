@@ -21,7 +21,7 @@ nx.draw(
 )
 plt.show()
 
-solver = BIG_QMIS(graph)
+solver = BIG_QMIS(graph, num_atoms=6)
 r = solver.run()
 
 

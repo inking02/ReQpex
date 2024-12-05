@@ -16,7 +16,6 @@ from QMIS_code.QMIS_utils import (
     fusion_counts,
 )
 from typing import Callable
-import matplotlib.pyplot as plt
 
 
 class Quantum_MIS:
@@ -41,13 +40,6 @@ class Quantum_MIS:
             self.sub_graphes.append(sub_graph)
             nodes_to_add = [int(node) for node in nodes]
             self.nodes_positions.append(nodes_to_add)
-            nx.draw(
-                sub_graph,
-                with_labels=True,
-                node_color="lightblue",
-                node_size=500,
-            )
-            plt.show()
 
         # finding coordinates that helps building a good register using spring_layout
         self.pos = [
@@ -150,13 +142,8 @@ class Quantum_MIS:
 
             else:
                 count_dicts.append({"1": shots})
-        print(count_dict)
         # combining the registers
-        if len(count_dict) > 1:
-            count_total = fusion_counts(count_dicts, self.nodes_positions)
-        else:
-            count_total = count_dict[0]
+        count_total = fusion_counts(count_dicts, self.nodes_positions)
         if generate_histogram:
             plot_histogram(count_total, shots, file_name)
-
         return count_total
