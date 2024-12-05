@@ -4,7 +4,7 @@ File that solve sthe recupex problem.
 
 import recupex_solver
 from utils.generate_maps import recap_map_getter
-from QMIS_code.QMIS_utils import Pulse_constructor
+from QMIS_code.pulse_utils import Pulse_constructor
 from typing import List, Callable
 
 
@@ -20,8 +20,9 @@ def main(
     show_estrie_aide: bool = False,
     use_quantum: bool = True,
     path: str = "",
-    num_atoms: List[int] = [6, 4],
+    num_atoms: List[int] = [15, 15],
     pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
+    test: bool = True,
 ) -> None:
     """
     Runs the algorithm to solve Recupex bins placement optimisation problem.
@@ -80,6 +81,7 @@ def main(
         use_quantum=use_quantum,
         num_atoms=num_atoms[1],
         pulse=pulse,
+        test=test,
     )
     print("New distribution calculated")
     print("******************************************")
@@ -107,7 +109,7 @@ if __name__ == "__main__":
     show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
-    pulse = Pulse_constructor(4000, "Rise_fall")
+    pulse = Pulse_constructor(4000, "Rise_sweep_fall")
     main(
         radius_simplify_bins=radius_simplify_bins,
         radius_simplify_locations=radius_simplify_locations,
@@ -120,6 +122,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
-        num_atoms=[6, 4],
+        num_atoms=[10, 10],
         pulse=pulse,
     )
