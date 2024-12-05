@@ -16,6 +16,7 @@ from QMIS_code.QMIS_utils import (
     fusion_counts,
 )
 from typing import Callable
+import matplotlib.pyplot as plt
 
 
 class Quantum_MIS:
