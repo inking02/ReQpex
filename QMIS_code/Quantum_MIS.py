@@ -47,7 +47,7 @@ class Quantum_MIS:
             for sub_graph in self.sub_graphes
         ]
         self.coords = [np.array(list(position.values())) for position in self.pos]
-
+        
         # defining the minimal blockade for each sub_graph
         self.R_blockades = [
             find_minimal_radius(sub_graph, position)

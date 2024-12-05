@@ -109,9 +109,9 @@ def rise_sweep_fall(Omega, T):
     fall = RampWaveform(T/4, Omega, 0)
     Omega_Wave = CompositeWaveform(rise, sweep, fall)
 
-    constant1_d = ConstantWaveform(T/4, -Omega)
-    rise_d = RampWaveform(T/2, -Omega, Omega)
-    constant2_d = ConstantWaveform(T/4, Omega)
+    constant1_d = ConstantWaveform(T/4, -5)
+    rise_d = RampWaveform(T/2, -5, 5)
+    constant2_d = ConstantWaveform(T/4, 5)
 
     detuning = CompositeWaveform(constant1_d, rise_d, constant2_d)
     return Pulse(Omega_Wave, detuning, 0)

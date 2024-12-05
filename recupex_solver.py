@@ -287,6 +287,7 @@ def place_new_bins(
     bin_image: bool = False,
     use_quantum: bool = True,
     num_atoms: int = 4,
+    test: bool = True
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in

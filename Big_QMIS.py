@@ -57,7 +57,7 @@ class BIG_QMIS:
         self,
         pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
         best_bitstring_getter: Callable = max_bitstring,
-        shots: int = 100,
+        shots: int = 1000,
         other_info: List = [],
         print_progression: bool = False,
         print_log_pulser: bool = False,
@@ -131,20 +131,20 @@ class BIG_QMIS:
                     independant_nodes.append(nodes[j])
             MIS_list.append(independant_nodes)
 
-            colored_nodes = [str(value) for value in independant_nodes]
-            print(colored_nodes)
+            # colored_nodes = [str(value) for value in independant_nodes]
+            # print(colored_nodes)
 
-            node_colors = [
-                "red" if node in colored_nodes else "lightblue" for node in graph.nodes
-            ]
-            nx.draw(
-                graph,
-                with_labels=True,
-                node_color=node_colors,
-                node_size=500,
-                edge_color="gray",
-            )
-            plt.show()
+            # node_colors = [
+            #     "red" if node in colored_nodes else "lightblue" for node in graph.nodes
+            # ]
+            # nx.draw(
+            #     graph,
+            #     with_labels=True,
+            #     node_color=node_colors,
+            #     node_size=500,
+            #     edge_color="gray",
+            # )
+            # plt.show()
         if print_progression:
             print("MIS' done. Now combining")
 
