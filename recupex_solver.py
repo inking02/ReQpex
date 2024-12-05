@@ -9,8 +9,6 @@ from Find_MIS_discs import Find_MIS_discs
 from numpy.typing import NDArray
 from typing import Callable, List
 
-import matplotlib.pyplot as plt
-
 
 def simplify_bins(
     radius_km: float,
@@ -126,12 +124,7 @@ def simplify_bins(
     radius_lng_lat = radius_km / 111.1
     # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
     G = disc_graph_to_connected_volume(positions=bins_numpy, radius=radius_lng_lat)
-    nx.draw(
-        G,
-        with_labels=True,
-        node_size=500,
-    )
-    plt.show()
+
     if use_quantum:
         # Running the QMIS
         solver = BIG_QMIS(G, num_atoms=num_atoms)
@@ -141,20 +134,6 @@ def simplify_bins(
             other_info=bins_numpy[:, 2],
             print_progression=True,
         )
-        colored_nodes = [str(value) for value in new_verticies]
-        print(colored_nodes)
-
-        node_colors = [
-            "red" if node in colored_nodes else "lightblue" for node in G.nodes
-        ]
-        nx.draw(
-            G,
-            with_labels=True,
-            node_color=node_colors,
-            node_size=500,
-            edge_color="gray",
-        )
-        plt.show()
 
     else:
         solver = Find_MIS_discs(G)
@@ -287,7 +266,7 @@ def place_new_bins(
     bin_image: bool = False,
     use_quantum: bool = True,
     num_atoms: int = 4,
-    test: bool = True
+    test: bool = True,
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in

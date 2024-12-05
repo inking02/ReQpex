@@ -11,8 +11,6 @@ from typing import List, Callable
 import pymetis
 from QMIS_code.pulse_utils import Pulse_constructor
 
-import matplotlib.pyplot as plt
-
 
 class BIG_QMIS:
     def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
@@ -131,20 +129,6 @@ class BIG_QMIS:
                     independant_nodes.append(nodes[j])
             MIS_list.append(independant_nodes)
 
-            # colored_nodes = [str(value) for value in independant_nodes]
-            # print(colored_nodes)
-
-            # node_colors = [
-            #     "red" if node in colored_nodes else "lightblue" for node in graph.nodes
-            # ]
-            # nx.draw(
-            #     graph,
-            #     with_labels=True,
-            #     node_color=node_colors,
-            #     node_size=500,
-            #     edge_color="gray",
-            # )
-            # plt.show()
         if print_progression:
             print("MIS' done. Now combining")
 
@@ -164,11 +148,11 @@ class BIG_QMIS:
         """
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
-        test = []
+        nodes_to_add = []
         for u, v in self.graph.edges():
-            if str(u) in nodes and str(v) in nodes:
-                test.append((str(u), str(v)))
-        subgraph.add_edges_from(test)
+            if u in nodes and v in nodes:
+                nodes_to_add.append((u, v))
+        subgraph.add_edges_from(nodes_to_add)
 
         return subgraph
 

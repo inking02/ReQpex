@@ -22,7 +22,7 @@ def main(
     path: str = "",
     num_atoms: List[int] = [15, 15],
     pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
-    test: bool = True
+    test: bool = True,
 ) -> None:
     """
     Runs the algorithm to solve Recupex bins placement optimisation problem.
@@ -81,7 +81,7 @@ def main(
         use_quantum=use_quantum,
         num_atoms=num_atoms[1],
         pulse=pulse,
-        test = test
+        test=test,
     )
     print("New distribution calculated")
     print("******************************************")
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     radius_simplify_locations = 1.5
     radius_new_distribution = 2.8
 
-    path = "/Users/ludo/library/cloudstorage/onedrive-personnel/Documents/ludovic/école/université/automne_24/bsq201/ReQpex/"
+    path = "/Users/lf/Documents/GitHub/ReQpex/"
 
     save_maps = True
     show_maps = False
