@@ -55,7 +55,7 @@ class BIG_QMIS:
         self,
         pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
         best_bitstring_getter: Callable = max_bitstring,
-        shots: int = 1000,
+        shots: int = 100,
         other_info: List = [],
         print_progression: bool = False,
         print_log_pulser: bool = False,
