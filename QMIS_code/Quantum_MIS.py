@@ -7,7 +7,7 @@ import numpy as np
 import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
-from pulser.devices import AnalogDevice
+from pulser.devices import DigitalAnalogDevice
 from QMIS_code.QMIS_utils import (
     scale_coordinates,
     find_minimal_radius,
@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 
 
 class Quantum_MIS:
-    def __init__(self, graph: nx.Graph, device=AnalogDevice) -> None:
+    def __init__(self, graph: nx.Graph, device=DigitalAnalogDevice) -> None:
         """
         Object that can run the quantum analog computing MIS algorithm. To create the object, networkx's graph architecture must be used.
         A graph with more than 15 atom will not give good results.
@@ -32,7 +32,7 @@ class Quantum_MIS:
         None
         """
         self.device = device
-
+        
         # we separate the graph in all its connected components
         self.sub_graphes = []
         self.nodes_positions = []
@@ -41,13 +41,6 @@ class Quantum_MIS:
             self.sub_graphes.append(sub_graph)
             nodes_to_add = [int(node) for node in nodes]
             self.nodes_positions.append(nodes_to_add)
-            nx.draw(
-                sub_graph,
-                with_labels=True,
-                node_color="lightblue",
-                node_size=500,
-            )
-            plt.show()
 
         # finding coordinates that helps building a good register using spring_layout
         self.pos = [
@@ -82,7 +75,8 @@ class Quantum_MIS:
         coord, self.R_blockades[i] = scale_coordinates(
             self.R_blockades[i], coord, min_dist, max_dist
         )
-        reg = Register.from_coordinates(coord)
+        qubits = dict(enumerate(coord))
+        reg = Register(qubits)
 
         return reg
 
@@ -109,7 +103,7 @@ class Quantum_MIS:
         Pulse: Callable,
         shots: int = 1000,
         generate_histogram: bool = False,
-        file_name: str = "QMIS_histo.pdf",
+        file_name: str = "",
         progress_bar: bool = True,
     ) -> dict:
         """
@@ -134,12 +128,13 @@ class Quantum_MIS:
         seqs = [Sequence(reg, self.device) for reg in self.regs]
         count_dicts = []
         for i, (seq, Omega) in enumerate(zip(seqs, Omegas)):
+            
             if len(self.nodes_positions[i]) > 1:
                 seq.declare_channel(
                     "ising", "rydberg_global"
                 )  # the pulse is applied to all the register globally
                 seq.add(Pulse(Omega), "ising")
-
+                
                 # simulating the results
                 simul = QutipEmulator.from_sequence(seq)
                 results = simul.run(progress_bar=progress_bar)
@@ -150,12 +145,12 @@ class Quantum_MIS:
 
             else:
                 count_dicts.append({"1": shots})
-        print(count_dict)
+        print(count_dicts)
         # combining the registers
-        if len(count_dict) > 1:
-            count_total = fusion_counts(count_dicts, self.nodes_positions)
-        else:
-            count_total = count_dict[0]
+        # if len(count_dicts) > 1:
+        count_total = fusion_counts(count_dicts, self.nodes_positions)
+        # else:
+            # count_total = count_dicts[0]
         if generate_histogram:
             plot_histogram(count_total, shots, file_name)
 

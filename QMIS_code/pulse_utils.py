@@ -12,44 +12,40 @@ from pulser.waveforms import (
 from pulser import Pulse
 
 
-def Waveform_Pulse(Omega: float, T: float, delta_0: float, delta_f: float) -> Pulse:
+def Waveform_Pulse(Omega: float, T: float) -> Pulse:
     """
     Creates a waveform pulse object.
 
     Parameters:
     - Omega (float):
     - T (float):
-    - delta_0 (float):
-    - delta_f (float):
 
     Returns:
     Pulse: A pulser pusle object.
     """
     adiabatic_pulse = Pulse(
         InterpolatedWaveform(T, [1e-9, Omega, 1e-9]),
-        InterpolatedWaveform(T, [delta_0, 0, delta_f]),
+        InterpolatedWaveform(T, [-Omega, 0, Omega]),
         0,
     )
     return adiabatic_pulse
 
 
-def Rise_Fall_Waveform(Omega: float, T: float, delta_0: float, delta_f: float):
+def Rise_Fall_Waveform(Omega: float, T: float):
     """
     Creates a waveform pulse object.
 
     Parameters:
     - Omega (float):
     - T (float):
-    - delta_0 (float):
-    - delta_f (float):
 
     Returns:
     Pulse: A pulser pusle object.
     """
     up = RampWaveform(T / 2, 0, Omega)
     down = RampWaveform(T / 2, Omega, 0)
-    d_up = RampWaveform(T / 2, delta_0, 0)
-    d_down = RampWaveform(T / 2, 0, delta_f)
+    d_up = RampWaveform(T / 2, -Omega, 0)
+    d_down = RampWaveform(T / 2, 0, Omega)
 
     rise_fall_Pulse = Pulse(
         CompositeWaveform(up, down), CompositeWaveform(d_up, d_down), 0
@@ -58,21 +54,19 @@ def Rise_Fall_Waveform(Omega: float, T: float, delta_0: float, delta_f: float):
     return rise_fall_Pulse
 
 
-def Blackman_Waveform_Pulse(Omega: float, T: float, delta_0: float, delta_f: float):
+def Blackman_Waveform_Pulse(Omega: float, T: float):
     """
     Creates a waveform pulse object.
 
     Parameters:
     - Omega (float):
     - T (float):
-    - delta_0 (float):
-    - delta_f (float):
 
     Returns:
     Pulse: A pulser pusle object.
     """
     Blackman_Pulse = Pulse(
-        BlackmanWaveform(T, Omega), InterpolatedWaveform(T, [delta_0, 0, delta_f]), 0
+        BlackmanWaveform(T, Omega), InterpolatedWaveform(T, [-Omega, 0, Omega]), 0
     )
 
     return Blackman_Pulse
@@ -82,8 +76,6 @@ def Constant_pulse_pyramide(
     Omega: float,
     T: float,
     T_pyramide: float,
-    delta_0: float,
-    delta_f: float,
     delta: float,
 ):
     """
@@ -93,8 +85,6 @@ def Constant_pulse_pyramide(
     - Omega (float):
     - T (float):
     - T_pyramide (float):
-    - delta_0 (float):
-    - delta_f (float):
 
     Returns:
     Pulse: A pulser pusle object.
@@ -107,7 +97,7 @@ def Constant_pulse_pyramide(
 
     r_Pulse = Pulse(
         CompositeWaveform(Constant_1, up, down, Constant_2),
-        InterpolatedWaveform(T, [delta_0, 0, delta_f]),
+        InterpolatedWaveform(T, [-Omega, 0, Omega]),
         0,
     )
     return r_Pulse
@@ -132,8 +122,6 @@ def Pulse_constructor(
     Pulse_type: str,
     T_pyramide: float = 0,
     delta: float = 0,
-    delta_0: float = -5,
-    delta_f: float = 5,
 ):
     """
     Creates a waveform pulse object.
@@ -142,24 +130,22 @@ def Pulse_constructor(
     - T (float):
     - Pulse_type (str):
     - T_pyramide (float):
-    - delta_0 (float):
-    - delta_f (float):
 
     Returns:
     Pulse: A pulser pusle object.
     """
     if Pulse_type == "Waveform":
-        return lambda Omega: Waveform_Pulse(Omega, T, delta_0, delta_f)
+        return lambda Omega: Waveform_Pulse(Omega, T, -Omega, Omega)
 
     if Pulse_type == "Rise_fall":
-        return lambda Omega: Rise_Fall_Waveform(Omega, T, delta_0, delta_f)
+        return lambda Omega: Rise_Fall_Waveform(Omega, T, -Omega, Omega)
 
     if Pulse_type == "Blackman":
-        return lambda Omega: Blackman_Waveform_Pulse(Omega, T, delta_0, delta_f)
+        return lambda Omega: Blackman_Waveform_Pulse(Omega, T, -Omega, Omega)
 
     if Pulse_type == "Pyramide":
         return lambda Omega: Constant_pulse_pyramide(
-            Omega, T, T_pyramide, delta_0, delta_f, delta
+            Omega, T, T_pyramide, -Omega, Omega, delta
         )
     
     if Pulse_type == "Rise_sweep_fall":
