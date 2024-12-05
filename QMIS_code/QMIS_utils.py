@@ -83,7 +83,7 @@ def find_minimal_radius(G: nx.Graph, pos: NDArray[np.float_]) -> float:
     return max_distance
 
 
-def plot_histogram(count_dict: dict, shots: int, file_name: str = "histo.png") -> None:
+def plot_histogram(count_dict: dict, shots: int, file_name: str = "") -> None:
     """
     Saves and prints the histogram of the result of the runs of the algorithm.
 
