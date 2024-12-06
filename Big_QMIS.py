@@ -53,7 +53,7 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable = Pulse_constructor(4000, "Waveform"),
+        pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 1000,
         other_info: List = [],
@@ -65,8 +65,8 @@ class BIG_QMIS:
         with close to the maximum amount of nodes.
 
         Parameters:
-        - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
-                            the atoms to run the algorithm.
+        - Pulse (Callable = Pulse_constructor(4000, "Rise_fall")): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
+                                                                   the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
                                                             by the QMIS algorithm run function. It must take the result dictionnary, the array that gives the order
                                                             of the nodes in the bitstrings (index_positions) and the other infos needed to differentiate the nodes (other_info).

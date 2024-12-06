@@ -12,7 +12,7 @@ from typing import Callable, List
 
 def simplify_bins(
     radius_km: float,
-    pulse: Callable = Pulse_constructor(4000, "Waveform"),
+    pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
     show_map: bool = False,
     save_map: bool = False,
     path: str = "",
@@ -259,7 +259,7 @@ def remove_possibles_new_locations(
 
 def place_new_bins(
     radius_km: float,
-    pulse=Pulse_constructor(4000, "Waveform"),
+    pulse=Pulse_constructor(4000, "Rise_fall"),
     show_map: bool = False,
     save_map: bool = False,
     path: str = "",

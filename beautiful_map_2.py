@@ -31,7 +31,7 @@ for i, q_bin in enumerate(new_distribution_quantum_numpy):
         same_bin_q.append(i)
 
 only_same_bins = new_distribution_quantum.iloc[same_bin_q]
-
+print("Bacs communs: ", len(same_bin_q))
 
 same_bin_c = []
 for i, c_bin in enumerate(new_distribution_classical_numpy):
