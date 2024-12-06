@@ -53,7 +53,7 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
+        pulse: Callable = Pulse_constructor(4000, "Waveform"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 1000,
         other_info: List = [],

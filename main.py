@@ -105,11 +105,11 @@ if __name__ == "__main__":
     save_maps = True
     show_maps = False
     bin_images = True
-    save_maps_recap = False
+    save_maps_recap = True
     show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
-    pulse = Pulse_constructor(4000, "Rise_sweep_fall")
+    pulse = Pulse_constructor(4000, "Waveform")
     main(
         radius_simplify_bins=radius_simplify_bins,
         radius_simplify_locations=radius_simplify_locations,
@@ -122,6 +122,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
-        num_atoms=[10, 10],
+        num_atoms=[10, 7],
         pulse=pulse,
     )
