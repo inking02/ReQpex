@@ -54,7 +54,7 @@ def interactive_map(
         else:
             folium.Marker(coords, popup=popup).add_to(my_map)
     if save_map:
-        my_map.save(path + "figures/" + file_name + ".html")
+        my_map.save(path + "results/" + file_name + ".html")
     if show_map:
         my_map.show_in_browser()
 
@@ -73,13 +73,13 @@ def recap_map_getter(
     - path (str = ""): The local path to the recupex directory (It includes the Recupex's folder).
     - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
     - show (bool = False): Whether of not to show the map on the browser.
-    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the results directory.
 
     Returns:
     None
     """
     # Loading the data
-    new_bins_location = pd.read_csv(path + "datasets/nouvelles_cloches.csv", sep=",")
+    new_bins_location = pd.read_csv(path + "results/nouvelles_cloches.csv", sep=",")
     new_bins_location_numpy = new_bins_location[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
@@ -126,7 +126,7 @@ def recap_map_getter(
         Parameters:
         - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
         - show (bool = False): Whether of not to show the map on the browser.
-        - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+        - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the results directory.
 
         Returns:
         None
@@ -203,7 +203,7 @@ def recap_map_getter(
         print()
         # Save and or show the map
         if save:
-            my_map.save(path + "figures/map_with_stats.html")
+            my_map.save(path + "results/map_with_stats.html")
         if show:
             my_map.show_in_browser()
 

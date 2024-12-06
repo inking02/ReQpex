@@ -138,26 +138,36 @@ def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
 
 
 def fusion_counts(counts, positions):
+    """
+    Calculates the euclidian distance between to points in a 2D plane.
+
+    Parameters:
+    - pos1 (NDArray[np.float_]): The coordinates of the first point in the 2D plane.
+    - pos2 (NDArray[np.float_]): The coordinates of the second point in the 2D plane.
+
+    Returns:
+    float: The euclidian distance between the points
+    """
     total_counts = {}
 
-    #creating all bitstring combinations from the given dictionnaries
+    # creating all bitstring combinations from the given dictionnaries
     bitstring_combinations = product(*[d.items() for d in counts])
     max_length = 0
     for dictionary in counts:
-        #final bitstring lentgh
+        # final bitstring lentgh
         max_length += len(next(iter(dictionary)))
     for combination in bitstring_combinations:
-        
-        #the final bitstring is init with the value 0 everywhere
-        final_bitstring = ["0"] * max_length 
 
-        combined_value = 0  
-        #place each bit in its given position with the combinated value
+        # the final bitstring is init with the value 0 everywhere
+        final_bitstring = ["0"] * max_length
+
+        combined_value = 0
+        # place each bit in its given position with the combinated value
         for position, (bitstring, value) in zip(positions, combination):
             for bit, pos in zip(bitstring, position):
                 final_bitstring[pos] = bit
-            #calculate the combined value of the combined bitstrings
-            combined_value += value 
+            # calculate the combined value of the combined bitstrings
+            combined_value += value
 
         # convert to the final bitstring
         combined_key = "".join(final_bitstring)

@@ -8,14 +8,14 @@ show = False
 save = True
 
 new_distribution_quantum = pd.read_csv(
-    path + "datasets/nouvelles_cloches_quantum.csv", sep=","
+    path + "results/nouvelles_cloches_quantum.csv", sep=","
 )
 new_distribution_quantum_numpy = new_distribution_quantum[
     ["Longitude", "Latitude"]
 ].to_numpy(dtype=float, copy=True)
 
 new_distribution_classical = pd.read_csv(
-    path + "datasets/nouvelles_cloches_classical.csv", sep=","
+    path + "results/nouvelles_cloches_classical.csv", sep=","
 )
 new_distribution_classical_numpy = new_distribution_classical[
     ["Longitude", "Latitude"]
@@ -53,7 +53,7 @@ def show_map(show: bool = False, save: bool = False):
     Parameters:
     - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
     - show (bool = False): Whether of not to show the map on the browser.
-    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the results directory.
 
     Returns:
     None
@@ -117,7 +117,7 @@ def show_map(show: bool = False, save: bool = False):
     print()
     # Save and or show the map
     if save:
-        my_map.save(path + "figures/map_with_both_distributions.html")
+        my_map.save(path + "results/map_with_both_distributions.html")
     if show:
         my_map.show_in_browser()
 

@@ -5,7 +5,7 @@ from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionnary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
 from QMIS_code.pulse_utils import Pulse_constructor
-from Find_MIS_discs import Find_MIS_discs
+from Classical_MIS import Find_MIS_discs
 from numpy.typing import NDArray
 from typing import Callable, List
 
@@ -270,7 +270,7 @@ def place_new_bins(
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in
-    the nouvelles_cloches.csv in the datasets folder.
+    the nouvelles_cloches.csv in the results folder.
 
     Parameters:
     - radius_km (float): The distance in km of which two locations must be connected if they do not produce enough volume.
@@ -349,7 +349,7 @@ def place_new_bins(
         bins_names[:, 2], locations_names[new_verticies_int, 2]
     )
 
-    new_bins_location.to_csv(path + "datasets/nouvelles_cloches.csv", index=False)
+    new_bins_location.to_csv(path + "results/nouvelles_cloches.csv", index=False)
 
     # Show or save the map
     if show_map or save_map:

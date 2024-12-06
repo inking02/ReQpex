@@ -1,0 +1,3406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_29ec272e3cfc26c78761b6eda4d8fdd2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_29ec272e3cfc26c78761b6eda4d8fdd2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_29ec272e3cfc26c78761b6eda4d8fdd2 = L.map(
+                "map_29ec272e3cfc26c78761b6eda4d8fdd2",
+                {
+                    center: [45.40198690041696, -71.88968408774863],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ccae5dc127a57c08098c4f3b5b1bdec5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_ccae5dc127a57c08098c4f3b5b1bdec5.addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var tile_layer_9a3f637b8a090d1b29f52f09150248a2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_d454bb6ff3ce32fa20b71ae629ccfc28 = new L.Control.MiniMap(
+                tile_layer_9a3f637b8a090d1b29f52f09150248a2,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_29ec272e3cfc26c78761b6eda4d8fdd2.addControl(mini_map_d454bb6ff3ce32fa20b71ae629ccfc28);
+        
+    
+            var marker_3b1cd12f107bc055d75327c35b30ea7f = L.marker(
+                [45.42373, -71.87296],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_e6aa02ae110bbb712ba9696ea4c1f5fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3b1cd12f107bc055d75327c35b30ea7f.setIcon(icon_e6aa02ae110bbb712ba9696ea4c1f5fa);
+        
+    
+        var popup_cfb9b1b9cca0589ce6e081e9c614d80f = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0442923cf68f7519a0063425ad03955a = $(`<div id="html_0442923cf68f7519a0063425ad03955a" style="width: 100.0%; height: 100.0%;">             <h1> Dépanneur Ultramar</h1>             <p>Adresse : 1133, 13e Avenue N</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_cfb9b1b9cca0589ce6e081e9c614d80f.setContent(html_0442923cf68f7519a0063425ad03955a);
+            
+        
+
+        marker_3b1cd12f107bc055d75327c35b30ea7f.bindPopup(popup_cfb9b1b9cca0589ce6e081e9c614d80f)
+        ;
+
+        
+    
+    
+            var marker_6564b9490848842a433321126eb18fde = L.marker(
+                [45.42986, -71.88719],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_dcdf4562e1e3e08f35d1b4801fab1072 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6564b9490848842a433321126eb18fde.setIcon(icon_dcdf4562e1e3e08f35d1b4801fab1072);
+        
+    
+        var popup_df766c4fc8cbb3cd38ee8a6ca7230aad = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_14155ca4967d4a515d29ad68c20bc987 = $(`<div id="html_14155ca4967d4a515d29ad68c20bc987" style="width: 100.0%; height: 100.0%;">             <h1> Rue du Baron</h1>             <p>Adresse : 1668, Chemin des Pèlerins</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_df766c4fc8cbb3cd38ee8a6ca7230aad.setContent(html_14155ca4967d4a515d29ad68c20bc987);
+            
+        
+
+        marker_6564b9490848842a433321126eb18fde.bindPopup(popup_df766c4fc8cbb3cd38ee8a6ca7230aad)
+        ;
+
+        
+    
+    
+            var marker_f5f550be71f8dc2a0caa6e30863636a0 = L.marker(
+                [45.40514, -71.958871],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_76e151a3eab5eca09fbaef17bfe17ee7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f5f550be71f8dc2a0caa6e30863636a0.setIcon(icon_76e151a3eab5eca09fbaef17bfe17ee7);
+        
+    
+        var popup_b641c895442a25fb5b71a33a2a59ad6d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_3669acd680a1bd9d25fbc2bcee58f9a4 = $(`<div id="html_3669acd680a1bd9d25fbc2bcee58f9a4" style="width: 100.0%; height: 100.0%;">             <h1> Momo Sports </h1>             <p>Adresse : 530, Rue Jean-Paul-Perrault</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_b641c895442a25fb5b71a33a2a59ad6d.setContent(html_3669acd680a1bd9d25fbc2bcee58f9a4);
+            
+        
+
+        marker_f5f550be71f8dc2a0caa6e30863636a0.bindPopup(popup_b641c895442a25fb5b71a33a2a59ad6d)
+        ;
+
+        
+    
+    
+            var marker_99915d017c1d7d25117fa7b3cbe6c6e3 = L.marker(
+                [45.3955, -71.98237],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_4dd3b0608861b4c960a3caae2c338f1e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_99915d017c1d7d25117fa7b3cbe6c6e3.setIcon(icon_4dd3b0608861b4c960a3caae2c338f1e);
+        
+    
+        var popup_65307a1ddc51e47525947570e01e4f0f = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_63a7cd1fb475ff463bd5e583079d0381 = $(`<div id="html_63a7cd1fb475ff463bd5e583079d0381" style="width: 100.0%; height: 100.0%;">             <h1> Entrepôt Coop Alentour</h1>             <p>Adresse : 4740, Boulevard Industriel</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_65307a1ddc51e47525947570e01e4f0f.setContent(html_63a7cd1fb475ff463bd5e583079d0381);
+            
+        
+
+        marker_99915d017c1d7d25117fa7b3cbe6c6e3.bindPopup(popup_65307a1ddc51e47525947570e01e4f0f)
+        ;
+
+        
+    
+    
+            var marker_8151bedd4f201774c9fb56d9faf17c40 = L.marker(
+                [45.411914, -71.83975],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_be04f38b8d9b780b0159003c89834642 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8151bedd4f201774c9fb56d9faf17c40.setIcon(icon_be04f38b8d9b780b0159003c89834642);
+        
+    
+        var popup_fba6530a1e1e42a44833629742a5071d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_5c987013b0171372497d4c3b05d015ad = $(`<div id="html_5c987013b0171372497d4c3b05d015ad" style="width: 100.0%; height: 100.0%;">             <h1> IGA Extra Couture</h1>             <p>Adresse : 2240, Rue King E</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_fba6530a1e1e42a44833629742a5071d.setContent(html_5c987013b0171372497d4c3b05d015ad);
+            
+        
+
+        marker_8151bedd4f201774c9fb56d9faf17c40.bindPopup(popup_fba6530a1e1e42a44833629742a5071d)
+        ;
+
+        
+    
+    
+            var marker_06be9efb3900ef97f9e416da5a8e8942 = L.marker(
+                [45.388925, -71.906743],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_127b5d676ebdffe4bf4d58486ea89575 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_06be9efb3900ef97f9e416da5a8e8942.setIcon(icon_127b5d676ebdffe4bf4d58486ea89575);
+        
+    
+        var popup_91b6117baba2b7dee4eb1330fbfb09ff = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_e028408a25630564b081fb2da82ec413 = $(`<div id="html_e028408a25630564b081fb2da82ec413" style="width: 100.0%; height: 100.0%;">             <h1> Aréna Ivan-Dugré</h1>             <p>Adresse : 1250, Rue Galt O</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_91b6117baba2b7dee4eb1330fbfb09ff.setContent(html_e028408a25630564b081fb2da82ec413);
+            
+        
+
+        marker_06be9efb3900ef97f9e416da5a8e8942.bindPopup(popup_91b6117baba2b7dee4eb1330fbfb09ff)
+        ;
+
+        
+    
+    
+            var marker_095b14ab639e96a079ee1d9e1a6f56aa = L.marker(
+                [45.387, -71.92853],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_785702fb7cf555e764d02444316ab701 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_095b14ab639e96a079ee1d9e1a6f56aa.setIcon(icon_785702fb7cf555e764d02444316ab701);
+        
+    
+        var popup_ed948d2ef0ffb51255d52588c551816c = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_4a7481340ed97062c619f263e120809c = $(`<div id="html_4a7481340ed97062c619f263e120809c" style="width: 100.0%; height: 100.0%;">             <h1> Église St-Esprit </h1>             <p>Adresse : 2290, Rue Galt O</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_ed948d2ef0ffb51255d52588c551816c.setContent(html_4a7481340ed97062c619f263e120809c);
+            
+        
+
+        marker_095b14ab639e96a079ee1d9e1a6f56aa.bindPopup(popup_ed948d2ef0ffb51255d52588c551816c)
+        ;
+
+        
+    
+    
+            var marker_9b6185a77abe44a2b7ea9a9b215e4998 = L.marker(
+                [45.3714, -71.932925],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_15b19fbd30930494dac71e542dcb141b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9b6185a77abe44a2b7ea9a9b215e4998.setIcon(icon_15b19fbd30930494dac71e542dcb141b);
+        
+    
+        var popup_6688af27fd6c9f177814429be3c1f884 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_8d45935c89924fe49d3805e067cebc46 = $(`<div id="html_8d45935c89924fe49d3805e067cebc46" style="width: 100.0%; height: 100.0%;">             <h1> Aréna du Mont St-Anne</h1>             <p>Adresse : 2100, Chem. de Sainte-Catherine</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_6688af27fd6c9f177814429be3c1f884.setContent(html_8d45935c89924fe49d3805e067cebc46);
+            
+        
+
+        marker_9b6185a77abe44a2b7ea9a9b215e4998.bindPopup(popup_6688af27fd6c9f177814429be3c1f884)
+        ;
+
+        
+    
+    
+            var marker_8e307dd003e3196fa904623db7b3ed51 = L.marker(
+                [45.40102, -71.968],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b1967c9a5b2b287d125b59256971f51b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8e307dd003e3196fa904623db7b3ed51.setIcon(icon_b1967c9a5b2b287d125b59256971f51b);
+        
+    
+        var popup_89cb9846806d32b6cc790e969e22e25c = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_751c3872c424e9a8b36d8a7afee1e501 = $(`<div id="html_751c3872c424e9a8b36d8a7afee1e501" style="width: 100.0%; height: 100.0%;">             <h1> Écocentre - Rose-Cohen</h1>             <p>Adresse : 365, Rue Pépin</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_89cb9846806d32b6cc790e969e22e25c.setContent(html_751c3872c424e9a8b36d8a7afee1e501);
+            
+        
+
+        marker_8e307dd003e3196fa904623db7b3ed51.bindPopup(popup_89cb9846806d32b6cc790e969e22e25c)
+        ;
+
+        
+    
+    
+            var marker_f6dc26029cb44fa4f924a36c62102507 = L.marker(
+                [45.470253, -71.948226],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_477b6896c5855bf1dffdb7bd371f90c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f6dc26029cb44fa4f924a36c62102507.setIcon(icon_477b6896c5855bf1dffdb7bd371f90c2);
+        
+    
+        var popup_61b716e3c349050ad9dd4ea16379abff = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_ec86043312081dfd9e478a2d6fef8c0c = $(`<div id="html_ec86043312081dfd9e478a2d6fef8c0c" style="width: 100.0%; height: 100.0%;">             <h1> EKO / Dépanneur Brompton</h1>             <p>Adresse : 245, Rue Laval</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_61b716e3c349050ad9dd4ea16379abff.setContent(html_ec86043312081dfd9e478a2d6fef8c0c);
+            
+        
+
+        marker_f6dc26029cb44fa4f924a36c62102507.bindPopup(popup_61b716e3c349050ad9dd4ea16379abff)
+        ;
+
+        
+    
+    
+            var marker_4f03a80d3a9aaafa932a77fd51f7389d = L.marker(
+                [45.362799, -71.893761],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_94dc4306aba6a9995ea6f6d4fa23e83d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4f03a80d3a9aaafa932a77fd51f7389d.setIcon(icon_94dc4306aba6a9995ea6f6d4fa23e83d);
+        
+    
+        var popup_34b2c8c5ca2e44e9cda631ee335a3e12 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_1c69ea936a8cb1418a84c55b7f81310f = $(`<div id="html_1c69ea936a8cb1418a84c55b7f81310f" style="width: 100.0%; height: 100.0%;">             <h1> Tim Hortons</h1>             <p>Adresse : 3815, College St</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_34b2c8c5ca2e44e9cda631ee335a3e12.setContent(html_1c69ea936a8cb1418a84c55b7f81310f);
+            
+        
+
+        marker_4f03a80d3a9aaafa932a77fd51f7389d.bindPopup(popup_34b2c8c5ca2e44e9cda631ee335a3e12)
+        ;
+
+        
+    
+    
+            var marker_2c8d1aea90d2d2a5c24e2f8ef99622a5 = L.marker(
+                [45.379532, -71.98372],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_307f471c04e0340a2f3d73445c9295a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2c8d1aea90d2d2a5c24e2f8ef99622a5.setIcon(icon_307f471c04e0340a2f3d73445c9295a0);
+        
+    
+        var popup_914960cc8614af4a255470f5d0d6419d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_f83df4c56e335273c3b2b2926ba0e04d = $(`<div id="html_f83df4c56e335273c3b2b2926ba0e04d" style="width: 100.0%; height: 100.0%;">             <h1> Parc Mi-Vallon</h1>             <p>Adresse : 1443, Rue Milan</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_914960cc8614af4a255470f5d0d6419d.setContent(html_f83df4c56e335273c3b2b2926ba0e04d);
+            
+        
+
+        marker_2c8d1aea90d2d2a5c24e2f8ef99622a5.bindPopup(popup_914960cc8614af4a255470f5d0d6419d)
+        ;
+
+        
+    
+    
+            var marker_ab8999d5cdfe92e99994efc9e6dc01ff = L.marker(
+                [45.35478, -71.98778],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_0a295c8fd6af237adb2c9aec7ce26c47 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ab8999d5cdfe92e99994efc9e6dc01ff.setIcon(icon_0a295c8fd6af237adb2c9aec7ce26c47);
+        
+    
+        var popup_ac4278bf7155ab351e1c00fa8f3baa22 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0ba5d3a6ad5406620ce1d810a86f72e9 = $(`<div id="html_0ba5d3a6ad5406620ce1d810a86f72e9" style="width: 100.0%; height: 100.0%;">             <h1> Dépanneur Gamma</h1>             <p>Adresse : 699, Rue du Curé</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_ac4278bf7155ab351e1c00fa8f3baa22.setContent(html_0ba5d3a6ad5406620ce1d810a86f72e9);
+            
+        
+
+        marker_ab8999d5cdfe92e99994efc9e6dc01ff.bindPopup(popup_ac4278bf7155ab351e1c00fa8f3baa22)
+        ;
+
+        
+    
+    
+            var marker_2f21cc8059594543123135c7bc3ba511 = L.marker(
+                [45.354676, -71.99417],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8a1aaa90e5499f55a26dd00499e573d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2f21cc8059594543123135c7bc3ba511.setIcon(icon_8a1aaa90e5499f55a26dd00499e573d3);
+        
+    
+        var popup_440c9da869b8ff94c90bd98c4dad1ae9 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_26788b1659c90aa9345ed3e59b836c90 = $(`<div id="html_26788b1659c90aa9345ed3e59b836c90" style="width: 100.0%; height: 100.0%;">             <h1> Parc Central</h1>             <p>Adresse : 6161, Rue du Président Kennedy </p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_440c9da869b8ff94c90bd98c4dad1ae9.setContent(html_26788b1659c90aa9345ed3e59b836c90);
+            
+        
+
+        marker_2f21cc8059594543123135c7bc3ba511.bindPopup(popup_440c9da869b8ff94c90bd98c4dad1ae9)
+        ;
+
+        
+    
+    
+            var marker_9ee12bb003fc9c7ae4c2039e187fa42b = L.marker(
+                [45.36906, -71.96842],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_55479655c865eebc8468aeb4f3f7dc25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9ee12bb003fc9c7ae4c2039e187fa42b.setIcon(icon_55479655c865eebc8468aeb4f3f7dc25);
+        
+    
+        var popup_360880925a55f322e68dceca342fb9b3 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_a391ac2604724c0d64df642a3ff78c51 = $(`<div id="html_a391ac2604724c0d64df642a3ff78c51" style="width: 100.0%; height: 100.0%;">             <h1> Les Entreprises Lachance Inc</h1>             <p>Adresse : 663, Rue de Charlemagne </p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_360880925a55f322e68dceca342fb9b3.setContent(html_a391ac2604724c0d64df642a3ff78c51);
+            
+        
+
+        marker_9ee12bb003fc9c7ae4c2039e187fa42b.bindPopup(popup_360880925a55f322e68dceca342fb9b3)
+        ;
+
+        
+    
+    
+            var marker_e0f8bdba1e54c363775732b4dd8aa8b6 = L.marker(
+                [45.34191, -72.04209],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_21383feb0c1ef0df0c165a4598fce26f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e0f8bdba1e54c363775732b4dd8aa8b6.setIcon(icon_21383feb0c1ef0df0c165a4598fce26f);
+        
+    
+        var popup_e6e9dea595005295b52df1030e46c63e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_8055df3164b5a2772667f7f322fb9a93 = $(`<div id="html_8055df3164b5a2772667f7f322fb9a93" style="width: 100.0%; height: 100.0%;">             <h1> Shell</h1>             <p>Adresse : 7390, Boul Bourque</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_e6e9dea595005295b52df1030e46c63e.setContent(html_8055df3164b5a2772667f7f322fb9a93);
+            
+        
+
+        marker_e0f8bdba1e54c363775732b4dd8aa8b6.bindPopup(popup_e6e9dea595005295b52df1030e46c63e)
+        ;
+
+        
+    
+    
+            var marker_02bb5b8b537f69c10946ce8efd04bbbd = L.marker(
+                [45.33307, -71.979329],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2844d87e7796a1258de5ac2a1e9a1153 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_02bb5b8b537f69c10946ce8efd04bbbd.setIcon(icon_2844d87e7796a1258de5ac2a1e9a1153);
+        
+    
+        var popup_f5521ae32018eabdc8be7b237c71441e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_749e636aa0a7b70d45014e9cbf7e8d52 = $(`<div id="html_749e636aa0a7b70d45014e9cbf7e8d52" style="width: 100.0%; height: 100.0%;">             <h1> Boucherie Face de Boeuf</h1>             <p>Adresse : 4250, Chem. Saint-Roch S</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_f5521ae32018eabdc8be7b237c71441e.setContent(html_749e636aa0a7b70d45014e9cbf7e8d52);
+            
+        
+
+        marker_02bb5b8b537f69c10946ce8efd04bbbd.bindPopup(popup_f5521ae32018eabdc8be7b237c71441e)
+        ;
+
+        
+    
+    
+            var marker_db816129bacaf2d0752f83b21a726f21 = L.marker(
+                [45.36979393948084, -71.98849786137306],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_c7bfd14ae34f7ccdbcba738e40a027ba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_db816129bacaf2d0752f83b21a726f21.setIcon(icon_c7bfd14ae34f7ccdbcba738e40a027ba);
+        
+    
+        var popup_ce91ee0859482f89cf73331833d166d8 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_09be8726a804728aecb826eefbd59ec5 = $(`<div id="html_09be8726a804728aecb826eefbd59ec5" style="width: 100.0%; height: 100.0%;">             <h1> Salon fun. des cantons</h1>             <p>Adresse : 951, Du Rue du Haut-Bois S</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_ce91ee0859482f89cf73331833d166d8.setContent(html_09be8726a804728aecb826eefbd59ec5);
+            
+        
+
+        marker_db816129bacaf2d0752f83b21a726f21.bindPopup(popup_ce91ee0859482f89cf73331833d166d8)
+        ;
+
+        
+    
+    
+            var marker_94a31caa0a7671f56fe1a00da7ead08a = L.marker(
+                [45.39673, -71.93049],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_6d1b907dd6c8291bfc5b99de1a126f2e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_94a31caa0a7671f56fe1a00da7ead08a.setIcon(icon_6d1b907dd6c8291bfc5b99de1a126f2e);
+        
+    
+        var popup_d32fe3778589ade816381c36bb887a5a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_c74067036801810f874f6e05d10dceaf = $(`<div id="html_c74067036801810f874f6e05d10dceaf" style="width: 100.0%; height: 100.0%;">             <h1> Récupex Ing</h1>             <p>Adresse : 2345, Rue Hertel</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_d32fe3778589ade816381c36bb887a5a.setContent(html_c74067036801810f874f6e05d10dceaf);
+            
+        
+
+        marker_94a31caa0a7671f56fe1a00da7ead08a.bindPopup(popup_d32fe3778589ade816381c36bb887a5a)
+        ;
+
+        
+    
+    
+            var marker_f37d7a8406f70d081a2bb4931c1475c9 = L.marker(
+                [45.386965, -71.94746],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_ec3de8e766dff47461221344e54b7761 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f37d7a8406f70d081a2bb4931c1475c9.setIcon(icon_ec3de8e766dff47461221344e54b7761);
+        
+    
+        var popup_b766c69ffb85c96146e0aec8a2931d56 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_3761adf10d44772c2d15766523c3dc48 = $(`<div id="html_3761adf10d44772c2d15766523c3dc48" style="width: 100.0%; height: 100.0%;">             <h1> Église Marie-Médiatrice</h1>             <p>Adresse : 3025, Rue Galt O</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_b766c69ffb85c96146e0aec8a2931d56.setContent(html_3761adf10d44772c2d15766523c3dc48);
+            
+        
+
+        marker_f37d7a8406f70d081a2bb4931c1475c9.bindPopup(popup_b766c69ffb85c96146e0aec8a2931d56)
+        ;
+
+        
+    
+    
+            var marker_c26273bd7966ac4e3b0df2b16204e24b = L.marker(
+                [45.37658, -71.95339],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b64017f9a317baef7bc7c413e9237060 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c26273bd7966ac4e3b0df2b16204e24b.setIcon(icon_b64017f9a317baef7bc7c413e9237060);
+        
+    
+        var popup_e2b873f1589b5e20967cb07b01c1c04d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_fce983f14e78b33c316d23ed45672d04 = $(`<div id="html_fce983f14e78b33c316d23ed45672d04" style="width: 100.0%; height: 100.0%;">             <h1> Tim Hortons</h1>             <p>Adresse : 3550, Rue Galt O</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_e2b873f1589b5e20967cb07b01c1c04d.setContent(html_fce983f14e78b33c316d23ed45672d04);
+            
+        
+
+        marker_c26273bd7966ac4e3b0df2b16204e24b.bindPopup(popup_e2b873f1589b5e20967cb07b01c1c04d)
+        ;
+
+        
+    
+    
+            var marker_006c631d560074d5df0b72412a76d0c7 = L.marker(
+                [45.39235, -72.01376],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_89be0f66f146da31216e2f219ed9ba9c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_006c631d560074d5df0b72412a76d0c7.setIcon(icon_89be0f66f146da31216e2f219ed9ba9c);
+        
+    
+        var popup_3ce41866938d0f6c638367f5a4ce1cb7 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_c0b50c6672144dac3e7236331567cef0 = $(`<div id="html_c0b50c6672144dac3e7236331567cef0" style="width: 100.0%; height: 100.0%;">             <h1> Iga Bouchard </h1>             <p>Adresse : 6185, QC-220</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_3ce41866938d0f6c638367f5a4ce1cb7.setContent(html_c0b50c6672144dac3e7236331567cef0);
+            
+        
+
+        marker_006c631d560074d5df0b72412a76d0c7.bindPopup(popup_3ce41866938d0f6c638367f5a4ce1cb7)
+        ;
+
+        
+    
+    
+            var marker_e0cb68c2347e698a351f08052bfc5adb = L.marker(
+                [45.406388, -71.87277],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f5c179e2e3bd9bcc61eabeb4f62436c7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e0cb68c2347e698a351f08052bfc5adb.setIcon(icon_f5c179e2e3bd9bcc61eabeb4f62436c7);
+        
+    
+        var popup_e3468d6aae2bddbf9630dd89f20789c7 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_3baaa4e2e7d707c0b2e71a37cffed17b = $(`<div id="html_3baaa4e2e7d707c0b2e71a37cffed17b" style="width: 100.0%; height: 100.0%;">             <h1> Parc Édouard-Boudreau</h1>             <p>Adresse : 44, 10e Avenue N</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_e3468d6aae2bddbf9630dd89f20789c7.setContent(html_3baaa4e2e7d707c0b2e71a37cffed17b);
+            
+        
+
+        marker_e0cb68c2347e698a351f08052bfc5adb.bindPopup(popup_e3468d6aae2bddbf9630dd89f20789c7)
+        ;
+
+        
+    
+    
+            var marker_a526a7f2431f25331e3be17de159664a = L.marker(
+                [45.39284, -71.86877],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_bc6772329ab307f34962c5932a0bb8d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a526a7f2431f25331e3be17de159664a.setIcon(icon_bc6772329ab307f34962c5932a0bb8d4);
+        
+    
+        var popup_ba338426deaca70b7380b87eab071810 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_6d0211d358b2480743d92da0a80a89e1 = $(`<div id="html_6d0211d358b2480743d92da0a80a89e1" style="width: 100.0%; height: 100.0%;">             <h1> Parc Bureau </h1>             <p>Adresse : 925, Rue Walsh</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_ba338426deaca70b7380b87eab071810.setContent(html_6d0211d358b2480743d92da0a80a89e1);
+            
+        
+
+        marker_a526a7f2431f25331e3be17de159664a.bindPopup(popup_ba338426deaca70b7380b87eab071810)
+        ;
+
+        
+    
+    
+            var marker_84be17bfc5f6ae60126fbcdf9464baaf = L.marker(
+                [45.37371, -71.86057],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_3fc53d2a7337735679c9ea5573b8ef2a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_84be17bfc5f6ae60126fbcdf9464baaf.setIcon(icon_3fc53d2a7337735679c9ea5573b8ef2a);
+        
+    
+        var popup_29807076ebd237182a602cb04cf69e8e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_ade2da9ed0c2307b4b8cc077bce7ce2d = $(`<div id="html_ade2da9ed0c2307b4b8cc077bce7ce2d" style="width: 100.0%; height: 100.0%;">             <h1> Église St Andrew's</h1>             <p>Adresse : 256, Rue Queen</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_29807076ebd237182a602cb04cf69e8e.setContent(html_ade2da9ed0c2307b4b8cc077bce7ce2d);
+            
+        
+
+        marker_84be17bfc5f6ae60126fbcdf9464baaf.bindPopup(popup_29807076ebd237182a602cb04cf69e8e)
+        ;
+
+        
+    
+    
+            var marker_1cba873d55c9e4823e8747e4394f11c3 = L.marker(
+                [45.39567, -72.03986],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_ddfab1f85ad0c9e04eae50864ae80c90 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1cba873d55c9e4823e8747e4394f11c3.setIcon(icon_ddfab1f85ad0c9e04eae50864ae80c90);
+        
+    
+        var popup_05d75a745d83a19d315d95db13b94d41 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_58ab5d11c5f398a518a38cd12802b49e = $(`<div id="html_58ab5d11c5f398a518a38cd12802b49e" style="width: 100.0%; height: 100.0%;">             <h1> Église Saint-Élie</h1>             <p>Adresse : 7205, Chem. de Sainte-Élie</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_05d75a745d83a19d315d95db13b94d41.setContent(html_58ab5d11c5f398a518a38cd12802b49e);
+            
+        
+
+        marker_1cba873d55c9e4823e8747e4394f11c3.bindPopup(popup_05d75a745d83a19d315d95db13b94d41)
+        ;
+
+        
+    
+    
+            var marker_6cf953182c21765fce260cd0bfaca06b = L.marker(
+                [45.3250396, -72.0213331],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_bb32f94f080c5909fb03d02582484ed4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6cf953182c21765fce260cd0bfaca06b.setIcon(icon_bb32f94f080c5909fb03d02582484ed4);
+        
+    
+        var popup_8e69baaee6dd68f3d7d9440104cdea0b = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_10b745c859378b5ef60c23489a48e86f = $(`<div id="html_10b745c859378b5ef60c23489a48e86f" style="width: 100.0%; height: 100.0%;">             <h1> CAMPING LAC MAGOG ENR.</h1>             <p>Adresse : 7255, Chemin Blanchette</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_8e69baaee6dd68f3d7d9440104cdea0b.setContent(html_10b745c859378b5ef60c23489a48e86f);
+            
+        
+
+        marker_6cf953182c21765fce260cd0bfaca06b.bindPopup(popup_8e69baaee6dd68f3d7d9440104cdea0b)
+        ;
+
+        
+    
+    
+            var marker_d5cbeaa322206be50fc76ccf2aa05a5c = L.marker(
+                [45.310157, -72.0853145],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_53dea4520df822aeb3627cb2748acaff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d5cbeaa322206be50fc76ccf2aa05a5c.setIcon(icon_53dea4520df822aeb3627cb2748acaff);
+        
+    
+        var popup_14618269b293aee88550da222356594d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_27cd9d89146e9e4a03fe5d294f3436d9 = $(`<div id="html_27cd9d89146e9e4a03fe5d294f3436d9" style="width: 100.0%; height: 100.0%;">             <h1> MINI ENTREPÔTS LOGIC</h1>             <p>Adresse : 9831, Boulevard Bourque</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_14618269b293aee88550da222356594d.setContent(html_27cd9d89146e9e4a03fe5d294f3436d9);
+            
+        
+
+        marker_d5cbeaa322206be50fc76ccf2aa05a5c.bindPopup(popup_14618269b293aee88550da222356594d)
+        ;
+
+        
+    
+    
+            var marker_a73a4ffe576dcbcd55c73b89dcc7e39e = L.marker(
+                [45.4854956, -71.9525802],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_fd2f3a141dddd1ede9d6f95439e9bacd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a73a4ffe576dcbcd55c73b89dcc7e39e.setIcon(icon_fd2f3a141dddd1ede9d6f95439e9bacd);
+        
+    
+        var popup_96f01ac5d74abebfca51c2a1b5fbac2b = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_8e369a28ddaafac30ed4e6badc80fe56 = $(`<div id="html_8e369a28ddaafac30ed4e6badc80fe56" style="width: 100.0%; height: 100.0%;">             <h1> LES ENCHÈRES A/B</h1>             <p>Adresse : 333, Route de Windsor</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_96f01ac5d74abebfca51c2a1b5fbac2b.setContent(html_8e369a28ddaafac30ed4e6badc80fe56);
+            
+        
+
+        marker_a73a4ffe576dcbcd55c73b89dcc7e39e.bindPopup(popup_96f01ac5d74abebfca51c2a1b5fbac2b)
+        ;
+
+        
+    
+    
+            var marker_c80018c87626796aee6fd70bf8ea370a = L.marker(
+                [45.4595029, -71.9636277],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_72db546eb270cff3eaea0dfcb711fdb0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c80018c87626796aee6fd70bf8ea370a.setIcon(icon_72db546eb270cff3eaea0dfcb711fdb0);
+        
+    
+        var popup_5f5779fe705ce38b160dd569ae015e0b = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_81682afb42e98160140d708f88319c8d = $(`<div id="html_81682afb42e98160140d708f88319c8d" style="width: 100.0%; height: 100.0%;">             <h1> PAVAGE LAVALLÉE ET TANGUAY INC.</h1>             <p>Adresse : 556, Rue du Parc-Industriel</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_5f5779fe705ce38b160dd569ae015e0b.setContent(html_81682afb42e98160140d708f88319c8d);
+            
+        
+
+        marker_c80018c87626796aee6fd70bf8ea370a.bindPopup(popup_5f5779fe705ce38b160dd569ae015e0b)
+        ;
+
+        
+    
+    
+            var marker_793d941e032e3a55ca666d2d4c916895 = L.marker(
+                [45.4183583, -71.9639694],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_64b89feef8f56dc20ef37add478076a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_793d941e032e3a55ca666d2d4c916895.setIcon(icon_64b89feef8f56dc20ef37add478076a3);
+        
+    
+        var popup_6cfb81a9c34679de561d1053a7367f17 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_84ed6bff5af5833510dea32a23b85b41 = $(`<div id="html_84ed6bff5af5833510dea32a23b85b41" style="width: 100.0%; height: 100.0%;">             <h1> PHARMACIE ACCÈS PHARMA</h1>             <p>Adresse : 4050, Boulevard Josaphat-Rancourt</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_6cfb81a9c34679de561d1053a7367f17.setContent(html_84ed6bff5af5833510dea32a23b85b41);
+            
+        
+
+        marker_793d941e032e3a55ca666d2d4c916895.bindPopup(popup_6cfb81a9c34679de561d1053a7367f17)
+        ;
+
+        
+    
+    
+            var marker_fde5eebe1da4bb788babf29f709cabb3 = L.marker(
+                [45.4281881, -71.98927859999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b70e477e023f637f475fc72bb45449b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_fde5eebe1da4bb788babf29f709cabb3.setIcon(icon_b70e477e023f637f475fc72bb45449b4);
+        
+    
+        var popup_6cb838f075c1922705db96577b94e931 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_566209f1cc6d0d03fe4a7489e6796121 = $(`<div id="html_566209f1cc6d0d03fe4a7489e6796121" style="width: 100.0%; height: 100.0%;">             <h1> RÉFRIGÉRATION GAGNÉ</h1>             <p>Adresse : 381, Chemin Georges-Vallières</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_6cb838f075c1922705db96577b94e931.setContent(html_566209f1cc6d0d03fe4a7489e6796121);
+            
+        
+
+        marker_fde5eebe1da4bb788babf29f709cabb3.bindPopup(popup_6cb838f075c1922705db96577b94e931)
+        ;
+
+        
+    
+    
+            var marker_697b9ed75715aa131128059288c8c0f2 = L.marker(
+                [45.4338905, -71.9166195],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b4bc234c69003bdffc67ed5cbb4d768b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_697b9ed75715aa131128059288c8c0f2.setIcon(icon_b4bc234c69003bdffc67ed5cbb4d768b);
+        
+    
+        var popup_8dfa3e4606a3cd82de0b7fa26dabd1d8 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_2f3c3c138538bc4ab6086ccb1bc1af24 = $(`<div id="html_2f3c3c138538bc4ab6086ccb1bc1af24" style="width: 100.0%; height: 100.0%;">             <h1> INVESTISSEMENT RENÉ ST-PIERRE LTEE</h1>             <p>Adresse : 2365, Boulevard Queen-Victoria</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_8dfa3e4606a3cd82de0b7fa26dabd1d8.setContent(html_2f3c3c138538bc4ab6086ccb1bc1af24);
+            
+        
+
+        marker_697b9ed75715aa131128059288c8c0f2.bindPopup(popup_8dfa3e4606a3cd82de0b7fa26dabd1d8)
+        ;
+
+        
+    
+    
+            var marker_37787314beffe72bae95e0323584d8a5 = L.marker(
+                [45.44866760000001, -71.9383285],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_87c422c20024a6b14e189145775a5650 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_37787314beffe72bae95e0323584d8a5.setIcon(icon_87c422c20024a6b14e189145775a5650);
+        
+    
+        var popup_ffddeeb4380cf035fe6dbdb08be17e0f = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_77fc0a01201b706cc015592b2027c966 = $(`<div id="html_77fc0a01201b706cc015592b2027c966" style="width: 100.0%; height: 100.0%;">             <h1> ENCAN ESTRIE</h1>             <p>Adresse : 2569, Chemin des Écossais</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_ffddeeb4380cf035fe6dbdb08be17e0f.setContent(html_77fc0a01201b706cc015592b2027c966);
+            
+        
+
+        marker_37787314beffe72bae95e0323584d8a5.bindPopup(popup_ffddeeb4380cf035fe6dbdb08be17e0f)
+        ;
+
+        
+    
+    
+            var marker_97cb7dae4bfb993f42cb0e18adc8f9c6 = L.marker(
+                [45.4488059, -71.93762079999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_89e557803b4f8dbcc8862a854ef1010f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_97cb7dae4bfb993f42cb0e18adc8f9c6.setIcon(icon_89e557803b4f8dbcc8862a854ef1010f);
+        
+    
+        var popup_bba184f6ed6030a95c9508ed07c3e39c = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_14ca7d7e00e069d2141a7bb532790b03 = $(`<div id="html_14ca7d7e00e069d2141a7bb532790b03" style="width: 100.0%; height: 100.0%;">             <h1> MULTI CONCEPT AG</h1>             <p>Adresse : 2571, Chemin des Écossais</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_bba184f6ed6030a95c9508ed07c3e39c.setContent(html_14ca7d7e00e069d2141a7bb532790b03);
+            
+        
+
+        marker_97cb7dae4bfb993f42cb0e18adc8f9c6.bindPopup(popup_bba184f6ed6030a95c9508ed07c3e39c)
+        ;
+
+        
+    
+    
+            var marker_2f850891287af80240ee3606e4a34359 = L.marker(
+                [45.4918539, -71.92303749999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_e81e86a568cc929459cc52e8a5cd8a5b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2f850891287af80240ee3606e4a34359.setIcon(icon_e81e86a568cc929459cc52e8a5cd8a5b);
+        
+    
+        var popup_808cc7b35c75133cab1f71c35d4354de = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_75679fb5a3e00602e930828ea1ce0893 = $(`<div id="html_75679fb5a3e00602e930828ea1ce0893" style="width: 100.0%; height: 100.0%;">             <h1> MARCO BROCHU ENR.</h1>             <p>Adresse : 576, Chemin de Notre-Dame-des-Mères</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_808cc7b35c75133cab1f71c35d4354de.setContent(html_75679fb5a3e00602e930828ea1ce0893);
+            
+        
+
+        marker_2f850891287af80240ee3606e4a34359.bindPopup(popup_808cc7b35c75133cab1f71c35d4354de)
+        ;
+
+        
+    
+    
+            var marker_88f16118d5b789abc78a6d2d6a7170c5 = L.marker(
+                [45.4228407, -72.00434430000001],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_5e55ced14a0c13dd0ad26519212f83e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_88f16118d5b789abc78a6d2d6a7170c5.setIcon(icon_5e55ced14a0c13dd0ad26519212f83e7);
+        
+    
+        var popup_a2cb50e63f496bc7ac223cb302d055e9 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_43b676f18969396eda5007bb1146c4b4 = $(`<div id="html_43b676f18969396eda5007bb1146c4b4" style="width: 100.0%; height: 100.0%;">             <h1> GARAGE S. COUTURE</h1>             <p>Adresse : 1225, Chemin Dion</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_a2cb50e63f496bc7ac223cb302d055e9.setContent(html_43b676f18969396eda5007bb1146c4b4);
+            
+        
+
+        marker_88f16118d5b789abc78a6d2d6a7170c5.bindPopup(popup_a2cb50e63f496bc7ac223cb302d055e9)
+        ;
+
+        
+    
+    
+            var marker_c8184508976dcf209408fee81006c190 = L.marker(
+                [45.3493794, -72.02897039999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_0e1054197207748d3bc3114cef40de03 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c8184508976dcf209408fee81006c190.setIcon(icon_0e1054197207748d3bc3114cef40de03);
+        
+    
+        var popup_1c2a2c434c2f00f11dc09357b42c1935 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_bbebd668ccb853d767684b3d7b44c4c7 = $(`<div id="html_bbebd668ccb853d767684b3d7b44c4c7" style="width: 100.0%; height: 100.0%;">             <h1> ENSEIGNES SHERBROOKE INC.</h1>             <p>Adresse : 6805, Boulevard Bourque</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_1c2a2c434c2f00f11dc09357b42c1935.setContent(html_bbebd668ccb853d767684b3d7b44c4c7);
+            
+        
+
+        marker_c8184508976dcf209408fee81006c190.bindPopup(popup_1c2a2c434c2f00f11dc09357b42c1935)
+        ;
+
+        
+    
+    
+            var marker_4075219dc2d0e71742b4dcdc29a8b4a4 = L.marker(
+                [45.362291, -72.0065982],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_419b695523c819a63765cf61d7e24398 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4075219dc2d0e71742b4dcdc29a8b4a4.setIcon(icon_419b695523c819a63765cf61d7e24398);
+        
+    
+        var popup_8615931b9d4c172eab52b7c9c4d7f015 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_9ecc549f4bb07d4c2422cf168a4e2b82 = $(`<div id="html_9ecc549f4bb07d4c2422cf168a4e2b82" style="width: 100.0%; height: 100.0%;">             <h1> CANAC</h1>             <p>Adresse : 5711, Boulevard Bourque</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_8615931b9d4c172eab52b7c9c4d7f015.setContent(html_9ecc549f4bb07d4c2422cf168a4e2b82);
+            
+        
+
+        marker_4075219dc2d0e71742b4dcdc29a8b4a4.bindPopup(popup_8615931b9d4c172eab52b7c9c4d7f015)
+        ;
+
+        
+    
+    
+            var marker_108871fb283568f5f852b4e37628211a = L.marker(
+                [45.3938053, -71.99763759999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8ce4c2f9632204e1ef2ec839a8342770 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_108871fb283568f5f852b4e37628211a.setIcon(icon_8ce4c2f9632204e1ef2ec839a8342770);
+        
+    
+        var popup_8b90629b87de84bfaec4ca8a88230a9a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_a2d7f526cf40a5341b7e5ffde31e66ad = $(`<div id="html_a2d7f526cf40a5341b7e5ffde31e66ad" style="width: 100.0%; height: 100.0%;">             <h1> PLOMBERIE PCE</h1>             <p>Adresse : 73, Chemin Godin</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_8b90629b87de84bfaec4ca8a88230a9a.setContent(html_a2d7f526cf40a5341b7e5ffde31e66ad);
+            
+        
+
+        marker_108871fb283568f5f852b4e37628211a.bindPopup(popup_8b90629b87de84bfaec4ca8a88230a9a)
+        ;
+
+        
+    
+    
+            var marker_7a335b8bfe89d4f131063f6e4e0919eb = L.marker(
+                [45.3125665, -71.99047829999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_ef79b74b115f2a0a703593fda7852db4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7a335b8bfe89d4f131063f6e4e0919eb.setIcon(icon_ef79b74b115f2a0a703593fda7852db4);
+        
+    
+        var popup_8fc48166950cdb5d9b53a3672624df37 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_6c54559f2e7eba1035e03e71d2dcfd53 = $(`<div id="html_6c54559f2e7eba1035e03e71d2dcfd53" style="width: 100.0%; height: 100.0%;">             <h1> PIÈCES D'AUTOS USAGÉES SHERBROOKE</h1>             <p>Adresse : 6031, Chemin Beaudette</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_8fc48166950cdb5d9b53a3672624df37.setContent(html_6c54559f2e7eba1035e03e71d2dcfd53);
+            
+        
+
+        marker_7a335b8bfe89d4f131063f6e4e0919eb.bindPopup(popup_8fc48166950cdb5d9b53a3672624df37)
+        ;
+
+        
+    
+    
+            var marker_39d4dc07d394edf742785d5eb7cd47d3 = L.marker(
+                [45.36439070000001, -72.0550988],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f7bc5bb6d2fc3907a4367cd842e3571a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_39d4dc07d394edf742785d5eb7cd47d3.setIcon(icon_f7bc5bb6d2fc3907a4367cd842e3571a);
+        
+    
+        var popup_22ed373d11ef84ad02f53f40844ed113 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_649060cc998fc8375b682072636b2f4b = $(`<div id="html_649060cc998fc8375b682072636b2f4b" style="width: 100.0%; height: 100.0%;">             <h1> PIEUX VISTECH ESTRIE INC.</h1>             <p>Adresse : 1646, Chemin Laliberté</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_22ed373d11ef84ad02f53f40844ed113.setContent(html_649060cc998fc8375b682072636b2f4b);
+            
+        
+
+        marker_39d4dc07d394edf742785d5eb7cd47d3.bindPopup(popup_22ed373d11ef84ad02f53f40844ed113)
+        ;
+
+        
+    
+    
+            var marker_47903b8794a887d23f75c16f9d37dc5b = L.marker(
+                [45.3325266, -72.0530405],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_437a96c644efa6ee064cbee8f3e78de2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_47903b8794a887d23f75c16f9d37dc5b.setIcon(icon_437a96c644efa6ee064cbee8f3e78de2);
+        
+    
+        var popup_264582dbf82a76f6d6aa91f65a7750fd = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_50d40e78d368362ff7b8e240b8967cb3 = $(`<div id="html_50d40e78d368362ff7b8e240b8967cb3" style="width: 100.0%; height: 100.0%;">             <h1> SCM INNOVATION</h1>             <p>Adresse : 8207, Boulevard Bourque</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_264582dbf82a76f6d6aa91f65a7750fd.setContent(html_50d40e78d368362ff7b8e240b8967cb3);
+            
+        
+
+        marker_47903b8794a887d23f75c16f9d37dc5b.bindPopup(popup_264582dbf82a76f6d6aa91f65a7750fd)
+        ;
+
+        
+    
+    
+            var marker_d949676268016838504181745a74cc8a = L.marker(
+                [45.3505719, -71.95342149999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_44f2df7040c8386271752db8fb980441 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d949676268016838504181745a74cc8a.setIcon(icon_44f2df7040c8386271752db8fb980441);
+        
+    
+        var popup_f65c60040619a67c0a96197a30aec87e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_075b4963e8f06cdc237c420774a02eec = $(`<div id="html_075b4963e8f06cdc237c420774a02eec" style="width: 100.0%; height: 100.0%;">             <h1> GARAGE LUC THIVIÈRGE</h1>             <p>Adresse : 3425, Chemin de Sainte-Catherine</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_f65c60040619a67c0a96197a30aec87e.setContent(html_075b4963e8f06cdc237c420774a02eec);
+            
+        
+
+        marker_d949676268016838504181745a74cc8a.bindPopup(popup_f65c60040619a67c0a96197a30aec87e)
+        ;
+
+        
+    
+    
+            var marker_89c120d2f5842beec82632592bab2edf = L.marker(
+                [45.3725597, -72.1040332],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_6ec17431b7502e3a740ebaa146062a46 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_89c120d2f5842beec82632592bab2edf.setIcon(icon_6ec17431b7502e3a740ebaa146062a46);
+        
+    
+        var popup_cbf647a7a7e24b8ae828e0b88a8d6973 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_033e927b28cbdcdd9a941ffaa4dce0b1 = $(`<div id="html_033e927b28cbdcdd9a941ffaa4dce0b1" style="width: 100.0%; height: 100.0%;">             <h1> ST-ÉLIE MOTORSPORTS</h1>             <p>Adresse : 9327, Chemin de Saint-Élie</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_cbf647a7a7e24b8ae828e0b88a8d6973.setContent(html_033e927b28cbdcdd9a941ffaa4dce0b1);
+            
+        
+
+        marker_89c120d2f5842beec82632592bab2edf.bindPopup(popup_cbf647a7a7e24b8ae828e0b88a8d6973)
+        ;
+
+        
+    
+    
+            var marker_f6bc00eb83fcc435451307a459917a8a = L.marker(
+                [45.3919952, -72.0557707],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_07520b0ae48b16a5c7541ff9d24df768 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f6bc00eb83fcc435451307a459917a8a.setIcon(icon_07520b0ae48b16a5c7541ff9d24df768);
+        
+    
+        var popup_2550170344ee24b0bb1152e0a2fd77a6 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_91a13cc749820eb0a38d9bbbf936539a = $(`<div id="html_91a13cc749820eb0a38d9bbbf936539a" style="width: 100.0%; height: 100.0%;">             <h1> GAZONEIGE</h1>             <p>Adresse : 7702, Chemin de Saint-Élie</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_2550170344ee24b0bb1152e0a2fd77a6.setContent(html_91a13cc749820eb0a38d9bbbf936539a);
+            
+        
+
+        marker_f6bc00eb83fcc435451307a459917a8a.bindPopup(popup_2550170344ee24b0bb1152e0a2fd77a6)
+        ;
+
+        
+    
+    
+            var marker_74946157ef6695628d2122acfe4e1472 = L.marker(
+                [45.45205879999999, -71.8593073],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_202f1187908329f61042cd5b91f0558f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_74946157ef6695628d2122acfe4e1472.setIcon(icon_202f1187908329f61042cd5b91f0558f);
+        
+    
+        var popup_69d73725a21cfa033379c15e79807593 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_1f14eb6a94161e49e25ddc74881f0c7b = $(`<div id="html_1f14eb6a94161e49e25ddc74881f0c7b" style="width: 100.0%; height: 100.0%;">             <h1> ENVIRONNEMENT ROUTIER NRJ INC.</h1>             <p>Adresse : 3420, 12e Avenue Nord</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_69d73725a21cfa033379c15e79807593.setContent(html_1f14eb6a94161e49e25ddc74881f0c7b);
+            
+        
+
+        marker_74946157ef6695628d2122acfe4e1472.bindPopup(popup_69d73725a21cfa033379c15e79807593)
+        ;
+
+        
+    
+    
+            var marker_66163528140ee797802a75be6bf22f16 = L.marker(
+                [45.4253796, -71.8263075],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8ef0f256bf7af936466a32d02a3e2c52 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_66163528140ee797802a75be6bf22f16.setIcon(icon_8ef0f256bf7af936466a32d02a3e2c52);
+        
+    
+        var popup_0295acafd834357b3f1cb3a3f2bc6563 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_bb73d08a02f206d5b6b90d3bc982c350 = $(`<div id="html_bb73d08a02f206d5b6b90d3bc982c350" style="width: 100.0%; height: 100.0%;">             <h1> BUMPER TO BUMPER</h1>             <p>Adresse : 3545, Rue King Est</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_0295acafd834357b3f1cb3a3f2bc6563.setContent(html_bb73d08a02f206d5b6b90d3bc982c350);
+            
+        
+
+        marker_66163528140ee797802a75be6bf22f16.bindPopup(popup_0295acafd834357b3f1cb3a3f2bc6563)
+        ;
+
+        
+    
+    
+            var marker_c5ce2f497111dff0ea1e313099b4b4d3 = L.marker(
+                [45.4257015, -71.8262641],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_c079bc6152efed38b3afc0890f19197f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c5ce2f497111dff0ea1e313099b4b4d3.setIcon(icon_c079bc6152efed38b3afc0890f19197f);
+        
+    
+        var popup_2cb0070279a8b2531908b9c786e896fb = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0c56567bdf0a2e80af2ea14c0cbe80b9 = $(`<div id="html_0c56567bdf0a2e80af2ea14c0cbe80b9" style="width: 100.0%; height: 100.0%;">             <h1> GYM IMMERSION SANTÉ</h1>             <p>Adresse : 3555, Rue King Est</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_2cb0070279a8b2531908b9c786e896fb.setContent(html_0c56567bdf0a2e80af2ea14c0cbe80b9);
+            
+        
+
+        marker_c5ce2f497111dff0ea1e313099b4b4d3.bindPopup(popup_2cb0070279a8b2531908b9c786e896fb)
+        ;
+
+        
+    
+    
+            var marker_12ee8e2a92bbc99c51c24aa8d869c891 = L.marker(
+                [45.4242335, -71.82602109999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_95e75efeabd5e86e614617e861ea9a64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_12ee8e2a92bbc99c51c24aa8d869c891.setIcon(icon_95e75efeabd5e86e614617e861ea9a64);
+        
+    
+        var popup_a6a9a9db3380b3a98bd05fbc11c35fc9 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_f70917b1431cf0e3896c11dbdc98056f = $(`<div id="html_f70917b1431cf0e3896c11dbdc98056f" style="width: 100.0%; height: 100.0%;">             <h1> AUTO VALUE GARAGE C. A. LEMAY</h1>             <p>Adresse : 3480, Rue King Est</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_a6a9a9db3380b3a98bd05fbc11c35fc9.setContent(html_f70917b1431cf0e3896c11dbdc98056f);
+            
+        
+
+        marker_12ee8e2a92bbc99c51c24aa8d869c891.bindPopup(popup_a6a9a9db3380b3a98bd05fbc11c35fc9)
+        ;
+
+        
+    
+    
+            var marker_60383713a4bbd9a36a46740dfbf85a14 = L.marker(
+                [45.4245795, -71.82575299999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_dda2b062af9d4853bec39bdd1313b3bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_60383713a4bbd9a36a46740dfbf85a14.setIcon(icon_dda2b062af9d4853bec39bdd1313b3bc);
+        
+    
+        var popup_c5739e5e3298aea24929393fce250d69 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0108101437e6124b0b87a90d80d4b879 = $(`<div id="html_0108101437e6124b0b87a90d80d4b879" style="width: 100.0%; height: 100.0%;">             <h1> BUMPER TO BUMPER DG MÉCANIQUE</h1>             <p>Adresse : 3496, Rue King Est</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_c5739e5e3298aea24929393fce250d69.setContent(html_0108101437e6124b0b87a90d80d4b879);
+            
+        
+
+        marker_60383713a4bbd9a36a46740dfbf85a14.bindPopup(popup_c5739e5e3298aea24929393fce250d69)
+        ;
+
+        
+    
+    
+            var marker_8a6dede24a3a7968ca545044777dd2b0 = L.marker(
+                [45.51045, -71.9056994],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f666bf8a56b618382d958c6b14534ae7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8a6dede24a3a7968ca545044777dd2b0.setIcon(icon_f666bf8a56b618382d958c6b14534ae7);
+        
+    
+        var popup_b3985f065e5e7dddc34b2f5a2d96d20a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_5ef88ccf963c6ab4c2bd2b14419f6207 = $(`<div id="html_5ef88ccf963c6ab4c2bd2b14419f6207" style="width: 100.0%; height: 100.0%;">             <h1> LES LOISIRS DE NOTRE-DAME-DES-MÈRES INC.</h1>             <p>Adresse : 731, Chemin de Notre-Dame-des-Mères</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_b3985f065e5e7dddc34b2f5a2d96d20a.setContent(html_5ef88ccf963c6ab4c2bd2b14419f6207);
+            
+        
+
+        marker_8a6dede24a3a7968ca545044777dd2b0.bindPopup(popup_b3985f065e5e7dddc34b2f5a2d96d20a)
+        ;
+
+        
+    
+    
+            var marker_e7a1960aa826ec729e2ddd51d9054fa5 = L.marker(
+                [45.36486154821841, -71.81405379222844],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_82d4e0043282d110ca27556e6cc531c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e7a1960aa826ec729e2ddd51d9054fa5.setIcon(icon_82d4e0043282d110ca27556e6cc531c8);
+        
+    
+        var popup_6795d625273a4927530a915aba648ea3 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_6f0770267ab0f255d6e34c31e082a742 = $(`<div id="html_6f0770267ab0f255d6e34c31e082a742" style="width: 100.0%; height: 100.0%;">             <h1> CENTRE DE FORMATION PROFESSIONNELLE LENNOXVILLE</h1>             <p>Adresse : 1700, Rue College</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_6795d625273a4927530a915aba648ea3.setContent(html_6f0770267ab0f255d6e34c31e082a742);
+            
+        
+
+        marker_e7a1960aa826ec729e2ddd51d9054fa5.bindPopup(popup_6795d625273a4927530a915aba648ea3)
+        ;
+
+        
+    
+    
+            var marker_8ad5bf91852385e547b649cd2b9c710c = L.marker(
+                [45.364792, -71.8763526],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d21fcd6a026f30ad86360c06652a6ddb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8ad5bf91852385e547b649cd2b9c710c.setIcon(icon_d21fcd6a026f30ad86360c06652a6ddb);
+        
+    
+        var popup_1f99f86f67508050b886d80b6612bc25 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_d62e98adaef362625b367a656f13b594 = $(`<div id="html_d62e98adaef362625b367a656f13b594" style="width: 100.0%; height: 100.0%;">             <h1> RÉSEAU DU PATRIMOINE ANGLOPHONE DU QUÉBEC</h1>             <p>Adresse : 3355, Rue College</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_1f99f86f67508050b886d80b6612bc25.setContent(html_d62e98adaef362625b367a656f13b594);
+            
+        
+
+        marker_8ad5bf91852385e547b649cd2b9c710c.bindPopup(popup_1f99f86f67508050b886d80b6612bc25)
+        ;
+
+        
+    
+    
+            var marker_0c62e84e8a5962ff4021938226439593 = L.marker(
+                [45.35201039999999, -71.851885],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_41876658a1bd7fa64082371b47aa32c6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0c62e84e8a5962ff4021938226439593.setIcon(icon_41876658a1bd7fa64082371b47aa32c6);
+        
+    
+        var popup_dfd4afd5598a7eccc8506ad6dbbbe0da = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_864250920e7d4e3d313220cd4929614d = $(`<div id="html_864250920e7d4e3d313220cd4929614d" style="width: 100.0%; height: 100.0%;">             <h1> GARAGE J.B. LAROCHE</h1>             <p>Adresse : 103, Rue Winder</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_dfd4afd5598a7eccc8506ad6dbbbe0da.setContent(html_864250920e7d4e3d313220cd4929614d);
+            
+        
+
+        marker_0c62e84e8a5962ff4021938226439593.bindPopup(popup_dfd4afd5598a7eccc8506ad6dbbbe0da)
+        ;
+
+        
+    
+    
+            var marker_3f5d048241e6bd7c5c825e3d061c7702 = L.marker(
+                [45.3423472, -71.8461204],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_e1f33182a3d802dc840456fc69e0fd16 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3f5d048241e6bd7c5c825e3d061c7702.setIcon(icon_e1f33182a3d802dc840456fc69e0fd16);
+        
+    
+        var popup_f97a5c4af03ccf7e05f54685c99402e2 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_d288a068e08b56f79d981dcc591a1b5c = $(`<div id="html_d288a068e08b56f79d981dcc591a1b5c" style="width: 100.0%; height: 100.0%;">             <h1> ÉCOLE PRIMAIRE LA SOURCE</h1>             <p>Adresse : 1399, Rue Campbell</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_f97a5c4af03ccf7e05f54685c99402e2.setContent(html_d288a068e08b56f79d981dcc591a1b5c);
+            
+        
+
+        marker_3f5d048241e6bd7c5c825e3d061c7702.bindPopup(popup_f97a5c4af03ccf7e05f54685c99402e2)
+        ;
+
+        
+    
+    
+            var marker_faa0878306eb9777c0f4604c0f688be9 = L.marker(
+                [45.3820737, -71.8460109],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_9282ba3b229e3f175ec2370310ff1a56 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_faa0878306eb9777c0f4604c0f688be9.setIcon(icon_9282ba3b229e3f175ec2370310ff1a56);
+        
+    
+        var popup_808fa4c43446963f69f702869d359d92 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_48c64e8dbcdc0b1373f2d00af452a7ea = $(`<div id="html_48c64e8dbcdc0b1373f2d00af452a7ea" style="width: 100.0%; height: 100.0%;">             <h1> VACANT</h1>             <p>Adresse : 100, Rue du Cardinal-Lavigerie</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_808fa4c43446963f69f702869d359d92.setContent(html_48c64e8dbcdc0b1373f2d00af452a7ea);
+            
+        
+
+        marker_faa0878306eb9777c0f4604c0f688be9.bindPopup(popup_808fa4c43446963f69f702869d359d92)
+        ;
+
+        
+    
+    
+            var marker_f8506f84c4859be3470e249c9d1befac = L.marker(
+                [45.32600929999999, -71.82518809999999],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_dbeb942342d346ee8c4b281cc88a1353 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f8506f84c4859be3470e249c9d1befac.setIcon(icon_dbeb942342d346ee8c4b281cc88a1353);
+        
+    
+        var popup_0464c486154000917f602790185f89c9 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_ffc21c24a84a1d7c8fd78236deeac114 = $(`<div id="html_ffc21c24a84a1d7c8fd78236deeac114" style="width: 100.0%; height: 100.0%;">             <h1> CLUB DE GOLF MILBY INC.</h1>             <p>Adresse : 2200, Chemin Bowers</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_0464c486154000917f602790185f89c9.setContent(html_ffc21c24a84a1d7c8fd78236deeac114);
+            
+        
+
+        marker_f8506f84c4859be3470e249c9d1befac.bindPopup(popup_0464c486154000917f602790185f89c9)
+        ;
+
+        
+    
+    
+            var marker_d3d2b671b929a12d7adf16201fde81ec = L.marker(
+                [45.40241650000001, -71.8282317],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b7b98b475e1f60d03ec16e59c5db392c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d3d2b671b929a12d7adf16201fde81ec.setIcon(icon_b7b98b475e1f60d03ec16e59c5db392c);
+        
+    
+        var popup_599fd216e7a623a21f19d31dc1dfaf5a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_240ba3d8ddc0481d365e51bdc2473fd2 = $(`<div id="html_240ba3d8ddc0481d365e51bdc2473fd2" style="width: 100.0%; height: 100.0%;">             <h1> ÉCOLE PRIMAIRE DE LA SAMARE</h1>             <p>Adresse : 3000, Rue du Chalumeau</p>             <p>Cette cloche sera ajoutée</p>             </div>`)[0];
+                popup_599fd216e7a623a21f19d31dc1dfaf5a.setContent(html_240ba3d8ddc0481d365e51bdc2473fd2);
+            
+        
+
+        marker_d3d2b671b929a12d7adf16201fde81ec.bindPopup(popup_599fd216e7a623a21f19d31dc1dfaf5a)
+        ;
+
+        
+    
+    
+            var marker_1fef1cb851431987d3917cb5869546c6 = L.marker(
+                [45.43426, -71.86913],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_6bea5bf77f28a004dcf5279a2cd88473 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1fef1cb851431987d3917cb5869546c6.setIcon(icon_6bea5bf77f28a004dcf5279a2cd88473);
+        
+    
+        var popup_c09b8c3304e73e00cd908533813afb68 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_3fed6146baa8f63aef0651b828b03d5c = $(`<div id="html_3fed6146baa8f63aef0651b828b03d5c" style="width: 100.0%; height: 100.0%;">                 <h1> Quartier santé</h1>                 <p>Adresse : 2015, 12e Avenue N</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_c09b8c3304e73e00cd908533813afb68.setContent(html_3fed6146baa8f63aef0651b828b03d5c);
+            
+        
+
+        marker_1fef1cb851431987d3917cb5869546c6.bindPopup(popup_c09b8c3304e73e00cd908533813afb68)
+        ;
+
+        
+    
+    
+            var marker_25d2f7e08290ef0217846e436a47e584 = L.marker(
+                [45.42373, -71.87296],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_471340ecdb21811fed08c5d0cf3bdf08 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_25d2f7e08290ef0217846e436a47e584.setIcon(icon_471340ecdb21811fed08c5d0cf3bdf08);
+        
+    
+        var popup_be015bf67a4abae71cc361d63b943c5a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_9b2accb9cc7202317d75f5701e9c0670 = $(`<div id="html_9b2accb9cc7202317d75f5701e9c0670" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Ultramar</h1>                 <p>Adresse : 1133, 13e Avenue N</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_be015bf67a4abae71cc361d63b943c5a.setContent(html_9b2accb9cc7202317d75f5701e9c0670);
+            
+        
+
+        marker_25d2f7e08290ef0217846e436a47e584.bindPopup(popup_be015bf67a4abae71cc361d63b943c5a)
+        ;
+
+        
+    
+    
+            var marker_193a539c00cc6a5f2f7e74c2017c2f7a = L.marker(
+                [45.42366, -71.8813],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_3e4f348507863b04652ddf864c0c7bd0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_193a539c00cc6a5f2f7e74c2017c2f7a.setIcon(icon_3e4f348507863b04652ddf864c0c7bd0);
+        
+    
+        var popup_b0582fe7f95cb46fdc419523b532eebf = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_f161d0189fd3a75299faa6b32a2eb0e6 = $(`<div id="html_f161d0189fd3a75299faa6b32a2eb0e6" style="width: 100.0%; height: 100.0%;">                 <h1> Coopérative Funéraire de L'Estrie</h1>                 <p>Adresse : 483, Rue du 24-Juin</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_b0582fe7f95cb46fdc419523b532eebf.setContent(html_f161d0189fd3a75299faa6b32a2eb0e6);
+            
+        
+
+        marker_193a539c00cc6a5f2f7e74c2017c2f7a.bindPopup(popup_b0582fe7f95cb46fdc419523b532eebf)
+        ;
+
+        
+    
+    
+            var marker_b741a1efa2dc39e6b62f36d77bb1f816 = L.marker(
+                [45.42269, -71.87779],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8ed8db37c6fb44774fee36f5f47783c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b741a1efa2dc39e6b62f36d77bb1f816.setIcon(icon_8ed8db37c6fb44774fee36f5f47783c5);
+        
+    
+        var popup_e8e40bbba5221b5d04a3fb60c88bd43e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_b3a9e70168c661df4f7a6fa4433a1485 = $(`<div id="html_b3a9e70168c661df4f7a6fa4433a1485" style="width: 100.0%; height: 100.0%;">                 <h1> Centre de formation professionnelle 24-juin</h1>                 <p>Adresse : 639, Rue du 24-Juin</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_e8e40bbba5221b5d04a3fb60c88bd43e.setContent(html_b3a9e70168c661df4f7a6fa4433a1485);
+            
+        
+
+        marker_b741a1efa2dc39e6b62f36d77bb1f816.bindPopup(popup_e8e40bbba5221b5d04a3fb60c88bd43e)
+        ;
+
+        
+    
+    
+            var marker_107a147fbc0171e55637f68a33e610d0 = L.marker(
+                [45.42344, -71.88731],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_5dbf7178c85fb09b18dae7a330bfd88d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_107a147fbc0171e55637f68a33e610d0.setIcon(icon_5dbf7178c85fb09b18dae7a330bfd88d);
+        
+    
+        var popup_b521872c2d112d775253d44a9d7b3c38 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_cda267437c73390784b028e8751702c3 = $(`<div id="html_cda267437c73390784b028e8751702c3" style="width: 100.0%; height: 100.0%;">                 <h1> Coq O Bed</h1>                 <p>Adresse : 1139, Chemin des Pèlerins</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_b521872c2d112d775253d44a9d7b3c38.setContent(html_cda267437c73390784b028e8751702c3);
+            
+        
+
+        marker_107a147fbc0171e55637f68a33e610d0.bindPopup(popup_b521872c2d112d775253d44a9d7b3c38)
+        ;
+
+        
+    
+    
+            var marker_55d89d29f60ac466f307f6f6da8b0523 = L.marker(
+                [45.42986, -71.88719],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_105a343d4ad6482a6873f2724a656b9b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_55d89d29f60ac466f307f6f6da8b0523.setIcon(icon_105a343d4ad6482a6873f2724a656b9b);
+        
+    
+        var popup_b6464e9ca58d977857fee8135a196a01 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_096e96076155d4434548d55d5414b615 = $(`<div id="html_096e96076155d4434548d55d5414b615" style="width: 100.0%; height: 100.0%;">                 <h1> Rue du Baron</h1>                 <p>Adresse : 1668, Chemin des Pèlerins</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_b6464e9ca58d977857fee8135a196a01.setContent(html_096e96076155d4434548d55d5414b615);
+            
+        
+
+        marker_55d89d29f60ac466f307f6f6da8b0523.bindPopup(popup_b6464e9ca58d977857fee8135a196a01)
+        ;
+
+        
+    
+    
+            var marker_f4130b35aacfb3422ecf6921c44c1ad6 = L.marker(
+                [45.411914, -71.83975],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_fbdd20c0fe51f37fb71a5241c72d0d0c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f4130b35aacfb3422ecf6921c44c1ad6.setIcon(icon_fbdd20c0fe51f37fb71a5241c72d0d0c);
+        
+    
+        var popup_69cb3f3ad4fde8dfaabacd21c0d532c9 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_ced4d86e267a99d03e8d871ab5cf5e73 = $(`<div id="html_ced4d86e267a99d03e8d871ab5cf5e73" style="width: 100.0%; height: 100.0%;">                 <h1> IGA Extra Couture</h1>                 <p>Adresse : 2240, Rue King E</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_69cb3f3ad4fde8dfaabacd21c0d532c9.setContent(html_ced4d86e267a99d03e8d871ab5cf5e73);
+            
+        
+
+        marker_f4130b35aacfb3422ecf6921c44c1ad6.bindPopup(popup_69cb3f3ad4fde8dfaabacd21c0d532c9)
+        ;
+
+        
+    
+    
+            var marker_99314f555dd9abc71d5ab59aac162db1 = L.marker(
+                [45.410633, -71.84523],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d28e48f8a074b10d4a94acceb73b4247 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_99314f555dd9abc71d5ab59aac162db1.setIcon(icon_d28e48f8a074b10d4a94acceb73b4247);
+        
+    
+        var popup_c90df25b8542935986e755b338983a84 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_9572b80ef400d45ea4f7bc00308cc324 = $(`<div id="html_9572b80ef400d45ea4f7bc00308cc324" style="width: 100.0%; height: 100.0%;">                 <h1> Shell</h1>                 <p>Adresse : 1837, Rue King E</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_c90df25b8542935986e755b338983a84.setContent(html_9572b80ef400d45ea4f7bc00308cc324);
+            
+        
+
+        marker_99314f555dd9abc71d5ab59aac162db1.bindPopup(popup_c90df25b8542935986e755b338983a84)
+        ;
+
+        
+    
+    
+            var marker_70b378a78647b5f121aab3f02313ecca = L.marker(
+                [45.40849, -71.86219],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_37634e216a4ed582644dce671434a511 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_70b378a78647b5f121aab3f02313ecca.setIcon(icon_37634e216a4ed582644dce671434a511);
+        
+    
+        var popup_88a1ba6f4557d9a7824c7a158e19398b = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_11ec9eff011f5aeecf4379f5a1b9adc1 = $(`<div id="html_11ec9eff011f5aeecf4379f5a1b9adc1" style="width: 100.0%; height: 100.0%;">                 <h1> Salon de quiles Sher-Mont</h1>                 <p>Adresse : 1254, Rue King E</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_88a1ba6f4557d9a7824c7a158e19398b.setContent(html_11ec9eff011f5aeecf4379f5a1b9adc1);
+            
+        
+
+        marker_70b378a78647b5f121aab3f02313ecca.bindPopup(popup_88a1ba6f4557d9a7824c7a158e19398b)
+        ;
+
+        
+    
+    
+            var marker_b8fa39d29836dbc8c626986fee0d5b2b = L.marker(
+                [45.406388, -71.87277],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_4ff4119819b69b598ca4d5875cdbcfa6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b8fa39d29836dbc8c626986fee0d5b2b.setIcon(icon_4ff4119819b69b598ca4d5875cdbcfa6);
+        
+    
+        var popup_a8b1e663ce5158e8bbade57f2c3b6fd1 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_083acbda3ec49936f819c27919d17d11 = $(`<div id="html_083acbda3ec49936f819c27919d17d11" style="width: 100.0%; height: 100.0%;">                 <h1> Parc Édouard-Boudreau</h1>                 <p>Adresse : 44, 10e Avenue N</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_a8b1e663ce5158e8bbade57f2c3b6fd1.setContent(html_083acbda3ec49936f819c27919d17d11);
+            
+        
+
+        marker_b8fa39d29836dbc8c626986fee0d5b2b.bindPopup(popup_a8b1e663ce5158e8bbade57f2c3b6fd1)
+        ;
+
+        
+    
+    
+            var marker_310856c11509a1d0926226c4bbfec6da = L.marker(
+                [45.40048, -71.87247],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_c145042c19eddfbd8fe19d1806e01f18 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_310856c11509a1d0926226c4bbfec6da.setIcon(icon_c145042c19eddfbd8fe19d1806e01f18);
+        
+    
+        var popup_d25528b33ca0e873bda2259dd2ce7834 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_951c586887a5ccf8ab4a283f5bb10fb8 = $(`<div id="html_951c586887a5ccf8ab4a283f5bb10fb8" style="width: 100.0%; height: 100.0%;">                 <h1> Crémarie de l'Est </h1>                 <p>Adresse : 480, 10e Avenue S</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_d25528b33ca0e873bda2259dd2ce7834.setContent(html_951c586887a5ccf8ab4a283f5bb10fb8);
+            
+        
+
+        marker_310856c11509a1d0926226c4bbfec6da.bindPopup(popup_d25528b33ca0e873bda2259dd2ce7834)
+        ;
+
+        
+    
+    
+            var marker_2732642ef399ee2680fa5621a485b4d0 = L.marker(
+                [45.3938, -71.86143],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f8ed848f49e9d23cc85574d208e87eb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2732642ef399ee2680fa5621a485b4d0.setIcon(icon_f8ed848f49e9d23cc85574d208e87eb1);
+        
+    
+        var popup_2f37e3720e97446eef8aa1a6c96ec496 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_111e8561e21d4dc83e845c9f1af94647 = $(`<div id="html_111e8561e21d4dc83e845c9f1af94647" style="width: 100.0%; height: 100.0%;">                 <h1> Écocentre - Michel Ledoux </h1>                 <p>Adresse : 1000, Rue Léon-Trépanier</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_2f37e3720e97446eef8aa1a6c96ec496.setContent(html_111e8561e21d4dc83e845c9f1af94647);
+            
+        
+
+        marker_2732642ef399ee2680fa5621a485b4d0.bindPopup(popup_2f37e3720e97446eef8aa1a6c96ec496)
+        ;
+
+        
+    
+    
+            var marker_9cbf3e06b098f53027e5cdb4dc32e599 = L.marker(
+                [45.39284, -71.86877],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_7ed944e5526f36b5843297e06091efd1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9cbf3e06b098f53027e5cdb4dc32e599.setIcon(icon_7ed944e5526f36b5843297e06091efd1);
+        
+    
+        var popup_e7cc135e6b46a70fbceb0490c975bb1c = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_586f069b3fa3316d9e5f07c3bee70d9d = $(`<div id="html_586f069b3fa3316d9e5f07c3bee70d9d" style="width: 100.0%; height: 100.0%;">                 <h1> Parc Bureau </h1>                 <p>Adresse : 925, Rue Walsh</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_e7cc135e6b46a70fbceb0490c975bb1c.setContent(html_586f069b3fa3316d9e5f07c3bee70d9d);
+            
+        
+
+        marker_9cbf3e06b098f53027e5cdb4dc32e599.bindPopup(popup_e7cc135e6b46a70fbceb0490c975bb1c)
+        ;
+
+        
+    
+    
+            var marker_b68b4222d3c522b8c00104f1d4f3c584 = L.marker(
+                [45.37371, -71.86057],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_e2c8f2d40cb50fdfbb3f6da6a700bf02 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b68b4222d3c522b8c00104f1d4f3c584.setIcon(icon_e2c8f2d40cb50fdfbb3f6da6a700bf02);
+        
+    
+        var popup_08a47f3b8fa3c381875b954dc2910af4 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_8120593dc7353d85ceef98f2f959fb16 = $(`<div id="html_8120593dc7353d85ceef98f2f959fb16" style="width: 100.0%; height: 100.0%;">                 <h1> Église St Andrew's</h1>                 <p>Adresse : 256, Rue Queen</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_08a47f3b8fa3c381875b954dc2910af4.setContent(html_8120593dc7353d85ceef98f2f959fb16);
+            
+        
+
+        marker_b68b4222d3c522b8c00104f1d4f3c584.bindPopup(popup_08a47f3b8fa3c381875b954dc2910af4)
+        ;
+
+        
+    
+    
+            var marker_aef9d87c25d2930e54e35ac9ad17ac11 = L.marker(
+                [45.388925, -71.906743],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_45d9e34ff425659e1155c9f2cdb0a5de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_aef9d87c25d2930e54e35ac9ad17ac11.setIcon(icon_45d9e34ff425659e1155c9f2cdb0a5de);
+        
+    
+        var popup_f9872e7788a3d31ea33691cd4e30bd5e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_c18203901a4f3276c9856dfbd2acdcd1 = $(`<div id="html_c18203901a4f3276c9856dfbd2acdcd1" style="width: 100.0%; height: 100.0%;">                 <h1> Aréna Ivan-Dugré</h1>                 <p>Adresse : 1250, Rue Galt O</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_f9872e7788a3d31ea33691cd4e30bd5e.setContent(html_c18203901a4f3276c9856dfbd2acdcd1);
+            
+        
+
+        marker_aef9d87c25d2930e54e35ac9ad17ac11.bindPopup(popup_f9872e7788a3d31ea33691cd4e30bd5e)
+        ;
+
+        
+    
+    
+            var marker_78855e214386fff79a40f07535d5ec34 = L.marker(
+                [45.41116, -71.91588],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_3616db6cc153cce3f065911ad3254c0d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_78855e214386fff79a40f07535d5ec34.setIcon(icon_3616db6cc153cce3f065911ad3254c0d);
+        
+    
+        var popup_63845e4c673fbec51bc3d72c6f6e8128 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_4275d4a381bea708dab21ed6fd6d32c8 = $(`<div id="html_4275d4a381bea708dab21ed6fd6d32c8" style="width: 100.0%; height: 100.0%;">                 <h1> Centre de la Petite Enfance Carrosse-Citrouille Inc</h1>                 <p>Adresse : 1680, Rue Garant</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_63845e4c673fbec51bc3d72c6f6e8128.setContent(html_4275d4a381bea708dab21ed6fd6d32c8);
+            
+        
+
+        marker_78855e214386fff79a40f07535d5ec34.bindPopup(popup_63845e4c673fbec51bc3d72c6f6e8128)
+        ;
+
+        
+    
+    
+            var marker_1a346ce37a507af658f6856bf4a5f876 = L.marker(
+                [45.40369, -71.92404],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b27efb3a1b7c5e68b904c04e5c77c5fb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1a346ce37a507af658f6856bf4a5f876.setIcon(icon_b27efb3a1b7c5e68b904c04e5c77c5fb);
+        
+    
+        var popup_3275a794e6d2307640d78c9a3c427b6a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_7bb97ce029530ed3bf69cd443b3e8773 = $(`<div id="html_7bb97ce029530ed3bf69cd443b3e8773" style="width: 100.0%; height: 100.0%;">                 <h1> École Montcalm/Centre communautaire Jacques Cartier</h1>                 <p>Adresse : 2050, Boul de Portland</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_3275a794e6d2307640d78c9a3c427b6a.setContent(html_7bb97ce029530ed3bf69cd443b3e8773);
+            
+        
+
+        marker_1a346ce37a507af658f6856bf4a5f876.bindPopup(popup_3275a794e6d2307640d78c9a3c427b6a)
+        ;
+
+        
+    
+    
+            var marker_3d77a9b4eada7675826ddbf5d95fb969 = L.marker(
+                [45.398337, -71.927644],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f6a04d7e38ae538322279d6de2f63736 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3d77a9b4eada7675826ddbf5d95fb969.setIcon(icon_f6a04d7e38ae538322279d6de2f63736);
+        
+    
+        var popup_9f821dee0d8c32f10b1e5efd4885463a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_772f72aa59d5d67dd975a21ef25c1397 = $(`<div id="html_772f72aa59d5d67dd975a21ef25c1397" style="width: 100.0%; height: 100.0%;">                 <h1> Les Promenades King</h1>                 <p>Adresse : 2213, Rue King O</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_9f821dee0d8c32f10b1e5efd4885463a.setContent(html_772f72aa59d5d67dd975a21ef25c1397);
+            
+        
+
+        marker_3d77a9b4eada7675826ddbf5d95fb969.bindPopup(popup_9f821dee0d8c32f10b1e5efd4885463a)
+        ;
+
+        
+    
+    
+            var marker_5f2dab2bb488a2964d1bca76df1fe8d1 = L.marker(
+                [45.39673, -71.93049],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_66d3ead7cdd83b23d9c127fcfc587046 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5f2dab2bb488a2964d1bca76df1fe8d1.setIcon(icon_66d3ead7cdd83b23d9c127fcfc587046);
+        
+    
+        var popup_2219c03bc86e0dc01bc8830526f55907 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0c17ce28c6acbed7afdfcb0b7dbd064b = $(`<div id="html_0c17ce28c6acbed7afdfcb0b7dbd064b" style="width: 100.0%; height: 100.0%;">                 <h1> Récupex Ing</h1>                 <p>Adresse : 2345, Rue Hertel</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_2219c03bc86e0dc01bc8830526f55907.setContent(html_0c17ce28c6acbed7afdfcb0b7dbd064b);
+            
+        
+
+        marker_5f2dab2bb488a2964d1bca76df1fe8d1.bindPopup(popup_2219c03bc86e0dc01bc8830526f55907)
+        ;
+
+        
+    
+    
+            var marker_2a40c94b0e736253ce126a6550374fb6 = L.marker(
+                [45.387, -71.92853],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_a92fb912a89d88a108ee062e4cbcd5cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2a40c94b0e736253ce126a6550374fb6.setIcon(icon_a92fb912a89d88a108ee062e4cbcd5cf);
+        
+    
+        var popup_be2ef194f8d207f12912e42a5e13151a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_86726a22acf203267904c02d78250db3 = $(`<div id="html_86726a22acf203267904c02d78250db3" style="width: 100.0%; height: 100.0%;">                 <h1> Église St-Esprit </h1>                 <p>Adresse : 2290, Rue Galt O</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_be2ef194f8d207f12912e42a5e13151a.setContent(html_86726a22acf203267904c02d78250db3);
+            
+        
+
+        marker_2a40c94b0e736253ce126a6550374fb6.bindPopup(popup_be2ef194f8d207f12912e42a5e13151a)
+        ;
+
+        
+    
+    
+            var marker_7aa018a493182e21ebdbb58ecb0612e0 = L.marker(
+                [45.38177, -71.92298],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_fd28bb1245e4bb3601b4b35e27e273ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7aa018a493182e21ebdbb58ecb0612e0.setIcon(icon_fd28bb1245e4bb3601b4b35e27e273ff);
+        
+    
+        var popup_c7c54f91db85fcb3fba472ed93aba848 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_916261c913db7371a247343490d9a45d = $(`<div id="html_916261c913db7371a247343490d9a45d" style="width: 100.0%; height: 100.0%;">                 <h1> Le Montagnais</h1>                 <p>Adresse : 2000, Rue du Montagnais</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_c7c54f91db85fcb3fba472ed93aba848.setContent(html_916261c913db7371a247343490d9a45d);
+            
+        
+
+        marker_7aa018a493182e21ebdbb58ecb0612e0.bindPopup(popup_c7c54f91db85fcb3fba472ed93aba848)
+        ;
+
+        
+    
+    
+            var marker_f8a9029424354df490999676f09bfc91 = L.marker(
+                [45.38151, -71.93032],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_c3e02b4ebf9938affc7e19b26e232ab7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f8a9029424354df490999676f09bfc91.setIcon(icon_c3e02b4ebf9938affc7e19b26e232ab7);
+        
+    
+        var popup_ab586b95fb364ea19c8bf75a7ec1949f = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_aea8b5864c1efdc36db652d9471e70e7 = $(`<div id="html_aea8b5864c1efdc36db652d9471e70e7" style="width: 100.0%; height: 100.0%;">                 <h1> Université de Sherbrooke</h1>                 <p>Adresse : 2500, Boul de l'Université</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_ab586b95fb364ea19c8bf75a7ec1949f.setContent(html_aea8b5864c1efdc36db652d9471e70e7);
+            
+        
+
+        marker_f8a9029424354df490999676f09bfc91.bindPopup(popup_ab586b95fb364ea19c8bf75a7ec1949f)
+        ;
+
+        
+    
+    
+            var marker_ec840e5d4c34555aa18bec000c85412e = L.marker(
+                [45.3714, -71.932925],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_23a82e4b91a6f36e1fd7e85fc68a9d9a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ec840e5d4c34555aa18bec000c85412e.setIcon(icon_23a82e4b91a6f36e1fd7e85fc68a9d9a);
+        
+    
+        var popup_0a0376d81b2f555f92e70eeb13678296 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0e3c36daf431c477b82a9882af1beab2 = $(`<div id="html_0e3c36daf431c477b82a9882af1beab2" style="width: 100.0%; height: 100.0%;">                 <h1> Aréna du Mont St-Anne</h1>                 <p>Adresse : 2100, Chem. de Sainte-Catherine</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_0a0376d81b2f555f92e70eeb13678296.setContent(html_0e3c36daf431c477b82a9882af1beab2);
+            
+        
+
+        marker_ec840e5d4c34555aa18bec000c85412e.bindPopup(popup_0a0376d81b2f555f92e70eeb13678296)
+        ;
+
+        
+    
+    
+            var marker_17dcff81ebf8a29fee9bb77ba8e387ec = L.marker(
+                [45.386965, -71.94746],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_4bb074f14237bc334eacf658da961a57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_17dcff81ebf8a29fee9bb77ba8e387ec.setIcon(icon_4bb074f14237bc334eacf658da961a57);
+        
+    
+        var popup_8e807726ae8b951cc5ae5e5961c41515 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_5e3d22159548592627ccb2152480b244 = $(`<div id="html_5e3d22159548592627ccb2152480b244" style="width: 100.0%; height: 100.0%;">                 <h1> Église Marie-Médiatrice</h1>                 <p>Adresse : 3025, Rue Galt O</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_8e807726ae8b951cc5ae5e5961c41515.setContent(html_5e3d22159548592627ccb2152480b244);
+            
+        
+
+        marker_17dcff81ebf8a29fee9bb77ba8e387ec.bindPopup(popup_8e807726ae8b951cc5ae5e5961c41515)
+        ;
+
+        
+    
+    
+            var marker_327b454ad5bcb5f993b19dde9f49c73c = L.marker(
+                [45.37658, -71.95339],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_60e65d0608e25a0245ce74b729fe1790 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_327b454ad5bcb5f993b19dde9f49c73c.setIcon(icon_60e65d0608e25a0245ce74b729fe1790);
+        
+    
+        var popup_04154d6d02b14b62bc2738a462619063 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_e2e51ff83bb7317c945b636139b6f887 = $(`<div id="html_e2e51ff83bb7317c945b636139b6f887" style="width: 100.0%; height: 100.0%;">                 <h1> Tim Hortons</h1>                 <p>Adresse : 3550, Rue Galt O</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_04154d6d02b14b62bc2738a462619063.setContent(html_e2e51ff83bb7317c945b636139b6f887);
+            
+        
+
+        marker_327b454ad5bcb5f993b19dde9f49c73c.bindPopup(popup_04154d6d02b14b62bc2738a462619063)
+        ;
+
+        
+    
+    
+            var marker_e4fbafa1ef3377666a4a81ae5cdb6661 = L.marker(
+                [45.391458, -71.952431],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2ccca42b9edabb6db3bbf8181163e059 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e4fbafa1ef3377666a4a81ae5cdb6661.setIcon(icon_2ccca42b9edabb6db3bbf8181163e059);
+        
+    
+        var popup_5f905014d48fbe56bd09df4ca2e95aaf = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_be6eb66bf3ffbf2260be2306b6e5ed60 = $(`<div id="html_be6eb66bf3ffbf2260be2306b6e5ed60" style="width: 100.0%; height: 100.0%;">                 <h1> Complexe de la santé</h1>                 <p>Adresse : 15, Rue J.-A. - Bombardier</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_5f905014d48fbe56bd09df4ca2e95aaf.setContent(html_be6eb66bf3ffbf2260be2306b6e5ed60);
+            
+        
+
+        marker_e4fbafa1ef3377666a4a81ae5cdb6661.bindPopup(popup_5f905014d48fbe56bd09df4ca2e95aaf)
+        ;
+
+        
+    
+    
+            var marker_ae163e200c0f2275e30eeba4611a731a = L.marker(
+                [45.387214, -71.960579],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_23cb5f8c62d7766cb4f9b098ef629978 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ae163e200c0f2275e30eeba4611a731a.setIcon(icon_23cb5f8c62d7766cb4f9b098ef629978);
+        
+    
+        var popup_66d6694ec2eec58f09d5cc2b24ea7bcb = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_03b132adc5c854265b50871f2bb243e9 = $(`<div id="html_03b132adc5c854265b50871f2bb243e9" style="width: 100.0%; height: 100.0%;">                 <h1> Iga Extra </h1>                 <p>Adresse : 3950, Rue King O</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_66d6694ec2eec58f09d5cc2b24ea7bcb.setContent(html_03b132adc5c854265b50871f2bb243e9);
+            
+        
+
+        marker_ae163e200c0f2275e30eeba4611a731a.bindPopup(popup_66d6694ec2eec58f09d5cc2b24ea7bcb)
+        ;
+
+        
+    
+    
+            var marker_5b84bcd440b4ea4cd6d800dfa842e717 = L.marker(
+                [45.38648, -71.95823],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_53b34d954ba35b5f0c26b1bba9a2bce4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5b84bcd440b4ea4cd6d800dfa842e717.setIcon(icon_53b34d954ba35b5f0c26b1bba9a2bce4);
+        
+    
+        var popup_156c1948f1274f15a692062cc4213714 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_840aa8eda5a5b8b4aaad9f9d02bacdd1 = $(`<div id="html_840aa8eda5a5b8b4aaad9f9d02bacdd1" style="width: 100.0%; height: 100.0%;">                 <h1> 4005 rue Comtois</h1>                 <p>Adresse : 4005, Rue Comptois</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_156c1948f1274f15a692062cc4213714.setContent(html_840aa8eda5a5b8b4aaad9f9d02bacdd1);
+            
+        
+
+        marker_5b84bcd440b4ea4cd6d800dfa842e717.bindPopup(popup_156c1948f1274f15a692062cc4213714)
+        ;
+
+        
+    
+    
+            var marker_c90e544117bffd5357a2e8669a2263e5 = L.marker(
+                [45.41103, -71.95621],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_fb50c3fe882208dd6128db19838c6b5f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c90e544117bffd5357a2e8669a2263e5.setIcon(icon_fb50c3fe882208dd6128db19838c6b5f);
+        
+    
+        var popup_26e54b8ebf24b2101ac395322582f071 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_d16626edf1a3849aaed6deadcc30f8a9 = $(`<div id="html_d16626edf1a3849aaed6deadcc30f8a9" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur L.B. inc</h1>                 <p>Adresse : 3440, Rue Thomas</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_26e54b8ebf24b2101ac395322582f071.setContent(html_d16626edf1a3849aaed6deadcc30f8a9);
+            
+        
+
+        marker_c90e544117bffd5357a2e8669a2263e5.bindPopup(popup_26e54b8ebf24b2101ac395322582f071)
+        ;
+
+        
+    
+    
+            var marker_f7ccb6f5702aaf1f61c9fe929063d090 = L.marker(
+                [45.40514, -71.958871],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_20ae5fe17802f16d607aca91d90374ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f7ccb6f5702aaf1f61c9fe929063d090.setIcon(icon_20ae5fe17802f16d607aca91d90374ed);
+        
+    
+        var popup_03b98e15303b82b76fb9031d46b5454e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_602bd31152c888fdb229a800bfd4436f = $(`<div id="html_602bd31152c888fdb229a800bfd4436f" style="width: 100.0%; height: 100.0%;">                 <h1> Momo Sports </h1>                 <p>Adresse : 530, Rue Jean-Paul-Perrault</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_03b98e15303b82b76fb9031d46b5454e.setContent(html_602bd31152c888fdb229a800bfd4436f);
+            
+        
+
+        marker_f7ccb6f5702aaf1f61c9fe929063d090.bindPopup(popup_03b98e15303b82b76fb9031d46b5454e)
+        ;
+
+        
+    
+    
+            var marker_bc9dbc051d3a379e487bf4bdbe6f0806 = L.marker(
+                [45.40102, -71.968],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2e29239bb3693a3c4b5a03bfb6e41288 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bc9dbc051d3a379e487bf4bdbe6f0806.setIcon(icon_2e29239bb3693a3c4b5a03bfb6e41288);
+        
+    
+        var popup_a7822b7113def7f00dbb591ee54905fc = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_380637fd56d17e3677b3b3266fb92bc6 = $(`<div id="html_380637fd56d17e3677b3b3266fb92bc6" style="width: 100.0%; height: 100.0%;">                 <h1> Écocentre - Rose-Cohen</h1>                 <p>Adresse : 365, Rue Pépin</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_a7822b7113def7f00dbb591ee54905fc.setContent(html_380637fd56d17e3677b3b3266fb92bc6);
+            
+        
+
+        marker_bc9dbc051d3a379e487bf4bdbe6f0806.bindPopup(popup_a7822b7113def7f00dbb591ee54905fc)
+        ;
+
+        
+    
+    
+            var marker_73344bfa903abe5e1327df431c18dabd = L.marker(
+                [45.3955, -71.98237],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8c6fdf78bd575a6e33176ffc46057fd0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_73344bfa903abe5e1327df431c18dabd.setIcon(icon_8c6fdf78bd575a6e33176ffc46057fd0);
+        
+    
+        var popup_aa8021a97f14b8aa4d285f5cb0c798e1 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_eecb2efb57bf7d03b220a666f586b454 = $(`<div id="html_eecb2efb57bf7d03b220a666f586b454" style="width: 100.0%; height: 100.0%;">                 <h1> Entrepôt Coop Alentour</h1>                 <p>Adresse : 4740, Boulevard Industriel</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_aa8021a97f14b8aa4d285f5cb0c798e1.setContent(html_eecb2efb57bf7d03b220a666f586b454);
+            
+        
+
+        marker_73344bfa903abe5e1327df431c18dabd.bindPopup(popup_aa8021a97f14b8aa4d285f5cb0c798e1)
+        ;
+
+        
+    
+    
+            var marker_4023590b3a9d546ecfdc289146a002b2 = L.marker(
+                [45.379532, -71.98372],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2947eb8759d8eea6ad02ee3652e6fbde = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4023590b3a9d546ecfdc289146a002b2.setIcon(icon_2947eb8759d8eea6ad02ee3652e6fbde);
+        
+    
+        var popup_c9c9eef56b9faa67e39904a327e9d636 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_a14e75b52ad9ede1f669ae892eb9fa7e = $(`<div id="html_a14e75b52ad9ede1f669ae892eb9fa7e" style="width: 100.0%; height: 100.0%;">                 <h1> Parc Mi-Vallon</h1>                 <p>Adresse : 1443, Rue Milan</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_c9c9eef56b9faa67e39904a327e9d636.setContent(html_a14e75b52ad9ede1f669ae892eb9fa7e);
+            
+        
+
+        marker_4023590b3a9d546ecfdc289146a002b2.bindPopup(popup_c9c9eef56b9faa67e39904a327e9d636)
+        ;
+
+        
+    
+    
+            var marker_f819e6bfa7203f7771960dd6366d5b38 = L.marker(
+                [45.3729, -71.98517],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2420a3b67cc71687e5024de4979a673e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f819e6bfa7203f7771960dd6366d5b38.setIcon(icon_2420a3b67cc71687e5024de4979a673e);
+        
+    
+        var popup_a08a57742ac2a1b21f7352ac92315067 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_425d21e51be59c304e184187307d4337 = $(`<div id="html_425d21e51be59c304e184187307d4337" style="width: 100.0%; height: 100.0%;">                 <h1> ProGym Sherbrooke</h1>                 <p>Adresse : 4796, Boul Bourque</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_a08a57742ac2a1b21f7352ac92315067.setContent(html_425d21e51be59c304e184187307d4337);
+            
+        
+
+        marker_f819e6bfa7203f7771960dd6366d5b38.bindPopup(popup_a08a57742ac2a1b21f7352ac92315067)
+        ;
+
+        
+    
+    
+            var marker_ac0f91e734ae33035f82a1dfef4ffcad = L.marker(
+                [45.36947, -71.98917],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_7dceb21fd83f62aebdfe76c52e665689 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ac0f91e734ae33035f82a1dfef4ffcad.setIcon(icon_7dceb21fd83f62aebdfe76c52e665689);
+        
+    
+        var popup_eb62d22fa3840e59a6b56168bc1cdcaa = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_ff52f0d4f12a070b1b41cf249248c8e8 = $(`<div id="html_ff52f0d4f12a070b1b41cf249248c8e8" style="width: 100.0%; height: 100.0%;">                 <h1> Bibliothèque Bertrand Delisle</h1>                 <p>Adresse : 968, Rue du Haut-Bois S</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_eb62d22fa3840e59a6b56168bc1cdcaa.setContent(html_ff52f0d4f12a070b1b41cf249248c8e8);
+            
+        
+
+        marker_ac0f91e734ae33035f82a1dfef4ffcad.bindPopup(popup_eb62d22fa3840e59a6b56168bc1cdcaa)
+        ;
+
+        
+    
+    
+            var marker_d89fe92a7179adf7eb40104431935162 = L.marker(
+                [45.36994, -71.99418],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d1afb955c731d47944c85d3db020c1a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d89fe92a7179adf7eb40104431935162.setIcon(icon_d1afb955c731d47944c85d3db020c1a0);
+        
+    
+        var popup_15b72c69f62f1d94e508d23517f77cac = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_a4332d5d3cf9b7c9113178a62a769449 = $(`<div id="html_a4332d5d3cf9b7c9113178a62a769449" style="width: 100.0%; height: 100.0%;">                 <h1> École Vision-Sherbrooke</h1>                 <p>Adresse : 5100, Rue Henri-Labonne</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_15b72c69f62f1d94e508d23517f77cac.setContent(html_a4332d5d3cf9b7c9113178a62a769449);
+            
+        
+
+        marker_d89fe92a7179adf7eb40104431935162.bindPopup(popup_15b72c69f62f1d94e508d23517f77cac)
+        ;
+
+        
+    
+    
+            var marker_d52bf6fcde8ba1269076af356bc1b8b5 = L.marker(
+                [45.35478, -71.98778],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_cf70da4792eeb4622878c1232058d2d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d52bf6fcde8ba1269076af356bc1b8b5.setIcon(icon_cf70da4792eeb4622878c1232058d2d8);
+        
+    
+        var popup_de956b7f46fa8afaba7d1a3efb52f416 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_2440dbb440a33bd8a43b0b0b303efa7a = $(`<div id="html_2440dbb440a33bd8a43b0b0b303efa7a" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Gamma</h1>                 <p>Adresse : 699, Rue du Curé</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_de956b7f46fa8afaba7d1a3efb52f416.setContent(html_2440dbb440a33bd8a43b0b0b303efa7a);
+            
+        
+
+        marker_d52bf6fcde8ba1269076af356bc1b8b5.bindPopup(popup_de956b7f46fa8afaba7d1a3efb52f416)
+        ;
+
+        
+    
+    
+            var marker_4cc7db00c116e5ccb5d9f927a9d585d8 = L.marker(
+                [45.354676, -71.99417],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_12276df62fe2cd4bdecf5a1c6ac32127 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4cc7db00c116e5ccb5d9f927a9d585d8.setIcon(icon_12276df62fe2cd4bdecf5a1c6ac32127);
+        
+    
+        var popup_aa8fbabbd09a2e424d2a326e51345ab4 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_51b0070ed3563bf67e64ac85196a7e5d = $(`<div id="html_51b0070ed3563bf67e64ac85196a7e5d" style="width: 100.0%; height: 100.0%;">                 <h1> Parc Central</h1>                 <p>Adresse : 6161, Rue du Président Kennedy </p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_aa8fbabbd09a2e424d2a326e51345ab4.setContent(html_51b0070ed3563bf67e64ac85196a7e5d);
+            
+        
+
+        marker_4cc7db00c116e5ccb5d9f927a9d585d8.bindPopup(popup_aa8fbabbd09a2e424d2a326e51345ab4)
+        ;
+
+        
+    
+    
+            var marker_78fc30234c205b5755775bed82daacd6 = L.marker(
+                [45.36906, -71.96842],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d46fa565cd4f05d0ce8fd1cc871fb4fc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_78fc30234c205b5755775bed82daacd6.setIcon(icon_d46fa565cd4f05d0ce8fd1cc871fb4fc);
+        
+    
+        var popup_1c85145c1263a1a74e2cdfc7ade566f4 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_b7ff9e78f0144cf8441ab0e1159b3fed = $(`<div id="html_b7ff9e78f0144cf8441ab0e1159b3fed" style="width: 100.0%; height: 100.0%;">                 <h1> Les Entreprises Lachance Inc</h1>                 <p>Adresse : 663, Rue de Charlemagne </p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_1c85145c1263a1a74e2cdfc7ade566f4.setContent(html_b7ff9e78f0144cf8441ab0e1159b3fed);
+            
+        
+
+        marker_78fc30234c205b5755775bed82daacd6.bindPopup(popup_1c85145c1263a1a74e2cdfc7ade566f4)
+        ;
+
+        
+    
+    
+            var marker_ef424802cde5803db42af1783c19fe69 = L.marker(
+                [45.395, -72.00484],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2712fe3c6db2d0108df85c6bd4b53fd4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ef424802cde5803db42af1783c19fe69.setIcon(icon_2712fe3c6db2d0108df85c6bd4b53fd4);
+        
+    
+        var popup_7131d78e8e77e22bac76ebc6639ac4d3 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_27b92377d33007def49d66d2cdabe15c = $(`<div id="html_27b92377d33007def49d66d2cdabe15c" style="width: 100.0%; height: 100.0%;">                 <h1> Tim Hortons</h1>                 <p>Adresse : 5963, Chem. de Sainte-Élie</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_7131d78e8e77e22bac76ebc6639ac4d3.setContent(html_27b92377d33007def49d66d2cdabe15c);
+            
+        
+
+        marker_ef424802cde5803db42af1783c19fe69.bindPopup(popup_7131d78e8e77e22bac76ebc6639ac4d3)
+        ;
+
+        
+    
+    
+            var marker_bed0db46e772078b778963d8fa64f7b8 = L.marker(
+                [45.39235, -72.01376],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_8275f248570092254ef662192700bea9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bed0db46e772078b778963d8fa64f7b8.setIcon(icon_8275f248570092254ef662192700bea9);
+        
+    
+        var popup_b72a13b0cc62e824a90b07fe0cf531d8 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_72bfad7ffe7147fb22351561ced971d1 = $(`<div id="html_72bfad7ffe7147fb22351561ced971d1" style="width: 100.0%; height: 100.0%;">                 <h1> Iga Bouchard </h1>                 <p>Adresse : 6185, QC-220</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_b72a13b0cc62e824a90b07fe0cf531d8.setContent(html_72bfad7ffe7147fb22351561ced971d1);
+            
+        
+
+        marker_bed0db46e772078b778963d8fa64f7b8.bindPopup(popup_b72a13b0cc62e824a90b07fe0cf531d8)
+        ;
+
+        
+    
+    
+            var marker_8da825cc60a556b7d213ae1ce02571f8 = L.marker(
+                [45.39567, -72.03986],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_a6d30ece140b150e294002c72f1c4891 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8da825cc60a556b7d213ae1ce02571f8.setIcon(icon_a6d30ece140b150e294002c72f1c4891);
+        
+    
+        var popup_927700dc37f2b0cc62494b193a6e67db = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_a75bc53ffc1fe64579324e00aca189e8 = $(`<div id="html_a75bc53ffc1fe64579324e00aca189e8" style="width: 100.0%; height: 100.0%;">                 <h1> Église Saint-Élie</h1>                 <p>Adresse : 7205, Chem. de Sainte-Élie</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_927700dc37f2b0cc62494b193a6e67db.setContent(html_a75bc53ffc1fe64579324e00aca189e8);
+            
+        
+
+        marker_8da825cc60a556b7d213ae1ce02571f8.bindPopup(popup_927700dc37f2b0cc62494b193a6e67db)
+        ;
+
+        
+    
+    
+            var marker_1a7967936ca7d7ac36a4a1a369377385 = L.marker(
+                [45.39483, -72.04597],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_428de8afb9289c4a2cc22ffee8b86730 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1a7967936ca7d7ac36a4a1a369377385.setIcon(icon_428de8afb9289c4a2cc22ffee8b86730);
+        
+    
+        var popup_def0e6df91e6eb232e0c89864caefdfa = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_4dc7e2c3a768b22ae6f8e77adca41662 = $(`<div id="html_4dc7e2c3a768b22ae6f8e77adca41662" style="width: 100.0%; height: 100.0%;">                 <h1> Matériaux St-Élie</h1>                 <p>Adresse : 17, Rue Saint-Michel-Archange</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_def0e6df91e6eb232e0c89864caefdfa.setContent(html_4dc7e2c3a768b22ae6f8e77adca41662);
+            
+        
+
+        marker_1a7967936ca7d7ac36a4a1a369377385.bindPopup(popup_def0e6df91e6eb232e0c89864caefdfa)
+        ;
+
+        
+    
+    
+            var marker_bfbe287a221060769754e76a7b3cadcb = L.marker(
+                [45.34191, -72.04209],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2e16d59bf7c7676dc9a526c40d898d87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bfbe287a221060769754e76a7b3cadcb.setIcon(icon_2e16d59bf7c7676dc9a526c40d898d87);
+        
+    
+        var popup_040520b5a738c66e7e80e658e0d62907 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_921f30810c4478c560fe16dd513b9ca1 = $(`<div id="html_921f30810c4478c560fe16dd513b9ca1" style="width: 100.0%; height: 100.0%;">                 <h1> Shell</h1>                 <p>Adresse : 7390, Boul Bourque</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_040520b5a738c66e7e80e658e0d62907.setContent(html_921f30810c4478c560fe16dd513b9ca1);
+            
+        
+
+        marker_bfbe287a221060769754e76a7b3cadcb.bindPopup(popup_040520b5a738c66e7e80e658e0d62907)
+        ;
+
+        
+    
+    
+            var marker_410e5257a5ee02e6555057552d150d93 = L.marker(
+                [45.33307, -71.979329],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_96daf078b680ebbf4a1ab9f3f2340a31 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_410e5257a5ee02e6555057552d150d93.setIcon(icon_96daf078b680ebbf4a1ab9f3f2340a31);
+        
+    
+        var popup_607d68821f8931bf79484818b79d9d26 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_51943b1d21cadca099b17008273c2704 = $(`<div id="html_51943b1d21cadca099b17008273c2704" style="width: 100.0%; height: 100.0%;">                 <h1> Boucherie Face de Boeuf</h1>                 <p>Adresse : 4250, Chem. Saint-Roch S</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_607d68821f8931bf79484818b79d9d26.setContent(html_51943b1d21cadca099b17008273c2704);
+            
+        
+
+        marker_410e5257a5ee02e6555057552d150d93.bindPopup(popup_607d68821f8931bf79484818b79d9d26)
+        ;
+
+        
+    
+    
+            var marker_eef081cdc7c900b10a226e3e9927fdbc = L.marker(
+                [45.470253, -71.948226],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f485f162c9f4a4e88f5b791b1dbe18d7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_eef081cdc7c900b10a226e3e9927fdbc.setIcon(icon_f485f162c9f4a4e88f5b791b1dbe18d7);
+        
+    
+        var popup_4b568c25f3b75fca6a1e6e8b5191d4a6 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_44073dfb3ef2693655cdf78afc80d049 = $(`<div id="html_44073dfb3ef2693655cdf78afc80d049" style="width: 100.0%; height: 100.0%;">                 <h1> EKO / Dépanneur Brompton</h1>                 <p>Adresse : 245, Rue Laval</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_4b568c25f3b75fca6a1e6e8b5191d4a6.setContent(html_44073dfb3ef2693655cdf78afc80d049);
+            
+        
+
+        marker_eef081cdc7c900b10a226e3e9927fdbc.bindPopup(popup_4b568c25f3b75fca6a1e6e8b5191d4a6)
+        ;
+
+        
+    
+    
+            var marker_1547f7af70e4c244160163effd29a464 = L.marker(
+                [45.362799, -71.893761],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_2045f2dc3008c8ef7b1d0a5da483af9f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1547f7af70e4c244160163effd29a464.setIcon(icon_2045f2dc3008c8ef7b1d0a5da483af9f);
+        
+    
+        var popup_aadd0cb9c6f0647a602e595db19c801e = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_760bf26ba89c8e809607777e99f7aed6 = $(`<div id="html_760bf26ba89c8e809607777e99f7aed6" style="width: 100.0%; height: 100.0%;">                 <h1> Tim Hortons</h1>                 <p>Adresse : 3815, College St</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_aadd0cb9c6f0647a602e595db19c801e.setContent(html_760bf26ba89c8e809607777e99f7aed6);
+            
+        
+
+        marker_1547f7af70e4c244160163effd29a464.bindPopup(popup_aadd0cb9c6f0647a602e595db19c801e)
+        ;
+
+        
+    
+    
+            var marker_dc3073f5e5e993c5f6a3c1d5ee4981bb = L.marker(
+                [45.36979393948084, -71.98849786137306],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_228ff656ede09b2a618b871e07942fc2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_dc3073f5e5e993c5f6a3c1d5ee4981bb.setIcon(icon_228ff656ede09b2a618b871e07942fc2);
+        
+    
+        var popup_cc781ade71a37074f0d018eadd4574b8 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_1d6584d319c6cf6b965dbd1f7ef75890 = $(`<div id="html_1d6584d319c6cf6b965dbd1f7ef75890" style="width: 100.0%; height: 100.0%;">                 <h1> Salon fun. des cantons</h1>                 <p>Adresse : 951, Du Rue du Haut-Bois S</p>                 <p>Cette cloche restera ici</p>                 </div>`)[0];
+                popup_cc781ade71a37074f0d018eadd4574b8.setContent(html_1d6584d319c6cf6b965dbd1f7ef75890);
+            
+        
+
+        marker_dc3073f5e5e993c5f6a3c1d5ee4981bb.bindPopup(popup_cc781ade71a37074f0d018eadd4574b8)
+        ;
+
+        
+    
+    
+            var marker_c6cda023a18af1a08e94b5000fb4532e = L.marker(
+                [45.40350486546573, -71.86861714764248],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d14e3d8172db1e3402e700344f8eae59 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c6cda023a18af1a08e94b5000fb4532e.setIcon(icon_d14e3d8172db1e3402e700344f8eae59);
+        
+    
+        var popup_3766a84069b50a772e9b337513e50378 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0d899d5bcd101e2ed70a887c91aa3687 = $(`<div id="html_0d899d5bcd101e2ed70a887c91aa3687" style="width: 100.0%; height: 100.0%;">                 <h1> Déménagement Roy</h1>                 <p>Adresse : 316, 12e Avenue S</p>                 <p>Cette cloche sera retirée</p>                 </div>`)[0];
+                popup_3766a84069b50a772e9b337513e50378.setContent(html_0d899d5bcd101e2ed70a887c91aa3687);
+            
+        
+
+        marker_c6cda023a18af1a08e94b5000fb4532e.bindPopup(popup_3766a84069b50a772e9b337513e50378)
+        ;
+
+        
+    
+    
+            var marker_05c1db3bea13a1f0f8a9082fcbf811ca = L.marker(
+                [45.400181, -71.886211],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b8f748c57d745e88cabaf8e8f28d93c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_05c1db3bea13a1f0f8a9082fcbf811ca.setIcon(icon_b8f748c57d745e88cabaf8e8f28d93c5);
+        
+    
+        var popup_34c112258a823ae1ac7c3eb857190a8b = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_26cc440001e7d6cd6126bdb05d436cc1 = $(`<div id="html_26cc440001e7d6cd6126bdb05d436cc1" style="width: 100.0%; height: 100.0%;">                 <h1> Supermarché Maxi</h1>                 <p>Adresse : 150, Grandes Fourches Sud</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_34c112258a823ae1ac7c3eb857190a8b.setContent(html_26cc440001e7d6cd6126bdb05d436cc1);
+            
+        
+
+        marker_05c1db3bea13a1f0f8a9082fcbf811ca.bindPopup(popup_34c112258a823ae1ac7c3eb857190a8b)
+        ;
+
+        
+    
+    
+            var marker_ce48bacadd15db129356523ab734826c = L.marker(
+                [45.422652, -71.871205],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_080dcb284653de203aa2c982bfe322b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_ce48bacadd15db129356523ab734826c.setIcon(icon_080dcb284653de203aa2c982bfe322b2);
+        
+    
+        var popup_f285ac66854dfc573f85f805021b8886 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_718eb01f55641a900bccbb908a0c2ced = $(`<div id="html_718eb01f55641a900bccbb908a0c2ced" style="width: 100.0%; height: 100.0%;">                 <h1> Supermarché Provigo (Alimentation Daniel Larouche)</h1>                 <p>Adresse : 1100, 13e Avenue Nord</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_f285ac66854dfc573f85f805021b8886.setContent(html_718eb01f55641a900bccbb908a0c2ced);
+            
+        
+
+        marker_ce48bacadd15db129356523ab734826c.bindPopup(popup_f285ac66854dfc573f85f805021b8886)
+        ;
+
+        
+    
+    
+            var marker_d61414bcee889fdfdfe5e3e30d505948 = L.marker(
+                [45.410797, -71.849357],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_57786b85b2faee0768c3d590982a00ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_d61414bcee889fdfdfe5e3e30d505948.setIcon(icon_57786b85b2faee0768c3d590982a00ca);
+        
+    
+        var popup_3e85c82f0236a84039d70ddf6ec69f87 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_21432106f923abb20f54afb3aa54e7b7 = $(`<div id="html_21432106f923abb20f54afb3aa54e7b7" style="width: 100.0%; height: 100.0%;">                 <h1> Super C Fleurimont</h1>                 <p>Adresse : 1775, King Est</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_3e85c82f0236a84039d70ddf6ec69f87.setContent(html_21432106f923abb20f54afb3aa54e7b7);
+            
+        
+
+        marker_d61414bcee889fdfdfe5e3e30d505948.bindPopup(popup_3e85c82f0236a84039d70ddf6ec69f87)
+        ;
+
+        
+    
+    
+            var marker_daf1d9fdfc47dca5a6ece382ae825609 = L.marker(
+                [45.409213, -71.919145],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_f0e94c41c01456ff8cf3aa94faa410b6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_daf1d9fdfc47dca5a6ece382ae825609.setIcon(icon_f0e94c41c01456ff8cf3aa94faa410b6);
+        
+    
+        var popup_d317acf6a57abeb8b2cf4d62eabcdd56 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_c07f284891c91df8e3b4e1bfbab996d3 = $(`<div id="html_c07f284891c91df8e3b4e1bfbab996d3" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 705, Boulevard Jacques-Cartier</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_d317acf6a57abeb8b2cf4d62eabcdd56.setContent(html_c07f284891c91df8e3b4e1bfbab996d3);
+            
+        
+
+        marker_daf1d9fdfc47dca5a6ece382ae825609.bindPopup(popup_d317acf6a57abeb8b2cf4d62eabcdd56)
+        ;
+
+        
+    
+    
+            var marker_763a48565f8c38920ba351c58e164b49 = L.marker(
+                [45.393985, -71.896842],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_e71505fcdb9b042643b7cf5ad9a393cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_763a48565f8c38920ba351c58e164b49.setIcon(icon_e71505fcdb9b042643b7cf5ad9a393cc);
+        
+    
+        var popup_dfc17bcc4abf34b5ce7988fa1b888d09 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_b7aa01ea2f6c8912b4b5726317107f57 = $(`<div id="html_b7aa01ea2f6c8912b4b5726317107f57" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard Pétro-Canada</h1>                 <p>Adresse : 700, Galt Ouest</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_dfc17bcc4abf34b5ce7988fa1b888d09.setContent(html_b7aa01ea2f6c8912b4b5726317107f57);
+            
+        
+
+        marker_763a48565f8c38920ba351c58e164b49.bindPopup(popup_dfc17bcc4abf34b5ce7988fa1b888d09)
+        ;
+
+        
+    
+    
+            var marker_144dfcf7b827bf1d5aec5430e8409a18 = L.marker(
+                [45.398567, -71.934709],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_baeae425525d3d10398c461a1a44523d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_144dfcf7b827bf1d5aec5430e8409a18.setIcon(icon_baeae425525d3d10398c461a1a44523d);
+        
+    
+        var popup_33b81a2773ff29cf149d26e58573f216 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_73c1315d6384c66340125eaa47d2572a = $(`<div id="html_73c1315d6384c66340125eaa47d2572a" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 2525, King Ouest</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_33b81a2773ff29cf149d26e58573f216.setContent(html_73c1315d6384c66340125eaa47d2572a);
+            
+        
+
+        marker_144dfcf7b827bf1d5aec5430e8409a18.bindPopup(popup_33b81a2773ff29cf149d26e58573f216)
+        ;
+
+        
+    
+    
+            var marker_999cc33ed08e22ae303465e4c0292499 = L.marker(
+                [45.386679, -71.936865],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_7f25b2472ef8c02faf5407b9efe550c9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_999cc33ed08e22ae303465e4c0292499.setIcon(icon_7f25b2472ef8c02faf5407b9efe550c9);
+        
+    
+        var popup_57fac1956e2f29321005c1f445fa7e5a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_85a0c7c1ef5d9f3e30a5330b4e87bff2 = $(`<div id="html_85a0c7c1ef5d9f3e30a5330b4e87bff2" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 2558, Galt Ouest</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_57fac1956e2f29321005c1f445fa7e5a.setContent(html_85a0c7c1ef5d9f3e30a5330b4e87bff2);
+            
+        
+
+        marker_999cc33ed08e22ae303465e4c0292499.bindPopup(popup_57fac1956e2f29321005c1f445fa7e5a)
+        ;
+
+        
+    
+    
+            var marker_f00aea4bb54f7230eb1a69796f0c5ad9 = L.marker(
+                [45.42858, -71.869036],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_45479565f3f2d5025fec71abbb1d85a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_f00aea4bb54f7230eb1a69796f0c5ad9.setIcon(icon_45479565f3f2d5025fec71abbb1d85a5);
+        
+    
+        var popup_c255179bda934437e60a2c1313e3f31d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_e53d5c378533025960990c3ee0bee9d6 = $(`<div id="html_e53d5c378533025960990c3ee0bee9d6" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 1575, 12e Avenue Nord</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_c255179bda934437e60a2c1313e3f31d.setContent(html_e53d5c378533025960990c3ee0bee9d6);
+            
+        
+
+        marker_f00aea4bb54f7230eb1a69796f0c5ad9.bindPopup(popup_c255179bda934437e60a2c1313e3f31d)
+        ;
+
+        
+    
+    
+            var marker_60ed0d96fbb7d247feaf33a847b7ed6f = L.marker(
+                [45.404601, -71.95061],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_b2364b1686645ee5a97ea5143eb836ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_60ed0d96fbb7d247feaf33a847b7ed6f.setIcon(icon_b2364b1686645ee5a97ea5143eb836ca);
+        
+    
+        var popup_b30c9987fc39d9ab08c1bf6d10063352 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_1de63c1a8d6521a71a752892be396bb0 = $(`<div id="html_1de63c1a8d6521a71a752892be396bb0" style="width: 100.0%; height: 100.0%;">                 <h1> Supermarché Maxie & Cie</h1>                 <p>Adresse : 3025, Portland</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_b30c9987fc39d9ab08c1bf6d10063352.setContent(html_1de63c1a8d6521a71a752892be396bb0);
+            
+        
+
+        marker_60ed0d96fbb7d247feaf33a847b7ed6f.bindPopup(popup_b30c9987fc39d9ab08c1bf6d10063352)
+        ;
+
+        
+    
+    
+            var marker_9044430129fa59f60cda17d28457efbf = L.marker(
+                [45.388427, -71.960528],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_6df21a03fb522d3293f9ce46ea670cde = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_9044430129fa59f60cda17d28457efbf.setIcon(icon_6df21a03fb522d3293f9ce46ea670cde);
+        
+    
+        var popup_3b1aa8a778ff97764d672ffabdd97bd2 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_0d8bdf3373c72267dc054aa06d393ffd = $(`<div id="html_0d8bdf3373c72267dc054aa06d393ffd" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 3935, King Ouest</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_3b1aa8a778ff97764d672ffabdd97bd2.setContent(html_0d8bdf3373c72267dc054aa06d393ffd);
+            
+        
+
+        marker_9044430129fa59f60cda17d28457efbf.bindPopup(popup_3b1aa8a778ff97764d672ffabdd97bd2)
+        ;
+
+        
+    
+    
+            var marker_c132fce1b05860b6076fcff7364492b9 = L.marker(
+                [45.405917, -71.851914],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d2b764b740bce8231ac6b2f32a85aea5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_c132fce1b05860b6076fcff7364492b9.setIcon(icon_d2b764b740bce8231ac6b2f32a85aea5);
+        
+    
+        var popup_010ad0c04d31adc1232a71db74cdabcd = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_b58f75b234230a63dbda8415a8a48a06 = $(`<div id="html_b58f75b234230a63dbda8415a8a48a06" style="width: 100.0%; height: 100.0%;">                 <h1> Dépanneur Couche-Tard</h1>                 <p>Adresse : 1838, Galt Est</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_010ad0c04d31adc1232a71db74cdabcd.setContent(html_b58f75b234230a63dbda8415a8a48a06);
+            
+        
+
+        marker_c132fce1b05860b6076fcff7364492b9.bindPopup(popup_010ad0c04d31adc1232a71db74cdabcd)
+        ;
+
+        
+    
+    
+            var marker_77b4b3b8693d6ecb0173bb54d2a7f573 = L.marker(
+                [45.39633, -71.886951],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d7e37cb84593ffb79fa82d72c911f572 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_77b4b3b8693d6ecb0173bb54d2a7f573.setIcon(icon_d7e37cb84593ffb79fa82d72c911f572);
+        
+    
+        var popup_60025e840e3f30ac1dfb8266b5b3c979 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_fd285429aba0cd5c6bd80ea0d17c6633 = $(`<div id="html_fd285429aba0cd5c6bd80ea0d17c6633" style="width: 100.0%; height: 100.0%;">                 <h1> Estrie-Aide</h1>                 <p>Adresse : 345, Wellington Sud</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_60025e840e3f30ac1dfb8266b5b3c979.setContent(html_fd285429aba0cd5c6bd80ea0d17c6633);
+            
+        
+
+        marker_77b4b3b8693d6ecb0173bb54d2a7f573.bindPopup(popup_60025e840e3f30ac1dfb8266b5b3c979)
+        ;
+
+        
+    
+    
+            var marker_1f9b3b7e6248e852d3415ef76ecc9205 = L.marker(
+                [45.368996, -71.85784],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_41df11dd9a712cec3b19082cb3035002 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_1f9b3b7e6248e852d3415ef76ecc9205.setIcon(icon_41df11dd9a712cec3b19082cb3035002);
+        
+    
+        var popup_448ba49b7350062b24783a90d97f6a9d = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_c52469e371c46a1da82030343d2d150a = $(`<div id="html_c52469e371c46a1da82030343d2d150a" style="width: 100.0%; height: 100.0%;">                 <h1> Supermarché Provigo Lennoxville</h1>                 <p>Adresse : 169, Queen</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_448ba49b7350062b24783a90d97f6a9d.setContent(html_c52469e371c46a1da82030343d2d150a);
+            
+        
+
+        marker_1f9b3b7e6248e852d3415ef76ecc9205.bindPopup(popup_448ba49b7350062b24783a90d97f6a9d)
+        ;
+
+        
+    
+    
+            var marker_dc972cffe03841e3f206f587d7b723b8 = L.marker(
+                [45.373241, -71.894034],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_d0766fe86599ada02d67beb114bffbfb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_dc972cffe03841e3f206f587d7b723b8.setIcon(icon_d0766fe86599ada02d67beb114bffbfb);
+        
+    
+        var popup_d61daa6e56339115b11557020356d78a = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_96f53b3865d057f9360a9d1944183497 = $(`<div id="html_96f53b3865d057f9360a9d1944183497" style="width: 100.0%; height: 100.0%;">                 <h1> ASDI</h1>                 <p>Adresse : 2065, Belvédère S</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_d61daa6e56339115b11557020356d78a.setContent(html_96f53b3865d057f9360a9d1944183497);
+            
+        
+
+        marker_dc972cffe03841e3f206f587d7b723b8.bindPopup(popup_d61daa6e56339115b11557020356d78a)
+        ;
+
+        
+    
+    
+            var marker_b463d3ec91a8ff83e6c00d13ccb658fc = L.marker(
+                [45.418583, -71.907549],
+                {}
+            ).addTo(map_29ec272e3cfc26c78761b6eda4d8fdd2);
+        
+    
+            var icon_353e8ac16e864ba70a1ad6dc76a57933 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_b463d3ec91a8ff83e6c00d13ccb658fc.setIcon(icon_353e8ac16e864ba70a1ad6dc76a57933);
+        
+    
+        var popup_719ac2e0b1ebcc3ee60afce5e4fdc451 = L.popup({"maxWidth": 1000});
+
+        
+            
+                var html_d8e4bdb2343777ba9eeff951021a2543 = $(`<div id="html_d8e4bdb2343777ba9eeff951021a2543" style="width: 100.0%; height: 100.0%;">                 <h1> Défi Polyteck</h1>                 <p>Adresse : 1255, Queen-Victoria</p>                 <p>Cette cloche est une d'Estrie-Aide</p>                 </div>`)[0];
+                popup_719ac2e0b1ebcc3ee60afce5e4fdc451.setContent(html_d8e4bdb2343777ba9eeff951021a2543);
+            
+        
+
+        marker_b463d3ec91a8ff83e6c00d13ccb658fc.bindPopup(popup_719ac2e0b1ebcc3ee60afce5e4fdc451)
+        ;
+
+        
+    
+</script>
+</html>
