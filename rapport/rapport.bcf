@@ -2377,11 +2377,10 @@
     <bcf:citekey order="10" intorder="1">amin_consistency_2009</bcf:citekey>
     <bcf:citekey order="11" intorder="1">farhi_quantum_2014</bcf:citekey>
     <bcf:citekey order="12" intorder="1">karypis_multilevelk-way_1998</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">zielewski_method_2022</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">noauthor_pasqal_nodate</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">noauthor_our_nodate</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">kim_quantum_2023</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">chung_connected_2002</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">noauthor_pasqal_nodate</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">noauthor_our_nodate</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">kim_quantum_2023</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">chung_connected_2002</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
