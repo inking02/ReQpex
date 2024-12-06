@@ -49,11 +49,11 @@ def scale_coordinates(
     scaled_coords -= np.array([center_x, center_y])
 
     # Ajust the cooridnates again of the maximum distance exceeds `max_distance`
-    max_dist_from_center = np.max(np.linalg.norm(scaled_coords, axis=1))
-    if max_dist_from_center > max_distance:
-        scale_factor = max_distance / max_dist_from_center
-        scaled_coords *= scale_factor
-        scaled_radius *= scale_factor
+    # max_dist_from_center = np.max(np.linalg.norm(scaled_coords, axis=1))
+    # if max_dist_from_center > max_distance:
+    #     scale_factor = max_distance / max_dist_from_center
+    #     scaled_coords *= scale_factor
+    #     scaled_radius *= scale_factor
 
     return scaled_coords, scaled_radius
 

@@ -4,10 +4,11 @@ fonction of the class are in the QMIS_utils.py file. The function that runs the 
 """
 
 import numpy as np
+from numpy.typing import NDArray
 import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
-from pulser.devices import AnalogDevice
+from pulser.devices import DigitalAnalogDevice
 from QMIS_code.QMIS_utils import (
     scale_coordinates,
     find_minimal_radius,
@@ -19,7 +20,7 @@ from typing import Callable
 
 
 class Quantum_MIS:
-    def __init__(self, graph: nx.Graph, device=AnalogDevice) -> None:
+    def __init__(self, graph: nx.Graph, device=DigitalAnalogDevice) -> None:
         """
         Object that can run the quantum analog computing MIS algorithm. To create the object, networkx's graph architecture must be used.
         A graph with more than 15 atom will not give good results.
@@ -59,12 +60,13 @@ class Quantum_MIS:
         ]
 
 
-    def __build_reg__(self, coord, i) -> Register:
+    def __build_reg__(self, coord: NDArray, i: int) -> Register:
         """
         Function that creates the pulser resgister for a given graph. It is optimal when the number of atoms is less than eleven.
 
         Parameters:
-        - None
+        - coord (NDArray): 
+        - i (int): 
 
         Returns:
         Register: The pulser register of the atoms representating the graph.

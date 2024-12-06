@@ -100,7 +100,7 @@ if __name__ == "__main__":
     radius_simplify_locations = 1.5
     radius_new_distribution = 2.8
 
-    path = "/Users/lf/Documents/GitHub/ReQpex/"
+    path = "/Users/ludo/library/cloudstorage/onedrive-personnel/documents/ludovic/école/université/automne_24/bsq201/ReQpex/"
 
     save_maps = True
     show_maps = False
@@ -122,6 +122,6 @@ if __name__ == "__main__":
         show_estrie_aide=show_estrie_aide,
         use_quantum=use_quantum,
         path=path,
-        num_atoms=[10, 10],
+        num_atoms=[12, 12],
         pulse=pulse,
     )
