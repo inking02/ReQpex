@@ -17,10 +17,10 @@ def interactive_map(
     file_name: str = "map",
 ):
     """
-    Creates a centerd on Sherbrooke city with the given data to show.
+    Creates a centred on Sherbrooke city with the given data to show.
 
     Parameters:
-    - data_frame_to_show (pd.DataFrame): The pandas datafrme to use to create the map. It must have a Longitude,
+    - data_frame_to_show (pd.DataFrame): The pandas dataframe to use to create the map. It must have a Longitude,
       Latitude, Nom de la borne, Addresse and Rue columns.
     - bin_image (bool = False): Whether to show the pins as recupex's bins or not.
     - path (str)=""): The local file to the REQPEX directory.
@@ -39,10 +39,10 @@ def interactive_map(
         coords = [row["Longitude"], row["Latitude"]]
         coords[0], coords[1] = coords[1], coords[0]
         name = row["Nom de la borne"]
-        adress = str(row["Addresse"]) + ", " + row["Rue"]
+        address = str(row["Addresse"]) + ", " + row["Rue"]
         html = f"""
         <h1> {name}</h1>
-        <p>Adresse : {adress}</p>
+        <p>Adresse : {address}</p>
         """
         popup = folium.Popup(html=html, max_width=1000)
         if bin_image:

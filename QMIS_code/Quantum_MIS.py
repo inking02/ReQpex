@@ -1,6 +1,6 @@
 """
 File containing the class of the quantum analog computing MIS finder method. The class of this MIS finder and its method are in this class. Some of the useful 
-fonction of the class are in the QMIS_utils.py file. The function that runs the main algorithm is the .run method.
+function of the class are in the QMIS_utils.py file. The function that runs the main algorithm is the .run method.
 """
 
 import numpy as np
@@ -33,25 +33,24 @@ class Quantum_MIS:
         self.device = device
 
         # we separate the graph in all its connected components
-        self.sub_graphes = []
+        self.sub_graphs = []
         self.nodes_positions = []
         for nodes in nx.connected_components(graph):
             sub_graph = create_sub_graph(graph, nodes)
-            self.sub_graphes.append(sub_graph)
+            self.sub_graphs.append(sub_graph)
             nodes_to_add = [int(node) for node in nodes]
             self.nodes_positions.append(nodes_to_add)
 
         # finding coordinates that helps building a good register using spring_layout
         self.pos = [
-            nx.spring_layout(sub_graph, k=0.1, seed=42)
-            for sub_graph in self.sub_graphes
+            nx.spring_layout(sub_graph, k=0.1, seed=42) for sub_graph in self.sub_graphs
         ]
         self.coords = [np.array(list(position.values())) for position in self.pos]
 
         # defining the minimal blockade for each sub_graph
         self.R_blockades = [
             find_minimal_radius(sub_graph, position)
-            for sub_graph, position in zip(self.sub_graphes, self.pos)
+            for sub_graph, position in zip(self.sub_graphs, self.pos)
         ]
 
         # building each registers
@@ -61,13 +60,13 @@ class Quantum_MIS:
 
     def __build_reg__(self, coord, i) -> Register:
         """
-        Function that creates the pulser resgister for a given graph. It is optimal when the number of atoms is less than eleven.
+        Function that creates the pulser register for a given graph. It is optimal when the number of atoms is less than eleven.
 
         Parameters:
         - None
 
         Returns:
-        Register: The pulser register of the atoms representating the graph.
+        Register: The pulser register of the atoms representing the graph.
         """
         min_dist = self.device.min_atom_distance
         max_dist = self.device.max_radial_distance
@@ -81,7 +80,7 @@ class Quantum_MIS:
 
     def print_regs(self) -> None:
         """
-        Function that draws the positionnement and radius of the atoms of the quantum architecture.
+        Function that draws the positioning and radius of the atoms of the quantum architecture.
 
         Parameters:
         - None
@@ -109,15 +108,15 @@ class Quantum_MIS:
         Method to run the quantum analog computing MIS algorithm. By using a given pulse, it will find the graph given to the object.
 
         Parameters:
-        - Pulse (Callable): A callable of a function returning a Pulse class objcet from Pulser's library. It is the pulse given to the set of
+        - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
-        - shots (int=1000): The number of times the algotihm must be runned. By default, it is set at 1000.
+        - shots (int=1000): The number of times the algorithm must be run. By default, it is set at 1000.
         - generate_histogram (bool = False): Generate the result histogram of the runs of the algorithms.
         - file_name (str = "QMIS_histo.pdf"): The file name that the histogram must be saved as. The filename must also include its path and use the extension png.
         - progress_bar (bool = True): Whether or not to print the evolution on the run on pulser's architecture.
 
         Returns:
-        dict: The counts dictionnary of the results from the shots of the algorithms.
+        dict: The counts dictionary of the results from the shots of the algorithms.
         """
         # defining the omega for each pulse
         Omega_pulse_max = self.device.channels["rydberg_global"].max_amp
