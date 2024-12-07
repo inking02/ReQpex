@@ -1,32 +1,33 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
 \contentsline {section}{\numberline {2}Objectifs}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Conditions d'évaluation des cloches de don de Récupex}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Conditions RÉCUPEX}{2}{subsection.2.1}%
 \contentsline {section}{\numberline {3}Théorie}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Graphes}{3}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Introduction aux graphes}{3}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Ensemble indépendant maximal}{4}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Grapher sherbrooke}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Grapher Sherbrooke}{4}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Ordinateur quantique à atome neutre}{5}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Trouver l'ensemble indépendant maximal à l'aide de l'ordinateur quantique à atome neutre}{6}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Algorithme quantique adiabatique}{6}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Algorithme d'optimisation approximative quantique}{7}{subsubsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.5}Ensemble maximal indépendant en sous-graphe}{7}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Méthodologie}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Comparer les méthodes trouvant le MIS}{8}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Choisir la méthode quantique la plus prometteuse}{8}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Évaluer la performance de l'algorithme de recombinaison de sous-graphe}{9}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Résoudre le problème de Récupex}{9}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Tri de l'emplacement actuel des bacs}{9}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Rafiner la liste des endroits possibles}{9}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Trouver les nouveaux endroits des bacs retirés}{9}{subsubsection.4.2.3}%
-\contentsline {section}{\numberline {5}Résultats}{10}{section.5}%
-\contentsline {section}{\numberline {6}Discussion}{12}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Algorithme d'optimisation approximative quantique}{12}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Performance de l'algorithme de recombinaison de graphe}{13}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Algorithme quantique adiabatique}{13}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {3.4.2}Algorithme d'optimisation approximative quantique}{8}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Ensemble maximal indépendant en sous-graphe}{8}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Méthodologie}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Comparer les méthodes trouvant le MIS}{9}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Choisir la méthode quantique la plus prometteuse}{9}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Détermination du pulse}{9}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Évaluer la performance de l'algorithme de recombinaison de sous-graphe}{10}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Résoudre le problème de Récupex}{10}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Tri de l'emplacement actuel des bacs}{10}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Raffiner la liste des endroits possibles}{10}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Trouver les nouveaux endroits des bacs retirés}{10}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Résultats}{11}{section.5}%
+\contentsline {section}{\numberline {6}Discussion}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Algorithme d'optimisation approximative quantique}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Analyse du pulse}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Performance de l'algorithme de recombinaison de graphe}{14}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Performance pour la résolution du problème de Recupex}{14}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Pistes d'amélioration}{14}{section.7}%
+\contentsline {section}{\numberline {7}Pistes d'amélioration}{15}{section.7}%
 \contentsline {section}{\numberline {8}Conclusion}{15}{section.8}%
-\contentsline {section}{\numberline {9}Références}{15}{section.9}%
-\contentsline {section}{\numberline {10}Annexe}{17}{section.10}%
+\contentsline {section}{\numberline {9}Références}{16}{section.9}%
+\contentsline {section}{\numberline {10}Annexe}{18}{section.10}%

@@ -177,6 +177,25 @@
       \verb https://hal.science/hal-04334541
       \endverb
     \endentry
+    \entry{noauthor_learn_nodate}{misc}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{title}{Learn {|} {QuEra}}
+      \field{urlday}{7}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Learn | QuEra:/Users/ludo/Zotero/storage/EI27W8XM/learn.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://qbook.quera.com/learn/?course=6630211af30e7d0013c66147&file=66da2107d33a247c664fecf4
+      \endverb
+      \verb{url}
+      \verb https://qbook.quera.com/learn/?course=6630211af30e7d0013c66147&file=66da2107d33a247c664fecf4
+      \endverb
+    \endentry
     \entry{browaeys_pinces_2016}{article}{}
       \name{author}{1}{}{%
         {{hash=f243eee2a4dbf763fb80352db4b92e9d}{%
@@ -195,8 +214,8 @@
       \strng{authornamehash}{f243eee2a4dbf763fb80352db4b92e9d}
       \strng{authorfullhash}{f243eee2a4dbf763fb80352db4b92e9d}
       \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1953-793X, 2102-6777}
@@ -281,8 +300,8 @@
       \strng{authorbibnamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authornamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authorfullhash}{4478c07a77325b7e0c1753025ceaead4}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Programmable arrays of hundreds of Rydberg atoms have recently enabled the exploration of remarkable phenomena in many-body quantum physics. In addition, the development of high-fidelity quantum gates are making them promising architectures for the implementation of quantum circuits. We present here {\textbackslash}textit\{Pulser\}, an open-source Python library for programming neutral-atom devices at the pulse level. The low-level nature of Pulser makes it a versatile framework for quantum control both in the digital and analog settings. The library also contains simulation routines for studying and exploring the outcome of pulse sequences for small systems.}
@@ -336,8 +355,8 @@
       \strng{authorbibnamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authornamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authorfullhash}{81a287ca662f4ab74a6088bf4c2efa72}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We present an algorithm which finds a maximum independent set in an \$n\$-vertex graph in \$O(2{\textasciicircum}\{n/3\})\$ time. The algorithm can thus handle graphs roughly three times as large as could be analyzed using a naive algorithm.}
@@ -391,8 +410,8 @@
       \strng{authorbibnamehash}{5965c73992d21637bfc595a465a7289d}
       \strng{authornamehash}{5965c73992d21637bfc595a465a7289d}
       \strng{authorfullhash}{5965c73992d21637bfc595a465a7289d}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2470-0045, 2470-0053}
@@ -553,8 +572,8 @@
       \strng{authorbibnamehash}{99a06f0fd923cb3d2482e52b9c3a0363}
       \strng{authornamehash}{99a06f0fd923cb3d2482e52b9c3a0363}
       \strng{authorfullhash}{2b4c924b8cb698a8bdcea6b5dcf23966}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Realizing quantum speedup for practically relevant, computationally hard problems is a central challenge in quantum information science. Using Rydberg atom arrays with up to 289 qubits in two spatial dimensions, we experimentally investigate quantum algorithms for solving the Maximum Independent Set problem. We use a hardware-efficient encoding associated with Rydberg blockade, realize closed-loop optimization to test several variational algorithms, and subsequently apply them to systematically explore a class of graphs with programmable connectivity. We find the problem hardness is controlled by the solution degeneracy and number of local minima, and experimentally benchmark the quantum algorithm's performance against classical simulated annealing. On the hardest graphs, we observe a superlinear quantum speedup in finding exact solutions in the deep circuit regime and analyze its origins.}
@@ -730,61 +749,31 @@
       \verb https://linkinghub.elsevier.com/retrieve/pii/S0743731597914040
       \endverb
     \endentry
-    \entry{zielewski_method_2022}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=335ab216a55caa23a337c4e6f2cfcb20}{%
-           family={Zielewski},
-           familyi={Z\bibinitperiod},
-           given={Michael\bibnamedelima Ryan},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=5728d4b40191e82c9de5633454119566}{%
-           family={Takizawa},
-           familyi={T\bibinitperiod},
-           given={Hiroyuki},
-           giveni={H\bibinitperiod}}}%
+    \entry{blondin_entretien_2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=49f823c1ad4d4a5ffb11678aa39a302d}{%
+           family={Blondin},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
       }
       \list{language}{1}{%
-        {en}%
+        {Français}%
       }
-      \list{location}{1}{%
-        {Virtual Event Japan}%
-      }
-      \list{publisher}{1}{%
-        {ACM}%
-      }
-      \strng{namehash}{0516716187cc083c1a329d6fb52af7c5}
-      \strng{fullhash}{0516716187cc083c1a329d6fb52af7c5}
-      \strng{bibnamehash}{0516716187cc083c1a329d6fb52af7c5}
-      \strng{authorbibnamehash}{0516716187cc083c1a329d6fb52af7c5}
-      \strng{authornamehash}{0516716187cc083c1a329d6fb52af7c5}
-      \strng{authorfullhash}{0516716187cc083c1a329d6fb52af7c5}
+      \strng{namehash}{49f823c1ad4d4a5ffb11678aa39a302d}
+      \strng{fullhash}{49f823c1ad4d4a5ffb11678aa39a302d}
+      \strng{bibnamehash}{49f823c1ad4d4a5ffb11678aa39a302d}
+      \strng{authorbibnamehash}{49f823c1ad4d4a5ffb11678aa39a302d}
+      \strng{authornamehash}{49f823c1ad4d4a5ffb11678aa39a302d}
+      \strng{authorfullhash}{49f823c1ad4d4a5ffb11678aa39a302d}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{International {Conference} on {High} {Performance} {Computing} in {Asia}-{Pacific} {Region}}
-      \field{isbn}{978-1-4503-8498-8}
-      \field{month}{1}
-      \field{title}{A {Method} for {Reducing} {Time}-to-{Solution} in {Quantum} {Annealing} {Through} {Pausing}}
-      \field{urlday}{27}
-      \field{urlmonth}{11}
-      \field{urlyear}{2024}
-      \field{year}{2022}
-      \field{urldateera}{ce}
-      \field{pages}{137\bibrangedash 145}
-      \range{pages}{9}
-      \verb{doi}
-      \verb 10.1145/3492805.3492815
-      \endverb
-      \verb{file}
-      \verb Texte intégral:/Users/ludo/Zotero/storage/W8VQMZA5/Zielewski et Takizawa - 2022 - A Method for Reducing Time-to-Solution in Quantum .pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://dl.acm.org/doi/10.1145/3492805.3492815
-      \endverb
-      \verb{url}
-      \verb https://dl.acm.org/doi/10.1145/3492805.3492815
-      \endverb
+      \field{abstract}{Algorithmes de division optimale de graphes en sous-graphes. Algorithme de recombinaison dans le cadre du MIS.}
+      \field{month}{11}
+      \field{title}{Entretien avec {Michael} {Blondin} à propos de la division et de la recombinaison de graphes}
+      \field{year}{2024}
     \endentry
     \entry{noauthor_pasqal_nodate}{misc}{}
       \list{language}{1}{%
@@ -894,60 +883,6 @@
       \verb http://arxiv.org/abs/2311.13803
       \endverb
       \keyw{Quantum Physics,Physics - Atomic Physics,Physics - Data Analysis,Statistics and Probability}
-    \endentry
-    \entry{chung_connected_2002}{article}{}
-      \name{author}{2}{}{%
-        {{hash=1d2495bc5132ebe0aba48b654d7adca3}{%
-           family={Chung},
-           familyi={C\bibinitperiod},
-           given={Fan},
-           giveni={F\bibinitperiod}}}%
-        {{hash=4c61c76e8ee84b26e87b8f0c01b1c553}{%
-           family={Lu},
-           familyi={L\bibinitperiod},
-           given={Linyuan},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \strng{namehash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \strng{fullhash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \strng{bibnamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \strng{authorbibnamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \strng{authornamehash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \strng{authorfullhash}{4d27eeeb47eb489b5d79839ff2e3b861}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We consider a family of random graphs with a given expected degree sequence. Each edge is chosen independently with probability proportional to the product of the expected degrees of its endpoints. We examine the distribution of the sizes/volumes of the connected components which turns out depending primarily on the average degree d and the second-order average degree d{\textasciitilde}. Here d{\textasciitilde} denotes the weighted average of squares of the expected degrees. For example, we prove that the giant component exists if the expected average degree d is at least 1, and there is no giant component if the expected second-order average degree d{\textasciitilde} is at most 1. Examples are given to illustrate that both bounds are best possible.}
-      \field{issn}{0219-3094}
-      \field{journaltitle}{Annals of Combinatorics}
-      \field{month}{11}
-      \field{number}{2}
-      \field{title}{Connected {Components} in {Random} {Graphs} with {Given} {Expected} {Degree} {Sequences}}
-      \field{urlday}{22}
-      \field{urlmonth}{11}
-      \field{urlyear}{2024}
-      \field{volume}{6}
-      \field{year}{2002}
-      \field{urldateera}{ce}
-      \field{pages}{125\bibrangedash 145}
-      \range{pages}{21}
-      \verb{doi}
-      \verb 10.1007/PL00012580
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:/Users/ludo/Zotero/storage/STGNYS2Q/Chung et Lu - 2002 - Connected Components in Random Graphs with Given E.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/PL00012580
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/PL00012580
-      \endverb
-      \keyw{Keywords: random graphs,connected components,expected degree sequence,power law,power law graphs}
     \endentry
   \enddatalist
 \endrefsection
