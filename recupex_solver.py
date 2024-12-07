@@ -5,7 +5,7 @@ from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
 from QMIS_code.pulse_utils import Pulse_constructor
-from Classical_MIS import Find_MIS_discs
+from Classical_MIS import MIS_Solver
 from numpy.typing import NDArray
 from typing import Callable, List
 
@@ -136,7 +136,7 @@ def simplify_bins(
         )
 
     else:
-        solver = Find_MIS_discs(G)
+        solver = MIS_Solver(G)
         res_dict = solver.run(shots=100)
         nodes = [int(i) for i in G.nodes()]
         best_bitstring = max_with_volume(res_dict, nodes, bins_numpy[:, 2])
@@ -313,7 +313,7 @@ def place_new_bins(
         new_vertices = solver.run(pulse, print_progression=True)
 
     else:
-        solver = Find_MIS_discs(G)
+        solver = MIS_Solver(G)
         res_dict = solver.run(shots=100)
         best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
         new_vertices = []

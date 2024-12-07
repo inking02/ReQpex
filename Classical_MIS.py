@@ -8,7 +8,7 @@ import networkx as nx
 import random
 
 
-class Find_MIS_discs:
+class MIS_Solver:
     def __init__(self, graph: nx.Graph) -> None:
         """
         Object that can run the classical MIS algorithm. To create the object, networkx's graph architecture must be used.
