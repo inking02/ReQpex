@@ -9,7 +9,7 @@ Bienvenue dans le dépôt GitHub de **QLink** ! Nous sommes une équipe passionn
 - **`utils`** : Dossier contenant les fonctions utilitaires au projet.
 - **`requirements.txt`** : Fichier texte avec les commandes d'installation des différents modules requis pour rouler le code.
 - **`main.py`** : Fichier permettant de résoudre le problème de Récupex. Plus de détails sont disponibles dans le rapport.
-- ** `tutorial.ipynb`**: Tutoriel d'utilisation des classes du projet et des fonctions permettant de résoudre le problème de Récupex.
+- **`tutorial.ipynb`** : Tutoriel d'utilisation des classes du projet et des fonctions permettant de résoudre le problème de Récupex.
 
 ## Utilisation
 Pour bien comprendre l'implementation des différentes méthodes proposées dans ce projet, vous pouvez commencer par consulter le jupyter_notebook **'tutorial.ipynb'** dans le dossier ... Vous pouvez ensuite importer les librairies utiles qui existent dans **'requirement.txt'**, puis consulter **'main.py'**
