@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.22)  8 DEC 2024 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.22)  8 DEC 2024 16:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,102 +1145,101 @@ File: images/registre_exemple.png Graphic file (type png)
 <use images/registre_exemple.png>
 Package pdftex.def Info: images/registre_exemple.png  used on input line 151.
 (pdftex.def)             Requested size: 219.74437pt x 131.84038pt.
-<images/histogram_exemple.png, id=317, 1382.16376pt x 854.19125pt>
-File: images/histogram_exemple.png Graphic file (type png)
-<use images/histogram_exemple.png>
-Package pdftex.def Info: images/histogram_exemple.png  used on input line 152.
-(pdftex.def)             Requested size: 224.32689pt x 138.62848pt.
- [7 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/pulse_exemple.png>] [8 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/registre_exemple.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/histogram_exemple.png>]
-<images/registre_exemple2.png, id=340, 463.2507pt x 292.6935pt>
-File: images/registre_exemple2.png Graphic file (type png)
-<use images/registre_exemple2.png>
-Package pdftex.def Info: images/registre_exemple2.png  used on input line 187.
-(pdftex.def)             Requested size: 219.74437pt x 138.84328pt.
+<images/histo_qaa_exemple.png, id=317, 1280.785pt x 805.0075pt>
+File: images/histo_qaa_exemple.png Graphic file (type png)
+<use images/histo_qaa_exemple.png>
+Package pdftex.def Info: images/histo_qaa_exemple.png  used on input line 152.
+(pdftex.def)             Requested size: 224.32689pt x 140.98897pt.
+ [7 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/pulse_exemple.png>] [8 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/registre_exemple.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/histo_qaa_exemple.png>]
+File: images/registre_exemple.png Graphic file (type png)
+<use images/registre_exemple.png>
+Package pdftex.def Info: images/registre_exemple.png  used on input line 187.
+(pdftex.def)             Requested size: 219.74437pt x 131.84038pt.
  [9]
 Overfull \hbox (21.13252pt too wide) in paragraph at lines 204--205
 []\T1/cmr/m/n/10.95 "Rise_fall" : Ce pulse est sim-ple-ment la par-tie "Rise_fall" du pulse de type "Rise_sweep_fall".
  []
 
-[10 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/registre_exemple2.png>]
-<images/35atomes.png, id=357, 476.982pt x 360.6273pt>
+[10]
+<images/35atomes.png, id=355, 476.982pt x 360.6273pt>
 File: images/35atomes.png Graphic file (type png)
 <use images/35atomes.png>
 Package pdftex.def Info: images/35atomes.png  used on input line 219.
 (pdftex.def)             Requested size: 224.32689pt x 169.6049pt.
  [11 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/35atomes.png>]
-File: images/registre_exemple2.png Graphic file (type png)
-<use images/registre_exemple2.png>
-Package pdftex.def Info: images/registre_exemple2.png  used on input line 255.
-(pdftex.def)             Requested size: 219.74437pt x 138.84328pt.
-<images/qaoa_res.png, id=364, 462.528pt x 430.0065pt>
+File: images/histo_qaa_exemple.png Graphic file (type png)
+<use images/histo_qaa_exemple.png>
+Package pdftex.def Info: images/histo_qaa_exemple.png  used on input line 255.
+(pdftex.def)             Requested size: 228.90244pt x 143.8633pt.
+<images/qaoa_res.png, id=362, 462.528pt x 430.0065pt>
 File: images/qaoa_res.png Graphic file (type png)
 <use images/qaoa_res.png>
 Package pdftex.def Info: images/qaoa_res.png  used on input line 256.
-(pdftex.def)             Requested size: 224.32689pt x 208.5529pt.
-<images/pusle_comp.png, id=367, 435.0654pt x 397.485pt>
+(pdftex.def)             Requested size: 206.01079pt x 191.52617pt.
+<images/pusle_comp.png, id=365, 435.0654pt x 397.485pt>
 File: images/pusle_comp.png Graphic file (type png)
 <use images/pusle_comp.png>
 Package pdftex.def Info: images/pusle_comp.png  used on input line 264.
 (pdftex.def)             Requested size: 224.32689pt x 204.94662pt.
  [12 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/qaoa_res.png>]
-<images/table_emul.png, id=377, 825.0825pt x 106.3975pt>
+<images/table_emul.png, id=375, 825.0825pt x 106.3975pt>
 File: images/table_emul.png Graphic file (type png)
 <use images/table_emul.png>
 Package pdftex.def Info: images/table_emul.png  used on input line 272.
 (pdftex.def)             Requested size: 320.462pt x 41.32439pt.
-<images/recupex_solver.png, id=378, 553.06625pt x 158.5925pt>
+<images/recupex_solver.png, id=376, 553.06625pt x 158.5925pt>
 File: images/recupex_solver.png Graphic file (type png)
 <use images/recupex_solver.png>
 Package pdftex.def Info: images/recupex_solver.png  used on input line 280.
 (pdftex.def)             Requested size: 224.32689pt x 64.32397pt.
-<images/total_quantum.png, id=379, 703.62875pt x 716.6775pt>
+<images/total_quantum.png, id=377, 703.62875pt x 716.6775pt>
 File: images/total_quantum.png Graphic file (type png)
 <use images/total_quantum.png>
 Package pdftex.def Info: images/total_quantum.png  used on input line 288.
 (pdftex.def)             Requested size: 224.32689pt x 228.47757pt.
  [13 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/pusle_comp.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/table_emul.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/recupex_solver.png>]
-<images/both_distributions.png, id=390, 703.62875pt x 716.6775pt>
+<images/both_distributions.png, id=388, 703.62875pt x 716.6775pt>
 File: images/both_distributions.png Graphic file (type png)
 <use images/both_distributions.png>
 Package pdftex.def Info: images/both_distributions.png  used on input line 296.
 (pdftex.def)             Requested size: 224.32689pt x 228.47757pt.
- [14 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/total_quantum.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/both_distributions.png>]
+ [14 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/total_quantum.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/both_distributions.png>] [15]
 
-LaTeX Warning: Reference `indep' on page 15 undefined on input line 331.
+LaTeX Warning: Reference `Mi' on page 16 undefined on input line 329.
 
-[15] [16]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 359.
+[16]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 357.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Overfull \hbox (16.47244pt too wide) in paragraph at lines 359--359
+Overfull \hbox (16.47244pt too wide) in paragraph at lines 357--357
 \T1/cmr/m/it/10.95 prises du ter-ri-toire de Sher-brooke - Don-n�es Qu�-bec\T1/cmr/m/n/10.95 , fr. adresse : [][]$\T1/cmtt/m/n/10.95 https : / / www . donneesquebec .
  []
 
 [17]
-Overfull \hbox (40.81796pt too wide) in paragraph at lines 359--359
+Overfull \hbox (40.81796pt too wide) in paragraph at lines 357--357
 []\T1/cmr/m/it/10.95 Learn | QuEra\T1/cmr/m/n/10.95 . adresse : [][]$\T1/cmtt/m/n/10.95 https : / / qbook . quera . com / learn / ?course = 6630211af30e7d0013c66147 &
  []
 
 [18]
-Overfull \hbox (11.07123pt too wide) in paragraph at lines 359--359
+Overfull \hbox (11.07123pt too wide) in paragraph at lines 357--357
 \T1/cmr/m/it/10.95 In-de-pendent Set Pro-blem on King's Lat-tice of over Hun-dred Ryd-berg Atoms\T1/cmr/m/n/10.95 , arXiv :2311.13803,
  []
 
-<images/original.png, id=473, 967.615pt x 899.36pt>
+<images/original.png, id=470, 967.615pt x 899.36pt>
 File: images/original.png Graphic file (type png)
 <use images/original.png>
-Package pdftex.def Info: images/original.png  used on input line 365.
+Package pdftex.def Info: images/original.png  used on input line 363.
 (pdftex.def)             Requested size: 151.07643pt x 140.41487pt.
-<images/new_quantum.png, id=474, 703.62875pt x 716.6775pt>
+<images/new_quantum.png, id=471, 703.62875pt x 716.6775pt>
 File: images/new_quantum.png Graphic file (type png)
 <use images/new_quantum.png>
-Package pdftex.def Info: images/new_quantum.png  used on input line 366.
+Package pdftex.def Info: images/new_quantum.png  used on input line 364.
 (pdftex.def)             Requested size: 137.34285pt x 139.88824pt.
-<images/new_classical.png, id=475, 703.62875pt x 716.6775pt>
+<images/new_classical.png, id=472, 703.62875pt x 716.6775pt>
 File: images/new_classical.png Graphic file (type png)
 <use images/new_classical.png>
-Package pdftex.def Info: images/new_classical.png  used on input line 367.
+Package pdftex.def Info: images/new_classical.png  used on input line 365.
 (pdftex.def)             Requested size: 137.34285pt x 139.88824pt.
 [19 </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/original.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/new_quantum.png> </Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/new_classical.png>] (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.aux)
 
@@ -1251,24 +1250,24 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 6878ED8E6B50A9F8084BEBCE09F7DE83;7574.
+(rerunfilecheck)             Checksum: FDD33565AECD14964DC4C1BD57B77915;7729.
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38246 strings out of 476025
- 758539 string characters out of 5790017
+ 38240 strings out of 476025
+ 758323 string characters out of 5790017
  1869388 words of memory out of 5000000
- 58072 multiletter control sequences out of 15000+600000
+ 58067 multiletter control sequences out of 15000+600000
  526329 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,80p,2949b,1917s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,80p,2949b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.pdf (20 pages, 15401111 bytes).
+Output written on /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.pdf (20 pages, 15372646 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
+ 564 PDF objects out of 1000 (max. 8388607)
  448 compressed objects within 5 object streams
  99 named destinations out of 1000 (max. 500000)
- 408 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

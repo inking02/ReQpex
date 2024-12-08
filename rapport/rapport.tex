@@ -61,7 +61,7 @@ La gestion des bacs de récupération de vêtements à Sherbrooke présente des 
 \item Répondre au plus de conditions de Récupex mentionnées dans la sous-section suivante.
 \end{itemize}
 
-\subsection{Conditions RÉCUPEX}
+\subsection{Conditions de placement des cloches de Récupex}
 Récupex applique plusieurs critères pour optimiser l’emplacement de ses bacs de récupération de vêtements, en tenant compte des aspects de couverture, d'accessibilité, et de performance :
 
 \begin{enumerate}
@@ -149,7 +149,7 @@ L'algorithme quantique adiabatique tente de transformer un hamiltonien initial e
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.48\linewidth]{images/registre_exemple.png}
-    \includegraphics[width=0.49\linewidth]{images/histogram_exemple.png}
+    \includegraphics[width=0.49\linewidth]{images/histo_qaa_exemple.png}
     \caption{Registre quantique et l'histogramme associé à ce registre après 1000 tentatives}
     \label{QMIS_exemple}
 \end{figure}
@@ -184,7 +184,7 @@ L'algorithme adiabatique et d'optimisation approximative seront testés sur le r
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.48\linewidth]{images/registre_exemple2.png}
+    \includegraphics[width = 0.48\linewidth]{images/registre_exemple.png}
     \caption{Registre pour lequel les deux algorithmes quantiques seront testés sur un simulateur}
 \end{figure}\label{graphtocompare}
 
@@ -210,7 +210,7 @@ Après avoir établi la méthode quantique la plus prometteuse, les pulses seron
 
 La proportion de résultats valides du dictionnaire de retour sera évaluée. L'appareil \textit{AnalogDevice} sera utilisé pour cette prise de données.
 
-\subsubsection{Évaluer la performance de l'algorithme de recombinaison de sous-graphe}
+\subsubsection{Évaluer la performance de l'algorithme de recombinaison de sous-graphe}\label{indep}
 Ensuite, la performance de l'algorithme de recombinaison de graphe sera testée sur le graphe de 35 sommets de la figure \ref{35atoms} . Avec l'aide du puissant simulateur de Pascal permettant de rouler des algorithmes de calculs analogiques quantiques à environ 35 atomes, il sera possible d'appeler directement l'algorithme quantique ayant le mieux performé à l'étape précédente une seule fois pour le graphe. Ainsi, en exécutant l'algorithme classique n'ayant pas de limitations, l'algorithme quantique, nous allons pouvoir comparer la performance de ces algorithmes. Il sera aussi possible de voir si la recombinaison de sous-graphe donne une bonne approximation d'avoir rouler le graphe au complet dans un seul appel de MIS.
 
 
@@ -252,8 +252,8 @@ Elle sera aussi exécutée avec la méthode trouvant des MIS en divisant en sous
 \subsection{Comparaison du QAA et QAOA}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.48\linewidth]{images/registre_exemple2.png}
-    \includegraphics[width=0.49\linewidth]{images/qaoa_res.png}
+    \includegraphics[width = 0.50\linewidth]{images/histo_qaa_exemple.png}
+    \includegraphics[width=0.45\linewidth]{images/qaoa_res.png}
     \caption{Histogrammes retournés, à gauche par l'algorthme adiabatique et à droite par le QAOA pour le MIS du graphe de la figure \ref{graph_exemple}}
     \label{qaoavsqaa}
 \end{figure}
@@ -262,7 +262,7 @@ Elle sera aussi exécutée avec la méthode trouvant des MIS en divisant en sous
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.49\linewidth]{images/pusle_comp.png}
-    \caption{Comparaison de la performance des pulses sur le graphe de la figure \ref{MIS_exemple} avec la méthode de QAA. Le \textit{device Analogdevice} a été utilisé pour les pulses durant 4000$\mu s$.}
+    \caption{Comparaison de la performance des pulses sur le graphe de la figure \ref{MIS_exemple} avec la méthode de QAA. L'appareil \textit{Analogdevice} a été utilisé pour les pulses durant 4000$\mu s$.}
     \label{pulse_comp}
 \end{figure}
 
@@ -316,19 +316,17 @@ En conclusion, bien que l'algorithme d'optimisation approximative quantique ne s
 Pour les prochains résultats, l'algorithme de QAA a été utilisé dû à ces résultats.
 
 \subsection{Analyse du pulse}
-La figure \ref{pulse_comp} indique que certains pulses fonctionne mieux avec le QAA (méthode quantique préférable). Il est normal de remarquer que le pulse pyramide n'a pas de bons résultats puisqu'il passe peu de temps à la fréquence de Rabi, fréquence à laquelle les atomes peuvent devenir excités.
+La figure \ref{pulse_comp} indique que certains pulses fonctionne mieux avec le QAA (méthode quantique préférable). Il est normal de remarquer que le pulse pyramide performe moins bien, puisque sa valeur d'omega est constante à une valeur plus basse que l'omega maximal pendant la moitié du temps total. Aussi, le pulse blackman n'est pas efficace pour notre projet, puisque nous n'avons pas de contrôle sur la valeur d'omega maximum qui détermine le rayon de blocage. L'aire du pulse n'est pas très importante pour notre projet. Les trois autres pulses sont comparables, puisqu'ils respectent toutes les conditions de pulse nécessaires pour trouver l'ensemble maximal indépendant. Ils atteingent tous la fréquence de Rabi au milieu du temps total afin de déterminer le rayon de blocage.
+On trouve finalement que entre les pulses \textit{Rise\_fall, Rise\_sweep\_fall, Waveform}, le pulse \textit{Rise\_fall} semble obtenir de meilleur résultats dans le contexte de notre projet.
 
-\textbf{JSP QUOI DISCUTER PLUS}
-
-
-Le \textit{device AnalogDevice} a été employés puisqu'il présentait des meilleurs résultats pour des plus petits graphes. En effet, pour le graphe en exemple, en utilisant le \textit{DigitalAnalogDevice}, des résultats très faibles étaient présentés. Par contre, la même tendance entre les pulse était présente. En contre partie, pour rouler des graphes plus grands, le \textit{DigitalAnalogDevice} sera utilisé.
+L'appareil \textit{AnalogDevice} a été employés puisqu'il présentait des meilleurs résultats pour des plus petits graphes. En effet, pour le graphe en exemple, en utilisant l'appareil \textit{DigitalAnalogDevice}, des résultats très faibles étaient présentés. Par contre, la même tendance entre les pulse était présente. En contre partie, pour rouler des graphes plus grands, l'appareil \textit{DigitalAnalogDevice} sera utilisé.
 
 Ainsi, pour le reste des résultats le pulse \textit{Rise\_fall} a été utilisé avec un temps de $4000 \mu s$.
 
 \subsection{Performance pour la résolution du problème de Récupex}
 Pour résoudre le problème de Recupex, la méthode QAA et classique ont été utilisés. En effet, comme mentionné plus tôt, la méthode de "QAOA" ne donnait pas des résultats satisfaisants sur des petits graphes. 
 
-Il est possible de remarquer que la méthode classique donne des résultats beaucoup plus rapidement que le QAA. Effectivement, le fait de rouler plusieurs simulations quantiques prend beaucoup de temps. Même si sur un ordinateur quantique le temps de calcul sera moindre, le fait de préparer le système d'atome neutre 100 fois par sous-graphe prend aussi beaucoup de temps. Il y a donc un avantage d'utiliser la méthode classique lorsque plus d'emplacements possibles seront considérés. De plus, la figure \ref{bothdist} indique que les deux méthodes font tout de même une bonne distribution des bacs en choisissant une majorité de mêmes bacs. Effectivement, la tableau de la figure \ref{recupex_stats} indique que plus de la moitié des  bacs choisis sont communs dans les deux méthodes. Cela indique que le premier ensemble indépendant trouvé maximisant le volume est semblable pour les deux méthodes.  Par la suite, à l'ajout des nouveaux bacs, quelques différences sont notées par la grandeur du réseau d'emplacement possible et leur interconnexion. Dans les deux cas, les deux méthodes ont réussi à bien couvrir la surface de Sherbrooke en entier. En effet, la couverture du territoire comparé à la répartition originale est bien meilleure et présentée en annexe à la figure \ref{new_dist}. Les deux méthodes ont environ le même nombre de bacs. Il n'est pas surprenant d'observer que la méthode quantique retourne une distribution avec plus de bacs puisque cette méthode retourne moins facilement des ensemble indépendants (discutés à la section \ref{indep}). Ainsi, la méthode quantique place quelques bacs trop près l'un des autres. En général, la solution générale quantique approxime bien la classique.
+Il est possible de remarquer que la méthode classique donne des résultats beaucoup plus rapidement que le QAA. Effectivement, le fait de rouler plusieurs simulations quantiques prend beaucoup de temps. Même si sur un ordinateur quantique le temps de calcul sera moindre, le fait de préparer le système d'atome neutre 100 fois par sous-graphe prend aussi beaucoup de temps. Il y a donc un avantage d'utiliser la méthode classique lorsque plus d'emplacements possibles seront considérés. De plus, la figure \ref{bothdist} indique que les deux méthodes font tout de même une bonne distribution des bacs en choisissant une majorité de mêmes bacs. Effectivement, la tableau de la figure \ref{recupex_stats} indique que plus de la moitié des  bacs choisis sont communs dans les deux méthodes. Cela indique que le premier ensemble indépendant trouvé maximisant le volume est semblable pour les deux méthodes.  Par la suite, à l'ajout des nouveaux bacs, quelques différences sont notées par la grandeur du réseau d'emplacement possible et leur interconnexion. Dans les deux cas, les deux méthodes ont réussi à bien couvrir la surface de Sherbrooke en entier. En effet, la couverture du territoire comparé à la répartition originale est bien meilleure et présentée en annexe à la figure \ref{new_dist}. Les deux méthodes ont environ le même nombre de bacs. Il n'est pas surprenant d'observer que la méthode quantique retourne une distribution avec plus de bacs puisque cette méthode retourne moins facilement des ensemble indépendants (discutés à la section \ref{Mi}). Ainsi, la méthode quantique place quelques bacs trop près l'un des autres. En général, la solution générale quantique approxime bien la classique.
 
 
 
@@ -365,7 +363,7 @@ En bref, la méthode classique pour déterminer un MIS est encore plus puissante
     \includegraphics[width=0.33\linewidth]{images/original.png}
     \includegraphics[width=0.30\linewidth]{images/new_quantum.png}
     \includegraphics[width=0.30\linewidth]{images/new_classical.png}
-    \caption{À gauche, la répartition originale des bacs. Au centre, la réparttion obtenue avec la méthode quantique. À droite, la répartition obtenue avec la méthode classique.}
+    \caption{À gauche, la répartition originale des bacs. Au centre, la répartition obtenue avec la méthode quantique. À droite, la répartition obtenue avec la méthode classique.}
     \label{new_dist}
 \end{figure}
 
