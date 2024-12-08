@@ -80,7 +80,14 @@ def find_minimal_radius(G: nx.Graph, pos: NDArray[np.float_]) -> float:
 
 def plot_histogram(count_dict, shots: int, file_name: str):
     most_freq = {k: v for k, v in count_dict.items() if v > 0.02*shots} 
-    plt.bar(list(most_freq.keys()), list(most_freq.values()))
+    bar_colors = []
+    for key in most_freq.keys():
+        if key == "010101" or key == "100101":
+            bar_colors.append("tab:red")
+        else:
+            bar_colors.append("tab:blue")
+    plt.bar(list(most_freq.keys()), list(most_freq.values()), color = bar_colors)
+
     plt.xticks(rotation="vertical")
     plt.ylabel('counts')
     plt.xlabel('bitstrings')

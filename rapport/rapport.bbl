@@ -243,6 +243,85 @@
       \verb http://www.refletsdelaphysique.fr/10.1051/refdp/20164748036
       \endverb
     \endentry
+    \entry{muldoon_control_2012}{article}{}
+      \name{author}{7}{}{%
+        {{hash=6854135d5964020a343bccbe8c551f0d}{%
+           family={Muldoon},
+           familyi={M\bibinitperiod},
+           given={Cecilia},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a4ddf625f67bfda3dbe2920b49609c92}{%
+           family={Brandt},
+           familyi={B\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=400a632a98717441abbc4bd5bfa9bb4a}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=963dc1139af06cf0a692eb640efb99a0}{%
+           family={Stuart},
+           familyi={S\bibinitperiod},
+           given={Dustin},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ea669b99133e96e67ecff26ea0e62806}{%
+           family={Brainis},
+           familyi={B\bibinitperiod},
+           given={Edouard},
+           giveni={E\bibinitperiod}}}%
+        {{hash=4b874da58051056da98ded722ef6babe}{%
+           family={Himsworth},
+           familyi={H\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=180dda58d63390d8288c4e84489a7ec2}{%
+           family={Kuhn},
+           familyi={K\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{befa8ea0420997b638568ceb9bb8e523}
+      \strng{fullhash}{83bd30ccb6e305ebd043e42f553cc216}
+      \strng{bibnamehash}{befa8ea0420997b638568ceb9bb8e523}
+      \strng{authorbibnamehash}{befa8ea0420997b638568ceb9bb8e523}
+      \strng{authornamehash}{befa8ea0420997b638568ceb9bb8e523}
+      \strng{authorfullhash}{83bd30ccb6e305ebd043e42f553cc216}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Neutral atoms trapped by laser light are among the most promising candidates for storing and processing information in a quantum computer or simulator. The application certainly calls for a scalable and flexible scheme for addressing and manipulating the atoms. We have now made this a reality by implementing a fast and versatile method to dynamically control the position of neutral atoms trapped in optical tweezers. The tweezers result from a spatial light modulator (SLM) controlling and shaping a large number of optical dipole-force traps. Trapped atoms adapt to any change in the potential landscape, such that one can rearrange and randomly access individual sites within atom-trap arrays.}
+      \field{issn}{1367-2630}
+      \field{journaltitle}{New Journal of Physics}
+      \field{month}{7}
+      \field{note}{Publisher: IOP Publishing}
+      \field{number}{7}
+      \field{title}{Control and manipulation of cold atoms in optical tweezers}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{14}
+      \field{year}{2012}
+      \field{urldateera}{ce}
+      \field{pages}{073051}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1367-2630/14/7/073051
+      \endverb
+      \verb{file}
+      \verb IOP Full Text PDF:/Users/ludo/Zotero/storage/XYJL5S9F/Muldoon et al. - 2012 - Control and manipulation of cold atoms in optical .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.1088/1367-2630/14/7/073051
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.1088/1367-2630/14/7/073051
+      \endverb
+    \endentry
     \entry{silverio_pulser_2022}{article}{}
       \name{author}{9}{}{%
         {{hash=ce0bcfa30b7468203bb0dc9610937a42}{%
@@ -300,8 +379,8 @@
       \strng{authorbibnamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authornamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authorfullhash}{4478c07a77325b7e0c1753025ceaead4}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Programmable arrays of hundreds of Rydberg atoms have recently enabled the exploration of remarkable phenomena in many-body quantum physics. In addition, the development of high-fidelity quantum gates are making them promising architectures for the implementation of quantum circuits. We present here {\textbackslash}textit\{Pulser\}, an open-source Python library for programming neutral-atom devices at the pulse level. The low-level nature of Pulser makes it a versatile framework for quantum control both in the digital and analog settings. The library also contains simulation routines for studying and exploring the outcome of pulse sequences for small systems.}
@@ -355,8 +434,8 @@
       \strng{authorbibnamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authornamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authorfullhash}{81a287ca662f4ab74a6088bf4c2efa72}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We present an algorithm which finds a maximum independent set in an \$n\$-vertex graph in \$O(2{\textasciicircum}\{n/3\})\$ time. The algorithm can thus handle graphs roughly three times as large as could be analyzed using a naive algorithm.}
@@ -410,8 +489,8 @@
       \strng{authorbibnamehash}{5965c73992d21637bfc595a465a7289d}
       \strng{authornamehash}{5965c73992d21637bfc595a465a7289d}
       \strng{authorfullhash}{5965c73992d21637bfc595a465a7289d}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2470-0045, 2470-0053}

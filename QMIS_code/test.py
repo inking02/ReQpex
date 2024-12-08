@@ -37,7 +37,7 @@ def random_UD_graph(nqubits, seed):
     return graph
 
 G = nx.Graph()
-edges = np.array([(6, 2), (6, 3), (2, 3), (3, 4), (5, 1)])
+edges = np.array([(0, 1), (0, 2), (1, 2), (2, 3), (2, 4), (4, 5), (3, 4)])
 G.add_edges_from(edges)
 
 
@@ -45,7 +45,7 @@ pos = nx.spring_layout(G, k = 0.1, seed=42)
 nx.draw(G, with_labels = True, pos = pos)
 plt.show()
 
-Pulse = Pulse_constructor(4000, "Rise_Sweep_Fall")
+Pulse = Pulse_constructor(4000, "Rise_fall")
 device = AnalogDevice
 test =  Quantum_MIS(G, device)
 test.print_regs()
