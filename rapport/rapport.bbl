@@ -19,6 +19,30 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{noauthor_recupex_nodate}{misc}{}
+      \list{language}{1}{%
+        {fr-CA}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Organisme sans but lucratif, Récupex favorise l'insertion socioprofessionnelle des personnes en difficulté d'employabilité et récupère les matières textiles.}
+      \field{journaltitle}{Récupex}
+      \field{title}{Récupex - {Organisme} d'insertion socioprofessionnelle}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/Users/ludo/Zotero/storage/U8SFKNHY/recupex.ca.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://recupex.ca/
+      \endverb
+      \verb{url}
+      \verb https://recupex.ca/
+      \endverb
+    \endentry
     \entry{mackaness_use_1993}{article}{}
       \name{author}{2}{}{%
         {{hash=5b71d83f01195b7ac440d08234658971}{%
@@ -38,8 +62,8 @@
       \strng{authorbibnamehash}{6369d940f060cd815f4a1b79b2f17182}
       \strng{authornamehash}{6369d940f060cd815f4a1b79b2f17182}
       \strng{authorfullhash}{6369d940f060cd815f4a1b79b2f17182}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{In the generalization of a concept, we seek to preserve the essential characteristics and behavior of objects. In map generalization, the appropriate selection and application of procedures (such as merging, exaggeration, and selection) require information at the geometric, attribute, and topological levels. This article highlights the potential of graph theoretic representations in providing the topological information necessary for the efficient and effective application of specific generalization procedures. Besides ease of algebraic manipulation, the principal benefit of a graph theoretic approach is the ability to detect and thus preserve topological characteristics of map objects such as isolation, adjacency, and connectivity. While it is true that topologically based systems have been developed for consistency checking and error detection during editing, this article emphasizes the benefits from a map-generalization perspective. Examples are given with respect to specific generalization procedures and are summarized as a partial set of rules for potential inclusion in a cartographic knowledge-based system.}
@@ -87,8 +111,8 @@
       \strng{authorbibnamehash}{5c4ce6b458722bc61c7dfa26c95606f9}
       \strng{authornamehash}{5c4ce6b458722bc61c7dfa26c95606f9}
       \strng{authorfullhash}{5c4ce6b458722bc61c7dfa26c95606f9}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Graphs are among the most ubiquitous models of both natural and human-made structures. They can be used to model many types of relations and process dynamics in computer science, physical, biological and social systems. Many problems of practical interest can be represented by graphs. In general graphs theory has a wide range of applications in diverse fields. This paper explores different elements involved in graph theory including graph representations using computer systems and graph-theoretic data structures such as list structure and matrix structure. The emphasis of this paper is on graph applications in computer science. To demonstrate the importance of graph theory in computer science, this article addresses most common applications for graph theory in computer science. These applications are presented especially to project the idea of graph theory and to demonstrate its importance in computer science.}
@@ -120,8 +144,8 @@
       \list{language}{1}{%
         {fr}%
       }
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{abstract}{Liste des entreprises et organisations présentes sur le territoire de Sherbrooke}
       \field{title}{Répertoire des locaux et entreprises du territoire de {Sherbrooke} - {Liste} des locaux et entreprises du territoire de {Sherbrooke} - {Données} {Québec}}
@@ -154,8 +178,8 @@
       \strng{authornamehash}{f243eee2a4dbf763fb80352db4b92e9d}
       \strng{authorfullhash}{f243eee2a4dbf763fb80352db4b92e9d}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{booktitle}{Quantum {Computing} {Workshop} {CEA}-{LETI}}
@@ -178,8 +202,8 @@
       \endverb
     \endentry
     \entry{noauthor_learn_nodate}{misc}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{title}{Learn {|} {QuEra}}
       \field{urlday}{7}
@@ -214,8 +238,8 @@
       \strng{authornamehash}{f243eee2a4dbf763fb80352db4b92e9d}
       \strng{authorfullhash}{f243eee2a4dbf763fb80352db4b92e9d}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1953-793X, 2102-6777}
@@ -290,8 +314,8 @@
       \strng{authorbibnamehash}{befa8ea0420997b638568ceb9bb8e523}
       \strng{authornamehash}{befa8ea0420997b638568ceb9bb8e523}
       \strng{authorfullhash}{83bd30ccb6e305ebd043e42f553cc216}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Neutral atoms trapped by laser light are among the most promising candidates for storing and processing information in a quantum computer or simulator. The application certainly calls for a scalable and flexible scheme for addressing and manipulating the atoms. We have now made this a reality by implementing a fast and versatile method to dynamically control the position of neutral atoms trapped in optical tweezers. The tweezers result from a spatial light modulator (SLM) controlling and shaping a large number of optical dipole-force traps. Trapped atoms adapt to any change in the potential landscape, such that one can rearrange and randomly access individual sites within atom-trap arrays.}
@@ -379,8 +403,8 @@
       \strng{authorbibnamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authornamehash}{cf7563ced0c2c79e4d2e297fd9dad330}
       \strng{authorfullhash}{4478c07a77325b7e0c1753025ceaead4}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Programmable arrays of hundreds of Rydberg atoms have recently enabled the exploration of remarkable phenomena in many-body quantum physics. In addition, the development of high-fidelity quantum gates are making them promising architectures for the implementation of quantum circuits. We present here {\textbackslash}textit\{Pulser\}, an open-source Python library for programming neutral-atom devices at the pulse level. The low-level nature of Pulser makes it a versatile framework for quantum control both in the digital and analog settings. The library also contains simulation routines for studying and exploring the outcome of pulse sequences for small systems.}
@@ -434,8 +458,8 @@
       \strng{authorbibnamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authornamehash}{81a287ca662f4ab74a6088bf4c2efa72}
       \strng{authorfullhash}{81a287ca662f4ab74a6088bf4c2efa72}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We present an algorithm which finds a maximum independent set in an \$n\$-vertex graph in \$O(2{\textasciicircum}\{n/3\})\$ time. The algorithm can thus handle graphs roughly three times as large as could be analyzed using a naive algorithm.}
@@ -854,6 +878,22 @@
       \field{title}{Entretien avec {Michael} {Blondin} à propos de la division et de la recombinaison de graphes}
       \field{year}{2024}
     \endentry
+    \entry{noauthor_qaoa_nodate}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{title}{{QAOA} and {QAA} to solve a {QUBO} problem — {Pulser} 1.1.1 documentation}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pulser.readthedocs.io/en/stable/tutorials/qubo.html
+      \endverb
+      \verb{url}
+      \verb https://pulser.readthedocs.io/en/stable/tutorials/qubo.html
+      \endverb
+    \endentry
     \entry{noauthor_pasqal_nodate}{misc}{}
       \list{language}{1}{%
         {en-US}%
@@ -936,8 +976,8 @@
       \strng{authorbibnamehash}{28f196926e17477f0a3392859b16a103}
       \strng{authornamehash}{40c3db0b72a4d5d4077e76ec6d258885}
       \strng{authorfullhash}{28f196926e17477f0a3392859b16a103}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Finding the maximum independent set (MIS) of a large-size graph is a nondeterministic polynomial-time (NP)-complete problem not efficiently solvable with classical computations. Here, we present a set of quantum adiabatic computing data of Rydberg-atom experiments performed to solve the MIS problem of up to 141 atoms randomly arranged on the King's lattice. A total of 582,916 events of Rydberg-atom measurements are collected for experimental MIS solutions of 733,853 different graphs. We provide the raw image data along with the entire binary determinations of the measured many-body ground states and the classified graph data, to offer bench-mark testing and advanced data-driven analyses for validation of the performance and system improvements of the Rydberg-atom approach.}
