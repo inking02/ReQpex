@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport"] 1733706885 "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bcf" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bbl" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport" 1733706906 0
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bcf" 1733706905 108663 6741b8f9e7aab1ffebd228fda32efce6 "pdflatex"
+["biber /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport"] 1733706885 "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bcf" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bbl" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport" 1733709246 0
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bcf" 1733709246 108663 6741b8f9e7aab1ffebd228fda32efce6 "pdflatex"
   (generated)
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bbl"
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.blg"
   (rewritten before read)
-["pdflatex"] 1733706900 "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.tex" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.pdf" "rapport" 1733706906 0
+["pdflatex"] 1733709240 "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.tex" "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.pdf" "rapport" 1733709246 0
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/35atomes.png" 1733679736 59835 779988ad3bcdd99d85aa0200504d948d ""
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/QLink_noback.png" 1733436130 245409 6992325910a36ac5cedec835084061fc ""
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/UdeS_logo_rgbHR.png" 1733436130 66524 32d0deeee2fa6e0777d2a1e1457b2bf8 ""
@@ -28,12 +28,12 @@
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/registre_exemple.png" 1733436130 1201378 753b86b22b9fc74076ca5e7c7fe41e27 ""
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/table_emul.png" 1733604261 56065 1935c470cae9f6dea61e96615d155989 ""
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/images/total_quantum.png" 1733522913 2696843 5de6beb83c7237ead5d59a54e24dae8b ""
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.aux" 1733706905 16974 7ec64aaf88bcc4b39b828116bce249ad "pdflatex"
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.aux" 1733709246 16974 7ec64aaf88bcc4b39b828116bce249ad "pdflatex"
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.bbl" 1733706888 45557 5854ee53a4fb510f9b371418d8a9d02a "biber /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport"
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.out" 1733706905 8591 7ccefe569e1fe72c808f86aa80e78fd9 "pdflatex"
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.run.xml" 1733706905 2458 6f228ce66c39552225fb63e3ce106330 "pdflatex"
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.tex" 1733706878 43305 30c1b5caead1099a40cd6333bf9afe18 ""
-  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.toc" 1733706905 3735 575ce2ecfa9fb4b3baa0cb1a8404f7c4 "pdflatex"
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.out" 1733709246 8591 7ccefe569e1fe72c808f86aa80e78fd9 "pdflatex"
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.run.xml" 1733709246 2458 6f228ce66c39552225fb63e3ce106330 "pdflatex"
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.tex" 1733709240 43306 16690e99afd6a0067a206bc3a8fcd717 ""
+  "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/rapport.toc" 1733709246 3735 575ce2ecfa9fb4b3baa0cb1a8404f7c4 "pdflatex"
   "/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_24/BSQ201/ReQpex/rapport/title.tex" 1733691219 1228 dd57131913339ffb154008639ea6bf75 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
