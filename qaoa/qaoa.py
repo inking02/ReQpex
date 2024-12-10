@@ -7,6 +7,7 @@ from typing import Callable
 from scipy.spatial.distance import pdist, squareform
 from pulser.waveforms import RampWaveform, CompositeWaveform
 import matplotlib.pyplot as plt
+from scipy.optimize import minimize
 
 
 class Quantum_QAOA:
@@ -24,6 +25,7 @@ class Quantum_QAOA:
         - layers: The number of QAOA layers to use.
         """
         # Generate spring-layout coordinates for the graph
+        self.graph = graph
         pos = nx.spring_layout(graph, k=0.1, seed=42)
         self.coords = np.array(list(pos.values()))  # Extract node positions
         self.reg = self.__build_reg__()  # Create a Pulser register
@@ -145,6 +147,144 @@ class Quantum_QAOA:
         # Get the bitstring counts
         count_dict = results.sample_final_state()
         return count_dict
+
+
+    def compute_hamiltonian(self, graph):
+        """
+        Compute the Hamiltonian matrix for the given graph based on the Ising model ( for the Max-Cut problem ).
+
+    For Max-Cut:
+    - The goal is to partition the graph's nodes into two sets such that 
+      the number of edges between the two sets (the "cut size") is maximized.
+    - Each edge contributes to the Hamiltonian based on whether its endpoints 
+      are in different partitions.
+
+    This method constructs a diagonal Hamiltonian matrix where each diagonal 
+    element corresponds to the energy (cost) of a specific bitstring (state).
+
+        Parameters:
+        - graph: A NetworkX graph object representing the problem.
+
+        Returns:
+        - A diagonal Hamiltonian matrix where each state corresponds to a specific energy level.
+        """
+        num_nodes = graph.number_of_nodes()  # Number of nodes in the graph
+        hamiltonian = np.zeros((2**num_nodes, 2**num_nodes))  # Initialize a 2^n x 2^n matrix 
+
+        # Loop through each edge in the graph to compute the contributions to the Hamiltonian
+        for (i, j) in graph.edges:
+            for state in range(2**num_nodes):   # Iterate over all possible states (bitstrings)
+                z_i = 1 if (state >> (i - 1)) & 1 == 0 else -1  # +1 for '0', -1 for '1'
+                z_j = 1 if (state >> (j - 1)) & 1 == 0 else -1  # +1 for '0', -1 for '1'
+                # Add the contribution of the edge (i, j) to the Hamiltonian
+                hamiltonian[state, state] += (1 - z_i * z_j) / 2
+
+        return hamiltonian # Return the computed Hamiltonian
+    
+
+    def evaluate_hamiltonian(self, graph, parameters):
+        """
+        Evaluate the expectation value of the Hamiltonian for the current QAOA parameters.
+
+        Parameters:
+        - graph: A NetworkX graph object representing the problem.
+        - parameters: The QAOA parameters (angles).
+
+        Returns:
+        - The expectation value of the Hamiltonian.
+        """
+        hamiltonian = self.compute_hamiltonian(graph) # Compute the Hamiltonian for the graph
+        count_dict = self.quantum_loop(parameters)   # Get the bitstring probabilities from QAOA 
+
+       # Calculate the expectation value of the Hamiltonian
+        expectation_value = 0  # Initialize the total expectation value
+        total_counts = sum(count_dict.values())   # Count the total number of samples
+
+        for bitstring, count in count_dict.items():
+            state_index = int(bitstring, 2)  # Convert the bitstring to an integer index corresponding to the state
+            expectation_value += hamiltonian[state_index, state_index] * count   # Add the Hamiltonian value for this state
+
+        return expectation_value / total_counts   
+    
+
+    def optimize_parameters(self, graph, initial_params):
+        """
+        Optimize the QAOA parameters to minimize the expectation value of the Hamiltonian.
+
+        Parameters:
+        - graph: A NetworkX graph object representing the problem.
+        - initial_params: Initial guesses for the QAOA parameters.
+
+        Returns:
+        - The optimized QAOA parameters.
+        """
+        # # Define the cost function to minimize
+        def cost_function(params):
+            return -self.evaluate_hamiltonian(graph, params)  # This is negative because we minimize
+
+        # Use scipy.optimize.minimize with the COBYLA method for optimization
+        result = minimize(cost_function, initial_params, method='COBYLA')
+
+        return result.x  
+    
+
+    def run_with_optimization(self, graph, shots=1000, generate_histogram=False, file_name="QAOA_histo_optimized.pdf"):
+        """
+        Execute the QAOA algorithm with parameter optimization.
+
+        Parameters:
+        - graph: A NetworkX graph object representing the problem
+        - shots: Number of measurements to perform in the quantum simulation.
+        - generate_histogram: Whether to generate a histogram of the results.
+        - file_name: Name of the file to save the histogram (if generated).
+
+        Returns:
+        - A dictionary of bitstring counts after running QAOA with optimized parameters.
+        """
+        # Generate random guesses for the parameters t and s
+        np.random.seed(123)  # Set a random seed 
+        guess_t = np.random.uniform(8, 10, self.layers)  # Random initial values for t
+        guess_s = np.random.uniform(1, 3, self.layers)   # Random initial values for s
+        initial_params = np.r_[guess_t, guess_s]  # Combine t and s into a single parameter array
+
+        # Optimize the parameters to minimize the Hamiltonian's expectation value
+        optimized_params = self.optimize_parameters(graph, initial_params)
+
+        # Run the QAOA simulation with the optimized parameters
+        result = self.quantum_loop(optimized_params)
+
+        # If requested, generate and save a histogram of the results
+        if generate_histogram:
+            self.plot_histogram(result, shots, file_name)
+
+        return result  # Return the final bitstring counts
+    
+    def run(self, shots: int = 1000, generate_histogram: bool = False, file_name: str = "QAOA_histo.pdf"):
+        """
+        Run the QAOA algorithm and optionally generate a histogram of results ( without the optimization )
+
+        Parameters:
+        - shots: Number of measurement shots.
+        - generate_histogram: Whether to generate a histogram of the results.
+        - file_name: The name of the file to save the histogram.
+
+        Returns:
+        - A dictionary of bitstring counts from the simulation.
+        """
+        # Generate initial random guesses for t and s parameters
+        np.random.seed(123)
+        guess_t = np.random.uniform(8, 10, self.layers)
+        guess_s = np.random.uniform(1, 3, self.layers)
+        params = np.r_[guess_t, guess_s]  # Concatenate guesses into one array
+
+        # Run the quantum loop with the guessed parameters
+        result = self.quantum_loop(params)
+
+        # Generate and save the histogram
+        if generate_histogram:
+            self.plot_histogram(result, shots, file_name)
+
+        return result
     
 
     def plot_histogram(self, count_dict, shots: int, file_name: str):
@@ -182,31 +322,3 @@ class Quantum_QAOA:
 
         # Display the plot
         plt.show()
-
-
-    def run(self, shots: int = 1000, generate_histogram: bool = False, file_name: str = "QAOA_histo.pdf"):
-        """
-        Run the QAOA algorithm and optionally generate a histogram of results.
-
-        Parameters:
-        - shots: Number of measurement shots.
-        - generate_histogram: Whether to generate a histogram of the results.
-        - file_name: The name of the file to save the histogram.
-
-        Returns:
-        - A dictionary of bitstring counts from the simulation.
-        """
-        # Generate initial random guesses for t and s parameters
-        np.random.seed(123)
-        guess_t = np.random.uniform(8, 10, self.layers)
-        guess_s = np.random.uniform(1, 3, self.layers)
-        params = np.r_[guess_t, guess_s]  # Concatenate guesses into one array
-
-        # Run the quantum loop with the guessed parameters
-        result = self.quantum_loop(params)
-
-        # Generate and save the histogram
-        if generate_histogram:
-            self.plot_histogram(result, shots, file_name)
-
-        return result
