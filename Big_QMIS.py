@@ -20,7 +20,7 @@ class BIG_QMIS:
 
         Parameters:
         - graph (networkx.Graph): The graph to find an MIS on.
-        - num_atoms (int=10): The maximum nomber of nodes (atoms in the pulser simulator) used in the subgraphes.
+        - num_atoms (int=10): The maximum number of nodes (atoms in the pulser simulator) used in the subgraphs.
 
         Returns:
         None
