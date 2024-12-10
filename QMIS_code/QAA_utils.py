@@ -1,5 +1,5 @@
 """
-File containing the class of the quantum analog computing MIS finder utilities functions. They are all ised in the Quantum_MIS in the Quantum_MIS.py file.
+File containing the class of the quantum analog computing MIS finder utilities functions. They are all listed in the Quantum_MIS in the Quantum_MIS.py file.
 """
 
 from scipy.spatial import distance_matrix

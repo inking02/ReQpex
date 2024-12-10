@@ -40,7 +40,7 @@ class Quantum_QAOA:
         Builds a register of qubits for Pulser using the graph's node positions.
         
         Returns:
-        - A Pulser Register object with qubit coordinates.
+        - A Pulser Register object with qubits coordinates.
         """
         # Normalize coordinates to ensure qubits are appropriately spaced
         val = np.min(pdist(self.coords))  # Find the minimum distance between nodes

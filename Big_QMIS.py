@@ -5,7 +5,7 @@ The class of this MIS finder and its method are in this class.
 
 import numpy as np
 import networkx as nx
-from QMIS_code.Quantum_MIS import Quantum_MIS
+from QMIS_code.QAA import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis

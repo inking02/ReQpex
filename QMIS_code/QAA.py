@@ -9,7 +9,7 @@ import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import DigitalAnalogDevice
-from QMIS_code.QMIS_utils import (
+from QMIS_code.QAA_utils import (
     scale_coordinates,
     find_minimal_radius,
     plot_histogram,
