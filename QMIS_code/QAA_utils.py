@@ -1,5 +1,5 @@
 """
-File containing the class of the quantum analog computing MIS finder utilities functions. They are all listed in the Quantum_MIS in the Quantum_MIS.py file.
+File containing the class of the quantum analog computing MIS finder utilities functions. They are all listed in the Quantum_MIS in the QAA.py file.
 """
 
 from scipy.spatial import distance_matrix
@@ -18,17 +18,17 @@ def scale_coordinates(
     max_distance: float,
 ) -> Tuple[NDArray[np.float_], float]:
     """
-    Function that scale the coordinates of a netwrokx graph that was layed-out to transfom them into coordinates
+    Function that scale the coordinates of a networkx graph that was layed-out to transform them into coordinates
     that can be used by a pulser's register.
 
     Parameters:
     - radius (float): The radius that determines the connection between the points.
-    - coordinates (NDArray[np.float_]): The coordinates of the verticies of the graph that was layed-out.
+    - coordinates (NDArray[np.float_]): The coordinates of the vertices of the graph that was layed-out.
     - min_distance (float): The minimum distance that must be between the points.
     - max_distance (float): The maximum distance that must be between the points.
 
     Returns:
-    Tuple[NDArray[np.float_], float]:   - The scaled cooridnates of the verticies.
+    Tuple[NDArray[np.float_], float]:   - The scaled coordinates of the vertices.
                                         - The scaled radius.
     """
     # Calculate the distances between the points to guess the scale.
@@ -43,31 +43,31 @@ def scale_coordinates(
     scaled_coords = coordinates * scale_factor
     scaled_radius = radius * scale_factor
 
-    # Center the cooridnates so that they are close to the origin
+    # Center the coordinates so that they are close to the origin
     center_x = np.mean(scaled_coords[:, 0])
     center_y = np.mean(scaled_coords[:, 1])
     scaled_coords -= np.array([center_x, center_y])
 
-    # Ajust the cooridnates again of the maximum distance exceeds `max_distance`
-    # max_dist_from_center = np.max(np.linalg.norm(scaled_coords, axis=1))
-    # if max_dist_from_center > max_distance:
-    #     scale_factor = max_distance / max_dist_from_center
-    #     scaled_coords *= scale_factor
-    #     scaled_radius *= scale_factor
+    # Adjust the coordinates again of the maximum distance exceeds `max_distance`
+    max_dist_from_center = np.max(np.linalg.norm(scaled_coords, axis=1))
+    if max_dist_from_center > max_distance:
+        scale_factor = max_distance / max_dist_from_center
+        scaled_coords *= scale_factor
+        scaled_radius *= scale_factor
 
     return scaled_coords, scaled_radius
 
 
 def find_minimal_radius(G: nx.Graph, pos: NDArray[np.float_]) -> float:
     """
-    Finds the minimal distance between two connected verticies of a layed-out graph.
+    Finds the minimal distance between two connected vertices of a layed-out graph.
 
     Parameters:
-    - G (netwokx.Graph): A networkx graph.
-    - pos (NDArray[np.float_]): The coordinates of the verticies of the graph that was layed-out.
+    - G (networkx.Graph): A networkx graph.
+    - pos (NDArray[np.float_]): The coordinates of the vertices of the graph that was layed-out.
 
     Returns:
-    float: The minimal distance between two connected verticies.
+    float: The minimal distance between two connected vertices.
     """
     max_distance = 0
 
@@ -88,9 +88,9 @@ def plot_histogram(count_dict: dict, shots: int, file_name: str = "") -> None:
     Saves and prints the histogram of the result of the runs of the algorithm.
 
     Parameters:
-    - count_dict (dict): The counts dictionnary of the results of the QMIS algorithm.
+    - count_dict (dict): The counts dictionary of the results of the QMIS algorithm.
     - shots (int): The number of shots used in the algorithm.
-    - file_name (str="histo.png"): The name to save the figure onto. It must include its path and the png extension
+    - file_name (str=""): The name to save the figure onto. It must include its path and the png extension. If the value is "", the figure will not be saved.
 
     Returns:
     None
@@ -107,14 +107,14 @@ def plot_histogram(count_dict: dict, shots: int, file_name: str = "") -> None:
 
 def euclid_dist(pos1: NDArray[np.float_], pos2: NDArray[np.float_]) -> float:
     """
-    Calculates the euclidian distance between to points in a 2D plane.
+    Calculates the euclidean distance between to points in a 2D plane.
 
     Parameters:
     - pos1 (NDArray[np.float_]): The coordinates of the first point in the 2D plane.
     - pos2 (NDArray[np.float_]): The coordinates of the second point in the 2D plane.
 
     Returns:
-    float: The euclidian distance between the points
+    float: The euclidean distance between the points
     """
     return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
 
@@ -140,11 +140,11 @@ def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
 def fusion_counts(counts, positions):
     total_counts = {}
 
-    #creating all bitstring combinations from the given dictionnaries
+    #creating all bitstring combinations from the given dictionaries
     bitstring_combinations = product(*[d.items() for d in counts])
     max_length = 0
     for dictionary in counts:
-        #final bitstring lentgh
+        #final bitstring length
         max_length += len(next(iter(dictionary)))
     for combination in bitstring_combinations:
         
@@ -152,7 +152,7 @@ def fusion_counts(counts, positions):
         final_bitstring = ["0"] * max_length 
 
         combined_value = 0  
-        #place each bit in its given position with the combinated value
+        #place each bit in its given position with the combin   ed value
         for position, (bitstring, value) in zip(positions, combination):
             for bit, pos in zip(bitstring, position):
                 final_bitstring[pos] = bit
