@@ -1,5 +1,5 @@
 """
-File containing the class of the method using the QMIS method on bigger graph to retreive an independent set with a close to maximal number of nodes. 
+File containing the class of the method using the QMIS method on bigger graph to find an independent set with a close to maximal number of nodes. 
 The class of this MIS finder and its method are in this class.
 """
 
@@ -35,9 +35,9 @@ class BIG_QMIS:
         res_dict: dict, index_positions: NDArray[np.int_], other_info: List = []
     ) -> str:
         """
-        Returns the key of a dictionnary with the maximum value. The other arguments are not useful. They
+        Returns the key of a dictionary with the maximum value. The other arguments are not useful. They
         are just there as fillers to use as a general function in the class. In this class, the optimal key
-        is the bitsring reporenting which nodes are used in the MIS.
+        is the bitstring representing which nodes are used in the MIS.
 
         Parameters:
         - res_dict (dict): The counts dictionary of the result if the QMIS algorithm.
@@ -55,22 +55,22 @@ class BIG_QMIS:
         self,
         pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
         best_bitstring_getter: Callable = max_bitstring,
-        shots: int = 100,
+        shots: int = 1000,
         other_info: List = [],
         print_progression: bool = False,
         print_log_pulser: bool = False,
     ) -> List[str]:
         """
-        Method to run the classical QMIS algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphes MIS' to a independdant set
+        Method to run the classical QMIS algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphs MIS' to a independent set
         with close to the maximum amount of nodes.
 
         Parameters:
         - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
-                                                            by the QMIS algorithm run function. It must take the result dictionnary, the array that gives the order
+                                                            by the QMIS algorithm run function. It must take the result dictionary, the array that gives the order
                                                             of the nodes in the bitstrings (index_positions) and the other infos needed to differentiate the nodes (other_info).
-        - shots (int = 100): The number of shots that each subgraph must be runned on the pulser simulator.
+        - shots (int = 100): The number of shots that each subgraph must be run on the pulser simulator.
         - other_info (List = []): The other information that must be used by the best_bitstring_getter function.
         - print_progression (bool = False): Whether or not to print the progression of the algorithm.
         - print_log_pulser (bool = False): Whether or not to print the log info of the runs on the pulser architecture.
@@ -86,7 +86,7 @@ class BIG_QMIS:
         membership = pymetis.part_graph(num_of_cuts, adjacency=adjacency_list)[1]
 
         if print_progression:
-            print("Partionned the graph")
+            print("Partitioned the graph")
 
         sub_graphs = []
         nodes_per_graph = []
@@ -98,14 +98,14 @@ class BIG_QMIS:
                 sub_graphs.append(self.create_sub_graph(nodes))
 
         if print_progression:
-            print("Sub_graphes created")
+            print("Sub_graphs created")
 
         MIS_list = []
 
         for i, (graph, nodes) in enumerate(zip(sub_graphs, nodes_per_graph)):
             label_changer = dict()
 
-            # Running the QMIS on the subgraphes
+            # Running the QMIS on the subgraphs
             for k, node in enumerate(nodes):
                 label_changer[node] = str(k)
             relabeled_graph = nx.relabel_nodes(graph, label_changer, copy=True)
@@ -123,16 +123,16 @@ class BIG_QMIS:
                     res_dict, nodes, other_info=other_info
                 )
             # Mapping the result MIS to the correct node index
-            independant_nodes = []
+            independent_nodes = []
             for j in range(len(best_bitstring)):
                 if best_bitstring[j] == "1":
-                    independant_nodes.append(nodes[j])
-            MIS_list.append(independant_nodes)
+                    independent_nodes.append(nodes[j])
+            MIS_list.append(independent_nodes)
 
         if print_progression:
             print("MIS' done. Now combining")
 
-        # Combining the sub-graphes' MIS into a total independant set
+        # Combining the sub-graphs' MIS into a total independent set
         result = self.combine_mis(MIS_list)
         return result
 
@@ -205,7 +205,7 @@ class BIG_QMIS:
 
         def tree_mis_searcher(node: str, exclude_node: bool) -> None:
             """
-            With the dynamic arrays given earlier, The method find if the the node anlayse is the MIS or not.
+            With the dynamic arrays given earlier, The method find if the node analyse is the MIS or not.
 
             Parameters:
             - node (str): The node that which it is must be determined if it is included in the MIS.
@@ -235,7 +235,7 @@ class BIG_QMIS:
 
     def root_finder(self, tree: nx.Graph) -> str:
         """
-        Method to find the root in a tree. SInce this notion is not really defined in an undericeted graph,
+        Method to find the root in a tree. SInce this notion is not really defined in an undirected graph,
         it is the node that is the "farthest" rom  the others.
 
         Parameters:
@@ -244,25 +244,25 @@ class BIG_QMIS:
         Returns:
         str: The node that is the root of the tree.
         """
-        fartest_distances = []
+        further_distances = []
         nodes_array = [i for i in tree.nodes()]
         start = nodes_array[0]
         for node in nodes_array:
-            fartest_distances.append(nx.shortest_path_length(tree, start, node))
-        root_index = np.argmax(fartest_distances)
+            further_distances.append(nx.shortest_path_length(tree, start, node))
+        root_index = np.argmax(further_distances)
         return nodes_array[root_index]
 
     def combine_mis(self, MIS_list: List[List[str]]) -> List[str]:
         """
-        Method to combine the MIS' of all of the subgraohes into an independant set with the maximal amount of nodes given the sub-MIS'.
+        Method to combine the MIS' of all of the subgraphs into an independent set with the maximal amount of nodes given the sub-MIS'.
 
         Parameters:
-        - MIS_list (List[List[str]]): The list if the MIS' of the subgraphes.
+        - MIS_list (List[List[str]]): The list if the MIS' of the subgraphs.
 
         Returns:
         List[str]: The total MIS of the main graph.
         """
-        # Seperating the subgraphes into two halves to combined them afterwards when they each form one big subgraph
+        # Separate the subgraphs into two halves to combined them afterwards when they each form one big subgraph
         if len(MIS_list) == 1:
             return MIS_list[0]
         n = len(MIS_list) // 2
@@ -280,7 +280,7 @@ class BIG_QMIS:
             else MIS_two
         )
 
-        # Creating the forest generated between the verticies connected between the two subgraoges
+        # Creating the forest generated between the vertices connected between the two subgraphs
         forest = nx.Graph()
         forest.add_nodes_from(MIS_one)
         forest.add_nodes_from(MIS_two)
