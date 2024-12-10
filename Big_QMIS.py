@@ -1,5 +1,6 @@
+
 """
-File containing the class of the method using the QMIS method on bigger graph to find an independent set with a close to maximal number of nodes. 
+File containing the class of the method using the QMIS method on bigger graph to retrieve an independent set with a close to maximal number of nodes. 
 The class of this MIS finder and its method are in this class.
 """
 
@@ -53,7 +54,7 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable = Pulse_constructor(4000, "Rise_sweep_fall"),
+        pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 1000,
         other_info: List = [],
@@ -65,8 +66,8 @@ class BIG_QMIS:
         with close to the maximum amount of nodes.
 
         Parameters:
-        - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
-                            the atoms to run the algorithm.
+        - Pulse (Callable = Pulse_constructor(4000, "Rise_fall")): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
+                                                                   the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
                                                             by the QMIS algorithm run function. It must take the result dictionary, the array that gives the order
                                                             of the nodes in the bitstrings (index_positions) and the other infos needed to differentiate the nodes (other_info).
@@ -98,7 +99,7 @@ class BIG_QMIS:
                 sub_graphs.append(self.create_sub_graph(nodes))
 
         if print_progression:
-            print("Sub_graphs created")
+            print("Subgraphs created")
 
         MIS_list = []
 
@@ -205,7 +206,7 @@ class BIG_QMIS:
 
         def tree_mis_searcher(node: str, exclude_node: bool) -> None:
             """
-            With the dynamic arrays given earlier, The method find if the node analyse is the MIS or not.
+            With the dynamic arrays given earlier, The method find if the the node analyzed is the MIS or not.
 
             Parameters:
             - node (str): The node that which it is must be determined if it is included in the MIS.
@@ -262,7 +263,7 @@ class BIG_QMIS:
         Returns:
         List[str]: The total MIS of the main graph.
         """
-        # Separate the subgraphs into two halves to combined them afterwards when they each form one big subgraph
+        # Separating the subgraphs into two halves to combined them afterwards when they each form one big subgraph
         if len(MIS_list) == 1:
             return MIS_list[0]
         n = len(MIS_list) // 2

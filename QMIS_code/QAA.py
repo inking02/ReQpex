@@ -4,6 +4,7 @@ function of the class are in the QAA_utils.py file. The function that runs the m
 """
 
 import numpy as np
+from numpy.typing import NDArray
 import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
@@ -59,12 +60,13 @@ class Quantum_MIS:
             self.__build_reg__(coord, i) for i, coord in enumerate(self.coords)
         ]
 
-    def __build_reg__(self, coord, i) -> Register:
+    def __build_reg__(self, coord: NDArray, i: int) -> Register:
         """
         Function that creates the pulser register for a given graph. It is optimal when the number of atoms is less than eleven.
 
         Parameters:
-        - None
+        - coord (NDArray) : the coordinates of the atoms for the register
+        - i (int) : the value attached to the register currently builded
 
         Returns:
         Register: The pulser register of the atoms representing the graph.

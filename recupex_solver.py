@@ -1,3 +1,4 @@
+
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -5,7 +6,7 @@ from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
 from QMIS_code.pulse_utils import Pulse_constructor
-from Find_MIS_discs import Find_MIS_discs
+from Classical_MIS import MIS_Solver
 from numpy.typing import NDArray
 from typing import Callable, List
 
@@ -23,7 +24,7 @@ def simplify_bins(
     """
     Function to remove some of the bins in their original bins with a MIS. If two locations are closer than the radius given,
     an edge between them is present except if both of their production is greater than 27754. It saves the simplified bins location
-    in the dataset folder under the bins_utils.csv file.
+    in the dataset folder under the new_bins.csv file.
 
     Parameters:
     - radius_km (float): The distance in km of which two locations must be connected if they do not produce enough volume.
@@ -136,7 +137,7 @@ def simplify_bins(
         )
 
     else:
-        solver = Find_MIS_discs(G)
+        solver = MIS_Solver(G)
         res_dict = solver.run(shots=100)
         nodes = [int(i) for i in G.nodes()]
         best_bitstring = max_with_volume(res_dict, nodes, bins_numpy[:, 2])
@@ -159,7 +160,7 @@ def simplify_bins(
     print("Bins removed: ", original_size - new_size)
 
     new_dataframe = bins.iloc[new_vertices_int]
-    new_dataframe.to_csv(path + "datasets/bins_utils.csv", index=False)
+    new_dataframe.to_csv(path + "datasets/new_bins.csv", index=False)
 
     # Show or save the map
     if show_map or save_map:
@@ -196,7 +197,7 @@ def remove_possibles_new_locations(
     None
     """
     # Loading the files
-    bins = pd.read_csv(path + "datasets/bins_utils.csv", sep=",")
+    bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
     new_locations = pd.read_csv(path + "datasets/liste_occupants_simple.csv", sep=";")
@@ -270,7 +271,7 @@ def place_new_bins(
 ) -> None:
     """
     Function to place new bins so that the bins have an optimal distribution on the map. The resulting bins will be saved in
-    the new_bins.csv in the datasets folder.
+    the new_bins.csv in the results folder.
 
     Parameters:
     - radius_km (float): The distance in km of which two locations must be connected if they do not produce enough volume.
@@ -286,7 +287,7 @@ def place_new_bins(
     None
     """
     # LOad the files
-    bins = pd.read_csv(path + "datasets/bins_utils.csv", sep=",")
+    bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
     bins_names = bins[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
         dtype=str, copy=True
@@ -313,7 +314,7 @@ def place_new_bins(
         new_vertices = solver.run(pulse, print_progression=True)
 
     else:
-        solver = Find_MIS_discs(G)
+        solver = MIS_Solver(G)
         res_dict = solver.run(shots=100)
         best_bitstring = max(zip(res_dict.values(), res_dict.keys()))[1]
         new_vertices = []
@@ -349,7 +350,7 @@ def place_new_bins(
         bins_names[:, 2], locations_names[new_vertices_int, 2]
     )
 
-    new_bins_location.to_csv(path + "datasets/new_bins.csv", index=False)
+    new_bins_location.to_csv(path + "results/new_bins.csv", index=False)
 
     # Show or save the map
     if show_map or save_map:
