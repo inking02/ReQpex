@@ -101,7 +101,7 @@ if __name__ == "__main__":
     radius_new_distribution = 2.8
 
     #insert the path to the ReQpex repo in your computer here...
-    path = "/Users/lf/Documents/GitHub/ReQpex/"
+    path = "/Users/ludo/library/cloudstorage/onedrive-personnel/documents/ludovic/école/université/automne_24/bsq201/ReQpex/"
 
     save_maps = True
     show_maps = False

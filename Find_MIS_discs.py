@@ -33,7 +33,7 @@ class Find_MIS_discs:
         Method to run the classical MIS algorithm. For the number of shots, it will use a different seed of networkx's maximal_independent_set function.
 
         Parameters:
-        - shots (int): The number of times the algorithm must be runned.
+        - shots (int): The number of times the algorithm must be run.
         - show_progress (bool = False): Whether or not to print the progress of the iterations of the algorithms.
         - generate_histogram (bool = False): Generate the result histogram of the runs of the algorithms.
         - path (str)=""): The local file to the REQPEX directory.
@@ -41,7 +41,7 @@ class Find_MIS_discs:
                                               ReQpex directory and use the extension png.
 
         Returns:
-        dict: The counts dictionnary of the results from the shots of the algorithms.
+        dict: The counts dictionary of the results from the shots of the algorithms.
         """
         run_results = []
         zero_sting = "0" * self.G.number_of_nodes()

@@ -128,7 +128,7 @@ def simplify_bins(
     if use_quantum:
         # Running the QMIS
         solver = BIG_QMIS(G, num_atoms=num_atoms)
-        new_verticies = solver.run(
+        new_vertices = solver.run(
             pulse,
             best_bitstring_getter=max_with_volume,
             other_info=bins_numpy[:, 2],
