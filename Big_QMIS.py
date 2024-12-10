@@ -1,5 +1,5 @@
 """
-File containing the class of the method using the QMIS method on bigger graph to retreive an indepent set with a close to maximal number of nodes. 
+File containing the class of the method using the QMIS method on bigger graph to retreive an independent set with a close to maximal number of nodes. 
 The class of this MIS finder and its method are in this class.
 """
 
