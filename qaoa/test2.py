@@ -21,4 +21,4 @@ test = Quantum_QAOA(G, layers=2)
 test.print_reg()
 
 # Run the QAOA algorithm and generate a histogram of results
-test.run(generate_histogram=True)
+test.run_with_optimization(G, generate_histogram=True)
