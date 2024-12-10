@@ -1,3 +1,4 @@
+
 """
 File containing the various functions to show the locations on a sherbrooke map.
 """
@@ -17,12 +18,12 @@ def interactive_map(
     file_name: str = "map",
 ):
     """
-    Creates a centerd on Sherbrooke city with the given data to show.
+    Creates a centered on Sherbrooke city with the given data to show.
 
     Parameters:
-    - data_frame_to_show (pd.DataFrame): The pandas datafrme to use to create the map. It must have a Longitude,
+    - data_frame_to_show (pd.DataFrame): The pandas dataframe to use to create the map. It must have a Longitude,
       Latitude, Nom de la borne, Addresse and Rue columns.
-    - bin_image (bool = False): Whether to show the pins as recupex's bins or not.
+    - bin_image (bool = False): Whether to show the pins as Recupex's bins or not.
     - path (str)=""): The local file to the REQPEX directory.
     - show_map (bool = False): Whether to show the map on the browser or not.
     - save_map (bool = False): Whether to save the map on the datasets' folder or not.
@@ -79,11 +80,11 @@ def recap_map_getter(
     None
     """
     # Loading the data
-    new_bins_location = pd.read_csv(path + "datasets/nouvelles_cloches.csv", sep=",")
+    new_bins_location = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
     new_bins_location_numpy = new_bins_location[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
-    bins_og_used = pd.read_csv(path + "datasets/cloches_utiles.csv", sep=",")
+    bins_og_used = pd.read_csv(path + "datasets/bins_utils.csv", sep=",")
     bins_og_used_numpy = bins_og_used[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
