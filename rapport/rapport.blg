@@ -1,5 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is '/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/Ãcole/UniversitÃ©/Automne_24/BSQ201/ReQpex/rapport/rapport.blg'
-[37] biber-darwin:340> INFO - === Sun Dec  8, 2024, 21:03:28
-[134] Utils.pm:410> ERROR - Cannot find '/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/Ãcole/UniversitÃ©/Automne_24/BSQ201/ReQpex/rapport/rapport.bcf'!
-[134] Biber.pm:136> INFO - ERRORS: 1
