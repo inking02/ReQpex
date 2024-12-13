@@ -1,8 +1,9 @@
 # QLink : Calcul Analogue Quantique
 
-Bienvenue dans le dépôt GitHub de **QLink** ! Nous sommes une équipe passionnée par l'informatique quantique et explorons différents algorithmes quantiques analogues à travers ce projet. L'objectif est d'aider l'organisation Récupex à améliorer leur gestion de bacs de récuperation en utilisant différents approches quantiques. Pour ce projet, des concepts tel que **la théorie des graphes**, l'utilisation des **ordinateurs quantiques à atomes neutres** notamment les appareils développés par **Pasqal**, **l'ensemble indépendant maximal**, l'algorithme quantique adiabatique **( QAA )** et l'algorithme d'optimisation approximative quantique **( QAOA )** ont été utilisés.
+Bienvenue dans le dépôt GitHub de **QLink** ! Nous sommes une équipe passionnée par l'informatique quantique et explorons différents algorithmes quantiques analogues à travers ce projet. L'objectif est d'aider l'organisation Récupex à améliorer leur gestion de bacs de récuperation en utilisant différents approches quantiques. Pour ce projet, des concepts tel que **la théorie des graphes**, l'utilisation des **ordinateurs quantiques à atomes neutres** notamment les appareils développés par **Pasqal**, **l'ensemble indépendant maximal**, l'algorithme quantique adiabatique **( QAA )** et l'algorithme d'optimisation approximative quantique **( QAOA )** ont été utilisés. 
 
 ## Structure du Projet
+- **`Recupex_problem.pdf`** : Le rapport contenant notre la définition du problème de Récupex et nos solutions ainsi que les résultats que nous avons obtenus.
 - **`QMIS_code`** : Dossier contenant les deux méthodes quantiques utilisées pour trouver l'ensemble indépendant maximal ( QAA et QAOA ).
 - **`datasets`** : Dossier contenant les ensembles de données utilisés pour la création du graphe.
 - **`figures`** : Dossier qui, après avoir roulé les algotihmes contiendra les figures et cartes résultantes.
