@@ -11,7 +11,7 @@ from QMIS_code.QMIS_utils import plot_histogram, base_minimizer
 from typing import Callable
 
 
-class Quantum_QAOA:
+class QAOA:
     """
     A class to implement the Quantum Approximate Optimization Algorithm (QAOA)
     using the Pulser framework for solving problems encoded as Ising Hamiltonian.

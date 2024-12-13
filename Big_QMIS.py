@@ -5,7 +5,7 @@ The class of this MIS finder and its method are in this class.
 
 import numpy as np
 import networkx as nx
-from QMIS_code.QAA import Quantum_MIS
+from QMIS_code.QAA import QAA
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis
@@ -113,7 +113,7 @@ class BIG_QMIS:
                 label_changer[node] = str(k)
             relabeled_graph = nx.relabel_nodes(graph, label_changer, copy=True)
 
-            MIS_object = Quantum_MIS(relabeled_graph)
+            MIS_object = QAA(relabeled_graph)
 
             res_dict = MIS_object.run(pulse, shots=shots, progress_bar=print_log_pulser)
             best_bitstring = best_bitstring_getter(

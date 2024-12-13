@@ -19,14 +19,14 @@ from QMIS_code.QMIS_utils import (
 from typing import Callable
 
 
-class Quantum_MIS:
+class QAA:
     def __init__(self, graph: nx.Graph, device=DigitalAnalogDevice) -> None:
         """
         Object that can run the quantum analog computing MIS algorithm. To create the object, networkx's graph architecture must be used.
         A graph with more than 15 atom will not give good results.
 
         Parameters:
-        - self: The Quantum_MIS object to create.
+        - self: The QAA object to create.
         - graph (networkx.Graph): The graph to find an MIS on.
 
         Returns:
@@ -66,7 +66,7 @@ class Quantum_MIS:
         Function that creates the pulser register for a given graph. It is optimal when the number of atoms is less than eleven.
 
         Parameters:
-        - self: The Quantum_MIS object to use.
+        - self: The QAA object to use.
         - coord (NDArray) : the coordinates of the atoms for the register
         - i (int) : the value attached to the register currently builded
 
@@ -88,7 +88,7 @@ class Quantum_MIS:
         Function that draws the positions and radius of the atoms of the quantum architecture.
 
         Parameters:
-        - self: The Quantum_MIS object to use.
+        - self: The QAA object to use.
 
         Returns:
         - None
@@ -113,7 +113,7 @@ class Quantum_MIS:
         Method to run the quantum analog computing MIS algorithm. By using a given pulse, it will find the graph given to the object.
 
         Parameters:
-        - self: The Quantum_MIS object to use.
+        - self: The QAA object to use.
         - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
         - shots (int=1000): The number of times the algorithm must be run. By default, it is set at 1000.
