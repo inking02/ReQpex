@@ -25,7 +25,7 @@ def Waveform_Pulse(
     - delta_f (float): The final decoherence value in rad/µs
 
     Returns:
-    Pulse: A pulser pulse object.
+    - Pulse: A pulser pulse object.
     """
     adiabatic_pulse = Pulse(
         InterpolatedWaveform(T, [1e-9, Omega, 1e-9]),
@@ -46,7 +46,7 @@ def Rise_Fall_Waveform(Omega: float, T: float, delta_0: float = -5, delta_f: flo
     - delta_f (float): The final decoherence value in rad/µs
 
     Returns:
-    Pulse: A pulser pulse object.
+    - Pulse: A pulser pulse object.
     """
     up = RampWaveform(T / 2, 0, Omega)
     down = RampWaveform(T / 2, Omega, 0)
@@ -73,7 +73,7 @@ def Blackman_Waveform_Pulse(
     - delta_f (float): The final decoherence value in rad/µs
 
     Returns:
-    Pulse: A pulser pulse object.
+    - Pulse: A pulser pulse object.
     """
     Blackman_Pulse = Pulse(
         BlackmanWaveform(T, Omega), InterpolatedWaveform(T, [delta_0, 0, delta_f]), 0
@@ -102,7 +102,7 @@ def Constant_pulse_pyramid(
     - delta (float) : The difference between Omega and the constant parts of the pulse.
 
     Returns:
-    Pulse: A pulser pulse object.
+    - Pulse: A pulser pulse object.
     """
 
     Constant_1 = ConstantWaveform((T - T_pyramid) / 2, Omega - delta)
@@ -130,7 +130,7 @@ def rise_sweep_fall(Omega: float, T: float, delta_0: float = -5, delta_f: float 
 
 
     Returns:
-    Pulse: A pulser pulse object.
+    - Pulse: A pulser pulse object.
     """
     rise = RampWaveform(T / 4, 0, Omega)
     sweep = ConstantWaveform(T / 2, Omega)
@@ -164,7 +164,7 @@ def Pulse_constructor(
     - T_pyramid (float): The time for the rise_fall part in the middle in µs, only for the 'Pyramid' pulse.
 
     Returns:
-    Pulse: A pulser pulse callable with a parameter Omega to be defined.
+    - Pulse: A pulser pulse callable with a parameter Omega to be defined.
     """
     assert Pulse_type in [
         "Waveform",

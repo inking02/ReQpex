@@ -29,7 +29,7 @@ def scale_coordinates(
     - max_distance (float): The maximum distance that must be between the points.
 
     Returns:
-    Tuple[NDArray[np.float_], float]:   - The scaled coordinates of the vertices.
+    - Tuple[NDArray[np.float_], float]:   - The scaled coordinates of the vertices.
                                         - The scaled radius.
     """
     # Calculate the distances between the points to guess the scale.
@@ -68,7 +68,7 @@ def find_minimal_radius(G: nx.Graph, pos: NDArray[np.float_]) -> float:
     - pos (NDArray[np.float_]): The coordinates of the vertices of the graph that was layed-out.
 
     Returns:
-    float: The minimal distance between two connected vertices.
+    - float: The minimal distance between two connected vertices.
     """
     max_distance = 0
 
@@ -94,7 +94,7 @@ def plot_histogram(count_dict: dict, shots: int, file_name: str = "") -> None:
     - file_name (str=""): The name to save the figure onto. It must include its path and the png extension. If the value is "", the figure will not be saved.
 
     Returns:
-    None
+    - None
     """
     most_freq = {k: v for k, v in count_dict.items() if v > 0.02 * shots}
     plt.bar(list(most_freq.keys()), list(most_freq.values()))
@@ -115,7 +115,7 @@ def euclid_dist(pos1: NDArray[np.float_], pos2: NDArray[np.float_]) -> float:
     - pos2 (NDArray[np.float_]): The coordinates of the second point in the 2D plane.
 
     Returns:
-    float: The euclidean distance between the points
+    - float: The euclidean distance between the points
     """
     return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
 
@@ -128,7 +128,7 @@ def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
     - nodes (List[str]): The list of the nodes that need to be included in the subgraph
 
     Returns:
-    networkx.Graph: The sub graph create with the nodes specified.
+    - networkx.Graph: The sub graph create with the nodes specified.
     """
     subgraph = nx.Graph()
     subgraph.add_nodes_from(nodes)
@@ -178,6 +178,6 @@ def base_minimizer(
      - params (NDArray[np.float_]): The original value of parameters of the function.
 
      Returns:
-     NDArray[np.float_]:  The optimized parameters that minimizes the cost function.
+     - NDArray[np.float_]:  The optimized parameters that minimizes the cost function.
     """
     return minimize(cost_function, params, method="COBYLA").x

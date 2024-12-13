@@ -1,4 +1,3 @@
-
 """
 File containing the class of the method using the QMIS method on bigger graph to retrieve an independent set with a close to maximal number of nodes. 
 The class of this MIS finder and its method are in this class.
@@ -20,11 +19,12 @@ class BIG_QMIS:
         A number of atoms greater that 15 will not provide good results.
 
         Parameters:
+        - self: BIG_QMIS MIS_Solver object to create.
         - graph (networkx.Graph): The graph to find an MIS on.
         - num_atoms (int=10): The maximum number of nodes (atoms in the pulser simulator) used in the subgraphs.
 
         Returns:
-        None
+        - None
         """
         self.graph = graph
         if num_atoms > 20:
@@ -48,7 +48,7 @@ class BIG_QMIS:
                                  It wont be used in this function, it is a filler argument.
 
         Returns:
-        str: The key with the maximum value.
+        - str: The key with the maximum value.
         """
         return max(zip(res_dict.values(), res_dict.keys()))[1]
 
@@ -66,6 +66,7 @@ class BIG_QMIS:
         with close to the maximum amount of nodes.
 
         Parameters:
+        - self: BIG_QMIS MIS_Solver object to use.
         - Pulse (Callable = Pulse_constructor(4000, "Rise_fall")): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                                                                    the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
@@ -77,7 +78,7 @@ class BIG_QMIS:
         - print_log_pulser (bool = False): Whether or not to print the log info of the runs on the pulser architecture.
 
         Returns:
-        List[str]: The list of the nodes implied in the MIS.
+        - List[str]: The list of the nodes implied in the MIS.
         """
         num_of_cuts = int(np.ceil(self.graph.number_of_nodes() / self.num_atoms))
         adjacency_list = [
@@ -139,13 +140,14 @@ class BIG_QMIS:
 
     def create_sub_graph(self, nodes: List[str]) -> nx.Graph:
         """
+        - self: BIG_QMIS MIS_Solver object to use.
         Method to create a subgraph of the class' main graph with the networkx.Graph architecture.
 
         Parameters:
         - nodes (List[str]): The list of the nodes that need to be included in the subgraph
 
         Returns:
-        networkx.Graph: The sub graph create with the nodes specified.
+        - networkx.Graph: The sub graph create with the nodes specified.
         """
         subgraph = nx.Graph()
         subgraph.add_nodes_from(nodes)
@@ -162,10 +164,11 @@ class BIG_QMIS:
         Method that finds the MIS of a tree.
 
         Parameters:
+        - self: BIG_QMIS MIS_Solver object to use.
         - tree (networkx.Graph): The tree that one of its MIS must be found.
 
         Returns:
-        List[str]: The list of the nodes implied in the MIS.
+        - List[str]: The list of the nodes implied in the MIS.
         """
         # Creating the directed tree with the root found
         root = self.root_finder(tree)
@@ -187,7 +190,7 @@ class BIG_QMIS:
             - node (str): The node to determine the size of the MIS if its included or not.
 
             Returns:
-            None
+            - None
             """
             node_index = indexes.index(node)
             if tree_directed.out_degree(node) == 0:
@@ -213,7 +216,7 @@ class BIG_QMIS:
             - exclude_node (bool): Whether or not the node is to be excluded in the MIS.
 
             Returns:
-            None
+            - None
             """
             if tree_directed.out_degree(node) == 0:
                 if not exclude_node:
@@ -240,10 +243,11 @@ class BIG_QMIS:
         it is the node that is the "farthest" rom  the others.
 
         Parameters:
+        - self: BIG_QMIS MIS_Solver object to use.
         - tree (networkx.Graph): The tree that its root must be found.
 
         Returns:
-        str: The node that is the root of the tree.
+        - str: The node that is the root of the tree.
         """
         further_distances = []
         nodes_array = [i for i in tree.nodes()]
@@ -258,10 +262,11 @@ class BIG_QMIS:
         Method to combine the MIS' of all of the subgraphs into an independent set with the maximal amount of nodes given the sub-MIS'.
 
         Parameters:
+        - self: BIG_QMIS MIS_Solver object to use.
         - MIS_list (List[List[str]]): The list if the MIS' of the subgraphs.
 
         Returns:
-        List[str]: The total MIS of the main graph.
+        - List[str]: The total MIS of the main graph.
         """
         # Separating the subgraphs into two halves to combined them afterwards when they each form one big subgraph
         if len(MIS_list) == 1:

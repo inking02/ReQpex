@@ -1,4 +1,3 @@
-
 """
 File containing the various functions to show the locations on a sherbrooke map.
 """
@@ -30,7 +29,7 @@ def interactive_map(
     - file_name (str = "map"): The name that the map must have. It must not include the extension.
 
     Returns:
-    None
+    - None
     """
     sherbrooke_coord = [45.40198690041696, -71.88968408774863]
     my_map = folium.Map(location=sherbrooke_coord, zoom_start=13)
@@ -77,7 +76,7 @@ def recap_map_getter(
     - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
 
     Returns:
-    None
+    - None
     """
     # Loading the data
     new_bins_location = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
@@ -130,7 +129,7 @@ def recap_map_getter(
         - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
 
         Returns:
-        None
+        - None
         """
 
         # Adding the bins that were added to the map

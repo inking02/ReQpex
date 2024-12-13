@@ -13,16 +13,20 @@ from typing import Callable
 class Quantum_QAOA:
     """
     A class to implement the Quantum Approximate Optimization Algorithm (QAOA)
-    using the Pulser framework for solving problems encoded as Ising Hamiltonians.
+    using the Pulser framework for solving problems encoded as Ising Hamiltonian.
     """
 
-    def __init__(self, graph: nx.graph, layers: int = 2) -> None:
+    def __init__(self, graph: nx.Graph, layers: int = 2) -> None:
         """
         Initialize the QAOA class with the given graph and number of layers.
 
         Parameters:
-        - graph: The input graph representing the problem.
-        - layers: The number of QAOA layers to use.
+        - self: The Quantum_QAOA object to create.
+        - graph (networkx.Graph): The input graph representing the problem.
+        - layers (int = 2): The number of QAOA layers to use.
+
+        Returns:
+        - None
         """
         # Generate spring-layout coordinates for the graph
         self.graph = graph
@@ -46,8 +50,11 @@ class Quantum_QAOA:
         """
         Builds a register of qubits for Pulser using the graph's node positions.
 
+        Parameters:
+        - self: The Quantum_QAOA object to use.
+
         Returns:
-        - A Pulser Register object with qubit coordinates.
+        - Register: A Pulser Register object with qubit coordinates.
         """
         # Normalize coordinates to ensure qubits are appropriately spaced
         val = np.min(pdist(self.coords))  # Find the minimum distance between nodes
@@ -58,17 +65,26 @@ class Quantum_QAOA:
     def print_reg(self) -> None:
         """
         Visualize the qubit register along with the blockade radius and graph structure.
+
+        Parameters:
+        - self: The Quantum_QAOA object to use.
+
+        Returns:
+        - None
         """
         self.reg.draw(
             blockade_radius=self.R_blockade, draw_graph=True, draw_half_radius=True
         )
 
-    def create_qaoa_sequence(self):
+    def create_qaoa_sequence(self) -> Sequence:
         """
         Create a QAOA sequence for Pulser, including the necessary pulses and measurements.
 
+        Parameters:
+        - self: The Quantum_QAOA object to use.
+
         Returns:
-        - A Pulser Sequence object representing the QAOA process.
+        - Sequence: A Pulser Sequence object representing the QAOA process.
         """
         # Initialize a Pulser sequence
         seq = Sequence(self.reg, DigitalAnalogDevice)
@@ -102,15 +118,16 @@ class Quantum_QAOA:
         seq.measure("ground-rydberg")
         return seq
 
-    def quantum_loop(self, parameters: NDArray[np.float_]):
+    def quantum_loop(self, parameters: NDArray[np.float_]) -> dict:
         """
         Execute a quantum loop of QAOA with the given parameters.
 
         Parameters:
+        - self: The Quantum_QAOA object to use.
         - parameters: A flattened array of QAOA parameters (t_list and s_list).
 
         Returns:
-        - A dictionary of bitstring counts from the simulation.
+        - dict: A dictionary of bitstring counts from the simulation.
         """
         # Reshape parameters into t_list and s_list
         t_params, s_params = np.reshape(parameters, (2, self.layers))
@@ -127,7 +144,7 @@ class Quantum_QAOA:
         count_dict = results.sample_final_state()
         return count_dict
 
-    def compute_hamiltonian(self, graph: nx.Graph):
+    def compute_hamiltonian(self, graph: nx.Graph) -> NDArray[np.float_]:
         """
             Compute the Hamiltonian matrix for the given graph based on the Ising model ( for the Max-Cut problem ).
 
@@ -141,10 +158,11 @@ class Quantum_QAOA:
         element corresponds to the energy (cost) of a specific bitstring (state).
 
             Parameters:
+            - self: The Quantum_QAOA object to use.
             - graph: A NetworkX graph object representing the problem.
 
             Returns:
-            - A diagonal Hamiltonian matrix where each state corresponds to a specific energy level.
+            - NDArray[np.float_]: A diagonal Hamiltonian matrix where each state corresponds to a specific energy level.
         """
         num_nodes = graph.number_of_nodes()  # Number of nodes in the graph
         hamiltonian = np.zeros(
@@ -163,16 +181,19 @@ class Quantum_QAOA:
 
         return hamiltonian  # Return the computed Hamiltonian
 
-    def evaluate_hamiltonian(self, graph: nx.Graph, parameters: NDArray[np.float_]):
+    def evaluate_hamiltonian(
+        self, graph: nx.Graph, parameters: NDArray[np.float_]
+    ) -> float:
         """
         Evaluate the expectation value of the Hamiltonian for the current QAOA parameters.
 
         Parameters:
+        - self: The Quantum_QAOA object to use.
         - graph: A NetworkX graph object representing the problem.
         - parameters: The QAOA parameters (angles).
 
         Returns:
-        - The expectation value of the Hamiltonian.
+        - float: The expectation value of the Hamiltonian.
         """
         hamiltonian = self.compute_hamiltonian(
             graph
@@ -195,16 +216,19 @@ class Quantum_QAOA:
 
         return expectation_value / total_counts
 
-    def optimize_parameters(self, graph, initial_params, minimizer: callable):
+    def optimize_parameters(
+        self, graph, initial_params, minimizer: Callable
+    ) -> NDArray[np.float_]:
         """
         Optimize the QAOA parameters to minimize the expectation value of the Hamiltonian.
 
         Parameters:
+        - self: The Quantum_QAOA object to use.
         - graph: A NetworkX graph object representing the problem.
         - initial_params: Initial guesses for the QAOA parameters.
 
         Returns:
-        - The optimized QAOA parameters.
+        - NDArray[np.float_]: The optimized QAOA parameters.
         """
 
         # # Define the cost function to minimize
@@ -223,19 +247,20 @@ class Quantum_QAOA:
         shots=1000,
         generate_histogram=False,
         file_name="QAOA_histo_optimized.pdf",
-        minimizer: callable = base_minimizer,
-    ):
+        minimizer: Callable = base_minimizer,
+    ) -> dict:
         """
         Execute the QAOA algorithm with parameter optimization.
 
         Parameters:
+        - NDArray[np.float_]:
         - graph: A NetworkX graph object representing the problem
         - shots: Number of measurements to perform in the quantum simulation.
         - generate_histogram: Whether to generate a histogram of the results.
         - file_name: Name of the file to save the histogram (if generated).
 
         Returns:
-        - A dictionary of bitstring counts after running QAOA with optimized parameters.
+        - dict: A dictionary of bitstring counts after running QAOA with optimized parameters.
         """
         # Generate random guesses for the parameters t and s
         np.random.seed(123)  # Set a random seed

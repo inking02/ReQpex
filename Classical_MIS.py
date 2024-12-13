@@ -1,4 +1,3 @@
-
 """
 File containing the class of the classical MIS finder method. The class of this MIS finder and its method are in this class.
 """
@@ -15,10 +14,11 @@ class MIS_Solver:
         Object that can run the classical MIS algorithm. To create the object, networkx's graph architecture must be used.
 
         Parameters:
+        - self: The MIS_Solver object to create.
         - graph (networkx.Graph): The graph to find an MIS on.
 
         Returns:
-        None
+        - None
         """
         self.G = graph
 
@@ -34,6 +34,7 @@ class MIS_Solver:
         Method to run the classical MIS algorithm. For the number of shots, it will use a different seed of networkx's maximal_independent_set function.
 
         Parameters:
+        - self: The MIS_Solver object to use.
         - shots (int): The number of times the algorithm must be run.
         - show_progress (bool = False): Whether or not to print the progress of the iterations of the algorithms.
         - generate_histogram (bool = False): Generate the result histogram of the runs of the algorithms.
@@ -42,7 +43,7 @@ class MIS_Solver:
                                               ReQpex directory and use the extension png.
 
         Returns:
-        dict: The counts dictionary of the results from the shots of the algorithms.
+        - dict: The counts dictionary of the results from the shots of the algorithms.
         """
         run_results = []
         zero_sting = "0" * self.G.number_of_nodes()

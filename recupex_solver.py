@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -37,7 +36,7 @@ def simplify_bins(
     - num_atoms (int=6): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
-    None
+    - None
     """
     # Functions that will be used inside this one
 
@@ -85,7 +84,7 @@ def simplify_bins(
         - other_info (List[float]): The volume of clothes produced by each bin.
 
         Returns:
-        str: The best bitstring with the constrained defined in the description of the function.
+        - str: The best bitstring with the constrained defined in the description of the function.
         """
         max_numb_ones = 0
         best_volume = 0
@@ -194,7 +193,7 @@ def remove_possibles_new_locations(
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
 
     Returns:
-    None
+    - None
     """
     # Loading the files
     bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
@@ -284,7 +283,7 @@ def place_new_bins(
     - num_atoms (int=4): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
-    None
+    - None
     """
     # LOad the files
     bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")

@@ -46,7 +46,7 @@ def main(
     - pulse (Callable = Pulse_constructor(4000, "Rise_fall")): The pulse to be applied on the atoms in the QMIS' algorithms.
 
     Returns:
-    str: The key with the maximum value.
+    - str: The key with the maximum value.
     """
 
     recupex_solver.simplify_bins(

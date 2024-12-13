@@ -26,10 +26,11 @@ class Quantum_MIS:
         A graph with more than 15 atom will not give good results.
 
         Parameters:
+        - self: The Quantum_MIS object to create.
         - graph (networkx.Graph): The graph to find an MIS on.
 
         Returns:
-        None
+        - None
         """
         self.device = device
 
@@ -65,11 +66,12 @@ class Quantum_MIS:
         Function that creates the pulser register for a given graph. It is optimal when the number of atoms is less than eleven.
 
         Parameters:
+        - self: The Quantum_MIS object to use.
         - coord (NDArray) : the coordinates of the atoms for the register
         - i (int) : the value attached to the register currently builded
 
         Returns:
-        Register: The pulser register of the atoms representing the graph.
+        - Register: The pulser register of the atoms representing the graph.
         """
         min_dist = self.device.min_atom_distance
         max_dist = self.device.max_radial_distance
@@ -86,10 +88,10 @@ class Quantum_MIS:
         Function that draws the positions and radius of the atoms of the quantum architecture.
 
         Parameters:
-        - None
+        - self: The Quantum_MIS object to use.
 
         Returns:
-        None
+        - None
         """
         for i, (reg, R_blockade) in enumerate(zip(self.regs, self.R_blockades)):
             if len(self.nodes_positions[i]) > 1:
@@ -111,6 +113,7 @@ class Quantum_MIS:
         Method to run the quantum analog computing MIS algorithm. By using a given pulse, it will find the graph given to the object.
 
         Parameters:
+        - self: The Quantum_MIS object to use.
         - Pulse (Callable): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                             the atoms to run the algorithm.
         - shots (int=1000): The number of times the algorithm must be run. By default, it is set at 1000.
@@ -119,7 +122,7 @@ class Quantum_MIS:
         - progress_bar (bool = True): Whether or not to print the evolution on the run on pulser's architecture.
 
         Returns:
-        dict: The counts dictionary of the results from the shots of the algorithms.
+        - dict: The counts dictionary of the results from the shots of the algorithms.
         """
         # defining the omega for each pulse
         Omega_pulse_max = self.device.channels["rydberg_global"].max_amp
