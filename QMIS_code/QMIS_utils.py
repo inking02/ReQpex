@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from itertools import product
 from numpy.typing import NDArray
-from typing import Tuple, List
+from typing import Tuple, List, Callable
 from scipy.optimize import minimize
 
 
@@ -167,5 +167,17 @@ def fusion_counts(counts, positions):
     return total_counts
 
 
-def base_minimizer(cost_function, params):
+def base_minimizer(
+    cost_function: Callable, params: NDArray[np.float_]
+) -> NDArray[np.float_]:
+    """
+    Basic COBYLA optimizer that can be used in the QAOA class. It returns the optimized parameters.
+
+     Parameters:
+     - cost_function (Callable): The function to optimize.
+     - params (NDArray[np.float_]): The original value of parameters of the function.
+
+     Returns:
+     NDArray[np.float_]:  The optimized parameters that minimizes the cost function.
+    """
     return minimize(cost_function, params, method="COBYLA").x
