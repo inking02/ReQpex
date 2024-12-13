@@ -13,7 +13,7 @@ Bienvenue dans le dépôt GitHub de **QLink** ! Nous sommes une équipe passionn
 - **`tutorial.ipynb`** : Tutoriel d'utilisation des classes du projet et des fonctions permettant de résoudre le problème de Récupex.
 
 ## Utilisation
-Pour bien comprendre l'implementation des différentes méthodes proposées dans ce projet, vous pouvez commencer par consulter le jupyter_notebook **'tutorial.ipynb'** dans le dossier ... Vous pouvez ensuite importer les librairies utiles qui existent dans **'requirement.txt'**, puis consulter **'main.py'**
+Pour bien comprendre l'implementation des différentes méthodes proposées dans ce projet, vous pouvez commencer par consulter le jupyter_notebook **'tutorial.ipynb'** dans le dossier ... Vous pouvez ensuite importer les librairies utiles qui existent dans **'requirement.txt'**, puis consulter **'main.py'**.
 
 Installez les librairies nécessaires avec la ligne de code suivante dans l'environnement de votre choix:
 
@@ -22,3 +22,5 @@ pip install -r requirements.txt
 ```
 
 Selon l'environnement, *pip* devra peut-être remplacé par *pip3*. L'installation de celles-ci sont nécessaire pur facilement rouler le projet.
+**Attention**
+La version de python utilisée doit être de 3.11 pour utiliser la libraire Pulser.
