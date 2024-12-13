@@ -9,7 +9,7 @@ import networkx as nx
 from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import DigitalAnalogDevice
-from QMIS_code.QAA_utils import (
+from QMIS_code.QMIS_utils import (
     scale_coordinates,
     find_minimal_radius,
     plot_histogram,
@@ -32,7 +32,7 @@ class Quantum_MIS:
         None
         """
         self.device = device
-        
+
         # we separate the graph in all its connected components
         self.sub_graphes = []
         self.nodes_positions = []
@@ -48,7 +48,7 @@ class Quantum_MIS:
             for sub_graph in self.sub_graphes
         ]
         self.coords = [np.array(list(position.values())) for position in self.pos]
-        
+
         # defining the minimal blockade for each sub_graph
         self.R_blockades = [
             find_minimal_radius(sub_graph, position)
@@ -129,13 +129,13 @@ class Quantum_MIS:
         seqs = [Sequence(reg, self.device) for reg in self.regs]
         count_dicts = []
         for i, (seq, Omega) in enumerate(zip(seqs, Omegas)):
-            
+
             if len(self.nodes_positions[i]) > 1:
                 seq.declare_channel(
                     "ising", "rydberg_global"
                 )  # the pulse is applied to all the register globally
                 seq.add(Pulse(Omega), "ising")
-                
+
                 # simulating the results
                 simul = QutipEmulator.from_sequence(seq)
                 results = simul.run(progress_bar=progress_bar)
