@@ -4,6 +4,10 @@ from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import DigitalAnalogDevice
 from scipy.spatial.distance import pdist, squareform
+import matplotlib.pyplot as plt
+from scipy.optimize import minimize
+from QMIS_code.pulse_utils import Rise_Fall_Waveform
+from numpy.typing import NDArray
 from QMIS_code.pulse_utils import Rise_Fall_Waveform
 from numpy.typing import NDArray
 from QMIS_code.QMIS_utils import plot_histogram, base_minimizer
