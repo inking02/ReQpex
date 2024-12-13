@@ -88,11 +88,11 @@ class QAOA:
 
         Parameters:
         - self: The Quantum_QAOA object to use.
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
-        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"].
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse.
         - delta (float): the delta for the constant parts of the pyramid pulse
-        - delta_0 (float): The decoherence initially in the pulse
-        - delta_f (float): The decoherence at the end of the pulse
+        - delta_0 (float): The decoherence initially in the pulse.
+        - delta_f (float): The decoherence at the end of the pulse.
 
         Returns:
         - Sequence: A Pulser Sequence object representing the QAOA process.
@@ -142,11 +142,11 @@ class QAOA:
         Parameters:
         - self: The Quantum_QAOA object to use.
         - parameters: A flattened array of QAOA parameters (t_list and s_list).
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
-        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
-        - delta (float): the delta for the constant parts of the pyramid pulse
-        - delta_0 (float): The decoherence initially in the pulse
-        - delta_f (float): The decoherence at the end of the pulse
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"].
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse.
+        - delta (float): the delta for the constant parts of the pyramid pulse.
+        - delta_0 (float): The decoherence initially in the pulse.
+        - delta_f (float): The decoherence at the end of the pulse.
 
         Returns:
         - dict: A dictionary of bitstring counts from the simulation.
@@ -220,11 +220,11 @@ class QAOA:
         - self: The Quantum_QAOA object to use.
         - graph: A Networkx graph object representing the problem.
         - parameters: The QAOA parameters (angles).
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
-        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
-        - delta (float): the delta for the constant parts of the pyramid pulse
-        - delta_0 (float): The decoherence initially in the pulse
-        - delta_f (float): The decoherence at the end of the pulse
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"].
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse.
+        - delta (float): the delta for the constant parts of the pyramid pulse.
+        - delta_0 (float): The decoherence initially in the pulse.
+        - delta_f (float): The decoherence at the end of the pulse.
 
         Returns:
         - float: The expectation value of the Hamiltonian.
@@ -268,11 +268,11 @@ class QAOA:
         - self: The Quantum_QAOA object to use.
         - graph: A NetworkX graph object representing the problem.
         - initial_params: Initial guesses for the QAOA parameters.
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
-        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
-        - delta (float): the delta for the constant parts of the pyramid pulse
-        - delta_0 (float): The decoherence initially in the pulse
-        - delta_f (float): The decoherence at the end of the pulse
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"].
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse.
+        - delta (float): the delta for the constant parts of the pyramid pulse.
+        - delta_0 (float): The decoherence initially in the pulse.
+        - delta_f (float): The decoherence at the end of the pulse.
 
         Returns:
         - NDArray[np.float_]: The optimized QAOA parameters.
@@ -305,14 +305,14 @@ class QAOA:
         Execute the QAOA algorithm with parameter optimization.
 
         Parameters
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"].
         - shots: Number of measurements to perform in the quantum simulation.
         - generate_histogram: Whether to generate a histogram of the results.
         - file_name: Name of the file to save the histogram (if generated).
-        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
-        - delta (float): the delta for the constant parts of the pyramid pulse
-        - delta_0 (float): The decoherence initially in the pulse
-        - delta_f (float): The decoherence at the end of the pulse
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse.
+        - delta (float): the delta for the constant parts of the pyramid pulse.
+        - delta_0 (float): The decoherence initially in the pulse.
+        - delta_f (float): The decoherence at the end of the pulse.
         
 
         Returns:
