@@ -304,13 +304,11 @@ class QAOA:
         """
         Execute the QAOA algorithm with parameter optimization.
 
-        Parameters:
-        - NDArray[np.float_]:
-        - graph: A NetworkX graph object representing the problem
+        Parameters
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
         - shots: Number of measurements to perform in the quantum simulation.
         - generate_histogram: Whether to generate a histogram of the results.
         - file_name: Name of the file to save the histogram (if generated).
-        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
         - T_pyramid (float): The time for the pyramid form in the pyramid pulse
         - delta (float): the delta for the constant parts of the pyramid pulse
         - delta_0 (float): The decoherence initially in the pulse
