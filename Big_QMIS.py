@@ -42,7 +42,7 @@ class BIG_QMIS:
         is the bitstring representing which nodes are used in the MIS.
 
         Parameters:
-        - res_dict (dict): The counts dictionary of the result if the QMIS algorithm.
+        - res_dict (dict): The counts dictionary of the result if the QAA algorithm.
         - index_positions (NDArray[np.int_]): The order of the nodes implied in the bitstring. It wont be used
                                               in this function, it is a filler argument.
         - other_info (List = []): Other info that may be useful to differentiate the answers to give the best key.
@@ -63,7 +63,7 @@ class BIG_QMIS:
         print_log_pulser: bool = False,
     ) -> List[str]:
         """
-        Method to run the classical QMIS algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphs MIS' to a independent set
+        Method to run the QAA algorithm on bigger graphs. A classical determinist algorithm will merge the sub graphs MIS' to a independent set
         with close to the maximum amount of nodes.
 
         Parameters:
@@ -71,7 +71,7 @@ class BIG_QMIS:
         - Pulse (Callable = Pulse_constructor(4000, "Rise_fall")): A callable of a function returning a Pulse class object from Pulser's library. It is the pulse given to the set of
                                                                    the atoms to run the algorithm.
         - best_bitstring_getter (Callable = max_bitstring): The function that returns the best bitstring from the count dictionary given
-                                                            by the QMIS algorithm run function. It must take the result dictionary, the array that gives the order
+                                                            by the QAA algorithm run function. It must take the result dictionary, the array that gives the order
                                                             of the nodes in the bitstrings (index_positions) and the other infos needed to differentiate the nodes (other_info).
         - shots (int = 100): The number of shots that each subgraph must be run on the pulser simulator.
         - other_info (List = []): The other information that must be used by the best_bitstring_getter function.
@@ -108,7 +108,7 @@ class BIG_QMIS:
         for i, (graph, nodes) in enumerate(zip(sub_graphs, nodes_per_graph)):
             label_changer = dict()
 
-            # Running the QMIS on the subgraphs
+            # Running the QAA algotithm on the subgraphs
             for k, node in enumerate(nodes):
                 label_changer[node] = str(k)
             relabeled_graph = nx.relabel_nodes(graph, label_changer, copy=True)
