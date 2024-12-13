@@ -5,7 +5,7 @@ from pulser_simulation import QutipEmulator
 from pulser.devices import DigitalAnalogDevice
 from scipy.spatial.distance import pdist, squareform
 from numpy.typing import NDArray
-from QMIS_code.pulse_utils import Pulse_constructor
+from QMIS_code.pulse_utils import pulse_constructor
 from numpy.typing import NDArray
 from QMIS_code.QMIS_utils import plot_histogram, base_minimizer
 from typing import Callable
@@ -118,8 +118,8 @@ class QAOA:
             T_cost = np.ceil(s * 1500 / 4) * 4  # Cost pulse duration
 
             # Create mixer and cost pulses
-            Pulse_mixer = Pulse_constructor(T_mixer, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
-            Pulse_cost = Pulse_constructor(T_cost, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
+            Pulse_mixer = pulse_constructor(T_mixer, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
+            Pulse_cost = pulse_constructor(T_cost, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
 
             # Add pulses to the sequence
             seq.add(Pulse_mixer, "ising")
