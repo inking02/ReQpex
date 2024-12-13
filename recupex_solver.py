@@ -4,7 +4,7 @@ import networkx as nx
 from Big_QMIS import BIG_QMIS
 from utils.utils import create_node_dictionary, disc_graph_to_connected, euclid_dist
 from utils.generate_maps import interactive_map
-from QMIS_code.pulse_utils import Pulse_constructor
+from QMIS_code.pulse_utils import pulse_constructor
 from Classical_MIS import MIS_Solver
 from numpy.typing import NDArray
 from typing import Callable, List
@@ -12,7 +12,7 @@ from typing import Callable, List
 
 def simplify_bins(
     radius_km: float,
-    pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
+    pulse: Callable = pulse_constructor(4000, "Rise_fall"),
     show_map: bool = False,
     save_map: bool = False,
     path: str = "",
@@ -122,7 +122,6 @@ def simplify_bins(
 
     # Building the graph
     radius_lng_lat = radius_km / 111.1
-    # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
     G = disc_graph_to_connected_volume(positions=bins_numpy, radius=radius_lng_lat)
 
     if use_quantum:
@@ -209,10 +208,7 @@ def remove_possibles_new_locations(
         dtype=float, copy=True
     )
 
-    radius_lng_lat = (
-        radius_km / 111.1
-    )  # https://www.sco.wisc.edu/2022/01/21/how-big-is-a-degree/#:~:text=Therefore%20we%20can%20easily%20compute,69.4%20miles%20(111.1%20km).
-
+    radius_lng_lat = radius_km / 111.1
     # Simplify the locations
     list_of_indexes = []
 
@@ -259,7 +255,7 @@ def remove_possibles_new_locations(
 
 def place_new_bins(
     radius_km: float,
-    pulse=Pulse_constructor(4000, "Rise_fall"),
+    pulse=pulse_constructor(4000, "Rise_fall"),
     show_map: bool = False,
     save_map: bool = False,
     path: str = "",

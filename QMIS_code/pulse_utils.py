@@ -19,10 +19,10 @@ def Waveform_Pulse(
     Creates a waveform pulse object.
 
     Parameters:
-    - Omega (float): The maximal value of Omega for the pulse in rad/µs
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
+    - Omega (float): The maximal value of Omega for the pulse in rad/µs.
+    - T (float): The total time during which the pulse is applied.
+    - delta_0 (float=-5): The initial decoherence value in rad/µs.
+    - delta_f (float=5): The final decoherence value in rad/µs.
 
     Returns:
     - Pulse: A pulser pulse object.
@@ -40,10 +40,10 @@ def Rise_Fall_Waveform(Omega: float, T: float, delta_0: float = -5, delta_f: flo
     Creates a waveform pulse object.
 
     Parameters:
-    - Omega (float): The maximal value of Omega for the pulse in rad/µs
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
+    - Omega (float): The maximal value of Omega for the pulse in rad/µs.
+    - T (float): The total time during which the pulse is applied.
+    - delta_0 (float=-5): The initial decoherence value in rad/µs.
+    - delta_f (float=5): The final decoherence value in rad/µs.
 
     Returns:
     - Pulse: A pulser pulse object.
@@ -67,10 +67,10 @@ def Blackman_Waveform_Pulse(
     Creates a waveform pulse object. The blackman waveform is a pulse with a normal form with an area given by Omega.
 
     Parameters:
-    - Omega (float): The maximal value of Omega for the pulse in rad/µs
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
+    - Omega (float): The maximal value of Omega for the pulse in rad/µs.
+    - T (float): The total time during which the pulse is applied.
+    - delta_0 (float=-5): The initial decoherence value in rad/µs.
+    - delta_f (float=5): The final decoherence value in rad/µs.
 
     Returns:
     - Pulse: A pulser pulse object.
@@ -94,12 +94,12 @@ def Constant_pulse_pyramid(
     Creates a waveform pulse object. The constant_pulse_pyramid is a constant pulse with a value of Omega - delta. There's a little part of rise_fall in the middle of the pulse.
 
     Parameters:
-    - Omega (float): The maximal value of Omega for the pulse in rad/µs
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
-    - T_pyramid (float): The time for the rise_fall part in the middle in µs
+    - Omega (float): The maximal value of Omega for the pulse in rad/µs.
+    - T (float): The total time during which the pulse is applied.
+    - T_pyramid (float): The time for the rise_fall part in the middle in µs.
     - delta (float) : The difference between Omega and the constant parts of the pulse.
+    - delta_0 (float=-5): The initial decoherence value in rad/µs.
+    - delta_f (float=5): The final decoherence value in rad/µs.
 
     Returns:
     - Pulse: A pulser pulse object.
@@ -123,10 +123,10 @@ def rise_sweep_fall(Omega: float, T: float, delta_0: float = -5, delta_f: float 
     Creates a waveform pulse object. The rise_sweep_fall pulse rises, stays constant and finally drop back to 0.
 
     Parameters:
-    - Omega (float): The maximal value of Omega for the pulse in rad/µs
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
+    - Omega (float): The maximal value of Omega for the pulse in rad/µs.
+    - T (float): The total time during which the pulse is applied.
+    - delta_0 (float): The initial decoherence value in rad/µs.
+    - delta_f (float): The final decoherence value in rad/µs.
 
 
     Returns:
@@ -145,7 +145,7 @@ def rise_sweep_fall(Omega: float, T: float, delta_0: float = -5, delta_f: float 
     return Pulse(Omega_Wave, detuning, 0)
 
 
-def Pulse_constructor(
+def pulse_constructor(
     T: float,
     Pulse_type: str,
     T_pyramid: float = 0,
@@ -157,11 +157,12 @@ def Pulse_constructor(
     Creates a waveform pulse object.
 
     Parameters:
-    - T (float): The total time during which the pulse is applied
-    - delta_0 (float): The initial decoherence value in rad/µs
-    - delta_f (float): The final decoherence value in rad/µs
+    - T (float): The total time during which the pulse is applied.
     - Pulse_type (str): The type of pulse chosen. The five types implemented are 'Waveform', 'Blackman', 'Rise_fall', 'Pyramid', and 'Rise_sweep_fall
-    - T_pyramid (float): The time for the rise_fall part in the middle in µs, only for the 'Pyramid' pulse.
+    - T_pyramid (float=0): The time for the rise_fall part in the middle in µs, only for the 'Pyramid' pulse.
+    - delta (float=0) : The difference between Omega and the constant parts of the pulse.
+    - delta_0 (float=-5): The initial decoherence value in rad/µs.
+    - delta_f (float=5): The final decoherence value in rad/µs.
 
     Returns:
     - Pulse: A pulser pulse callable with a parameter Omega to be defined.

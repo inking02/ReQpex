@@ -9,7 +9,7 @@ from QMIS_code.QAA import Quantum_MIS
 from numpy.typing import NDArray
 from typing import List, Callable
 import pymetis
-from QMIS_code.pulse_utils import Pulse_constructor
+from QMIS_code.pulse_utils import pulse_constructor
 
 
 class BIG_QMIS:
@@ -17,7 +17,7 @@ class BIG_QMIS:
         """
         Object that can run the quantum analog computing BIG_QMIS algorithm. To create the object, networkx's graph architecture must be used.
         A number of atoms greater that 15 will not provide good results. It uses the QAA method to find a MIS on subgraphs. This method can be found
-        in the QMIS_code.QAA.py file. 
+        in the QMIS_code.QAA.py file.
 
         Parameters:
         - self: BIG_QMIS MIS_Solver object to create.
@@ -55,7 +55,7 @@ class BIG_QMIS:
 
     def run(
         self,
-        pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
+        pulse: Callable = pulse_constructor(4000, "Rise_fall"),
         best_bitstring_getter: Callable = max_bitstring,
         shots: int = 1000,
         other_info: List = [],
