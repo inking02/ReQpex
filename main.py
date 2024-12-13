@@ -4,7 +4,7 @@ File that solve the Recupex problem.
 
 import recupex_solver
 from utils.generate_maps import recap_map_getter
-from QMIS_code.pulse_utils import Pulse_constructor
+from QMIS_code.pulse_utils import pulse_constructor
 from typing import List, Callable
 
 
@@ -21,7 +21,7 @@ def main(
     use_quantum: bool = True,
     path: str = "",
     num_atoms: List[int] = [15, 15],
-    pulse: Callable = Pulse_constructor(4000, "Rise_fall"),
+    pulse: Callable = pulse_constructor(4000, "Rise_fall"),
     test: bool = True,
 ) -> None:
     """
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     show_maps_recap = True
     show_estrie_aide = True
     use_quantum = True
-    pulse = Pulse_constructor(4000, "Waveform")
+    pulse = pulse_constructor(4000, "Waveform")
     main(
         radius_simplify_bins=radius_simplify_bins,
         radius_simplify_locations=radius_simplify_locations,
