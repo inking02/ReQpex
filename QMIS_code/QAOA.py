@@ -6,9 +6,8 @@ from pulser.devices import DigitalAnalogDevice
 from scipy.spatial.distance import pdist, squareform
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
-from QMIS_code.pulse_utils import Rise_Fall_Waveform
 from numpy.typing import NDArray
-from QMIS_code.pulse_utils import Rise_Fall_Waveform
+from QMIS_code.pulse_utils import Pulse_constructor
 from numpy.typing import NDArray
 from QMIS_code.QMIS_utils import plot_histogram, base_minimizer
 from typing import Callable
@@ -80,12 +79,22 @@ class Quantum_QAOA:
             blockade_radius=self.R_blockade, draw_graph=True, draw_half_radius=True
         )
 
-    def create_qaoa_sequence(self) -> Sequence:
+    def create_qaoa_sequence(self, 
+        pulse_type: str, 
+        T_pyramid: float, 
+        delta: float, 
+        delta_0: float, 
+        delta_f: float) -> Sequence:
         """
         Create a QAOA sequence for Pulser, including the necessary pulses and measurements.
 
         Parameters:
         - self: The Quantum_QAOA object to use.
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - delta (float): the delta for the constant parts of the pyramid pulse
+        - delta_0 (float): The decoherence initially in the pulse
+        - delta_f (float): The decoherence at the end of the pulse
 
         Returns:
         - Sequence: A Pulser Sequence object representing the QAOA process.
@@ -111,8 +120,8 @@ class Quantum_QAOA:
             T_cost = np.ceil(s * 1500 / 4) * 4  # Cost pulse duration
 
             # Create mixer and cost pulses
-            Pulse_mixer = Rise_Fall_Waveform(Omega, T_mixer, -5, 5)
-            Pulse_cost = Rise_Fall_Waveform(Omega, T_cost, -5, 5)
+            Pulse_mixer = Pulse_constructor(T_mixer, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
+            Pulse_cost = Pulse_constructor(T_cost, pulse_type, T_pyramid, delta, delta_0, delta_f)(Omega)
 
             # Add pulses to the sequence
             seq.add(Pulse_mixer, "ising")
@@ -122,13 +131,24 @@ class Quantum_QAOA:
         seq.measure("ground-rydberg")
         return seq
 
-    def quantum_loop(self, parameters: NDArray[np.float_]) -> dict:
+    def quantum_loop(self, 
+        parameters: NDArray[np.float_], 
+        pulse_type, 
+        T_pyramid, 
+        delta, 
+        delta_0, 
+        delta_f) -> dict:
         """
         Execute a quantum loop of QAOA with the given parameters.
 
         Parameters:
         - self: The Quantum_QAOA object to use.
         - parameters: A flattened array of QAOA parameters (t_list and s_list).
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - delta (float): the delta for the constant parts of the pyramid pulse
+        - delta_0 (float): The decoherence initially in the pulse
+        - delta_f (float): The decoherence at the end of the pulse
 
         Returns:
         - dict: A dictionary of bitstring counts from the simulation.
@@ -137,7 +157,7 @@ class Quantum_QAOA:
         t_params, s_params = np.reshape(parameters, (2, self.layers))
 
         # Build the QAOA sequence with the parameters
-        seq = self.create_qaoa_sequence()
+        seq = self.create_qaoa_sequence(pulse_type, T_pyramid, delta, delta_0, delta_f)
         assigned_seq = seq.build(t_list=t_params, s_list=s_params)
 
         # Simulate the sequence using QutipEmulator
@@ -186,15 +206,27 @@ class Quantum_QAOA:
         return hamiltonian  # Return the computed Hamiltonian
 
     def evaluate_hamiltonian(
-        self, graph: nx.Graph, parameters: NDArray[np.float_]
+        self, 
+        graph: nx.Graph, 
+        parameters: NDArray[np.float_], 
+        pulse_type, 
+        T_pyramid, 
+        delta, 
+        delta_0, 
+        delta_f 
     ) -> float:
         """
         Evaluate the expectation value of the Hamiltonian for the current QAOA parameters.
 
         Parameters:
         - self: The Quantum_QAOA object to use.
-        - graph: A NetworkX graph object representing the problem.
+        - graph: A Networkx graph object representing the problem.
         - parameters: The QAOA parameters (angles).
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - delta (float): the delta for the constant parts of the pyramid pulse
+        - delta_0 (float): The decoherence initially in the pulse
+        - delta_f (float): The decoherence at the end of the pulse
 
         Returns:
         - float: The expectation value of the Hamiltonian.
@@ -203,7 +235,7 @@ class Quantum_QAOA:
             graph
         )  # Compute the Hamiltonian for the graph
         count_dict = self.quantum_loop(
-            parameters
+            parameters, pulse_type, T_pyramid, delta, delta_0, delta_f
         )  # Get the bitstring probabilities from QAOA
 
         # Calculate the expectation value of the Hamiltonian
@@ -221,7 +253,15 @@ class Quantum_QAOA:
         return expectation_value / total_counts
 
     def optimize_parameters(
-        self, graph, initial_params, minimizer: Callable
+        self, 
+        graph, 
+        initial_params, 
+        minimizer: Callable, 
+        pulse_type, 
+        T_pyramid, 
+        delta, 
+        delta_0, 
+        delta_f
     ) -> NDArray[np.float_]:
         """
         Optimize the QAOA parameters to minimize the expectation value of the Hamiltonian.
@@ -230,6 +270,11 @@ class Quantum_QAOA:
         - self: The Quantum_QAOA object to use.
         - graph: A NetworkX graph object representing the problem.
         - initial_params: Initial guesses for the QAOA parameters.
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - delta (float): the delta for the constant parts of the pyramid pulse
+        - delta_0 (float): The decoherence initially in the pulse
+        - delta_f (float): The decoherence at the end of the pulse
 
         Returns:
         - NDArray[np.float_]: The optimized QAOA parameters.
@@ -238,7 +283,7 @@ class Quantum_QAOA:
         # # Define the cost function to minimize
         def cost_function(params):
             return -self.evaluate_hamiltonian(
-                graph, params
+                graph, params, pulse_type, T_pyramid, delta, delta_0, delta_f
             )  # This is negative because we minimize
 
         # Use scipy.optimize.minimize with the COBYLA method for optimization
@@ -248,10 +293,15 @@ class Quantum_QAOA:
 
     def run(
         self,
+        pulse_type: str,
         shots=1000,
         generate_histogram=False,
         file_name="QAOA_histo_optimized.pdf",
         minimizer: Callable = base_minimizer,
+        T_pyramid: float = 1000,
+        delta: float = 1,
+        delta_0: float = -5,
+        delta_f: float = 5
     ) -> dict:
         """
         Execute the QAOA algorithm with parameter optimization.
@@ -262,6 +312,12 @@ class Quantum_QAOA:
         - shots: Number of measurements to perform in the quantum simulation.
         - generate_histogram: Whether to generate a histogram of the results.
         - file_name: Name of the file to save the histogram (if generated).
+        - pulse_type (str): The pulse type used for the sequences. The pulse type must be in ["Rise_fall", "Rise_sweep_fall", "Pyramid", "Blackman", "Waveform"]
+        - T_pyramid (float): The time for the pyramid form in the pyramid pulse
+        - delta (float): the delta for the constant parts of the pyramid pulse
+        - delta_0 (float): The decoherence initially in the pulse
+        - delta_f (float): The decoherence at the end of the pulse
+        
 
         Returns:
         - dict: A dictionary of bitstring counts after running QAOA with optimized parameters.
@@ -276,11 +332,11 @@ class Quantum_QAOA:
 
         # Optimize the parameters to minimize the Hamiltonian's expectation value
         optimized_params = self.optimize_parameters(
-            self.graph, initial_params, minimizer
+            self.graph, initial_params, minimizer, pulse_type, T_pyramid, delta, delta_0, delta_f
         )
 
         # Run the QAOA simulation with the optimized parameters
-        result = self.quantum_loop(optimized_params)
+        result = self.quantum_loop(optimized_params, pulse_type, T_pyramid, delta, delta_0, delta_f)
 
         # If requested, generate and save a histogram of the results
         if generate_histogram:
