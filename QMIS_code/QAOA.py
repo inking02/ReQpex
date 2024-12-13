@@ -4,8 +4,6 @@ from pulser import Register, Sequence
 from pulser_simulation import QutipEmulator
 from pulser.devices import DigitalAnalogDevice
 from scipy.spatial.distance import pdist, squareform
-import matplotlib.pyplot as plt
-from scipy.optimize import minimize
 from numpy.typing import NDArray
 from QMIS_code.pulse_utils import Pulse_constructor
 from numpy.typing import NDArray
