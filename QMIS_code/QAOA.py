@@ -8,7 +8,10 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 from QMIS_code.pulse_utils import Rise_Fall_Waveform
 from numpy.typing import NDArray
-from QMIS_code.QAA_utils import plot_histogram
+from QMIS_code.pulse_utils import Rise_Fall_Waveform
+from numpy.typing import NDArray
+from QMIS_code.QMIS_utils import plot_histogram, base_minimizer
+from typing import Callable
 
 
 class Quantum_QAOA:
@@ -106,7 +109,7 @@ class Quantum_QAOA:
         seq.measure("ground-rydberg")
         return seq
 
-    def quantum_loop(self, parameters: NDArray):
+    def quantum_loop(self, parameters: NDArray[np.float_]):
         """
         Execute a quantum loop of QAOA with the given parameters.
 
@@ -167,7 +170,7 @@ class Quantum_QAOA:
 
         return hamiltonian  # Return the computed Hamiltonian
 
-    def evaluate_hamiltonian(self, graph: nx.Graph, parameters: NDArray):
+    def evaluate_hamiltonian(self, graph: nx.Graph, parameters: NDArray[np.float_]):
         """
         Evaluate the expectation value of the Hamiltonian for the current QAOA parameters.
 
@@ -224,7 +227,6 @@ class Quantum_QAOA:
 
     def run(
         self,
-        graph,
         shots=1000,
         generate_histogram=False,
         file_name="QAOA_histo_optimized.pdf",
@@ -251,7 +253,9 @@ class Quantum_QAOA:
         ]  # Combine t and s into a single parameter array
 
         # Optimize the parameters to minimize the Hamiltonian's expectation value
-        optimized_params = self.optimize_parameters(graph, initial_params, minimizer)
+        optimized_params = self.optimize_parameters(
+            self.graph, initial_params, minimizer
+        )
 
         # Run the QAOA simulation with the optimized parameters
         result = self.quantum_loop(optimized_params)

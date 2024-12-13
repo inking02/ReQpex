@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from itertools import product
 from numpy.typing import NDArray
-from typing import Tuple, List
+from typing import Tuple, List, Callable
+from scipy.optimize import minimize
 
 
 def scale_coordinates(
@@ -140,27 +141,43 @@ def create_sub_graph(G, nodes: List[str]) -> nx.Graph:
 def fusion_counts(counts, positions):
     total_counts = {}
 
-    #creating all bitstring combinations from the given dictionaries
+    # creating all bitstring combinations from the given dictionaries
     bitstring_combinations = product(*[d.items() for d in counts])
     max_length = 0
     for dictionary in counts:
-        #final bitstring length
+        # final bitstring length
         max_length += len(next(iter(dictionary)))
     for combination in bitstring_combinations:
-        
-        #the final bitstring is init with the value 0 everywhere
-        final_bitstring = ["0"] * max_length 
 
-        combined_value = 0  
-        #place each bit in its given position with the combin   ed value
+        # the final bitstring is init with the value 0 everywhere
+        final_bitstring = ["0"] * max_length
+
+        combined_value = 0
+        # place each bit in its given position with the combin   ed value
         for position, (bitstring, value) in zip(positions, combination):
             for bit, pos in zip(bitstring, position):
                 final_bitstring[pos] = bit
-            #calculate the combined value of the combined bitstrings
-            combined_value += value 
+            # calculate the combined value of the combined bitstrings
+            combined_value += value
 
         # convert to the final bitstring
         combined_key = "".join(final_bitstring)
         total_counts[combined_key] = combined_value
 
     return total_counts
+
+
+def base_minimizer(
+    cost_function: Callable, params: NDArray[np.float_]
+) -> NDArray[np.float_]:
+    """
+    Basic COBYLA optimizer that can be used in the QAOA class. It returns the optimized parameters.
+
+     Parameters:
+     - cost_function (Callable): The function to optimize.
+     - params (NDArray[np.float_]): The original value of parameters of the function.
+
+     Returns:
+     NDArray[np.float_]:  The optimized parameters that minimizes the cost function.
+    """
+    return minimize(cost_function, params, method="COBYLA").x
