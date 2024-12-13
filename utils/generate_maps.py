@@ -17,7 +17,7 @@ def interactive_map(
     file_name: str = "map",
 ):
     """
-    Creates a centered on Sherbrooke city with the given data to show.
+    Creates a centered on Sherbrooke city with the given data to show. It will be saved in the results directory.
 
     Parameters:
     - data_frame_to_show (pd.DataFrame): The pandas dataframe to use to create the map. It must have a Longitude,
@@ -47,14 +47,14 @@ def interactive_map(
         popup = folium.Popup(html=html, max_width=1000)
         if bin_image:
             icon = folium.features.CustomIcon(
-                icon_image=path + "datasets/image_cloche_recupex.png",
+                icon_image=path + "datasets/recupex_bin_image.png",
                 icon_size=(30, 30),
             )
             folium.Marker(coords, popup=popup, icon=icon).add_to(my_map)
         else:
             folium.Marker(coords, popup=popup).add_to(my_map)
     if save_map:
-        my_map.save(path + "figures/" + file_name + ".html")
+        my_map.save(path + "results/" + file_name + ".html")
     if show_map:
         my_map.show_in_browser()
 
@@ -73,22 +73,22 @@ def recap_map_getter(
     - path (str = ""): The local path to the recupex directory (It includes the Recupex's folder).
     - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
     - show (bool = False): Whether of not to show the map on the browser.
-    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+    - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the results directory.
 
     Returns:
     - None
     """
     # Loading the data
-    new_bins_location = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
+    new_bins_location = pd.read_csv(path + "results/new_bins.csv", sep=",")
     new_bins_location_numpy = new_bins_location[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
-    bins_og_used = pd.read_csv(path + "datasets/bins_utils.csv", sep=",")
+    bins_og_used = pd.read_csv(path + "datasets/useful_bins.csv", sep=",")
     bins_og_used_numpy = bins_og_used[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
 
-    og_bins = pd.read_csv(path + "datasets/cloches.csv", sep=";")
+    og_bins = pd.read_csv(path + "datasets/bins.csv", sep=";")
 
     estrie_aide = pd.read_csv(path + "datasets/estrieaide.csv", sep=",")
 
@@ -126,7 +126,7 @@ def recap_map_getter(
         Parameters:
         - show_estrie_aide (bool = True): Whether or not to show Estrie-Aide's bins on the map.
         - show (bool = False): Whether of not to show the map on the browser.
-        - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the figures directory.
+        - save (bool = False): Whether of not to save the map on the "map_with_stats.html" file in the results directory.
 
         Returns:
         - None
@@ -203,7 +203,7 @@ def recap_map_getter(
         print()
         # Save and or show the map
         if save:
-            my_map.save(path + "figures/map_with_stats.html")
+            my_map.save(path + "results/map_with_stats.html")
         if show:
             my_map.show_in_browser()
 

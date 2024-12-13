@@ -33,7 +33,7 @@ class Quantum_QAOA:
         - None
         """
         # Generate spring-layout coordinates for the graph
-        self.graph = graph
+        self.graph = nx.convert_node_labels_to_integers(graph, first_label=0)
         pos = nx.spring_layout(graph, k=0.1, seed=42)
         self.coords = np.array(list(pos.values()))  # Extract node positions
         self.reg = self.__build_reg__()  # Create a Pulser register
@@ -178,8 +178,8 @@ class Quantum_QAOA:
             for state in range(
                 2**num_nodes
             ):  # Iterate over all possible states (bitstrings)
-                z_i = 1 if (state >> (i - 1)) & 1 == 0 else -1  # +1 for '0', -1 for '1'
-                z_j = 1 if (state >> (j - 1)) & 1 == 0 else -1  # +1 for '0', -1 for '1'
+                z_i = 1 if (state >> i) & 1 == 0 else -1  # Suppression du -1
+                z_j = 1 if (state >> j) & 1 == 0 else -1
                 # Add the contribution of the edge (i, j) to the Hamiltonian
                 hamiltonian[state, state] += (1 - z_i * z_j) / 2
 

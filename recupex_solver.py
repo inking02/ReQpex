@@ -23,7 +23,7 @@ def simplify_bins(
     """
     Function to remove some of the bins in their original bins with a MIS. If two locations are closer than the radius given,
     an edge between them is present except if both of their production is greater than 27754. It saves the simplified bins location
-    in the dataset folder under the new_bins.csv file.
+    in the dataset folder under the useful_bins.csv file.
 
     Parameters:
     - radius_km (float): The distance in km of which two locations must be connected if they do not produce enough volume.
@@ -32,7 +32,7 @@ def simplify_bins(
     - save_map (bool = False): Whether or not to save the maps of the original bins locations and their simplified distribution.
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
-    - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
+    - use_quantum (bool=True): Whether or not to use the  QAA method to find the mis instead of the classic MIS solution.
     - num_atoms (int=6): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
@@ -104,7 +104,7 @@ def simplify_bins(
 
     # Start of the main function
     # Loading the file
-    bins = pd.read_csv(path + "datasets/cloches.csv", sep=";")
+    bins = pd.read_csv(path + "datasets/bins.csv", sep=";")
     bins_numpy = bins[["Longitude", "Latitude", "Volume"]].to_numpy(
         dtype=float, copy=True
     )
@@ -159,7 +159,7 @@ def simplify_bins(
     print("Bins removed: ", original_size - new_size)
 
     new_dataframe = bins.iloc[new_vertices_int]
-    new_dataframe.to_csv(path + "datasets/new_bins.csv", index=False)
+    new_dataframe.to_csv(path + "datasets/useful_bins.csv", index=False)
 
     # Show or save the map
     if show_map or save_map:
@@ -196,10 +196,10 @@ def remove_possibles_new_locations(
     - None
     """
     # Loading the files
-    bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
+    bins = pd.read_csv(path + "datasets/useful_bins.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
 
-    new_locations = pd.read_csv(path + "datasets/liste_occupants_simple.csv", sep=";")
+    new_locations = pd.read_csv(path + "datasets/possible_locations.csv", sep=";")
     new_locations_numpy = new_locations[["Longitude", "Latitude"]].to_numpy(
         dtype=float, copy=True
     )
@@ -279,14 +279,14 @@ def place_new_bins(
     - save_map (bool = False): Whether or not to save the map of the new optimal distribution of the Recupex bins.
     - path (str = ""):The local path to the ReQpex repository.
     - bin_image (bool = False): Whether or not to use Recupex' bins as pings on the map.
-    - use_quantum (bool=True): Whether or not to use the QMIS method instead of the classic MIS solution.
+    - use_quantum (bool=True): Whether or not to use the  QAA mthod to find the mis instead of the classic MIS solution.
     - num_atoms (int=4): The maximum number of nodes per graph sent to the QMIS.
 
     Returns:
     - None
     """
     # LOad the files
-    bins = pd.read_csv(path + "datasets/new_bins.csv", sep=",")
+    bins = pd.read_csv(path + "datasets/useful_bins.csv", sep=",")
     bins_numpy = bins[["Longitude", "Latitude"]].to_numpy(dtype=float, copy=True)
     bins_names = bins[["Nom de la borne", "Addresse", "Rue"]].to_numpy(
         dtype=str, copy=True

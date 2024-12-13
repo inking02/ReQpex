@@ -16,7 +16,8 @@ class BIG_QMIS:
     def __init__(self, graph: nx.Graph, num_atoms: int = 10) -> None:
         """
         Object that can run the quantum analog computing BIG_QMIS algorithm. To create the object, networkx's graph architecture must be used.
-        A number of atoms greater that 15 will not provide good results.
+        A number of atoms greater that 15 will not provide good results. It uses the QAA method to find a MIS on subgraphs. This method can be found
+        in the QMIS_code.QAA.py file. 
 
         Parameters:
         - self: BIG_QMIS MIS_Solver object to create.
